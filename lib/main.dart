@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/screens/ProjectScreen.dart';
 
+import './screens/ContactScreen.dart';
+import './screens/ProjectScreen.dart';
 import './screens/AboutScreen.dart';
 void main() {
   runApp(MyApp());
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       routes:{
         '/':(context)=>AboutScreen(),
         ProjectScreen.routeName:(context)=>ProjectScreen(),
+        ContactScreen.routeName:(context)=>ContactScreen()
       },
     );
   }

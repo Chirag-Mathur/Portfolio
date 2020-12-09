@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../screens/ContactScreen.dart';
 import '../screens/ProjectScreen.dart';
 
 Widget appBarWidget(BuildContext context) {
@@ -83,7 +84,9 @@ Widget appBarWidget(BuildContext context) {
             color: textColor,
           ),
         ),
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context).pushNamed(ContactScreen.routeName);
+        },
       ),
       SizedBox(
         width: MediaQuery.of(context).size.width * 0.003,
