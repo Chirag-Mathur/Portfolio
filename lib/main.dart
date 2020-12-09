@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: AboutScreen(),
       routes:{
+        '/':(context)=>AboutScreen(),
         ProjectScreen.routeName:(context)=>ProjectScreen(),
       },
     );

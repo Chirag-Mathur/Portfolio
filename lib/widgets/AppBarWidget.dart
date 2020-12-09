@@ -34,7 +34,9 @@ Widget appBarWidget(BuildContext context) {
             color: textColor,
           ),
         ),
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context).pushNamed('/');
+        },
       ),
       SizedBox(
         width: MediaQuery.of(context).size.width * 0.02,
