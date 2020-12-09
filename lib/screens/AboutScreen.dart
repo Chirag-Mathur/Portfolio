@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/AppBarWidget.dart';
+import '../widgets/appBarWidget.dart';
 
 class AboutScreen extends StatelessWidget {
+  static const String routeName = '/AboutScreen';
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(189, 224, 255, 1),

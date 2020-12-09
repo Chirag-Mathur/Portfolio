@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/screens/ProjectScreen.dart';
 
 import './screens/AboutScreen.dart';
 void main() {
@@ -12,7 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       home: AboutScreen(),
-      routes:{},
+      routes:{
+        ProjectScreen.routeName:(context)=>ProjectScreen(),
+      },
     );
   }
 }

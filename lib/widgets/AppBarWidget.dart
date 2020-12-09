@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../screens/ProjectScreen.dart';
+
 Widget appBarWidget(BuildContext context) {
   double fontsize = 25;
   Color textColor = Color(0xff173266);
@@ -10,13 +12,14 @@ Widget appBarWidget(BuildContext context) {
     elevation: 0,
     backgroundColor: Colors.transparent,
     title: FlatButton(
-      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.02),
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.02),
       child: Text(
         "Monikinderjit Singh",
         style: TextStyle(
             fontFamily: 'TheRichJuliet',
             fontSize: 55,
-            color:textColor,
+            color: textColor,
             fontWeight: FontWeight.w800),
       ),
       onPressed: null,
@@ -29,7 +32,6 @@ Widget appBarWidget(BuildContext context) {
             fontWeight: FontWeight.w600,
             fontSize: fontsize,
             color: textColor,
-            
           ),
         ),
         onPressed: null,
@@ -62,7 +64,9 @@ Widget appBarWidget(BuildContext context) {
             color: textColor,
           ),
         ),
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context).pushNamed(ProjectScreen.routeName);
+        },
       ),
       SizedBox(
         width: MediaQuery.of(context).size.width * 0.02,
