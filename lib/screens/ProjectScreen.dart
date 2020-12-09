@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/footer.dart';
 import '../widgets/appBarWidget.dart';
 
 class ProjectScreen extends StatelessWidget {
@@ -19,14 +20,15 @@ class ProjectScreen extends StatelessWidget {
           child: SingleChildScrollView(
             controller: _scrollController,
             child: Container(
-              height: MediaQuery.of(context).size.height * 1.6,
+              height: MediaQuery.of(context).size.height * 1.4,
               child: Column(
                 children: [
                   Row(
                     children: [
                       Container(
                         padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.01),
+                          left: MediaQuery.of(context).size.width * 0.01,
+                        ),
                         alignment: Alignment.center,
                         width: MediaQuery.of(context).size.width * 0.5,
                         height: MediaQuery.of(context).size.height * 0.2,
@@ -49,8 +51,11 @@ class ProjectScreen extends StatelessWidget {
                     ],
                   ),
                   Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width * 0.03,
+                    ),
                     color: Colors.white,
-                    height: MediaQuery.of(context).size.height * 0.680,
+                    height: MediaQuery.of(context).size.height * 0.6750,
                     child: GridView.builder(
                       controller: _scrollController,
                       physics: NeverScrollableScrollPhysics(),
@@ -97,6 +102,16 @@ class ProjectScreen extends StatelessWidget {
                         } else
                           return null;
                       },
+                    ),
+                  ),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment
+                          .bottomCenter, //FractionalOffset.bottomCenter,
+                      child: Padding(
+                          padding: EdgeInsets.only(bottom: 10.0),
+                          child: footer(context) //Your widget here,
+                          ),
                     ),
                   ),
                 ],

@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.1
   google_fonts: ^1.1.1
   draggable_scrollbar: ^0.0.4
+  flutter_emoji: ^2.2.1+1
 
 dev_dependencies:
   flutter_test:
