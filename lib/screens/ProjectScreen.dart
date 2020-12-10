@@ -24,7 +24,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
   void scrollCallBack(DragUpdateDetails dragUpdate) {
     setState(() {
       // Note: 3.5 represents the theoretical height of all my scrollable content. This number will vary for you.
-      _scrollController.position.moveTo(dragUpdate.globalPosition.dy *3.5);
+      _scrollController.position.moveTo(dragUpdate.globalPosition.dy *1.4);
     });
   }
 
@@ -33,9 +33,12 @@ class _ProjectScreenState extends State<ProjectScreen> {
     return Scaffold(
       appBar: appBarWidget(context),
       backgroundColor: Color.fromRGBO(189, 224, 255, 1),
-      body: Stack(
-        children: [
+      body: 
+      // Stack(
+      //   children: [
           Scrollbar(
+            thickness: 12,
+            radius: Radius.circular(6),
             // controller: _scrollController,
             // isAlwaysShown: true,
             child: Container(
@@ -144,23 +147,23 @@ class _ProjectScreenState extends State<ProjectScreen> {
               ),
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height*1.4,
-            child: FlutterWebScroller(
-              //Pass a reference to the ScrollCallBack function into the scrollbar
-              scrollCallBack,
+          // Container(
+          //   height: MediaQuery.of(context).size.height*1.4,
+          //   child: FlutterWebScroller(
+          //     //Pass a reference to the ScrollCallBack function into the scrollbar
+          //     scrollCallBack,
 
-              //Add optional values
-              scrollBarBackgroundColor: Colors.grey[300],
-              scrollBarWidth: 20.0,
-              dragHandleColor: Colors.red,
-              dragHandleBorderRadius: 2.0,
-              dragHandleHeight: 500.0,
-              dragHandleWidth: 15.0,
-            ),
-          ),
-        ],
-      ),
+          //     //Add optional values
+          //     scrollBarBackgroundColor: Colors.transparent,
+          //     scrollBarWidth: 20.0,
+          //     dragHandleColor: Colors.red,
+          //     dragHandleBorderRadius: 2.0,
+          //     dragHandleHeight: 397.0,
+          //     dragHandleWidth: 15.0,
+          //   ),
+          // ),
+        // ],
+      // ),
     );
   }
 }
