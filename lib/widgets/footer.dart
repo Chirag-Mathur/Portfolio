@@ -6,25 +6,40 @@ Widget footer(BuildContext context) {
   var parser = EmojiParser();
   var emojiHeart = parser.info('heart');
   print(emojiHeart);
-  return Padding(
-    padding:  EdgeInsets.all(8.0),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Divider(thickness: 1,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+  return Expanded(
+    child: Align(
+      alignment: Alignment.bottomCenter, //FractionalOffset.bottomCenter,
+      child: Padding(
+        padding: EdgeInsets.only(bottom: 10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Built with",style: GoogleFonts.roboto(fontSize: 20,fontWeight: FontWeight.bold),),
-            Icon(
-              Icons.favorite,
-              color: Colors.blue[900],
+            Divider(
+              thickness: 1,
             ),
-            Text(" by Monikinderjit Singh",style: GoogleFonts.roboto(fontSize: 20,fontWeight: FontWeight.bold),),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Built with",
+                  style: GoogleFonts.roboto(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Icon(
+                  Icons.favorite,
+                  color: Colors.blue[900],
+                ),
+                Text(
+                  " by Monikinderjit Singh",
+                  style: GoogleFonts.roboto(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ],
+            )
           ],
-        )
-      ],
+        ),
+      ),
     ),
   );
 }

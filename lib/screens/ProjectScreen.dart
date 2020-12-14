@@ -131,16 +131,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           },
                         ),
                       ),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment
-                              .bottomCenter, //FractionalOffset.bottomCenter,
-                          child: Padding(
-                              padding: EdgeInsets.only(bottom: 10.0),
-                              child: footer(context) //Your widget here,
-                              ),
-                        ),
-                      ),
+                      footer(context),
                     ],
                   ),
                 ),
