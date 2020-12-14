@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../screens/AboutScreen.dart';
 import '../screens/ContactScreen.dart';
 import '../screens/ProjectScreen.dart';
 
@@ -12,9 +13,9 @@ Widget appBarWidget(BuildContext context) {
     toolbarHeight: 120,
     elevation: 0,
     backgroundColor: Colors.transparent,
-    title: FlatButton(
-      padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.02),
+    title: InkWell(
+      // padding: EdgeInsets.symmetric(
+      //     horizontal: MediaQuery.of(context).size.width * 0.02),
       child: Text(
         "Monikinderjit Singh",
         style: TextStyle(
@@ -23,7 +24,9 @@ Widget appBarWidget(BuildContext context) {
             color: textColor,
             fontWeight: FontWeight.w800),
       ),
-      onPressed: null,
+      onTap: () {
+        Navigator.of(context).pushNamed(AboutScreen.routeName);
+      },
     ),
     actions: [
       FlatButton(

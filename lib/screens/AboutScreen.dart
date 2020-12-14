@@ -11,13 +11,13 @@ import '../widgets/appBarWidget.dart';
 
 class AboutScreen extends StatelessWidget {
   static const String routeName = '/AboutScreen';
-  void openLink(String url) async {
+  static void openLink(String url) async {
     // String url = 'https://flutter.dev';
-    if(kIsWeb) {
-    html.window.open(url, '_blank');
+    if (kIsWeb) {
+      html.window.open(url, '_blank');
     } else {
-    if (await canLaunch(url)) {
-      launch(url);
+      if (await canLaunch(url)) {
+        launch(url);
       }
     }
   }
@@ -81,15 +81,28 @@ class AboutScreen extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(
-                        right: MediaQuery.of(context).size.width * 0.12),
+                        right: MediaQuery.of(context).size.width * 0.12,),
                     alignment: Alignment.center,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CircleAvatar(
-                          radius: MediaQuery.of(context).size.width * 0.12,
-                          backgroundColor: Colors.black,
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color:Colors.white,
+                          ),
+                          child: Image.asset(
+                            
+                            'assets/images/me.png',
+                            fit: BoxFit.contain,
+                            filterQuality: FilterQuality.high,
+                            semanticLabel: 'Monikinderjit Singh Image',
+                          ),
                         ),
+                        // CircleAvatar(
+                        //   radius: MediaQuery.of(context).size.width * 0.089,
+                        //   backgroundImage: AssetImage('assets/images/me2.jpg'),
+                        // ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.01,
                         ),
@@ -113,7 +126,8 @@ class AboutScreen extends StatelessWidget {
                                     "LEARNER",
                                     "LISTENER"
                                   ],
-                                  textStyle: GoogleFonts.orbitron(fontSize: 40.0),
+                                  textStyle:
+                                      GoogleFonts.orbitron(fontSize: 40.0),
                                   textAlign: TextAlign.start),
                             ],
                           ),
@@ -170,7 +184,7 @@ class AboutScreen extends StatelessWidget {
                                     "https://www.instagram.com/monikinderjit_singh_/");
                               },
                               iconSize: 43,
-                            )
+                            ),
                           ],
                         ),
                       ],
@@ -178,7 +192,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                 ],
               ),
-                  footer(context),
+              footer(context),
             ],
           ),
         ),
