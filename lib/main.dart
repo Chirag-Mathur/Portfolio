@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/screens/SplashScreen.dart';
 
 import './screens/ContactScreen.dart';
 import './screens/ProjectScreen.dart';
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      home:SplashScreen(),
       routes:{
-        '/':(context)=>AboutScreen(),
+        AboutScreen.routeName:(context)=>AboutScreen(),
         ProjectScreen.routeName:(context)=>ProjectScreen(),
         ContactScreen.routeName:(context)=>ContactScreen()
       },

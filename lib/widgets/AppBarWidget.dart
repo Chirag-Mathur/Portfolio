@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../extensions/HoverExtensions.dart ';
 import '../screens/AboutScreen.dart';
 import '../screens/ContactScreen.dart';
 import '../screens/ProjectScreen.dart';
+
 
 Widget appBarWidget(BuildContext context) {
   double fontsize = 25;
@@ -13,7 +15,7 @@ Widget appBarWidget(BuildContext context) {
     toolbarHeight: 120,
     elevation: 0,
     backgroundColor: Colors.transparent,
-    title: InkWell(
+    title: GestureDetector(
       // padding: EdgeInsets.symmetric(
       //     horizontal: MediaQuery.of(context).size.width * 0.02),
       child: Text(
@@ -27,7 +29,7 @@ Widget appBarWidget(BuildContext context) {
       onTap: () {
         Navigator.of(context).pushNamed(AboutScreen.routeName);
       },
-    ),
+    ).showCursorOnHover,
     actions: [
       FlatButton(
         child: Text(

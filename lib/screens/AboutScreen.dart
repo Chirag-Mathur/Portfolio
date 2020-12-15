@@ -94,7 +94,7 @@ class AboutScreen extends StatelessWidget {
                           child: Image.asset(
                             
                             'assets/images/me.png',
-                            fit: BoxFit.contain,
+                            fit: BoxFit.cover,
                             filterQuality: FilterQuality.high,
                             semanticLabel: 'Monikinderjit Singh Image',
                           ),
