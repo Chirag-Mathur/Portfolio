@@ -40,9 +40,10 @@ class _SplashScreenState extends State<SplashScreen>
       _visible = !_visible;
     });
     progresser();
-    // Timer(Duration(seconds: 6), () {
-    //   Navigator.of(context).pushReplacementNamed(AboutScreen.routeName);
-    // });
+    Timer(Duration(seconds: 11), () {
+      print('To About Screen');
+      Navigator.of(context).popAndPushNamed(AboutScreen.routeName);
+    });
   }
 
   double value = 0.0;
@@ -53,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen>
           value += 0.0015;
           print(value);
         });
-      else 
+      else
         t.cancel();
     });
   }
@@ -77,7 +78,6 @@ class _SplashScreenState extends State<SplashScreen>
                 // fontWeight: FontWeight.w800
               ),
             ),
-            
             Text(
               'Monikinderjit Singh',
               style: TextStyle(
@@ -86,12 +86,14 @@ class _SplashScreenState extends State<SplashScreen>
                   color: Colors.white,
                   fontWeight: FontWeight.w400),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height*0.15,),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+            ),
             Container(
               width: 300,
               height: 30,
               child: LiquidLinearProgressIndicator(
-                value:(value<1)? value:1.7, // Defaults to 0.5.
+                value: (value < 1) ? value : 1.7, // Defaults to 0.5.
                 valueColor: AlwaysStoppedAnimation(Colors
                     .pink), // Defaults to the current Theme's accentColor.
                 backgroundColor: Colors.white,
