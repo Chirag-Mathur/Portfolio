@@ -83,7 +83,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                     margin: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.03,
                     ),
-                    color: Colors.white,
+                    color: Colors.transparent,
                     height: MediaQuery.of(context).size.height * 0.6650,
                     child: GridView.builder(
                       shrinkWrap: true,
@@ -103,139 +103,161 @@ class _ProjectScreenState extends State<ProjectScreen> {
                             height: MediaQuery.of(context).size.width * 0.17,
                             width: MediaQuery.of(context).size.width * 0.32,
                             color: Colors.transparent,
-                            child: Card(
-                              elevation: 10.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(30),
-                                  topRight: Radius.circular(30),
-                                  bottomLeft: Radius.circular(20),
-                                  bottomRight: Radius.circular(20),
+                            child: GestureDetector(
+                              onTap: () {
+                                AboutScreen.openLink(_projectsList[index]['projectLink']);
+                              },
+                              child: Card(
+                                elevation: 10.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(30),
+                                    topRight: Radius.circular(30),
+                                    bottomLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(20),
+                                  ),
                                 ),
-                              ),
-                              color: Colors.blue[800],
-                              child: Column(
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      _projectsList[index]['title'],
-                                      style: GoogleFonts.roboto(
-                                          color: Colors.white, fontSize: 30),
-                                    ),
-                                  ),
-                                  Divider(
-                                    color: Colors.white10,
-                                    thickness: 2,
-                                  ),
-                                  Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.146,
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal:
-                                            MediaQuery.of(context).size.width *
-                                                0.02),
-                                    child: Text(
-                                      _projectsList[index]['description'],
-                                      style: GoogleFonts.openSans(
-                                        color: Colors.white,
-                                        fontSize: 17,
+                                color: Colors.blue[800],
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.057,
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        _projectsList[index]['title'],
+                                        style: GoogleFonts.roboto(
+                                            color: Colors.white, fontSize: 34),
+                                        textAlign: TextAlign.center,
                                       ),
                                     ),
-                                  ),
-
-                                  // SizedBox(
-                                  //   height: MediaQuery.of(context).size.height *
-                                  //       0.1,
-                                  // ),
-                                  Container(
-                                    alignment: Alignment.centerRight,
-                                    padding: EdgeInsets.only(
-                                        right:
-                                            MediaQuery.of(context).size.width *
-                                                0.02),
-                                    child: Text(
-                                      _projectsList[index]['startedIn'],
-                                      textAlign: TextAlign.right,
-                                      style: GoogleFonts.orienta(
-                                        color: Colors.white60,
-                                        fontSize: 15,
+                                    Divider(
+                                      color: Colors.white10,
+                                      thickness: 2,
+                                    ),
+                                    Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.128,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.02),
+                                      child: Text(
+                                        _projectsList[index]['description'],
+                                        style: GoogleFonts.openSans(
+                                          color: Colors.white,
+                                          fontSize: 17,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Divider(
-                                    color: Colors.white70,
-                                    thickness: 1,
-                                  ),
-                                  Expanded(
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          // decoration: BoxDecoration(boxShadow: [
-                                          //   BoxShadow(
-                                          //     color: Colors.blue[100],
-                                          //     blurRadius: 1,
-                                          //     offset: Offset(-1,-1),
-                                          //   )
-                                          // ]),
-                                          width: MediaQuery.of(context)
+                                    Container(
+                                      alignment: Alignment.centerRight,
+                                      padding: EdgeInsets.only(
+                                          right: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.159,
-                                          child: Text("Tech Used"),
+                                              0.02),
+                                      child: Text(
+                                        _projectsList[index]['startedIn'],
+                                        textAlign: TextAlign.right,
+                                        style: GoogleFonts.orienta(
+                                          color: Colors.white60,
+                                          fontSize: 15,
                                         ),
-                                        Container(
-                                          height: 110,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.001,
-                                          color: Colors.white70,
-                                        ),
-                                        Container( 
-                                          // decoration: BoxDecoration(boxShadow: [
-                                          //   BoxShadow(
-                                          //     color: Colors.blue[100],
-                                          //     blurRadius: 1,
-                                          //   )
-                                          // ]),
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.16,
-                                          child: GridView.builder(
-                                            physics:
-                                                NeverScrollableScrollPhysics(),
-                                            gridDelegate:
-                                                SliverGridDelegateWithFixedCrossAxisCount(
-                                              crossAxisCount: 2,
-                                              childAspectRatio: 3.4,
+                                      ),
+                                    ),
+                                    Divider(
+                                      color: Colors.white70,
+                                      thickness: 1,
+                                    ),
+                                    Expanded(
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          RaisedButton(
+                                            elevation: 20,
+                                            color: Colors.transparent,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                              ),
                                             ),
-                                            itemBuilder: (ctx, i) {
-                                              if (i < 2)
-                                                return
-                                                    // ImageIcon(AssetImage(_projectsList[index]
-                                                    //       ['techUsed'][i]),size: 3,color: null,);
-                                                    //  SizedBox(
-                                                    //   height:1,
-                                                    //   width:1,
-                                                    //   child:
-                                                    Image.asset(
-                                                  _projectsList[index]
-                                                      ['techUsed'][i],
-                                                  height: 1,
-                                                  width: 1,
-                                                  fit: BoxFit.fitHeight,
-                                                );
-                                              return null;
-                                            },
+                                            child: Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.159,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.09,
+                                              child: Text(
+                                                "Tech Used",
+                                                textAlign: TextAlign.center,
+                                                style: GoogleFonts.aladin(
+                                                    color: Colors.white,
+                                                    fontSize: 27,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ),
+                                            onPressed: () {},
                                           ),
-                                        ),
-                                      ],
+                                          Container(
+                                            height: 110,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.001,
+                                            color: Colors.white70,
+                                          ),
+                                          RaisedButton(
+                                            onPressed: () {},
+                                            elevation: 20,
+                                            color: Colors.transparent,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomRight:
+                                                    Radius.circular(20),
+                                              ),
+                                            ),
+                                            child: Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.123,
+                                              child: GridView.builder(
+                                                physics:
+                                                    NeverScrollableScrollPhysics(),
+                                                gridDelegate:
+                                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                                  crossAxisCount: 2,
+                                                  childAspectRatio: 2.7,
+                                                ),
+                                                itemBuilder: (ctx, i) {
+                                                  if (i < 2)
+                                                    return
+                                                        Image.asset(
+                                                      _projectsList[index]
+                                                          ['techUsed'][i],
+                                                      height: 1,
+                                                      width: 1,
+                                                      fit: BoxFit.fitHeight,
+                                                    );
+                                                  return null;
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           );
