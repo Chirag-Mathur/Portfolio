@@ -84,13 +84,14 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       horizontal: MediaQuery.of(context).size.width * 0.03,
                     ),
                     color: Colors.transparent,
-                    height: MediaQuery.of(context).size.height * 0.6650,
+                    height: MediaQuery.of(context).size.height * 0.6256,
                     child: GridView.builder(
                       shrinkWrap: true,
                       primary: false,
                       keyboardDismissBehavior:
                           ScrollViewKeyboardDismissBehavior.onDrag,
-                      physics: NeverScrollableScrollPhysics(),
+                      // physics: NeverScrollableScrollPhysics(),
+                      itemCount: _projectsList.length + 1,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         childAspectRatio: 1.88,
@@ -269,40 +270,38 @@ class _ProjectScreenState extends State<ProjectScreen> {
                               ),
                             ),
                           );
-                        else if (index == 5) {
-                          return Container(
-                            height: MediaQuery.of(context).size.width * 0.17,
-                            width: MediaQuery.of(context).size.width * 0.32,
-                            color: Colors.blue[900],
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(30),
-                                  topRight: Radius.circular(30),
-                                  bottomLeft: Radius.circular(20),
-                                  bottomRight: Radius.circular(20),
-                                ),
-                              ),
-                              color: Colors.blue[900],
-                              child: FlatButton(
-                                color: Colors.blue[900],
-                                child: Text(
-                                  "More Projects",
-                                  style: GoogleFonts.oswald(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 50,
-                                    color: Colors.blue,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  AboutScreen.openLink(
-                                      "https://github.com/Monik09?tab=repositories");
-                                },
+
+                        return Container(
+                          height: MediaQuery.of(context).size.width * 0.17,
+                          width: MediaQuery.of(context).size.width * 0.32,
+                          color: Colors.blue[900],
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30),
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
                               ),
                             ),
-                          );
-                        } else
-                          return null;
+                            color: Colors.blue[900],
+                            child: FlatButton(
+                              color: Colors.blue[900],
+                              child: Text(
+                                "More Projects",
+                                style: GoogleFonts.oswald(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 50,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              onPressed: () {
+                                AboutScreen.openLink(
+                                    "https://github.com/Monik09?tab=repositories");
+                              },
+                            ),
+                          ),
+                        );
                       },
                     ),
                   ),

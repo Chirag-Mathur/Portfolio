@@ -36,7 +36,7 @@ Widget footer(BuildContext context) {
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
