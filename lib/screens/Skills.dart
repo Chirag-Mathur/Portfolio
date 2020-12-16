@@ -59,6 +59,8 @@ class SkillsScreen extends StatelessWidget {
                       ),
                     ),
                     Container(
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.019),
                       color: Colors.transparent,
                       width: MediaQuery.of(context).size.width * 0.27,
                       height: MediaQuery.of(context).size.width * 0.18,
@@ -128,7 +130,7 @@ class SkillsScreen extends StatelessWidget {
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
-                    Radius.circular(15),
+                    Radius.circular(20),
                   ),
                 ),
                 color: Colors.transparent,
@@ -137,7 +139,7 @@ class SkillsScreen extends StatelessWidget {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 0.27,
-                      height: MediaQuery.of(context).size.height * 0.046,
+                      height: MediaQuery.of(context).size.height * 0.057,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(25),
@@ -159,11 +161,9 @@ class SkillsScreen extends StatelessWidget {
                             fontSize: 32, color: Colors.black),
                       ),
                     ),
-                    Divider(
-                      color: Colors.black54,
-                      thickness: 1,
-                    ),
                     Container(
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.019),
                       color: Colors.transparent,
                       width: MediaQuery.of(context).size.width * 0.27,
                       height: MediaQuery.of(context).size.width * 0.18,
