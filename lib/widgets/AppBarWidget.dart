@@ -58,7 +58,7 @@ Widget appBarWidget(BuildContext context) {
           ),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed(SkillsScreen.routeName);
+          // Navigator.of(context).pushNamed(SkillsScreen.routeName);
         },
       ),
       SizedBox(

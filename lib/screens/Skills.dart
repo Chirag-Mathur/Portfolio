@@ -3,19 +3,20 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../info/projects.dart';
 
-class SkillsScreen extends StatelessWidget {
-  static const routeName = '/skillsScreen';
+Widget skillsWidget(BuildContext context) {
   final List<String> _langFram = langAndFramewks;
   final List<String> _tools = tools;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(189, 224, 255, 1),
-      body: Container(
-        child: Column(
+  return Container(
+    child: Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              color: Colors.transparent,
+              margin: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.1,
+              ),
+              // color: Colors.transparent,
               width: MediaQuery.of(context).size.width * 0.27,
               height: MediaQuery.of(context).size.height * 0.39,
               decoration: BoxDecoration(
@@ -39,8 +40,8 @@ class SkillsScreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.057,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25),
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15),
                         ),
                         border: Border(
                           bottom: BorderSide(
@@ -64,26 +65,12 @@ class SkillsScreen extends StatelessWidget {
                       color: Colors.transparent,
                       width: MediaQuery.of(context).size.width * 0.27,
                       height: MediaQuery.of(context).size.width * 0.18,
-                      //   // color: Colors.blueAccent,
-                      //   decoration: BoxDecoration( borderRadius: BorderRadius.all(
-                      //             Radius.circular(12),
-                      //           ),),
                       child: ListView.builder(
                         // physics: NeverScrollableScrollPhysics(),
                         itemCount: _langFram.length,
                         padding: EdgeInsets.zero,
                         itemBuilder: (ctx, index) {
-                          // if(index<_langFram.length)
-                          return
-                              // Card(
-                              //   shape: RoundedRectangleBorder(
-                              //     borderRadius: BorderRadius.all(
-                              //       Radius.circular(15),
-                              //     ),
-                              //   ),
-                              //   elevation: 2,
-                              // child:
-                              Padding(
+                          return Padding(
                             padding: EdgeInsets.only(
                                 left:
                                     MediaQuery.of(context).size.width * 0.013),
@@ -109,8 +96,6 @@ class SkillsScreen extends StatelessWidget {
                               // ),
                             ),
                           );
-                          // else
-                          // return null;
                         },
                       ),
                     )
@@ -119,9 +104,29 @@ class SkillsScreen extends StatelessWidget {
               ),
             ),
             Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.08),
+              child: Image.asset(
+                'assets/images/coding2.png',
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.45,
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Image.asset(
+              'assets/images/githubill3.png',
+              width: MediaQuery.of(context).size.width * 0.65,
+              height: MediaQuery.of(context).size.height * 0.45,
+            ),
+            Container(
               color: Colors.transparent,
               width: MediaQuery.of(context).size.width * 0.27,
               height: MediaQuery.of(context).size.height * 0.39,
+              margin: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width * 0.1),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(20),
@@ -142,8 +147,8 @@ class SkillsScreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.057,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25),
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15),
                         ),
                         border: Border(
                           bottom: BorderSide(
@@ -205,7 +210,7 @@ class SkillsScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
+      ],
+    ),
+  );
 }

@@ -49,7 +49,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
           child: SingleChildScrollView(
             controller: _scrollController,
             child: Container(
-              height: MediaQuery.of(context).size.height * 1.4,
+              height: MediaQuery.of(context).size.height * 1.6,
               child: Column(
                 children: [
                   Row(
@@ -73,9 +73,11 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       ),
                       Container(
                         child: Image.asset(
-                          'assets/images/work_re.png',
+                          'assets/images/skills3.png',
                           scale: 0.74,
                         ),
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: MediaQuery.of(context).size.height * 0.8,
                       ),
                     ],
                   ),

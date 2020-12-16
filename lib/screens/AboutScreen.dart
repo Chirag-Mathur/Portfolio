@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:my_portfolio/screens/Skills.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -36,7 +37,7 @@ class AboutScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 vertical: MediaQuery.of(context).size.height * 0.08),
             // color: Colors.white,
-            height: MediaQuery.of(context).size.height * 2,
+            height: MediaQuery.of(context).size.height * 2.25,
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
@@ -55,9 +56,6 @@ class AboutScreen extends StatelessWidget {
                           children: [
                             Text(
                               "Hi, I'm Monik.",
-                              //   style: GoogleFonts.lora(
-                              //       color: Color(0xff173266), fontSize: 60,fontWeight: FontWeight.w800),
-                              // ),
                               semanticsLabel: 'Monik intro',
                               style: GoogleFonts.robotoSlab(
                                 fontSize: 40,
@@ -147,10 +145,6 @@ class AboutScreen extends StatelessWidget {
                               scale: 0.8,
                             ),
                           ),
-                          // CircleAvatar(
-                          //   radius: MediaQuery.of(context).size.width * 0.089,
-                          //   backgroundImage: AssetImage('assets/images/me2.jpg'),
-                          // ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.01,
                           ),
@@ -240,6 +234,25 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.4,
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.087,
+                    bottom: MediaQuery.of(context).size.height * 0.008,
+                  ),
+                  child: Text(
+                    'My Skills',
+                    style: GoogleFonts.robotoSlab(
+                        fontSize: 50,
+                        color: Color(0xff00305b),
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+                skillsWidget(context),
+                SizedBox(height: MediaQuery.of(context).size.height*0.055,),
                 footer(context),
               ],
             ),
