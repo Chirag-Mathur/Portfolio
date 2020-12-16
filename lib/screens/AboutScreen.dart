@@ -31,7 +31,7 @@ class AboutScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.of(context).size.height * 0.08),
           // color: Colors.white,
-          height: MediaQuery.of(context).size.height * 0.8,
+          height: MediaQuery.of(context).size.height * 0.9,
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
@@ -40,20 +40,32 @@ class AboutScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.7,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 70.0),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.1),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Monikinderjit Singh",
+                            "Hi, I'm Monik.",
                             //   style: GoogleFonts.lora(
                             //       color: Color(0xff173266), fontSize: 60,fontWeight: FontWeight.w800),
                             // ),
-                            style: TextStyle(
-                              fontFamily: 'TheRichJuliet',
+                            semanticsLabel: 'Monik intro',
+                            style: GoogleFonts.robotoSlab(
+                              fontSize: 40,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff00305b),
+                            ),
+                          ),
+                          Text(
+                            'Building apps, web apps and Learning new technology',
+                            style: GoogleFonts.alef(
                               fontSize: 60,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff001b34), //Colors.black54,
                             ),
                           ),
                           SizedBox(
@@ -64,15 +76,44 @@ class AboutScreen extends StatelessWidget {
                               onTap: () {
                                 print("Tap Event");
                               },
-                              speed: Duration(milliseconds: 70),
+                              speed: Duration(milliseconds: 60),
                               text: [
-                                "Love Exploring technologies",
-                                "Mostly Debugging code than writing :)",
-                                "Built with Flutter Web",
+                                "Love Exploring technologies.",
+                                "Mostly Debugging code than writing :).",
+                                "Built with Flutter Web.",
                               ],
                               textStyle: GoogleFonts.lora(
-                                  color: Colors.blueAccent[700], fontSize: 40),
+                                color: Colors.pink, // Colors.blueAccent[700],
+                                fontSize: 40,
+                              ),
                               textAlign: TextAlign.start,
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(
+                                top:
+                                    MediaQuery.of(context).size.height * 0.055),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(25),
+                              ),
+                            ),
+                            height: MediaQuery.of(context).size.height * 0.12,
+                            width: MediaQuery.of(context).size.width * 0.1,
+                            child: RaisedButton(
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(27),
+                                ),
+                              ),
+                              color: Color(0xff001b34),
+                              onPressed: () {},
+                              child: Text(
+                                'Contact Me',
+                                style: GoogleFonts.robotoSlab(
+                                    fontSize: 24, color: Colors.white),
+                              ),
                             ),
                           ),
                         ],
@@ -81,20 +122,24 @@ class AboutScreen extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(
-                        right: MediaQuery.of(context).size.width * 0.12,),
+                      right: MediaQuery.of(context).size.width * 0.12,
+                    ),
                     alignment: Alignment.center,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color:Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomLeft: Radius.circular(10),
+                            ),
+                            color: Color(0xff173266),
                           ),
                           child: Image.asset(
-                            
-                            'assets/images/me.png',
-                            fit: BoxFit.cover,
+                            'assets/images/me2.png',
+                            fit: BoxFit.fitHeight,
                             filterQuality: FilterQuality.high,
                             semanticLabel: 'Monikinderjit Singh Image',
                           ),

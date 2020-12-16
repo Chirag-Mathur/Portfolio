@@ -13,11 +13,16 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
+  static bool isLoaded = false;
+  static bool getisLoaded() {
+    return isLoaded;
+  }
+
   var _visible = true;
 
   AnimationController animationController;
   Animation<double> animation;
-
+  Timer timer;
 //  @override
 //   void initState() {
 //     super.initState();
@@ -27,35 +32,43 @@ class _SplashScreenState extends State<SplashScreen>
 //   }
   @override
   void initState() {
+    if (!isLoaded) {
+      isLoaded = true;
+      print(isLoaded);
+      // animationController = new AnimationController(
+      //     vsync: this, duration: new Duration(seconds: 20));
+      // animation =
+      //     new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
+
+      // animation.addListener(() => this.setState(() {}));
+      // animationController.forward();
+
+      setState(() {
+        _visible = !_visible;
+      });
+      progresser();
+      Timer(Duration(seconds: 11), () {
+        print('To About Screen');
+        Navigator.of(context).popAndPushNamed(AboutScreen.routeName);
+      });
+    }
     super.initState();
-    animationController = new AnimationController(
-        vsync: this, duration: new Duration(seconds: 20));
-    animation =
-        new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
+  }
 
-    animation.addListener(() => this.setState(() {}));
-    animationController.forward();
-
-    setState(() {
-      _visible = !_visible;
-    });
-    progresser();
-    Timer(Duration(seconds: 11), () {
-      print('To About Screen');
-      Navigator.of(context).popAndPushNamed(AboutScreen.routeName);
-    });
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   double value = 0.0;
   void progresser() {
-    Timer.periodic(Duration(milliseconds: 10), (t) {
+    timer = Timer.periodic(Duration(milliseconds: 10), (t) {
       if (value < 1)
         setState(() {
           value += 0.0015;
           print(value);
         });
-      else
-        t.cancel();
     });
   }
 

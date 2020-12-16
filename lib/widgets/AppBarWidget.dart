@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../extensions/HoverExtensions.dart ';
 import '../screens/AboutScreen.dart';
-import '../screens/ContactScreen.dart';
 import '../screens/ProjectScreen.dart';
-
+import '../screens/Skills.dart';
+import '../screens/ContactScreen.dart';
 
 Widget appBarWidget(BuildContext context) {
   double fontsize = 25;
@@ -13,7 +13,7 @@ Widget appBarWidget(BuildContext context) {
   return AppBar(
     automaticallyImplyLeading: false,
     toolbarHeight: 120,
-    elevation: 0,
+    elevation: 3,
     backgroundColor: Colors.transparent,
     title: GestureDetector(
       // padding: EdgeInsets.symmetric(
@@ -41,7 +41,7 @@ Widget appBarWidget(BuildContext context) {
           ),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed('/');
+          Navigator.of(context).pushNamed(AboutScreen.routeName);
         },
       ),
       SizedBox(
@@ -57,7 +57,9 @@ Widget appBarWidget(BuildContext context) {
             color: textColor,
           ),
         ),
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context).pushNamed(SkillsScreen.routeName);
+        },
       ),
       SizedBox(
         width: MediaQuery.of(context).size.width * 0.02,

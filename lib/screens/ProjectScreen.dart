@@ -102,10 +102,19 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           return Container(
                             height: MediaQuery.of(context).size.width * 0.17,
                             width: MediaQuery.of(context).size.width * 0.32,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30),
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
+                              ),
+                            ),
                             color: Colors.transparent,
                             child: GestureDetector(
                               onTap: () {
-                                AboutScreen.openLink(_projectsList[index]['projectLink']);
+                                AboutScreen.openLink(
+                                    _projectsList[index]['projectLink']);
                               },
                               child: Card(
                                 elevation: 10.0,
@@ -240,8 +249,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                                                 ),
                                                 itemBuilder: (ctx, i) {
                                                   if (i < 2)
-                                                    return
-                                                        Image.asset(
+                                                    return Image.asset(
                                                       _projectsList[index]
                                                           ['techUsed'][i],
                                                       height: 1,

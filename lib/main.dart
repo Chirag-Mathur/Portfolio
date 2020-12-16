@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/screens/SplashScreen.dart';
 
-import './screens/ContactScreen.dart';
-import './screens/ProjectScreen.dart';
+import './screens/SplashScreen.dart';
 import './screens/AboutScreen.dart';
+import './screens/ProjectScreen.dart';
+import './screens/Skills.dart';
+import './screens/ContactScreen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       routes:{
         AboutScreen.routeName:(context)=>AboutScreen(),
         ProjectScreen.routeName:(context)=>ProjectScreen(),
-        ContactScreen.routeName:(context)=>ContactScreen()
+        ContactScreen.routeName:(context)=>ContactScreen(),
+        SkillsScreen.routeName:(context)=>SkillsScreen(),
       },
     );
   }
