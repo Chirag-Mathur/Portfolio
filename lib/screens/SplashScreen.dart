@@ -35,13 +35,13 @@ class _SplashScreenState extends State<SplashScreen>
     if (!isLoaded) {
       isLoaded = true;
       print(isLoaded);
-      // animationController = new AnimationController(
-      //     vsync: this, duration: new Duration(seconds: 20));
-      // animation =
-      //     new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
+      animationController = new AnimationController(
+          vsync: this, duration: new Duration(seconds: 10));
+      animation =
+          new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
 
-      // animation.addListener(() => this.setState(() {}));
-      // animationController.forward();
+      animation.addListener(() => this.setState(() {}));
+      animationController.forward();
 
       setState(() {
         _visible = !_visible;
@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
-  double value = 0.0;
+ static double value = 0.0;
   void progresser() {
     timer = Timer.periodic(Duration(milliseconds: 10), (t) {
       if (value < 1)

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:my_portfolio/screens/Skills.dart';
+import 'package:my_portfolio/widgets/Skills.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -252,7 +252,6 @@ class AboutScreen extends StatelessWidget {
                   ),
                 ),
                 skillsWidget(context),
-                SizedBox(height: MediaQuery.of(context).size.height*0.055,),
                 footer(context),
               ],
             ),

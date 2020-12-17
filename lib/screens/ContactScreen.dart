@@ -12,9 +12,9 @@ class ContactScreen extends StatefulWidget {
 }
 
 class _ContactScreenState extends State<ContactScreen> {
-  TextEditingController _textEditingController1 = TextEditingController();
-  TextEditingController _textEditingController2 = TextEditingController();
-  TextEditingController _textEditingController3 = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _messageController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class _ContactScreenState extends State<ContactScreen> {
           children: [
             Container(
               alignment: Alignment.center,
-              color:  Color(0xffe0ffbd),//Color.fromRGBO(224,255,189,1), //
+              color: Color(0xffe0ffbd), //Color.fromRGBO(224,255,189,1), //
               margin: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.16,
                 vertical: MediaQuery.of(context).size.height * 0.1,
@@ -52,7 +52,7 @@ class _ContactScreenState extends State<ContactScreen> {
                   ),
                   Container(
                     color:
-                        Color.fromRGBO(224,255,189, 1), // Color(0xff71bcff),
+                        Color.fromRGBO(224, 255, 189, 1), // Color(0xff71bcff),
                     margin: EdgeInsets.all(
                       MediaQuery.of(context).size.width * 0.006,
                     ),
@@ -74,7 +74,7 @@ class _ContactScreenState extends State<ContactScreen> {
                                   labelText: 'Name',
                                   border: OutlineInputBorder(),
                                 ),
-                                controller: _textEditingController1,
+                                controller: _nameController,
                                 textCapitalization: TextCapitalization.words,
                                 keyboardType: TextInputType.name,
                                 onChanged: (name) {
@@ -97,7 +97,7 @@ class _ContactScreenState extends State<ContactScreen> {
                                 decoration: InputDecoration(
                                     border: OutlineInputBorder(),
                                     labelText: 'Email'),
-                                controller: _textEditingController2,
+                                controller: _emailController,
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (email) {
                                   print(email);
@@ -120,7 +120,7 @@ class _ContactScreenState extends State<ContactScreen> {
                                 decoration: InputDecoration(
                                     border: OutlineInputBorder(),
                                     labelText: 'Message'),
-                                controller: _textEditingController3,
+                                controller: _messageController,
                                 // maxLines: 3,
                                 keyboardType: TextInputType.text,
                                 textCapitalization:
@@ -136,9 +136,6 @@ class _ContactScreenState extends State<ContactScreen> {
                       ],
                     ),
                   ),
-                  // SizedBox(
-                  //   height: MediaQuery.of(context).size.height * 0.07,
-                  // ),
                   Center(
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.04,
@@ -149,10 +146,6 @@ class _ContactScreenState extends State<ContactScreen> {
                       ),
                     ),
                   ),
-                  //  Align(
-                  //     alignment: Alignment.bottomCenter,
-                  //     child: footer(context),
-                  //   ),
                 ],
               ),
             ),
