@@ -36,7 +36,7 @@ class ProjectScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: GoogleFonts.tinos(
                         fontSize: 50,
-                        color: Colors.blue[900],//Color(0xff3f3d56), // ,
+                        color: Colors.blue[900], //Color(0xff3f3d56), // ,
                         fontWeight: FontWeight.w700,
                       ),
                     ),

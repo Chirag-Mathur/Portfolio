@@ -35,7 +35,7 @@ Widget footer(BuildContext context) {
                   size: 25,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right:18.0),
+                  padding: EdgeInsets.only(right: 18.0),
                   child: Text(
                     " by Monikinderjit Singh",
                     style: GoogleFonts.robotoSlab(

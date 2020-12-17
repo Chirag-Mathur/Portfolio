@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/widgets/socialMediaRow.dart';
 
 import '../extensions/HoverExtensions.dart ';
 import '../screens/AboutScreen.dart';
@@ -27,7 +26,7 @@ Widget appBarWidget(BuildContext context) {
         Navigator.of(context).pushNamed(AboutScreen.routeName);
       },
     ).showCursorOnHover,
-leadingWidth: 400,
+    leadingWidth: 400,
 // title: socialMediaRow(),
     actions: [
       Padding(

@@ -126,7 +126,9 @@ Widget projectGridView(
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount:
                                     infoMapList[index]['techUsed'].length,
-                                childAspectRatio:7.4/infoMapList[index]['techUsed'].length,// 3.7,//2.72
+                                childAspectRatio: 7.4 /
+                                    infoMapList[index]['techUsed']
+                                        .length, // 3.7,//2.72
                               ),
                               itemCount: infoMapList[index]['techUsed'].length,
                               itemBuilder: (ctx, i) {
