@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 import './AboutScreen.dart';
 
@@ -23,13 +22,6 @@ class _SplashScreenState extends State<SplashScreen>
   AnimationController animationController;
   Animation<double> animation;
   Timer timer;
-//  @override
-//   void initState() {
-//     super.initState();
-//     Timer(Duration(seconds: 2000), () {
-//       Navigator.of(context).pushNamed(AboutScreen.routeName);
-//     });
-//   }
   @override
   void initState() {
     if (!isLoaded) {

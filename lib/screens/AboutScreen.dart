@@ -6,9 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-import '../widgets/footer.dart';
 import '../widgets/Skills.dart';
-import '../widgets/socialMediaRow.dart';
 import '../widgets/appBarWidget.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -32,22 +30,12 @@ class AboutScreen extends StatelessWidget {
         thickness: 12,
         isAlwaysShown: true,
         radius: Radius.circular(6),
-        // controller: _scrollController,
-        // isAlwaysShown: true,
-        // child: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height * 1.3,
           child: ListWheelScrollView(
             offAxisFraction: 0.2,
             diameterRatio: 5,
             itemExtent: MediaQuery.of(context).size.height,
-            // child: Container(
-            //   padding: EdgeInsets.only(
-            //       top: MediaQuery.of(context).size.height * 0.08),
-            //   // color: Colors.white,
-            //   height: MediaQuery.of(context).size.height * 2.25,
-            //   width: MediaQuery.of(context).size.width,
-            //   child: Column(
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -102,34 +90,6 @@ class AboutScreen extends StatelessWidget {
                                   textAlign: TextAlign.start,
                                 ),
                               ),
-                          //     Container(
-                          //       padding: EdgeInsets.only(
-                          //           top:
-                          //               MediaQuery.of(context).size.height * 0.055),
-                          //       decoration: BoxDecoration(
-                          //         borderRadius: BorderRadius.all(
-                          //           Radius.circular(25),
-                          //         ),
-                          //       ),
-                          //       height: MediaQuery.of(context).size.height * 0.12,
-                          //       width: MediaQuery.of(context).size.width * 0.1,
-                          //       child: RaisedButton(
-                          //         elevation: 10,
-                          //         shape: RoundedRectangleBorder(
-                          //           borderRadius: BorderRadius.all(
-                          //             Radius.circular(27),
-                          //           ),
-                          //         ),
-                          //         color: Color(0xff001b34),
-                          //         onPressed: () {},
-                          //         child: Text(
-                          //           'Contact Me',
-                          //           style: GoogleFonts.robotoSlab(
-                          //               fontSize: 24, color: Colors.white),
-                          //         ),
-                          //       ),
-                          //     ),
-                              
                             ],
                           ),
                         Container(
@@ -209,29 +169,15 @@ class AboutScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        // SizedBox(
-                        //   height: MediaQuery.of(context).size.height * 0.01,
-                        // ),
-                        // socialMediaRow(),
                       ],
                     ),
                   ),
                 ],
               ),
-              // SizedBox(
-              //   height: MediaQuery.of(context).size.height * 0.4,
-              // ),
               ListView(
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   skillsWidget(context),
-      //              Align(
-      // alignment: Alignment.bottomCenter, //FractionalOffset.bottomCenter,
-      // // child: 
-      // Padding(
-      //   padding: EdgeInsets.only(bottom: 10.0),
-      //   child:
-            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -252,19 +198,13 @@ class AboutScreen extends StatelessWidget {
                 ),
               ],
             ),
-         
-  // //  ),
-  //   ),
                 ],
                 
               ),
-              // footer(context),
             ],
           ),
         ),
       ),
-      //   ),
-      // ),
-    );
+      );
   }
 }

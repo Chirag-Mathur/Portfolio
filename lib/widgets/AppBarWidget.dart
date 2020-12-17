@@ -15,9 +15,6 @@ Widget appBarWidget(BuildContext context) {
     elevation: 3,
     backgroundColor: Colors.transparent,
     leading: GestureDetector(
-      
-      // padding: EdgeInsets.symmetric(
-      //     horizontal: MediaQuery.of(context).size.width * 0.02),
       child: Text(
         "Monikinderjit Singh",
         style: TextStyle(
@@ -31,7 +28,7 @@ Widget appBarWidget(BuildContext context) {
       },
     ).showCursorOnHover,
 leadingWidth: 400,
-title: socialMediaRow(),
+// title: socialMediaRow(),
     actions: [
       Padding(
         padding: EdgeInsets.all(16.0),

@@ -8,7 +8,6 @@ import '../info/projects.dart';
 
 class ProjectScreen extends StatelessWidget {
   static const String routeName = '/ProjectScreen';
-// final ScrollController _scrollController = ScrollController();
  final List<Map<String, dynamic>> _projectsList = projectsList;
   @override
   Widget build(BuildContext context) {
@@ -18,13 +17,7 @@ class ProjectScreen extends StatelessWidget {
       body:
           Scrollbar(
         thickness: 12,
-        radius: Radius.circular(6),
-        // controller: _scrollController,
-        // isAlwaysShown: true,
-        // child: Container(
-        //   child: SingleChildScrollView(
-        //     controller: _scrollController,
-            child: Container(
+        radius: Radius.circular(6),         child: Container(
               height: MediaQuery.of(context).size.height * 1.3,
               child: ListView(
                 itemExtent: MediaQuery.of(context).size.height*0.8,
@@ -52,10 +45,7 @@ class ProjectScreen extends StatelessWidget {
                         child: Image.asset(
                           'assets/images/skills3.png',
                           scale: 1.76,
-                        ),
-                        // width: MediaQuery.of(context).size.width * 0.4,
-                        // height: MediaQuery.of(context).size.height * 0.5,
-                      ),
+                        ),),
                     ],
                   ),
                   Column(
@@ -76,8 +66,6 @@ class ProjectScreen extends StatelessWidget {
               ),
             ),
           ),
-        // ),
-      // ),
     );
   }
 }

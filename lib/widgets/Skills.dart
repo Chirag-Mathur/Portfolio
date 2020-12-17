@@ -19,7 +19,7 @@ Widget skillsWidget(BuildContext context) {
                 margin: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.1,
                 ),
-                // color: Colors.transparent,
+                
                 width: MediaQuery.of(context).size.width * 0.27,
                 height: MediaQuery.of(context).size.height * 0.39,
                 decoration: BoxDecoration(
@@ -38,7 +38,6 @@ Widget skillsWidget(BuildContext context) {
                   child: Column(
                     children: [
                       Container(
-                        // padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.06),
                         width: MediaQuery.of(context).size.width * 0.27,
                         height: MediaQuery.of(context).size.height * 0.057,
                         decoration: BoxDecoration(
@@ -97,7 +96,6 @@ Widget skillsWidget(BuildContext context) {
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                                // ),
                               ),
                             );
                           },
@@ -128,7 +126,7 @@ Widget skillsWidget(BuildContext context) {
                 'assets/images/githubill3.png',
                 scale: 1,
                 width: MediaQuery.of(context).size.width * 0.65,
-                // height: MediaQuery.of(context).size.height * 0.45,
+               
               ),
               Container(
                 color: Colors.transparent,

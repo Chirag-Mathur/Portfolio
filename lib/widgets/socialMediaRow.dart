@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/screens/AboutScreen.dart';
 
 Widget socialMediaRow() {
-  return Row(
+  return ListView(
     children: [
       IconButton(
         icon: Image.asset(
