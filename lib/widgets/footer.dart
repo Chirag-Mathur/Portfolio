@@ -11,7 +11,7 @@ Widget footer(BuildContext context) {
       alignment: Alignment.bottomCenter, //FractionalOffset.bottomCenter,
       child: Padding(
         padding: EdgeInsets.only(bottom: 10.0),
-        child: Column(
+        child:    Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -24,22 +24,23 @@ Widget footer(BuildContext context) {
                 Text(
                   "Built with",
                   style: GoogleFonts.roboto(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                      fontSize: 23, fontWeight: FontWeight.bold),
                 ),
                 Icon(
                   Icons.favorite,
                   color: Colors.blue[900],
+                  size: 25,
                 ),
                 Text(
                   " by Monikinderjit Singh",
-                  style: GoogleFonts.roboto(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.robotoSlab(
+                      fontSize: 23, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
           ],
         ),
-      ),
+   ),
     ),
   );
 }

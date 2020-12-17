@@ -35,21 +35,45 @@ class _SplashScreenState extends State<SplashScreen>
     if (!isLoaded) {
       isLoaded = true;
       print(isLoaded);
-      animationController = new AnimationController(
-          vsync: this, duration: new Duration(seconds: 10));
-      animation =
-          new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
-
-      animation.addListener(() => this.setState(() {}));
-      animationController.forward();
+      // animationController = new AnimationController(
+      //     vsync: this, duration: new Duration(seconds: 10));
+      // animation =
+      //     new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
 
       setState(() {
         _visible = !_visible;
       });
       progresser();
-      Timer(Duration(seconds: 11), () {
+      Timer(Duration(seconds: 9), () {
         print('To About Screen');
-        Navigator.of(context).popAndPushNamed(AboutScreen.routeName);
+        // Navigator.of(context).popAndPushNamed(AboutScreen.routeName);
+        Navigator.of(context).push(
+          PageRouteBuilder(
+            pageBuilder: (context, animation, anotherAnimation) {
+              return AboutScreen();
+            },
+            transitionDuration: Duration(milliseconds: 2000),
+            transitionsBuilder: (context, animation, anotherAnimation, child) {
+              animationController = new AnimationController(
+                vsync: this,
+                duration: new Duration(seconds: 9),
+              );
+              animation = CurvedAnimation(
+                  curve: Curves.easeInToLinear, parent: animation);
+              // animation.addListener(() => this.setState(() {}));
+              animationController.forward();
+              return Align(
+                child: SizeTransition(
+                  sizeFactor: animation,
+                  child: child,
+                  axisAlignment: -1.0,
+                ),
+              );
+            },
+          ),
+
+          // ProjectScreen.routeName
+        );
       });
     }
     super.initState();
@@ -61,7 +85,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
- static double value = 0.0;
+  static double value = 0.0;
   void progresser() {
     timer = Timer.periodic(Duration(milliseconds: 10), (t) {
       if (value < 1)

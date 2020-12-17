@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/widgets/projectsGrid.dart';
@@ -37,13 +36,13 @@ final ScrollController _scrollController = ScrollController();
                         ),
                         alignment: Alignment.center,
                         width: MediaQuery.of(context).size.width * 0.5,
-                        height: MediaQuery.of(context).size.height * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.22,
                         child: Text(
                           "Projects I created while learning and exploring different fields and in different courses..",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.tinos(
                             fontSize: 50,
-                            color: Colors.blue[800],
+                            color:Color(0xff3f3d56),// Colors.blue[800],
                             fontWeight: FontWeight.w700,
                           ),
                         ),

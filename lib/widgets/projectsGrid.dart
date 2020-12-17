@@ -70,7 +70,7 @@ Widget projectGridView(
                       infoMapList[index]['description'],
                       style: GoogleFonts.openSans(
                         color: Colors.white,
-                        fontSize: 17,
+                        fontSize: 20,
                       ),
                     ),
                   ),

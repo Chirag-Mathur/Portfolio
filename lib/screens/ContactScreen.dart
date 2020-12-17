@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/widgets/footer.dart';
 
-import '../widgets/appBarWidget.dart';
-
 class ContactScreen extends StatefulWidget {
   static const String routeName = "/ContactScreen";
 
@@ -18,7 +16,7 @@ class _ContactScreenState extends State<ContactScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidget(context),
+      // appBar: appBarWidget(context),
       backgroundColor: Color.fromRGBO(189, 224, 255, 1),
       body: Container(
         height: MediaQuery.of(context).size.height,
