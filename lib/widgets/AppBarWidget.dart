@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/widgets/socialMediaRow.dart';
 
 import '../extensions/HoverExtensions.dart ';
 import '../screens/AboutScreen.dart';
@@ -13,7 +14,8 @@ Widget appBarWidget(BuildContext context) {
     toolbarHeight: 90,
     elevation: 3,
     backgroundColor: Colors.transparent,
-    title: GestureDetector(
+    leading: GestureDetector(
+      
       // padding: EdgeInsets.symmetric(
       //     horizontal: MediaQuery.of(context).size.width * 0.02),
       child: Text(
@@ -28,6 +30,8 @@ Widget appBarWidget(BuildContext context) {
         Navigator.of(context).pushNamed(AboutScreen.routeName);
       },
     ).showCursorOnHover,
+leadingWidth: 400,
+title: socialMediaRow(),
     actions: [
       Padding(
         padding: EdgeInsets.all(16.0),

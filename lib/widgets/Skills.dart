@@ -11,7 +11,7 @@ Widget skillsWidget(BuildContext context) {
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height*0.45,
+          height: MediaQuery.of(context).size.height*0.447,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -113,7 +113,7 @@ Widget skillsWidget(BuildContext context) {
                 child: Image.asset(
                   'assets/images/coding2.png',
                   width: MediaQuery.of(context).size.width * 0.4,
-                  height: MediaQuery.of(context).size.height * 0.45,
+                  height: MediaQuery.of(context).size.height * 0.444,
                 ),
               ),
             ],
@@ -121,13 +121,14 @@ Widget skillsWidget(BuildContext context) {
         ),
         Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height*0.45,
+          height: MediaQuery.of(context).size.height*0.447,
           child: Row(
             children: [
               Image.asset(
                 'assets/images/githubill3.png',
+                scale: 1,
                 width: MediaQuery.of(context).size.width * 0.65,
-                height: MediaQuery.of(context).size.height * 0.45,
+                // height: MediaQuery.of(context).size.height * 0.45,
               ),
               Container(
                 color: Colors.transparent,
@@ -220,6 +221,9 @@ Widget skillsWidget(BuildContext context) {
             ],
           ),
         ),
+        Divider(
+              thickness: 1,
+            ),
       ],
     ),
   );

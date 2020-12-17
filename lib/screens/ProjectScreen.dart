@@ -26,8 +26,7 @@ class ProjectScreen extends StatelessWidget {
         //     controller: _scrollController,
             child: Container(
               height: MediaQuery.of(context).size.height * 1.3,
-              child: ListWheelScrollView(
-                // diameterRatio: 6,
+              child: ListView(
                 itemExtent: MediaQuery.of(context).size.height*0.8,
                 children: [
                   Row(
@@ -59,13 +58,18 @@ class ProjectScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.03,
-                    ),
-                    color: Colors.transparent,
-                    height: MediaQuery.of(context).size.height * 0.6256,
-                    child:projectGridView(context, _projectsList),
+                  Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.03,
+                        ),
+                        color: Colors.transparent,
+                        height: MediaQuery.of(context).size.height * 0.6256,
+                        child:projectGridView(context, _projectsList),
+                      ),
+                      footer(context),
+                    ],
                   ),
                   // footer(context),
                 ],
