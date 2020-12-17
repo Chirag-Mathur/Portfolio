@@ -8,7 +8,7 @@ import '../info/projects.dart';
 
 class ProjectScreen extends StatelessWidget {
   static const String routeName = '/ProjectScreen';
-final ScrollController _scrollController = ScrollController();
+// final ScrollController _scrollController = ScrollController();
  final List<Map<String, dynamic>> _projectsList = projectsList;
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,14 @@ final ScrollController _scrollController = ScrollController();
         radius: Radius.circular(6),
         // controller: _scrollController,
         // isAlwaysShown: true,
-        child: Container(
-          child: SingleChildScrollView(
-            controller: _scrollController,
+        // child: Container(
+        //   child: SingleChildScrollView(
+        //     controller: _scrollController,
             child: Container(
-              height: MediaQuery.of(context).size.height * 1.6,
-              child: Column(
+              height: MediaQuery.of(context).size.height * 1.3,
+              child: ListWheelScrollView(
+                // diameterRatio: 6,
+                itemExtent: MediaQuery.of(context).size.height*0.8,
                 children: [
                   Row(
                     children: [
@@ -50,10 +52,10 @@ final ScrollController _scrollController = ScrollController();
                       Container(
                         child: Image.asset(
                           'assets/images/skills3.png',
-                          scale: 0.74,
+                          scale: 1.76,
                         ),
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        height: MediaQuery.of(context).size.height * 0.8,
+                        // width: MediaQuery.of(context).size.width * 0.4,
+                        // height: MediaQuery.of(context).size.height * 0.5,
                       ),
                     ],
                   ),
@@ -65,13 +67,13 @@ final ScrollController _scrollController = ScrollController();
                     height: MediaQuery.of(context).size.height * 0.6256,
                     child:projectGridView(context, _projectsList),
                   ),
-                  footer(context),
+                  // footer(context),
                 ],
               ),
             ),
           ),
-        ),
-      ),
+        // ),
+      // ),
     );
   }
 }

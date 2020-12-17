@@ -5,7 +5,7 @@ import '../screens/AboutScreen.dart';
 Widget projectGridView(
     BuildContext context, List<Map<String, dynamic>> infoMapList) {
   return GridView.builder(
-    shrinkWrap: true,
+    shrinkWrap:false,
     primary: false,
     keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
     // physics: NeverScrollableScrollPhysics(),

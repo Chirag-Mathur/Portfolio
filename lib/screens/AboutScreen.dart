@@ -36,7 +36,8 @@ class AboutScreen extends StatelessWidget {
         // child: SingleChildScrollView(
           child:Container(
             height: MediaQuery.of(context).size.height*1.3,
-            child: ListView(
+            child: ListWheelScrollView(
+              diameterRatio: 2,
               itemExtent: MediaQuery.of(context).size.height,
             // child: Container(
             //   padding: EdgeInsets.only(
@@ -132,6 +133,7 @@ class AboutScreen extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
                               decoration: BoxDecoration(
@@ -239,26 +241,30 @@ class AboutScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.4,
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.087,
-                      bottom: MediaQuery.of(context).size.height * 0.008,
-                    ),
-                    child: Text(
-                      'My Skills',
-                      style: GoogleFonts.robotoSlab(
-                          fontSize: 50,
-                          color: Color(0xff00305b),
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
+                  // SizedBox(
+                  //   height: MediaQuery.of(context).size.height * 0.4,
+                  // ),
+                  ListView(
+                    children: [
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.087,
+                          bottom: MediaQuery.of(context).size.height * 0.008,
+                        ),
+                        child: Text(
+                          'My Skills',
+                          style: GoogleFonts.robotoSlab(
+                              fontSize: 50,
+                              color: Color(0xff00305b),
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
                   skillsWidget(context),
-                  
+                    ],
+                  ),
                   // footer(context),
+                  
                 ],
               ),
           ),
