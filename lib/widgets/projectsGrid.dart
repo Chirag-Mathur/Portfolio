@@ -5,7 +5,7 @@ import '../screens/AboutScreen.dart';
 Widget projectGridView(
     BuildContext context, List<Map<String, dynamic>> infoMapList) {
   return GridView.builder(
-    shrinkWrap:false,
+    shrinkWrap: false,
     primary: false,
     keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
     // physics: NeverScrollableScrollPhysics(),
@@ -19,7 +19,7 @@ Widget projectGridView(
     itemBuilder: (ctx, index) {
       if (index < 5)
         return Container(
-          height: MediaQuery.of(context).size.width * 0.17,
+          height: MediaQuery.of(context).size.width * 0.173,
           width: MediaQuery.of(context).size.width * 0.32,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -53,8 +53,8 @@ Widget projectGridView(
                     alignment: Alignment.center,
                     child: Text(
                       infoMapList[index]['title'],
-                      style:
-                          GoogleFonts.roboto(color: Colors.white, fontSize: 34),
+                      style: GoogleFonts.openSans(
+                          color: Colors.white, fontSize: 30),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -70,7 +70,7 @@ Widget projectGridView(
                       infoMapList[index]['description'],
                       style: GoogleFonts.openSans(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     ),
                   ),
@@ -95,60 +95,45 @@ Widget projectGridView(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        RaisedButton(
-                          elevation: 20,
-                          color: Colors.transparent,
-                          shape: RoundedRectangleBorder(
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.139,
+                          height: MediaQuery.of(context).size.width * 0.09,
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                             ),
                           ),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.159,
-                            height: MediaQuery.of(context).size.width * 0.09,
-                            child: Text(
-                              "Tech Used",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.aladin(
-                                  color: Colors.white,
-                                  fontSize: 27,
-                                  fontWeight: FontWeight.w400),
-                            ),
+                          child: Text(
+                            "Tech Used :-",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.aladin(
+                                color: Colors.white,
+                                fontSize: 27,
+                                fontWeight: FontWeight.w400),
                           ),
-                          onPressed: () {},
                         ),
-                        Container(
-                          height: 110,
-                          width: MediaQuery.of(context).size.width * 0.001,
-                          color: Colors.white70,
-                        ),
-                        RaisedButton(
-                          onPressed: () {},
-                          elevation: 20,
-                          color: Colors.transparent,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(20),
-                            ),
-                          ),
+                        Flexible(
                           child: Container(
-                            width: MediaQuery.of(context).size.width * 0.123,
+                            // width: MediaQuery.of(context).size.width * 0.123,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(20),
+                              ),
+                            ),
                             child: GridView.builder(
                               physics: NeverScrollableScrollPhysics(),
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                childAspectRatio: 2.7,
+                                crossAxisCount:
+                                    infoMapList[index]['techUsed'].length,
+                                childAspectRatio:7.4/infoMapList[index]['techUsed'].length,// 3.7,//2.72
                               ),
+                              itemCount: infoMapList[index]['techUsed'].length,
                               itemBuilder: (ctx, i) {
-                                if (i < 2)
-                                  return Image.asset(
-                                    infoMapList[index]['techUsed'][i],
-                                    height: 1,
-                                    width: 1,
-                                    fit: BoxFit.fitHeight,
-                                  );
-                                return null;
+                                return Image.asset(
+                                  infoMapList[index]['techUsed'][i],
+                                  fit: BoxFit.fitHeight,
+                                );
                               },
                             ),
                           ),

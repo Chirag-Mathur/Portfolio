@@ -11,7 +11,7 @@ Widget skillsWidget(BuildContext context) {
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height*0.447,
+          height: MediaQuery.of(context).size.height * 0.45,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -19,8 +19,7 @@ Widget skillsWidget(BuildContext context) {
                 margin: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.1,
                 ),
-                
-                width: MediaQuery.of(context).size.width * 0.27,
+                width: MediaQuery.of(context).size.width * 0.3,
                 height: MediaQuery.of(context).size.height * 0.39,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(
@@ -38,7 +37,7 @@ Widget skillsWidget(BuildContext context) {
                   child: Column(
                     children: [
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.27,
+                        width: MediaQuery.of(context).size.width * 0.3,
                         height: MediaQuery.of(context).size.height * 0.057,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
@@ -75,8 +74,8 @@ Widget skillsWidget(BuildContext context) {
                           itemBuilder: (ctx, index) {
                             return Padding(
                               padding: EdgeInsets.only(
-                                  left:
-                                      MediaQuery.of(context).size.width * 0.013),
+                                left: MediaQuery.of(context).size.width * 0.011,
+                              ),
                               child: ListTile(
                                 leading: Icon(
                                   Icons.arrow_forward_ios_sharp,
@@ -119,14 +118,13 @@ Widget skillsWidget(BuildContext context) {
         ),
         Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height*0.447,
+          height: MediaQuery.of(context).size.height * 0.447,
           child: Row(
             children: [
               Image.asset(
                 'assets/images/githubill3.png',
                 scale: 1,
                 width: MediaQuery.of(context).size.width * 0.65,
-               
               ),
               Container(
                 color: Colors.transparent,
@@ -186,8 +184,8 @@ Widget skillsWidget(BuildContext context) {
                           itemBuilder: (ctx, index) {
                             return Padding(
                               padding: EdgeInsets.only(
-                                  left:
-                                      MediaQuery.of(context).size.width * 0.013),
+                                  left: MediaQuery.of(context).size.width *
+                                      0.013),
                               child: ListTile(
                                 leading: Icon(
                                   Icons.arrow_forward_ios_sharp,
@@ -219,9 +217,6 @@ Widget skillsWidget(BuildContext context) {
             ],
           ),
         ),
-        Divider(
-              thickness: 1,
-            ),
       ],
     ),
   );

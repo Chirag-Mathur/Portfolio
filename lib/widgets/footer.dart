@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
+import 'package:my_portfolio/widgets/socialMediaRow.dart';
 
 Widget footer(BuildContext context) {
   var parser = EmojiParser();
@@ -11,7 +12,7 @@ Widget footer(BuildContext context) {
       alignment: Alignment.bottomCenter, //FractionalOffset.bottomCenter,
       child: Padding(
         padding: EdgeInsets.only(bottom: 10.0),
-        child:    Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -21,6 +22,8 @@ Widget footer(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                socialMediaRow(),
+                Spacer(),
                 Text(
                   "Built with",
                   style: GoogleFonts.roboto(
@@ -31,16 +34,19 @@ Widget footer(BuildContext context) {
                   color: Colors.blue[900],
                   size: 25,
                 ),
-                Text(
-                  " by Monikinderjit Singh",
-                  style: GoogleFonts.robotoSlab(
-                      fontSize: 23, fontWeight: FontWeight.bold),
+                Padding(
+                  padding: EdgeInsets.only(right:18.0),
+                  child: Text(
+                    " by Monikinderjit Singh",
+                    style: GoogleFonts.robotoSlab(
+                        fontSize: 23, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
           ],
         ),
-   ),
+      ),
     ),
   );
 }

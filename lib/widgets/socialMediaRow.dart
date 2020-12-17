@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/screens/AboutScreen.dart';
 
 Widget socialMediaRow() {
-  return ListView(
+  return Row(
     children: [
       IconButton(
         icon: Image.asset(
           'assets/images/linkedin.png',
         ),
         onPressed: () {
-          AboutScreen.openLink("https://www.linkedin.com/in/monikinderjit-singh/");
+          AboutScreen.openLink(
+              "https://www.linkedin.com/in/monikinderjit-singh/");
         },
         iconSize: 39,
       ),
@@ -36,7 +37,8 @@ Widget socialMediaRow() {
           'assets/images/fb.png',
         ),
         onPressed: () {
-          AboutScreen.openLink("https://www.facebook.com/monik.inderjitsingh.3");
+          AboutScreen.openLink(
+              "https://www.facebook.com/monik.inderjitsingh.3");
         },
         iconSize: 37,
       ),
@@ -45,7 +47,8 @@ Widget socialMediaRow() {
           'assets/images/insta.png',
         ),
         onPressed: () {
-          AboutScreen.openLink("https://www.instagram.com/monikinderjit_singh_/");
+          AboutScreen.openLink(
+              "https://www.instagram.com/monikinderjit_singh_/");
         },
         iconSize: 43,
       ),

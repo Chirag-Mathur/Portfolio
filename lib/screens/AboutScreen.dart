@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:my_portfolio/widgets/socialMediaRow.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -33,7 +34,7 @@ class AboutScreen extends StatelessWidget {
         child: Container(
           height: MediaQuery.of(context).size.height * 1.3,
           child: ListWheelScrollView(
-            offAxisFraction: 0.2,
+            // offAxisFraction: 0.2,
             diameterRatio: 5,
             itemExtent: MediaQuery.of(context).size.height,
             children: [
@@ -44,7 +45,7 @@ class AboutScreen extends StatelessWidget {
                   Container(
                     // color: Colors.green,
                     width: MediaQuery.of(context).size.width * 0.7,
-                    height: MediaQuery.of(context).size.height*0.8,
+                    height: MediaQuery.of(context).size.height * 0.8,
                     child: Padding(
                       padding: EdgeInsets.only(
                           left: MediaQuery.of(context).size.width * 0.1),
@@ -73,7 +74,8 @@ class AboutScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.05,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.05,
                               ),
                               Container(
                                 child: TypewriterAnimatedTextKit(
@@ -84,7 +86,8 @@ class AboutScreen extends StatelessWidget {
                                     "Built with Flutter Web.",
                                   ],
                                   textStyle: GoogleFonts.lora(
-                                    color: Colors.pink, // Colors.blueAccent[700],
+                                    color:
+                                        Colors.pink, // Colors.blueAccent[700],
                                     fontSize: 40,
                                   ),
                                   textAlign: TextAlign.start,
@@ -92,7 +95,7 @@ class AboutScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                        Container(
+                          Container(
                             // color: Colors.pink,
                             alignment: Alignment.centerLeft,
                             padding: EdgeInsets.only(
@@ -137,7 +140,7 @@ class AboutScreen extends StatelessWidget {
                             fit: BoxFit.fitHeight,
                             filterQuality: FilterQuality.high,
                             semanticLabel: 'Monikinderjit Singh Image',
-                            scale: 0.8,
+                            scale: 0.87,
                           ),
                         ),
                         SizedBox(
@@ -149,7 +152,7 @@ class AboutScreen extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              SizedBox(width: 20.0, height: 100.0),
+                              // SizedBox(width: 20.0, height: 100.0),
                               Text(
                                 "Be",
                                 style: TextStyle(fontSize: 43.0),
@@ -172,39 +175,35 @@ class AboutScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                 ],
               ),
-              ListView(
-                physics: NeverScrollableScrollPhysics(),
+              skillsWidget(context),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  skillsWidget(context),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Built with",
-                  style: GoogleFonts.roboto(
-                      fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Icon(
-                  Icons.favorite,
-                  color: Colors.blue[900],
-                  size: 21,
-                ),
-                Text(
-                  " by Monikinderjit Singh",
-                  style: GoogleFonts.robotoSlab(
-                      fontSize: 21, fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
+                  Text(
+                    "Built with",
+                    style: GoogleFonts.roboto(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.blue[900],
+                    size: 21,
+                  ),
+                  Text(
+                    " by Monikinderjit Singh",
+                    style: GoogleFonts.robotoSlab(
+                        fontSize: 21, fontWeight: FontWeight.w600),
+                  ),
+                  // socialMediaRow(),
                 ],
-                
               ),
             ],
           ),
         ),
       ),
-      );
+    );
   }
 }
