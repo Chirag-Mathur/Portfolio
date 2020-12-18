@@ -1,11 +1,14 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:universal_html/html.dart';
 
 import '../extensions/HoverExtensions.dart ';
 import '../screens/AboutScreen.dart';
 import '../screens/ProjectScreen.dart';
 
-Widget appBarWidget(BuildContext context) {
+Widget appBarWidget(
+    BuildContext context, ScrollController scrollController, bool isHomePage) {
   double fontsize = 25;
   Color textColor = Color(0xff173266);
   return AppBar(
@@ -62,6 +65,62 @@ Widget appBarWidget(BuildContext context) {
                     );
                   }),
             );
+            // Navigator.of(context).pushNamed(AboutScreen.routeName);
+          },
+        ),
+      ),
+      SizedBox(
+        width: MediaQuery.of(context).size.width * 0.02,
+      ),
+      Padding(
+        padding: EdgeInsets.all(16.0),
+        child: FlatButton(
+          hoverColor: Colors.transparent,
+          splashColor: Colors.blue[900],
+          child: Text(
+            "Skills",
+            style: GoogleFonts.domine(
+              fontWeight: FontWeight.w600,
+              fontSize: fontsize,
+              color: textColor,
+            ),
+          ),
+          onPressed: () async {
+            if (isHomePage) {
+              scrollController.animateTo(
+                MediaQuery.of(context).size.height,
+                duration: Duration(
+                  seconds: 3,
+                ),
+                curve: Curves.easeOut,
+              );
+            } else {
+              Navigator.of(context).push(
+                PageRouteBuilder(
+                    pageBuilder: (context, animation, anotherAnimation) {
+                      return AboutScreen();
+                    },
+                    transitionDuration: Duration(milliseconds: 2000),
+                    transitionsBuilder:
+                        (context, animation, anotherAnimation, child) {
+                      animation = CurvedAnimation(
+                          curve: Curves.linearToEaseOut, parent: animation);
+                      return Align(
+                        child: SizeTransition(
+                          sizeFactor: animation,
+                          child: child,
+                          axisAlignment: 1.0,
+                        ),
+                      );
+                    }),
+              );
+            }
+            // await Future.delayed(const Duration(seconds: 20), () {
+            //   print("Waited");
+            // });
+            // Timer(Duration(seconds: 1), () {
+
+            // });
             // Navigator.of(context).pushNamed(AboutScreen.routeName);
           },
         ),

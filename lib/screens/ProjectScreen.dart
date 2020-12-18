@@ -9,10 +9,12 @@ import '../info/projects.dart';
 class ProjectScreen extends StatelessWidget {
   static const String routeName = '/ProjectScreen';
   final List<Map<String, dynamic>> _projectsList = projectsList;
+  final ScrollController _scrollController = ScrollController();
+  final bool isHomePage = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidget(context),
+      appBar: appBarWidget(context, _scrollController, isHomePage),
       backgroundColor: Color.fromRGBO(189, 224, 255, 1),
       body: Scrollbar(
         thickness: 12,
@@ -20,6 +22,7 @@ class ProjectScreen extends StatelessWidget {
         child: Container(
           height: MediaQuery.of(context).size.height * 1.3,
           child: ListView(
+            controller: _scrollController,
             itemExtent: MediaQuery.of(context).size.height * 0.8,
             children: [
               Row(

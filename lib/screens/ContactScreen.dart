@@ -10,6 +10,7 @@ class ContactScreen extends StatefulWidget {
 }
 
 class _ContactScreenState extends State<ContactScreen> {
+  final bool isHomePage = false;
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _messageController = TextEditingController();
