@@ -21,7 +21,7 @@ Widget appBarWidget(
         "Monikinderjit Singh",
         style: TextStyle(
             fontFamily: 'TheRichJuliet',
-            fontSize: 55,
+            fontSize: 53,
             color: textColor,
             fontWeight: FontWeight.w800),
       ),
@@ -30,7 +30,6 @@ Widget appBarWidget(
       },
     ).showCursorOnHover,
     leadingWidth: 400,
-// title: socialMediaRow(),
     actions: [
       Padding(
         padding: EdgeInsets.all(16.0),
@@ -46,25 +45,35 @@ Widget appBarWidget(
             ),
           ),
           onPressed: () {
-            Navigator.of(context).push(
-              PageRouteBuilder(
-                  pageBuilder: (context, animation, anotherAnimation) {
-                    return AboutScreen();
-                  },
-                  transitionDuration: Duration(milliseconds: 2000),
-                  transitionsBuilder:
-                      (context, animation, anotherAnimation, child) {
-                    animation = CurvedAnimation(
-                        curve: Curves.linearToEaseOut, parent: animation);
-                    return Align(
-                      child: SizeTransition(
-                        sizeFactor: animation,
-                        child: child,
-                        axisAlignment: 1.0,
-                      ),
-                    );
-                  }),
-            );
+            if (isHomePage) {
+              scrollController.animateTo(
+                -MediaQuery.of(context).size.height,
+                duration: Duration(
+                  seconds: 5,
+                ),
+                curve: Curves.easeOut,
+              );
+            } else {
+              Navigator.of(context).push(
+                PageRouteBuilder(
+                    pageBuilder: (context, animation, anotherAnimation) {
+                      return AboutScreen();
+                    },
+                    transitionDuration: Duration(milliseconds: 2000),
+                    transitionsBuilder:
+                        (context, animation, anotherAnimation, child) {
+                      animation = CurvedAnimation(
+                          curve: Curves.linearToEaseOut, parent: animation);
+                      return Align(
+                        child: SizeTransition(
+                          sizeFactor: animation,
+                          child: child,
+                          axisAlignment: 1.0,
+                        ),
+                      );
+                    }),
+              );
+            }
             // Navigator.of(context).pushNamed(AboutScreen.routeName);
           },
         ),
@@ -147,7 +156,7 @@ Widget appBarWidget(
                 pageBuilder: (context, animation, anotherAnimation) {
                   return ProjectScreen();
                 },
-                transitionDuration: Duration(milliseconds: 2000),
+                transitionDuration: Duration(milliseconds: 6000),
                 transitionsBuilder:
                     (context, animation, anotherAnimation, child) {
                   animation = CurvedAnimation(
@@ -196,14 +205,9 @@ Widget appBarWidget(
           onPressed: () {
             AboutScreen.openLink(
                 "https://drive.google.com/file/d/1GTGLuEK-5l2B2nxEemUSMauEYQzOCYCs/view?usp=sharing");
-            // Navigator.of(context).pushNamed(ContactScreen.routeName);
           },
         ),
       ),
-      // SizedBox(
-      //   width: MediaQuery.of(context).size.width * 0.003,
-      // ),
-      // Spacer(),
     ],
   );
 }

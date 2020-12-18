@@ -62,7 +62,7 @@ Widget skillsWidget(BuildContext context) {
                       ),
                       Container(
                         margin: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.019),
+                            top: MediaQuery.of(context).size.height * 0.01),
                         color: Colors.transparent,
                         width: MediaQuery.of(context).size.width * 0.27,
                         height: MediaQuery.of(context).size.width * 0.18,

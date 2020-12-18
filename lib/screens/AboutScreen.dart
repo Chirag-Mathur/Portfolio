@@ -185,7 +185,10 @@ class AboutScreen extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.01),
                     ],
                   ),
-                  skillsWidget(context),
+                  Padding(
+                    padding: EdgeInsets.all(38.0),
+                    child: skillsWidget(context),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -209,15 +212,15 @@ class AboutScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              FloatingActionButton(
-                onPressed: () {
-                  _scrollController.animateTo(
-                    MediaQuery.of(context).size.height,
-                    duration: Duration(seconds: 3),
-                    curve: Curves.easeOut,
-                  );
-                },
-              )
+              // FloatingActionButton(
+              //   onPressed: () {
+              //     _scrollController.animateTo(
+              //       MediaQuery.of(context).size.height,
+              //       duration: Duration(seconds: 3),
+              //       curve: Curves.easeOut,
+              //     );
+              //   },
+              // )
             ],
           ),
         ),
