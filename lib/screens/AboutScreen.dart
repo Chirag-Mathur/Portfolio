@@ -5,13 +5,14 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:floating_action_bubble/floating_action_bubble.dart';
 
 import '../widgets/Skills.dart';
 import '../widgets/appBarWidget.dart';
 
-class AboutScreen extends StatelessWidget {
+class AboutScreen extends StatefulWidget {
   static const String routeName = '/AboutScreen';
-  final bool isHomePage = true;
+
   static void openLink(String url) async {
     // String url = 'https://flutter.dev';
     if (kIsWeb) {
@@ -23,11 +24,116 @@ class AboutScreen extends StatelessWidget {
     }
   }
 
+  @override
+  _AboutScreenState createState() => _AboutScreenState();
+}
+
+class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStateMixin {
+
+  final bool isHomePage = true;
+
+  Animation<double> _animation;
+  AnimationController _animationController;
+
+  @override
+  void initState(){
+        
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 260),
+    );
+
+    final curvedAnimation = CurvedAnimation(curve: Curves.easeInOut, parent: _animationController);
+    _animation = Tween<double>(begin: -1, end: 1).animate(curvedAnimation);
+    
+    super.initState();
+
+
+  }
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
     return Scaffold(
       backgroundColor: Color.fromRGBO(189, 224, 255, 1),
       appBar: appBarWidget(context, _scrollController, isHomePage),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      
+      // //Init Floating Action Bubble 
+      // floatingActionButton: FloatingActionBubble(
+      //   // Menu items
+      //   items: <Bubble>[
+
+      //     // Floating action menu item
+      //     Bubble(
+      //       title:"Github",
+      //       iconColor :Colors.white,
+      //       bubbleColor : Colors.blue,
+      //       icon:Icons.settings,
+      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
+      //       onPress: () {
+      //         _animationController.reverse();
+      //       },
+      //     ),
+      //     // Floating action menu item
+      //     Bubble(
+      //       title:"Twitter",
+      //       iconColor :Colors.white,
+      //       bubbleColor : Colors.blue,
+      //       icon:Icons.settings,
+      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
+      //       onPress: () {
+      //         _animationController.reverse();
+      //       },
+      //     ),
+      //     Bubble(
+      //       title:"Linked In",
+      //       iconColor :Colors.white,
+      //       bubbleColor : Colors.blue,
+      //       icon:Icons.settings,
+      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
+      //       onPress: () {
+      //         _animationController.reverse();
+      //       },
+      //     ),
+      //     Bubble(
+      //       title:"Facebook",
+      //       iconColor :Colors.white,
+      //       bubbleColor : Colors.blue,
+      //       icon:Icons.people,
+      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
+      //       onPress: () {
+      //         _animationController.reverse();
+      //       },
+      //     ),
+      //     //Floating action menu item
+      //     Bubble(
+      //       title:"Instagram",
+      //       iconColor :Colors.white,
+      //       bubbleColor : Colors.blue,
+      //       icon:Icons.home,
+      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
+      //       onPress: () {
+      //         // Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) => Homepage()));
+      //         print('hello');
+      //         _animationController.reverse();
+      //       },
+      //     ),
+      //   ],
+
+      //   // animation controller
+      //   animation: _animation,
+
+      //   // On pressed change animation state
+      //   onPress: () => _animationController.isCompleted
+      //         ? _animationController.reverse()
+      //         : _animationController.forward(),
+        
+      //   // Floating Action button Icon color
+      //   iconColor: Colors.blue,
+
+      //   // Flaoting Action button Icon 
+      //   icon:AnimatedIcons.menu_home, 
+      //   // backGroundColor: Colors.white,
+      // ),
       body: Scrollbar(
         thickness: 12,
         isAlwaysShown: true,
@@ -221,6 +327,7 @@ class AboutScreen extends StatelessWidget {
               //     );
               //   },
               // )
+               
             ],
           ),
         ),

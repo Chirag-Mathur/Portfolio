@@ -14,7 +14,7 @@ Widget appBarWidget(
   return AppBar(
     automaticallyImplyLeading: false,
     toolbarHeight: 90,
-    elevation: 3,
+    elevation: 3.5,
     backgroundColor: Colors.transparent,
     leading: GestureDetector(
       child: Text(
