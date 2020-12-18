@@ -13,9 +13,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   static bool isLoaded = false;
-  static bool getisLoaded() {
-    return isLoaded;
-  }
+  // static bool getisLoaded() {
+  //   return isLoaded;
+  // }
 
   var _visible = true;
 

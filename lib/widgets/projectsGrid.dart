@@ -23,19 +23,14 @@ Widget projectGridView(
           width: MediaQuery.of(context).size.width * 0.32,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+              bottomLeft: Radius.circular(40),
+              bottomRight: Radius.circular(40),
             ),
           ),
           color: Colors.transparent,
-          child: GestureDetector(
-            onTap: () {
-              infoMapList[index]['projectLink']!=null?AboutScreen.openLink(infoMapList[index]['projectLink']):Navigator.of(context).pushNamed(AboutScreen.routeName);
-            },
-            onLongPress: () {},
-            child: Card(
+          child: Card(
               elevation: 10.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
@@ -46,7 +41,26 @@ Widget projectGridView(
                 ),
               ),
               color: Colors.blue[800],
-              child: Column(
+              child: RaisedButton(
+            
+            color: Colors.transparent,
+            // hoverColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),),
+            focusElevation: 30,
+            elevation: 4,
+            hoverElevation: 15,
+            animationDuration: Duration(seconds: 1),
+            onPressed: () {
+              infoMapList[index]['projectLink']!=null?AboutScreen.openLink(infoMapList[index]['projectLink']):Navigator.of(context).pushNamed(AboutScreen.routeName);
+            },
+            onLongPress: () {},
+            child: Column(
                 children: [
                   Container(
                     height: MediaQuery.of(context).size.height * 0.057,
@@ -106,9 +120,9 @@ Widget projectGridView(
                           child: Text(
                             "Tech Used :-",
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.aladin(
+                            style: GoogleFonts.alef(
                                 color: Colors.white,
-                                fontSize: 27,
+                                fontSize: 25,
                                 fontWeight: FontWeight.w400),
                           ),
                         ),

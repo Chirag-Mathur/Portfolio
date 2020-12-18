@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
 
-import '../widgets/socialMediaRow.dart';
+// import '../widgets/socialMediaRow.dart';
 
 Widget footer(BuildContext context) {
-  var parser = EmojiParser();
-  var emojiHeart = parser.info('heart');
-  print(emojiHeart);
   return Expanded(
     child: Align(
       alignment: Alignment.bottomCenter, //FractionalOffset.bottomCenter,
@@ -23,7 +19,7 @@ Widget footer(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                socialMediaRow(),
+                // socialMediaRow(),
                 Spacer(),
                 Text(
                   "Built with",

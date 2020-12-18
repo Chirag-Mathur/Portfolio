@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:my_portfolio/widgets/socialMediaRow.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:floating_action_bubble/floating_action_bubble.dart';
 
 import '../widgets/Skills.dart';
 import '../widgets/appBarWidget.dart';
@@ -28,37 +28,50 @@ class AboutScreen extends StatefulWidget {
   _AboutScreenState createState() => _AboutScreenState();
 }
 
-class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStateMixin {
-
+class _AboutScreenState extends State<AboutScreen>
+    with SingleTickerProviderStateMixin {
   final bool isHomePage = true;
 
   Animation<double> _animation;
   AnimationController _animationController;
-
+  var myImage1;
   @override
-  void initState(){
-        
+  void initState() {
+    myImage1 = Image.asset(
+      'assets/images/me2.png',
+      fit: BoxFit.fitHeight,
+      filterQuality: FilterQuality.high,
+      semanticLabel: 'Monikinderjit Singh Image',
+      scale: 0.87,
+    );
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 260),
     );
 
-    final curvedAnimation = CurvedAnimation(curve: Curves.easeInOut, parent: _animationController);
+    final curvedAnimation =
+        CurvedAnimation(curve: Curves.easeInOut, parent: _animationController);
     _animation = Tween<double>(begin: -1, end: 1).animate(curvedAnimation);
-    
+
     super.initState();
-
-
   }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(myImage1.image, context);
+  }
+
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
     return Scaffold(
       backgroundColor: Color.fromRGBO(189, 224, 255, 1),
       appBar: appBarWidget(context, _scrollController, isHomePage),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
-      
-      // //Init Floating Action Bubble 
-      // floatingActionButton: FloatingActionBubble(
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+
+      //Init Floating Action Bubble
+      // floatingActionButton:
+      //  FloatingActionBubble(
       //   // Menu items
       //   items: <Bubble>[
 
@@ -67,7 +80,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
       //       title:"Github",
       //       iconColor :Colors.white,
       //       bubbleColor : Colors.blue,
-      //       icon:Icons.settings,
+      //       icon:CustomIcons.github,
       //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
       //       onPress: () {
       //         _animationController.reverse();
@@ -78,7 +91,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
       //       title:"Twitter",
       //       iconColor :Colors.white,
       //       bubbleColor : Colors.blue,
-      //       icon:Icons.settings,
+      //       icon:CustomIcons.twitter,
       //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
       //       onPress: () {
       //         _animationController.reverse();
@@ -88,7 +101,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
       //       title:"Linked In",
       //       iconColor :Colors.white,
       //       bubbleColor : Colors.blue,
-      //       icon:Icons.settings,
+      //       icon:CustomIcons.linkedin,
       //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
       //       onPress: () {
       //         _animationController.reverse();
@@ -98,7 +111,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
       //       title:"Facebook",
       //       iconColor :Colors.white,
       //       bubbleColor : Colors.blue,
-      //       icon:Icons.people,
+      //       icon:CustomIcons.facebook_squared,
       //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
       //       onPress: () {
       //         _animationController.reverse();
@@ -109,7 +122,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
       //       title:"Instagram",
       //       iconColor :Colors.white,
       //       bubbleColor : Colors.blue,
-      //       icon:Icons.home,
+      //       icon:CustomIcons.instagram_square,
       //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
       //       onPress: () {
       //         // Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) => Homepage()));
@@ -126,14 +139,15 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
       //   onPress: () => _animationController.isCompleted
       //         ? _animationController.reverse()
       //         : _animationController.forward(),
-        
+
       //   // Floating Action button Icon color
       //   iconColor: Colors.blue,
 
-      //   // Flaoting Action button Icon 
-      //   icon:AnimatedIcons.menu_home, 
+      //   // Flaoting Action button Icon
+      //   icon:AnimatedIcons.menu_home,
       //   // backGroundColor: Colors.white,
       // ),
+floatingActionButton: socialMediaButton(),
       body: Scrollbar(
         thickness: 12,
         isAlwaysShown: true,
@@ -145,8 +159,8 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
               ListWheelScrollView(
                 controller: _scrollController,
                 // offAxisFraction: 0.2,
-                diameterRatio: 5,
-                itemExtent: MediaQuery.of(context).size.height,
+                diameterRatio: 7,
+                itemExtent: MediaQuery.of(context).size.height * 1.3,
                 children: [
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -160,7 +174,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
                           padding: EdgeInsets.only(
                               left: MediaQuery.of(context).size.width * 0.1),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -206,25 +220,6 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
                                   ),
                                 ],
                               ),
-                              Container(
-                                // color: Colors.pink,
-                                alignment: Alignment.centerLeft,
-                                padding: EdgeInsets.only(
-                                  top:
-                                      MediaQuery.of(context).size.height * 0.25,
-                                  // left: MediaQuery.of(context).size.width * 0.087,
-                                  bottom: MediaQuery.of(context).size.height *
-                                      0.008,
-                                ),
-                                child: Text(
-                                  'My Skills',
-                                  textAlign: TextAlign.left,
-                                  style: GoogleFonts.robotoSlab(
-                                      fontSize: 50,
-                                      color: Color(0xff00305b),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -247,41 +242,25 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
                                 ),
                                 color: Color(0xff173266),
                               ),
-                              child: Image.asset(
-                                'assets/images/me2.png',
-                                fit: BoxFit.fitHeight,
-                                filterQuality: FilterQuality.high,
-                                semanticLabel: 'Monikinderjit Singh Image',
-                                scale: 0.87,
-                              ),
+                              child:myImage1,
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.2,
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width * 0.21,
                               height: MediaQuery.of(context).size.height * 0.1,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  // SizedBox(width: 20.0, height: 100.0),
-                                  Text(
-                                    "Be",
-                                    style: TextStyle(fontSize: 43.0),
-                                  ),
-                                  SizedBox(width: 20.0, height: 100.0),
-                                  RotateAnimatedTextKit(
-                                      repeatForever: true,
-                                      text: [
-                                        "DISCIPLINED",
-                                        "OPTIMISTIC",
-                                        "LEARNER",
-                                        "LISTENER"
-                                      ],
-                                      textStyle:
-                                          GoogleFonts.orbitron(fontSize: 40.0),
-                                      textAlign: TextAlign.start),
+                              child: RotateAnimatedTextKit(
+                                repeatForever: true,
+                                text: [
+                                  "DISCIPLINED",
+                                  "OPTIMISTIC",
+                                  "LEARNER",
+                                  "LISTENER"
                                 ],
+                                textStyle: GoogleFonts.orbitron(fontSize: 40.0),
+                                textAlign: TextAlign.center,
                               ),
                             ),
                           ],
@@ -292,8 +271,10 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.all(38.0),
-                    child: skillsWidget(context),
+                    padding: EdgeInsets.zero, //all(38.0),
+                    child: 
+                        skillsWidget(context),
+                     
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -327,7 +308,6 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
               //     );
               //   },
               // )
-               
             ],
           ),
         ),

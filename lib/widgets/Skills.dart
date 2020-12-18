@@ -8,8 +8,28 @@ Widget skillsWidget(BuildContext context) {
   final List<String> _tools = tools;
   return Container(
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Container(
+          // color: Colors.pink,
+          alignment: Alignment.centerLeft,
+          padding: EdgeInsets.only(
+            top: MediaQuery.of(context).size.height * 0.16,
+            left: MediaQuery.of(context).size.width * 0.087,
+            bottom: 0,
+          ),
+          child: Text(
+            'My Skills',
+            textAlign: TextAlign.left,
+            style: GoogleFonts.robotoSlab(
+                fontSize: 45,
+                color: Color(0xff00305b),
+                fontWeight: FontWeight.w600),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.zero,
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.45,
           child: Row(
@@ -27,6 +47,7 @@ Widget skillsWidget(BuildContext context) {
                   ),
                 ),
                 child: Card(
+                  margin: EdgeInsets.zero,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(20),
@@ -105,12 +126,14 @@ Widget skillsWidget(BuildContext context) {
                 ),
               ),
               Container(
+                height: MediaQuery.of(context).size.height * 0.4,
                 padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.08),
+                    horizontal: MediaQuery.of(context).size.width * 0.09),
                 child: Image.asset(
                   'assets/images/coding2.png',
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  height: MediaQuery.of(context).size.height * 0.444,
+                  scale: 0.8,
+                  // width: MediaQuery.of(context).size.width * 0.4,
+                  // height: MediaQuery.of(context).size.height * 0.424,
                 ),
               ),
             ],

@@ -13,16 +13,19 @@ Widget appBarWidget(
   return AppBar(
     automaticallyImplyLeading: false,
     toolbarHeight: 90,
-    elevation: 3.5,
+    elevation: 0,
     backgroundColor: Colors.transparent,
     leading: GestureDetector(
-      child: Text(
-        "Monikinderjit Singh",
-        style: TextStyle(
-            fontFamily: 'TheRichJuliet',
-            fontSize: 53,
-            color: textColor,
-            fontWeight: FontWeight.w800),
+      child: Padding(
+        padding: EdgeInsets.only(left:12.0),
+        child: Text(
+          "Monikinderjit Singh",
+          style: TextStyle(
+              fontFamily: 'TheRichJuliet',
+              fontSize: 53,
+              color: textColor,
+              fontWeight: FontWeight.w700),
+        ),
       ),
       onTap: () {
         Navigator.of(context).pushNamed(AboutScreen.routeName);
@@ -96,7 +99,7 @@ Widget appBarWidget(
           onPressed: () async {
             if (isHomePage) {
               scrollController.animateTo(
-                MediaQuery.of(context).size.height,
+                MediaQuery.of(context).size.height*1.243,
                 duration: Duration(
                   seconds: 3,
                 ),
@@ -155,16 +158,16 @@ Widget appBarWidget(
                 pageBuilder: (context, animation, anotherAnimation) {
                   return ProjectScreen();
                 },
-                transitionDuration: Duration(milliseconds: 6000),
+                transitionDuration: Duration(milliseconds: 3000),
                 transitionsBuilder:
                     (context, animation, anotherAnimation, child) {
                   animation = CurvedAnimation(
-                      curve: Curves.easeOutQuint, parent: animation);
+                      curve: Curves.easeOutSine, parent: animation);
                   return Align(
                     child: SizeTransition(
                       sizeFactor: animation,
                       child: child,
-                      axisAlignment: -1.0,
+                      axisAlignment: 0.0,
                     ),
                   );
                 },
@@ -185,7 +188,7 @@ Widget appBarWidget(
           splashColor: Colors.blue[900],
           color: Colors.transparent,
           hoverElevation: 14,
-          elevation: 7,
+          // elevation: 7,
           shape: RoundedRectangleBorder(
             side: BorderSide(
               width: 1.6,

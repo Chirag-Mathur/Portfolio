@@ -1,57 +1,121 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/screens/AboutScreen.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
-Widget socialMediaRow() {
-  return Row(
+Widget socialMediaButton() {
+  return SpeedDial(
+    // both default to 16
+    marginRight: 25,
+    marginBottom: 23,
+    animatedIcon: AnimatedIcons.menu_close,
+    animatedIconTheme: IconThemeData(size: 22.0),
+    closeManually: false,
+    curve: Curves.bounceIn,
+    overlayColor: Colors.black,
+    overlayOpacity: 0.1,
+    tooltip: 'Social Media',
+    heroTag: 'Social Media',
+    backgroundColor: Color(0xff173266),
+    elevation: 10.0,
     children: [
-      IconButton(
-        icon: Image.asset(
-          'assets/images/linkedin.png',
-        ),
-        onPressed: () {
-          AboutScreen.openLink(
-              "https://www.linkedin.com/in/monikinderjit-singh/");
-        },
-        iconSize: 39,
-      ),
-      IconButton(
-        icon: Image.asset(
-          'assets/images/twitter.png',
-        ),
-        onPressed: () {
-          AboutScreen.openLink("https://twitter.com/MonikIJS");
-        },
-        iconSize: 42,
-      ),
-      IconButton(
-        icon: Image.asset(
+      // SpeedDialChild(
+      //     child: Image.asset(
+      //       'assets/images/fb_logo.png',
+      //       width: 50,
+      //       height: 50,
+      //     ),
+      //     backgroundColor: Colors.white,
+      //     foregroundColor: Colors.white,),
+      SpeedDialChild(
+        child: Image.asset(
           'assets/images/github.png',
         ),
-        onPressed: () {
-          AboutScreen.openLink("https://github.com/Monik09");
-        },
-        iconSize: 42,
-      ),
-      IconButton(
-        icon: Image.asset(
-          'assets/images/fb.png',
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
+        // label: 'Github',
+        labelStyle: TextStyle(fontSize: 18.0),
+        onTap: () => AboutScreen.openLink(
+          "https://github.com/Monik09",
         ),
-        onPressed: () {
-          AboutScreen.openLink(
-              "https://www.facebook.com/monik.inderjitsingh.3");
-        },
-        iconSize: 37,
       ),
-      IconButton(
-        icon: Image.asset(
-          'assets/images/insta.png',
+      SpeedDialChild(
+        child: Image.asset(
+          'assets/images/linkedin_logo.png',
         ),
-        onPressed: () {
-          AboutScreen.openLink(
-              "https://www.instagram.com/monikinderjit_singh_/");
-        },
-        iconSize: 43,
+        backgroundColor: Colors.white,
+        // label: 'LinkedIn',
+        labelStyle: TextStyle(fontSize: 18.0),
+        onTap: () => AboutScreen.openLink(
+          "https://www.linkedin.com/in/monikinderjit-singh/",
+        ),
+      ),
+      SpeedDialChild(
+        child: Image.asset('assets/images/twitter_logo.png',),
+        backgroundColor: Colors.white,
+        // label: 'Twitter',
+        labelStyle: TextStyle(fontSize: 18.0),
+        onTap: () => AboutScreen.openLink(
+          "https://twitter.com/MonikIJS",
+        ),
+      ),
+      SpeedDialChild(
+        child:
+            Image.asset('assets/images/insta_logo.png',
+                ),
+        backgroundColor: Colors.white,
+        // label: 'Insta',
+        labelStyle: TextStyle(fontSize: 18.0),
+        onTap: () => AboutScreen.openLink(
+          "https://www.instagram.com/monikinderjit_singh_/",
+        ),
       ),
     ],
   );
 }
+
+// Widget socialMediaRow() {
+//   return Row(
+//     children: [
+//       IconButton(
+//         icon: Image.asset(
+//           'assets/images/linkedin.png',
+//         ),
+//         onPressed: () {
+//         iconSize: 39,
+//       ),
+//       IconButton(
+//         icon: Image.asset(
+//           'assets/images/twitter.png',
+//         ),
+//         onPressed: () {
+//         },
+//         iconSize: 42,
+//       ),
+//       IconButton(
+//         icon: Image.asset(
+//           'assets/images/github.png',
+//         ),
+//         onPressed: () {
+//         },
+//         iconSize: 42,
+//       ),
+//       IconButton(
+//         icon: Image.asset(
+//           'assets/images/fb.png',
+//         ),
+//         onPressed: () {
+//           AboutScreen.openLink(
+//         },
+//         iconSize: 37,
+//       ),
+//       IconButton(
+//         icon: Image.asset(
+//           'assets/images/insta.png',
+//         ),
+//         onPressed: () {
+//         },
+//         iconSize: 43,
+//       ),
+//     ],
+//   );
+// }
