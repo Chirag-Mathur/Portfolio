@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/widgets/footer.dart';
+import '../widgets/footer.dart';
 
 class ContactScreen extends StatefulWidget {
   static const String routeName = "/ContactScreen";

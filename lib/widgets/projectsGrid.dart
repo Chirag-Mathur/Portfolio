@@ -32,7 +32,7 @@ Widget projectGridView(
           color: Colors.transparent,
           child: GestureDetector(
             onTap: () {
-              AboutScreen.openLink(infoMapList[index]['projectLink']);
+              infoMapList[index]['projectLink']!=null?AboutScreen.openLink(infoMapList[index]['projectLink']):Navigator.of(context).pushNamed(AboutScreen.routeName);
             },
             onLongPress: () {},
             child: Card(

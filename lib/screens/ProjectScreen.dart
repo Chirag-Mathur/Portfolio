@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/widgets/projectsGrid.dart';
 
+import '../widgets/projectsGrid.dart';
 import '../widgets/footer.dart';
 import '../widgets/appBarWidget.dart';
 import '../info/projects.dart';

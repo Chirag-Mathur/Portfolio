@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
-import 'package:my_portfolio/widgets/socialMediaRow.dart';
+
+import '../widgets/socialMediaRow.dart';
 
 Widget footer(BuildContext context) {
   var parser = EmojiParser();
