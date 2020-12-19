@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:my_portfolio/widgets/socialMediaRow.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+import '../info/globals.dart';
+import '../widgets/socialMediaRow.dart';
 import '../widgets/Skills.dart';
 import '../widgets/appBarWidget.dart';
 
@@ -65,7 +66,7 @@ class _AboutScreenState extends State<AboutScreen>
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
     return Scaffold(
-      backgroundColor: Color.fromRGBO(189, 224, 255, 1),
+      backgroundColor: Globals.backgroundColor,
       appBar: appBarWidget(context, _scrollController, isHomePage),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
@@ -115,11 +116,10 @@ class _AboutScreenState extends State<AboutScreen>
                                         ),
                                       ),
                                       Image.network(
-                                        "https://media.giphy.com/media/Vhd10uVrDjMhAG7IyV/giphy.gif" //"https://media.giphy.com/media/Q7LHmoFwVP6Yc1swZs/giphy.gif",
-                                        ,
+                                        "https://media.giphy.com/media/Vhd10uVrDjMhAG7IyV/giphy.gif",
                                         // scale: 0.5,
                                         width: 47,
-                                        
+
                                         height: 125,
                                         fit: BoxFit.fitHeight,
                                       ),

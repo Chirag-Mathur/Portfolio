@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../info/projects.dart';
+import '../info/globals.dart';
 
 Widget skillsWidget(BuildContext context) {
-  final List<String> _langFram = langAndFramewks;
-  final List<String> _tools = tools;
+  final List<String> _langFram = Globals.langAndFramewks;
+  final List<String> _tools = Globals.tools;
   return Container(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,

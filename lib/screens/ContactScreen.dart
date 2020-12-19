@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/footer.dart';
+import '../info/globals.dart';
 //not added to website
 //under Development
 class ContactScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _ContactScreenState extends State<ContactScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: appBarWidget(context),
-      backgroundColor: Color.fromRGBO(189, 224, 255, 1),
+      backgroundColor: Globals.backgroundColor,
       body: Container(
         height: MediaQuery.of(context).size.height,
         child: Column(

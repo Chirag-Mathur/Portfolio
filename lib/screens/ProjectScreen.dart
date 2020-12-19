@@ -4,18 +4,18 @@ import 'package:google_fonts/google_fonts.dart';
 import '../widgets/projectsGrid.dart';
 import '../widgets/footer.dart';
 import '../widgets/appBarWidget.dart';
-import '../info/projects.dart';
+import '../info/globals.dart';
 
 class ProjectScreen extends StatelessWidget {
   static const String routeName = '/ProjectScreen';
-  final List<Map<String, dynamic>> _projectsList = projectsList;
+  final List<Map<String, dynamic>> _projectsList = Globals.projectsList;
   final ScrollController _scrollController = ScrollController();
   final bool isHomePage = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarWidget(context, _scrollController, isHomePage),
-      backgroundColor: Color.fromRGBO(189, 224, 255, 1),
+      backgroundColor: Globals.backgroundColor,
       body: Scrollbar(
         thickness: 12,
         radius: Radius.circular(6),
