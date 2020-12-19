@@ -72,11 +72,6 @@ flutter:
         - asset: assets/fonts/theRichJuliet.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-    - family: BlacksOpsOne
-      fonts:
-        - asset: assets/fonts/BlackOpsOne.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

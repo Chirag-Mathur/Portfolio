@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:universal_html/html.dart';
 
-import '../extensions/HoverExtensions.dart ';
 import '../screens/AboutScreen.dart';
 import '../screens/ProjectScreen.dart';
 
@@ -30,7 +29,7 @@ Widget appBarWidget(
       onTap: () {
         Navigator.of(context).pushNamed(AboutScreen.routeName);
       },
-    ).showCursorOnHover,
+    ),
     leadingWidth: 400,
     actions: [
       Padding(

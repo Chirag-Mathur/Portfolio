@@ -17,24 +17,17 @@ class _SplashScreenState extends State<SplashScreen>
   //   return isLoaded;
   // }
 
-  var _visible = true;
 
   AnimationController animationController;
   Animation<double> animation;
   Timer timer;
   @override
   void initState() {
-    if (!isLoaded) {
-      isLoaded = true;
-      print(isLoaded);
       // animationController = new AnimationController(
       //     vsync: this, duration: new Duration(seconds: 10));
       // animation =
       //     new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
 
-      setState(() {
-        _visible = !_visible;
-      });
       progresser();
       Timer(Duration(seconds: 9), () {
         print('To About Screen');
@@ -52,7 +45,6 @@ class _SplashScreenState extends State<SplashScreen>
               );
               animation = CurvedAnimation(
                   curve: Curves.easeInToLinear, parent: animation);
-              // animation.addListener(() => this.setState(() {}));
               animationController.forward();
               return Align(
                 child: SizeTransition(
@@ -67,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen>
           // ProjectScreen.routeName
         );
       });
-    }
+    
     super.initState();
   }
 

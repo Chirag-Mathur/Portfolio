@@ -67,87 +67,9 @@ class _AboutScreenState extends State<AboutScreen>
     return Scaffold(
       backgroundColor: Color.fromRGBO(189, 224, 255, 1),
       appBar: appBarWidget(context, _scrollController, isHomePage),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
-
-      //Init Floating Action Bubble
-      // floatingActionButton:
-      //  FloatingActionBubble(
-      //   // Menu items
-      //   items: <Bubble>[
-
-      //     // Floating action menu item
-      //     Bubble(
-      //       title:"Github",
-      //       iconColor :Colors.white,
-      //       bubbleColor : Colors.blue,
-      //       icon:CustomIcons.github,
-      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
-      //       onPress: () {
-      //         _animationController.reverse();
-      //       },
-      //     ),
-      //     // Floating action menu item
-      //     Bubble(
-      //       title:"Twitter",
-      //       iconColor :Colors.white,
-      //       bubbleColor : Colors.blue,
-      //       icon:CustomIcons.twitter,
-      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
-      //       onPress: () {
-      //         _animationController.reverse();
-      //       },
-      //     ),
-      //     Bubble(
-      //       title:"Linked In",
-      //       iconColor :Colors.white,
-      //       bubbleColor : Colors.blue,
-      //       icon:CustomIcons.linkedin,
-      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
-      //       onPress: () {
-      //         _animationController.reverse();
-      //       },
-      //     ),
-      //     Bubble(
-      //       title:"Facebook",
-      //       iconColor :Colors.white,
-      //       bubbleColor : Colors.blue,
-      //       icon:CustomIcons.facebook_squared,
-      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
-      //       onPress: () {
-      //         _animationController.reverse();
-      //       },
-      //     ),
-      //     //Floating action menu item
-      //     Bubble(
-      //       title:"Instagram",
-      //       iconColor :Colors.white,
-      //       bubbleColor : Colors.blue,
-      //       icon:CustomIcons.instagram_square,
-      //       titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
-      //       onPress: () {
-      //         // Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) => Homepage()));
-      //         print('hello');
-      //         _animationController.reverse();
-      //       },
-      //     ),
-      //   ],
-
-      //   // animation controller
-      //   animation: _animation,
-
-      //   // On pressed change animation state
-      //   onPress: () => _animationController.isCompleted
-      //         ? _animationController.reverse()
-      //         : _animationController.forward(),
-
-      //   // Floating Action button Icon color
-      //   iconColor: Colors.blue,
-
-      //   // Flaoting Action button Icon
-      //   icon:AnimatedIcons.menu_home,
-      //   // backGroundColor: Colors.white,
-      // ),
-floatingActionButton: socialMediaButton(),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButton: socialMediaButton(),
       body: Scrollbar(
         thickness: 12,
         isAlwaysShown: true,
@@ -159,7 +81,8 @@ floatingActionButton: socialMediaButton(),
               ListWheelScrollView(
                 controller: _scrollController,
                 // offAxisFraction: 0.2,
-                diameterRatio: 7,
+                diameterRatio: 10,
+                clipBehavior: Clip.hardEdge,
                 itemExtent: MediaQuery.of(context).size.height * 1.3,
                 children: [
                   Row(
@@ -204,7 +127,7 @@ floatingActionButton: socialMediaButton(),
                                   ),
                                   Container(
                                     child: TypewriterAnimatedTextKit(
-                                      speed: Duration(milliseconds: 100),
+                                      speed: Duration(milliseconds: 150),
                                       text: [
                                         "Love Exploring technologies.",
                                         "Mostly Debugging code than writing :).",
@@ -242,27 +165,27 @@ floatingActionButton: socialMediaButton(),
                                 ),
                                 color: Color(0xff173266),
                               ),
-                              child:myImage1,
+                              child: myImage1,
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
-                            Container(
-                              alignment: Alignment.center,
-                              width: MediaQuery.of(context).size.width * 0.21,
-                              height: MediaQuery.of(context).size.height * 0.1,
-                              child: RotateAnimatedTextKit(
-                                repeatForever: true,
-                                text: [
-                                  "DISCIPLINED",
-                                  "OPTIMISTIC",
-                                  "LEARNER",
-                                  "LISTENER"
-                                ],
-                                textStyle: GoogleFonts.orbitron(fontSize: 40.0),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                            // Container(
+                            //   alignment: Alignment.center,
+                            //   width: MediaQuery.of(context).size.width * 0.21,
+                            //   height: MediaQuery.of(context).size.height * 0.1,
+                            //   child: RotateAnimatedTextKit(
+                            //     repeatForever: true,
+                            //     text: [
+                            //       "DISCIPLINED",
+                            //       "OPTIMISTIC",
+                            //       "LEARNER",
+                            //       "LISTENER"
+                            //     ],
+                            //     textStyle: GoogleFonts.orbitron(fontSize: 40.0),
+                            //     textAlign: TextAlign.center,
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
@@ -272,9 +195,7 @@ floatingActionButton: socialMediaButton(),
                   ),
                   Padding(
                     padding: EdgeInsets.zero, //all(38.0),
-                    child: 
-                        skillsWidget(context),
-                     
+                    child: skillsWidget(context),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
