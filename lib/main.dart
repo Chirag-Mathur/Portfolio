@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Monikinderjit Singh',
-      home: AboutScreen(),//SplashScreen(),
+      title: 'Monikinderjit Singh Portfolio',
+      home: SplashScreen(),
       routes: {
         AboutScreen.routeName: (context) => AboutScreen(),
         ProjectScreen.routeName: (context) => ProjectScreen(),

@@ -31,7 +31,20 @@ Widget projectGridView(
           ),
           color: Colors.transparent,
           child: Card(
-              elevation: 10.0,
+            elevation: 10.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+            ),
+            color: Colors.blue[800],
+            child: RaisedButton(
+              color: Colors.transparent,
+              // hoverColor: Colors.transparent,
+              splashColor: Colors.transparent,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
@@ -40,27 +53,17 @@ Widget projectGridView(
                   bottomRight: Radius.circular(20),
                 ),
               ),
-              color: Colors.blue[800],
-              child: RaisedButton(
-            
-            color: Colors.transparent,
-            // hoverColor: Colors.transparent,
-            splashColor: Colors.transparent,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
-            ),),
-            focusElevation: 30,
-            elevation: 4,
-            hoverElevation: 15,
-            animationDuration: Duration(seconds: 1),
-            onPressed: () {
-              infoMapList[index]['projectLink']!=null?AboutScreen.openLink(infoMapList[index]['projectLink']):Navigator.of(context).pushNamed(AboutScreen.routeName);
-            },
-            onLongPress: () {},
-            child: Column(
+              focusElevation: 30,
+              elevation: 8,
+              hoverElevation: 45,
+              animationDuration: Duration(seconds: 1),
+              onPressed: () {
+                infoMapList[index]['projectLink'] != null
+                    ? AboutScreen.openLink(infoMapList[index]['projectLink'])
+                    : Navigator.of(context).pushNamed(AboutScreen.routeName);
+              },
+              onLongPress: () {},
+              child: Column(
                 children: [
                   Container(
                     height: MediaQuery.of(context).size.height * 0.057,

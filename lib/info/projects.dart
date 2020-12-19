@@ -4,7 +4,8 @@ const List<Map<String, dynamic>> projectsList = [
     'startedIn': 'December 2020',
     'description':
         'My portfolio website created by myself which showcases my skills and profiles.',
-    'techUsed': ['assets/images/flutter.webp']
+      'projectLink':'https://github.com/Monik09/Portfolio',
+    'techUsed': ['assets/images/flutter.png']
   },
   {
     'title': "Chat App",
@@ -14,7 +15,7 @@ const List<Map<String, dynamic>> projectsList = [
     'techUsed': ['assets/images/flutter.png', 'assets/images/firebase.png']
   },
   {
-    'title': "Code-busta Language",
+    'title': "CineScript",
     'startedIn': 'September-December 2020',
     'description':
         'Java based programming language built in team project based on BOLLYWOOD theme',
@@ -31,7 +32,7 @@ const List<Map<String, dynamic>> projectsList = [
   {
     'title': "Shop App",
     'startedIn': 'May 2020',
-    'description': 'An app to buy goods online',
+    'description': 'An app to buy goods online. This app uses data from internet and some animations for better user experience.',
     'projectLink': 'https://github.com/Monik09/shop-app',
     'techUsed': ['assets/images/flutter.png', 'assets/images/firebase.png']
   },

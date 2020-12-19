@@ -14,26 +14,34 @@ Widget appBarWidget(
     toolbarHeight: 90,
     elevation: 0,
     backgroundColor: Colors.transparent,
-    leading: GestureDetector(
+    leading: InkWell(
+      customBorder: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(
+            15,
+          ),
+        ),
+      ),
+      hoverColor: Colors.black12,
       child: Padding(
-        padding: EdgeInsets.only(left:12.0),
+        padding: EdgeInsets.only(left: 12.0),
         child: Text(
           "Monikinderjit Singh",
           style: TextStyle(
               fontFamily: 'TheRichJuliet',
               fontSize: 53,
               color: textColor,
-              fontWeight: FontWeight.w700),
+              fontWeight: FontWeight.w600),
         ),
       ),
       onTap: () {
         Navigator.of(context).pushNamed(AboutScreen.routeName);
       },
     ),
-    leadingWidth: 400,
+    leadingWidth: 330,
     actions: [
       Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.only(top: 12.0),
         child: FlatButton(
           hoverColor: Colors.transparent,
           splashColor: Colors.blue[900],
@@ -66,24 +74,25 @@ Widget appBarWidget(
                       animation = CurvedAnimation(
                           curve: Curves.linearToEaseOut, parent: animation);
                       return Align(
-                        child: SizeTransition(
-                          sizeFactor: animation,
+                        child: FadeTransition(
+                          // sizeFactor: animation,
                           child: child,
-                          axisAlignment: 1.0,
+                          opacity: animation,
+                          // axisAlignment: 1.0,
                         ),
                       );
                     }),
               );
             }
-            // Navigator.of(context).pushNamed(AboutScreen.routeName);
           },
         ),
       ),
+      // ),
       SizedBox(
         width: MediaQuery.of(context).size.width * 0.02,
       ),
       Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.only(top: 12.0),
         child: FlatButton(
           hoverColor: Colors.transparent,
           splashColor: Colors.blue[900],
@@ -98,7 +107,7 @@ Widget appBarWidget(
           onPressed: () async {
             if (isHomePage) {
               scrollController.animateTo(
-                MediaQuery.of(context).size.height*1.243,
+                MediaQuery.of(context).size.height * 1.243,
                 duration: Duration(
                   seconds: 3,
                 ),
@@ -116,30 +125,25 @@ Widget appBarWidget(
                       animation = CurvedAnimation(
                           curve: Curves.linearToEaseOut, parent: animation);
                       return Align(
-                        child: SizeTransition(
-                          sizeFactor: animation,
+                        child: FadeTransition(
+                          // sizeFactor: animation,
                           child: child,
-                          axisAlignment: 1.0,
+                          opacity: animation,
+                          // axisAlignment: 1.0,
                         ),
                       );
                     }),
               );
             }
-            // await Future.delayed(const Duration(seconds: 20), () {
-            //   print("Waited");
-            // });
-            // Timer(Duration(seconds: 1), () {
-
-            // });
-            // Navigator.of(context).pushNamed(AboutScreen.routeName);
           },
         ),
       ),
+
       SizedBox(
         width: MediaQuery.of(context).size.width * 0.02,
       ),
       Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.only(top: 12.0),
         child: FlatButton(
           hoverColor: Colors.transparent,
           splashColor: Colors.blue[900],
@@ -157,16 +161,17 @@ Widget appBarWidget(
                 pageBuilder: (context, animation, anotherAnimation) {
                   return ProjectScreen();
                 },
-                transitionDuration: Duration(milliseconds: 3000),
+                transitionDuration: Duration(milliseconds: 1700),
                 transitionsBuilder:
                     (context, animation, anotherAnimation, child) {
                   animation = CurvedAnimation(
                       curve: Curves.easeOutSine, parent: animation);
                   return Align(
-                    child: SizeTransition(
-                      sizeFactor: animation,
+                    child: FadeTransition(
+                      // sizeFactor: animation,
                       child: child,
-                      axisAlignment: 0.0,
+                      opacity: animation,
+                      // axisAlignment: 0.0,
                     ),
                   );
                 },
@@ -176,6 +181,7 @@ Widget appBarWidget(
           },
         ),
       ),
+
       SizedBox(
         width: MediaQuery.of(context).size.width * 0.02,
       ),
@@ -186,7 +192,7 @@ Widget appBarWidget(
           hoverColor: Colors.transparent,
           splashColor: Colors.blue[900],
           color: Colors.transparent,
-          hoverElevation: 14,
+          hoverElevation: 10,
           // elevation: 7,
           shape: RoundedRectangleBorder(
             side: BorderSide(

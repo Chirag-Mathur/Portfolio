@@ -81,7 +81,7 @@ class _AboutScreenState extends State<AboutScreen>
               ListWheelScrollView(
                 controller: _scrollController,
                 // offAxisFraction: 0.2,
-                diameterRatio: 10,
+                diameterRatio: 17.5,
                 clipBehavior: Clip.hardEdge,
                 itemExtent: MediaQuery.of(context).size.height * 1.3,
                 children: [
@@ -103,14 +103,36 @@ class _AboutScreenState extends State<AboutScreen>
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Hi, I'm Monik.",
-                                    semanticsLabel: 'Monik intro',
-                                    style: GoogleFonts.robotoSlab(
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0xff00305b),
-                                    ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Hi",
+                                        semanticsLabel: 'Monik intro',
+                                        style: GoogleFonts.robotoSlab(
+                                          fontSize: 40,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xff00305b),
+                                        ),
+                                      ),
+                                      Image.network(
+                                        "https://media.giphy.com/media/Vhd10uVrDjMhAG7IyV/giphy.gif" //"https://media.giphy.com/media/Q7LHmoFwVP6Yc1swZs/giphy.gif",
+                                        ,
+                                        // scale: 0.5,
+                                        width: 47,
+                                        
+                                        height: 125,
+                                        fit: BoxFit.fitHeight,
+                                      ),
+                                      Text(
+                                        ", I'm Monik.",
+                                        semanticsLabel: 'Monik intro',
+                                        style: GoogleFonts.robotoSlab(
+                                          fontSize: 40,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xff00305b),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                   Text(
                                     'Building apps, web apps and Learning new technology',
