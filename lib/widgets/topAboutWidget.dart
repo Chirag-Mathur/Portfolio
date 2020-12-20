@@ -27,6 +27,10 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                if(Globals.isLargeScreen(context))
+                 SizedBox(
+                  height:MediaQuery.of(context).size.height * 0.05,
+                ),
                 Row(
                   children: [
                     Text(
@@ -73,11 +77,10 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     ),
                   ],
                 ),
+                if(!(Globals.isLargeScreen(context) &&
+                          !Globals.isMediumScreen(context)))
                 SizedBox(
-                  height: (Globals.isLargeScreen(context) &&
-                          !Globals.isMediumScreen(context))
-                      ? MediaQuery.of(context).size.height * 0.05
-                      : MediaQuery.of(context).size.height * 0.01,
+                  height:MediaQuery.of(context).size.height * 0.01,
                 ),
                 Text(
                   'Building apps, web apps and Learning new technology',
@@ -118,29 +121,29 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                           : Globals.isSmallScreen(context)
                               ? 20
                               : 35,
-                    ),
+                    )??"",
                     textAlign: TextAlign.start,
                   ),
                 ),
-                if (Globals.isLargeScreen(context) &&
-                    !Globals.isMediumScreen(context))
-                  SizedBox(
-                    height: Globals.isLargeScreen(context)
-                        ? MediaQuery.of(context).size.height * 0.01
-                        : MediaQuery.of(context).size.height * 0.001,
-                  ),
-                Container(
-                  alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width * 0.51,
-                  height: MediaQuery.of(context).size.height * 0.1,
-                  child: RotateAnimatedTextKit(
-                    repeatForever: true,
-                    text: ["DISCIPLINED", "OPTIMISTIC", "LEARNER", "LISTENER"],
-                    textStyle: GoogleFonts.orbitron(
-                        fontSize: Globals.isLargeScreen(context) ? 40.0 : 25),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+                // if (Globals.isLargeScreen(context) &&
+                //     !Globals.isMediumScreen(context))
+                //   SizedBox(
+                //     height: Globals.isLargeScreen(context)
+                //         ? MediaQuery.of(context).size.height * 0.01
+                //         : MediaQuery.of(context).size.height * 0.001,
+                //   ),
+                // Container(
+                //   alignment: Alignment.center,
+                //   width: MediaQuery.of(context).size.width * 0.8,
+                //   height: MediaQuery.of(context).size.height * 0.1,
+                //   child: RotateAnimatedTextKit(
+                //     repeatForever: true,
+                //     text: ["DISCIPLINED", "OPTIMISTIC", "LEARNER", "LISTENER"],
+                //     textStyle: GoogleFonts.orbitron(
+                //         fontSize: Globals.isLargeScreen(context) ? 40.0 : 25),
+                //     textAlign: TextAlign.center,
+                //   ),
+                // ),
               ],
             ),
           ],
