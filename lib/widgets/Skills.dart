@@ -40,12 +40,12 @@ Widget skillsWidget(BuildContext context) {
                   left: MediaQuery.of(context).size.width * 0.1,
                 ),
                 width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.39,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
+                height: MediaQuery.of(context).size.height * 0.45,
+                // decoration: BoxDecoration(
+                //   borderRadius: BorderRadius.all(
+                //     Radius.circular(20),
+                //   ),
+                // ),
                 child: Card(
                   margin: EdgeInsets.zero,
                   shape: RoundedRectangleBorder(
@@ -56,53 +56,58 @@ Widget skillsWidget(BuildContext context) {
                   color: Colors.transparent,
                   elevation: 10,
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        height: MediaQuery.of(context).size.height * 0.057,
+                        width: MediaQuery.of(context).size.width * 0.32,
+                        height: MediaQuery.of(context).size.height * 0.058,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
                             topRight: Radius.circular(15),
                           ),
-                          border: Border(
-                            bottom: BorderSide(
-                              width: 4.3,
-                              color: Colors.white70,
-                            ),
-                          ),
+                          // border: Border(
+                          //   bottom: BorderSide(
+                          //     width: 4.3,
+                          //     color: Colors.white70,
+                          //   ),
+                          // ),
                           color: Color(0xff6fbbff), // Colors.transparent,
                         ),
                         alignment: Alignment.center,
                         child: Text(
                           "Languages And frameworks",
                           textAlign: TextAlign.center,
+                          softWrap: true,
                           style: GoogleFonts.roboto(
-                              fontSize: 32, color: Colors.black),
+                              fontSize: 30, color: Colors.black),
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.01),
+                        // margin: EdgeInsets.only(
+                        //     top: MediaQuery.of(context).size.height * 0.01),
                         color: Colors.transparent,
-                        width: MediaQuery.of(context).size.width * 0.27,
-                        height: MediaQuery.of(context).size.width * 0.18,
+                        width: MediaQuery.of(context).size.width * 0.32,
+                        height: MediaQuery.of(context).size.height * 0.35,
                         child: ListView.builder(
                           shrinkWrap: false,
-                          // physics: NeverScrollableScrollPhysics(),
+                          physics: NeverScrollableScrollPhysics(),
+                          
                           itemCount: _langFram.length,
                           padding: EdgeInsets.zero,
                           itemBuilder: (ctx, index) {
                             return Padding(
                               padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.011,
+                                left: MediaQuery.of(context).size.width * 0.008,
                               ),
                               child: ListTile(
                                 leading: Icon(
                                   Icons.arrow_forward_ios_sharp,
                                   color: Colors.pink,
                                   semanticLabel: 'skills arrow',
-                                  size: 30,
+                                  size: 28,
                                 ),
                                 title: Padding(
                                   padding: EdgeInsets.only(
@@ -111,7 +116,7 @@ Widget skillsWidget(BuildContext context) {
                                   child: Text(
                                     _langFram[index],
                                     style: GoogleFonts.openSans(
-                                        fontSize: 27,
+                                        fontSize: 25,
                                         color: Color(0xff00305b),
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -147,15 +152,15 @@ Widget skillsWidget(BuildContext context) {
               Image.asset(
                 'assets/images/githubill3.png',
                 scale: 1,
-                width: MediaQuery.of(context).size.width * 0.65,
+                width: MediaQuery.of(context).size.width * 0.6,
               ),
               Container(
-                color: Colors.transparent,
                 width: MediaQuery.of(context).size.width * 0.27,
-                height: MediaQuery.of(context).size.height * 0.39,
+                height: MediaQuery.of(context).size.height * 0.45,
                 margin: EdgeInsets.only(
                     right: MediaQuery.of(context).size.width * 0.1),
                 decoration: BoxDecoration(
+                color: Colors.transparent,
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
@@ -169,21 +174,23 @@ Widget skillsWidget(BuildContext context) {
                   color: Colors.transparent,
                   elevation: 10,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.27,
+                        width: MediaQuery.of(context).size.width * 0.3,
                         height: MediaQuery.of(context).size.height * 0.057,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
                             topRight: Radius.circular(15),
                           ),
-                          border: Border(
-                            bottom: BorderSide(
-                              width: 4.3,
-                              color: Colors.white70,
-                            ),
-                          ),
+                          // border: Border(
+                          //   bottom: BorderSide(
+                          //     width: 4.3,
+                          //     color: Colors.white70,
+                          //   ),
+                          // ),
                           color: Color(0xff6fbbff), // Colors.transparent,
                         ),
                         alignment: Alignment.center,
@@ -191,16 +198,17 @@ Widget skillsWidget(BuildContext context) {
                           "Tools",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.roboto(
-                              fontSize: 32, color: Colors.black),
+                              fontSize: 30, color: Colors.black),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.019),
+                            top: MediaQuery.of(context).size.height * 0.01),
                         color: Colors.transparent,
-                        width: MediaQuery.of(context).size.width * 0.27,
-                        height: MediaQuery.of(context).size.width * 0.18,
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        height: MediaQuery.of(context).size.height*0.35,
                         child: ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: false,
                           itemCount: _tools.length,
                           padding: EdgeInsets.zero,
@@ -214,7 +222,7 @@ Widget skillsWidget(BuildContext context) {
                                   Icons.arrow_forward_ios_sharp,
                                   color: Colors.pink,
                                   semanticLabel: 'tools arrow',
-                                  size: 30,
+                                  size: 28,
                                 ),
                                 title: Padding(
                                   padding: EdgeInsets.only(
@@ -223,7 +231,7 @@ Widget skillsWidget(BuildContext context) {
                                   child: Text(
                                     _tools[index],
                                     style: GoogleFonts.openSans(
-                                        fontSize: 27,
+                                        fontSize: 25,
                                         color: Color(0xff00305b),
                                         fontWeight: FontWeight.bold),
                                   ),

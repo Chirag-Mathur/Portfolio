@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:universal_html/html.dart' as html;
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Globals {
+
   static final Color backgroundColor = Color.fromRGBO(189, 224, 255, 1);
+
+
 
   static final List<Map<String, dynamic>> projectsList = [
     {
@@ -59,4 +65,17 @@ class Globals {
     'VSCode',
     'GCP',
   ];
+
+  
+  static void openLink(String url) async {
+    // String url = 'https://flutter.dev';
+    if (kIsWeb) {
+      html.window.open(url, '_blank');
+    } else {
+      if (await canLaunch(url)) {
+        launch(url);
+      }
+    }
+  }
+
 }

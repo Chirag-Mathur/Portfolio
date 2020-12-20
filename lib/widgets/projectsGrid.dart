@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/info/globals.dart';
 import '../screens/AboutScreen.dart';
 
 Widget projectGridView(
@@ -28,8 +29,8 @@ Widget projectGridView(
               bottomLeft: Radius.circular(40),
               bottomRight: Radius.circular(40),
             ),
-          ),
           color: Colors.transparent,
+          ),
           child: Card(
             elevation: 10.0,
             shape: RoundedRectangleBorder(
@@ -59,7 +60,7 @@ Widget projectGridView(
               animationDuration: Duration(seconds: 1),
               onPressed: () {
                 infoMapList[index]['projectLink'] != null
-                    ? AboutScreen.openLink(infoMapList[index]['projectLink'])
+                    ? Globals.openLink(infoMapList[index]['projectLink'])
                     : Navigator.of(context).pushNamed(AboutScreen.routeName);
               },
               onLongPress: () {},
@@ -190,7 +191,7 @@ Widget projectGridView(
               ),
             ),
             onPressed: () {
-              AboutScreen.openLink(
+              Globals.openLink(
                   "https://github.com/Monik09?tab=repositories");
             },
           ),

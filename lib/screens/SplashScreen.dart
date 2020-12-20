@@ -11,61 +11,60 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  
+    with TickerProviderStateMixin {
   // static bool getisLoaded() {
   //   return isLoaded;
   // }
-
 
   AnimationController animationController;
   Animation<double> animation;
   Timer timer;
   @override
   void initState() {
-      // animationController = new AnimationController(
-      //     vsync: this, duration: new Duration(seconds: 10));
-      // animation =
-      //     new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
+    // animationController = new AnimationController(
+    //     vsync: this, duration: new Duration(seconds: 10));
+    // animation =
+    //     new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
 
-      progresser();
-      Timer(Duration(seconds: 9), () {
-        print('To About Screen');
-        // Navigator.of(context).popAndPushNamed(AboutScreen.routeName);
-        Navigator.of(context).push(
-          PageRouteBuilder(
-            pageBuilder: (context, animation, anotherAnimation) {
-              return AboutScreen();
-            },
-            transitionDuration: Duration(milliseconds: 2000),
-            transitionsBuilder: (context, animation, anotherAnimation, child) {
-              animationController = new AnimationController(
-                vsync: this,
-                duration: new Duration(seconds: 9),
-              );
-              animation = CurvedAnimation(
-                  curve: Curves.easeInToLinear, parent: animation);
-              animationController.forward();
-              return Align(
-                child: SizeTransition(
-                  sizeFactor: animation,
-                  child: child,
-                  axisAlignment: -1.0,
-                ),
-              );
-            },
-          ),
+    progresser();
+    Timer(Duration(seconds: 9), () {
+      print('To About Screen');
+      // Navigator.of(context).popAndPushNamed(AboutScreen.routeName);
+      Navigator.of(context).push(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, anotherAnimation) {
+            return AboutScreen();
+          },
+          transitionDuration: Duration(milliseconds: 2000),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animationController = new AnimationController(
+              vsync: this,
+              duration: new Duration(seconds: 9),
+            );
+            animation = CurvedAnimation(
+                curve: Curves.easeInToLinear, parent: animation);
+            animationController.forward();
+            return Align(
+              child: SizeTransition(
+                sizeFactor: animation,
+                child: child,
+                axisAlignment: -1.0,
+              ),
+            );
+          },
+        ),
 
-          // ProjectScreen.routeName
-        );
-      });
-    
+        // ProjectScreen.routeName
+      );
+    });
+
     super.initState();
   }
 
   @override
   void dispose() {
     timer.cancel();
+    animationController.dispose();
     super.dispose();
   }
 

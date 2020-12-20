@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/screens/AboutScreen.dart';
+import '../info/globals.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 Widget socialMediaButton() {
@@ -34,7 +34,7 @@ Widget socialMediaButton() {
         backgroundColor: Colors.white,
         // label: 'Github',
         labelStyle: TextStyle(fontSize: 18.0),
-        onTap: () => AboutScreen.openLink(
+        onTap: () => Globals.openLink(
           "https://github.com/Monik09",
         ),
       ),
@@ -45,7 +45,7 @@ Widget socialMediaButton() {
         backgroundColor: Colors.white,
         // label: 'LinkedIn',
         labelStyle: TextStyle(fontSize: 18.0),
-        onTap: () => AboutScreen.openLink(
+        onTap: () => Globals.openLink(
           "https://www.linkedin.com/in/monikinderjit-singh/",
         ),
       ),
@@ -54,7 +54,7 @@ Widget socialMediaButton() {
         backgroundColor: Colors.white,
         // label: 'Twitter',
         labelStyle: TextStyle(fontSize: 18.0),
-        onTap: () => AboutScreen.openLink(
+        onTap: () => Globals.openLink(
           "https://twitter.com/MonikIJS",
         ),
       ),
@@ -65,7 +65,7 @@ Widget socialMediaButton() {
         backgroundColor: Colors.white,
         // label: 'Insta',
         labelStyle: TextStyle(fontSize: 18.0),
-        onTap: () => AboutScreen.openLink(
+        onTap: () => Globals.openLink(
           "https://www.instagram.com/monikinderjit_singh_/",
         ),
       ),
@@ -104,7 +104,7 @@ Widget socialMediaButton() {
 //           'assets/images/fb.png',
 //         ),
 //         onPressed: () {
-//           AboutScreen.openLink(
+//           Globals.openLink(
 //         },
 //         iconSize: 37,
 //       ),
