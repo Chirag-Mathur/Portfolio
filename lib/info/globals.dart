@@ -4,11 +4,8 @@ import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Globals {
-
-
-  static final Color backgroundColor = Color.fromRGBO(189, 224, 255, 1);
-
-
+  static final Color backgroundColor =
+        Color.fromRGBO(189, 224, 255, 1);//Color(0xffbddbff);
 
   static final List<Map<String, dynamic>> projectsList = [
     {
@@ -67,7 +64,6 @@ class Globals {
     'GCP',
   ];
 
-  
   static void openLink(String url) async {
     // String url = 'https://flutter.dev';
     if (kIsWeb) {
@@ -89,6 +85,6 @@ class Globals {
 
   static bool isMediumScreen(BuildContext context) {
     return MediaQuery.of(context).size.width >= 800 &&
-            MediaQuery.of(context).size.width <= 1200;
+        MediaQuery.of(context).size.width <= 1200;
   }
 }

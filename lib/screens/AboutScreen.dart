@@ -57,7 +57,7 @@ class _AboutScreenState extends State<AboutScreen>
     List<Widget> topChildren = topAboutPageWidget(context,myImage1);
     return Scaffold(
       key: scaffoldKey1,
-      drawer: appDrawer(context),
+      drawer:Globals.isLargeScreen(context)?null: appDrawer(context),
       backgroundColor: Globals.backgroundColor,
       appBar: appBarWidget(context, _scrollController, isHomePage,scaffoldKey1),
       floatingActionButtonLocation:

@@ -9,7 +9,13 @@ import '../screens/ProjectScreen.dart';
 Widget appDrawer(BuildContext context) {
   return Container(
     width: 200,
-    height: MediaQuery.of(context).size.height*0.85,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.only(
+        bottomRight: Radius.circular(70),
+        topRight: Radius.circular(70),
+      ),
+    ),
+    height: MediaQuery.of(context).size.height * 0.85,
     color: Globals.backgroundColor,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -19,6 +25,7 @@ Widget appDrawer(BuildContext context) {
           child: FlatButton(
             hoverColor: Colors.transparent,
             splashColor: Colors.blue[900],
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight:Radius.circular(70))),
             child: Text(
               "About Me",
               style: GoogleFonts.domine(
@@ -179,7 +186,11 @@ Widget appDrawer(BuildContext context) {
           },
         ),
         Divider(),
-        Container(height: 1000,child: socialMediaRow(),alignment: Alignment.bottomCenter,),
+        Container(
+          height: 1000,
+          child: socialMediaRow(),
+          alignment: Alignment.bottomCenter,
+        ),
         // Expanded(
         //   child: Align(
         //     alignment: Alignment.bottomCenter,
@@ -189,6 +200,7 @@ Widget appDrawer(BuildContext context) {
         //     // ),
         //   ),
         // ),
+        Divider(),
       ],
     ),
   );
