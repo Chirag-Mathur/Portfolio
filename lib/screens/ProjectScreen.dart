@@ -20,7 +20,7 @@ class ProjectScreen extends StatelessWidget {
       
       key: scaffoldKey,
       drawer: appDrawer(context),
-      appBar: appBarWidget(context, _scrollController, isHomePage),
+      appBar: appBarWidget(context, _scrollController, isHomePage,scaffoldKey),
       backgroundColor: Globals.backgroundColor,
       body: Scrollbar(
         thickness: 12,

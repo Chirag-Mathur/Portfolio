@@ -50,7 +50,9 @@ Widget socialMediaButton() {
         ),
       ),
       SpeedDialChild(
-        child: Image.asset('assets/images/twitter_logo.png',),
+        child: Image.asset(
+          'assets/images/twitter_logo.png',
+        ),
         backgroundColor: Colors.white,
         // label: 'Twitter',
         labelStyle: TextStyle(fontSize: 18.0),
@@ -59,9 +61,9 @@ Widget socialMediaButton() {
         ),
       ),
       SpeedDialChild(
-        child:
-            Image.asset('assets/images/insta_logo.png',
-                ),
+        child: Image.asset(
+          'assets/images/insta_logo.png',
+        ),
         backgroundColor: Colors.white,
         // label: 'Insta',
         labelStyle: TextStyle(fontSize: 18.0),
@@ -73,49 +75,68 @@ Widget socialMediaButton() {
   );
 }
 
-// Widget socialMediaRow() {
-//   return Row(
-//     children: [
-//       IconButton(
-//         icon: Image.asset(
-//           'assets/images/linkedin.png',
-//         ),
-//         onPressed: () {
-//         iconSize: 39,
-//       ),
-//       IconButton(
-//         icon: Image.asset(
-//           'assets/images/twitter.png',
-//         ),
-//         onPressed: () {
-//         },
-//         iconSize: 42,
-//       ),
-//       IconButton(
-//         icon: Image.asset(
-//           'assets/images/github.png',
-//         ),
-//         onPressed: () {
-//         },
-//         iconSize: 42,
-//       ),
-//       IconButton(
-//         icon: Image.asset(
-//           'assets/images/fb.png',
-//         ),
-//         onPressed: () {
-//           Globals.openLink(
-//         },
-//         iconSize: 37,
-//       ),
-//       IconButton(
-//         icon: Image.asset(
-//           'assets/images/insta.png',
-//         ),
-//         onPressed: () {
-//         },
-//         iconSize: 43,
-//       ),
-//     ],
-//   );
-// }
+Widget socialMediaRow() {
+  return Container(
+    child: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              color: Colors.white,
+              icon: Image.asset(
+                'assets/images/twitter_logo.png',
+              ),
+              onPressed: () {
+                Globals.openLink(
+                  "https://twitter.com/MonikIJS",
+                );
+              },
+              iconSize: 42,
+            ),
+            IconButton(
+              color: Colors.white,
+              icon: Image.asset(
+                'assets/images/insta_logo.png',
+              ),
+              onPressed: () {
+                Globals.openLink(
+                  "https://www.instagram.com/monikinderjit_singh_/",
+                );
+              },
+              iconSize: 43,
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              color: Colors.white,
+              icon: Image.asset(
+                'assets/images/github.png',
+              ),
+              onPressed: () {
+                Globals.openLink(
+                  "https://github.com/Monik09",
+                );
+              },
+              iconSize: 42,
+            ),
+            IconButton(
+              icon: Image.asset(
+                'assets/images/linkedin_logo.png',
+              ),
+              iconSize: 39,
+              onPressed: () {
+                Globals.openLink(
+                  "https://www.linkedin.com/in/monikinderjit-singh/",
+                );
+              },
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}

@@ -117,7 +117,7 @@ Widget appBarDesktopTablet(
                 curve: Curves.easeOut,
               );
             } else {
-              Navigator.of(context).push(
+              Navigator.of(context)..push(
                 PageRouteBuilder(
                     pageBuilder: (context, animation, anotherAnimation) {
                       return AboutScreen();

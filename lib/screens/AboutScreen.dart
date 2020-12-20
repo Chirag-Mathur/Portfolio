@@ -59,10 +59,10 @@ class _AboutScreenState extends State<AboutScreen>
       key: scaffoldKey1,
       drawer: appDrawer(context),
       backgroundColor: Globals.backgroundColor,
-      appBar: appBarWidget(context, _scrollController, isHomePage),
+      appBar: appBarWidget(context, _scrollController, isHomePage,scaffoldKey1),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: socialMediaButton(),
+      floatingActionButton:Globals.isLargeScreen(context)? socialMediaButton():null,
       body: Scrollbar(
         thickness: 12,
         isAlwaysShown: true,
@@ -70,57 +70,53 @@ class _AboutScreenState extends State<AboutScreen>
         controller: _scrollController,
         child: Container(
           height: MediaQuery.of(context).size.height * 1.28,
-          child: Stack(
+          child: ListWheelScrollView(
+            controller: _scrollController,
+            // offAxisFraction: 0.2,
+            diameterRatio: 17.5,
+            clipBehavior: Clip.hardEdge,
+            itemExtent: Globals.isSmallScreen(context)
+                ? MediaQuery.of(context).size.height * 1.5
+                : MediaQuery.of(context).size.height * 1.3,
             children: [
-              ListWheelScrollView(
-                controller: _scrollController,
-                // offAxisFraction: 0.2,
-                diameterRatio: 17.5,
-                clipBehavior: Clip.hardEdge,
-                itemExtent: Globals.isSmallScreen(context)
-                    ? MediaQuery.of(context).size.height * 1.5
-                    : MediaQuery.of(context).size.height * 1.3,
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: Globals.isLargeScreen(context)
+                    ? Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: topChildren,
+                      )
+                    : Column(
+                        verticalDirection: VerticalDirection.up,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: topChildren,
+                      ),
+              ),
+              Padding(
+                padding: EdgeInsets.zero, //all(38.0),
+                child: skillsWidget(context),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Globals.isLargeScreen(context)
-                        ? Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: topChildren,
-                          )
-                        : Column(
-                            verticalDirection: VerticalDirection.up,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: topChildren,
-                          ),
+                  Text(
+                    "Built with",
+                    style: GoogleFonts.roboto(
+                        fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  Padding(
-                    padding: EdgeInsets.zero, //all(38.0),
-                    child: skillsWidget(context),
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.blue[900],
+                    size: 21,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Built with",
-                        style: GoogleFonts.roboto(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      Icon(
-                        Icons.favorite,
-                        color: Colors.blue[900],
-                        size: 21,
-                      ),
-                      Text(
-                        " by Monikinderjit Singh",
-                        style: GoogleFonts.robotoSlab(
-                            fontSize: 21, fontWeight: FontWeight.w600),
-                      ),
-                      // socialMediaRow(),
-                    ],
+                  Text(
+                    " by Monikinderjit Singh",
+                    style: GoogleFonts.robotoSlab(
+                        fontSize: 21, fontWeight: FontWeight.w600),
                   ),
+                  // socialMediaRow(),
                 ],
               ),
             ],

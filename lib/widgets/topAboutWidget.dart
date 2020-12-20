@@ -102,6 +102,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                       : MediaQuery.of(context).size.height * 0.03,
                 ),
                 Container(
+                  color: Colors.transparent,
                   height: Globals.isLargeScreen(context)
                       ? 100
                       : Globals.isSmallScreen(context)
