@@ -5,7 +5,7 @@ Widget appBarMobile(BuildContext context, ScrollController scrollController,
     bool isHomePage, double fontsize, Color textColor) {
   return AppBar(
     automaticallyImplyLeading: false,
-    toolbarHeight: 90,
+    // toolbarHeight: 90,
     elevation: 0,
     backgroundColor: Colors.transparent,
     leading: IconButton(
@@ -27,7 +27,7 @@ Widget appBarMobile(BuildContext context, ScrollController scrollController,
           "Monikinderjit Singh",
           style: TextStyle(
               fontFamily: 'TheRichJuliet',
-              fontSize: 20,
+              fontSize: 30,
               color: textColor,
               fontWeight: FontWeight.w600),
         ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:my_portfolio/widgets/appDrawer.dart';
 
 import '../info/globals.dart';
 import '../widgets/socialMediaRow.dart';
+import '../widgets/appDrawer.dart';
+import '../widgets/topAboutWidget.dart';
 import '../widgets/Skills.dart';
 import '../widgets/appBarWidget.dart';
 
@@ -18,7 +18,7 @@ class AboutScreen extends StatefulWidget {
 
 class _AboutScreenState extends State<AboutScreen>
     with SingleTickerProviderStateMixin {
-    static  GlobalKey<ScaffoldState> scaffoldKey1 = GlobalKey<ScaffoldState>();
+  static GlobalKey<ScaffoldState> scaffoldKey1 = GlobalKey<ScaffoldState>();
   final bool isHomePage = true;
 
   Animation<double> _animation;
@@ -28,7 +28,7 @@ class _AboutScreenState extends State<AboutScreen>
   void initState() {
     myImage1 = Image.asset(
       'assets/images/me2.png',
-      fit: BoxFit.fitHeight,
+      fit: BoxFit.contain,
       filterQuality: FilterQuality.high,
       semanticLabel: 'Monikinderjit Singh Image',
       scale: 0.87,
@@ -53,6 +53,8 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
+
+    List<Widget> topChildren = topAboutPageWidget(context,myImage1);
     return Scaffold(
       key: scaffoldKey1,
       drawer: appDrawer(context),
@@ -75,140 +77,24 @@ class _AboutScreenState extends State<AboutScreen>
                 // offAxisFraction: 0.2,
                 diameterRatio: 17.5,
                 clipBehavior: Clip.hardEdge,
-                itemExtent: MediaQuery.of(context).size.height * 1.3,
+                itemExtent: Globals.isSmallScreen(context)
+                    ? MediaQuery.of(context).size.height * 1.5
+                    : MediaQuery.of(context).size.height * 1.3,
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          // color: Colors.green,
-                          width: MediaQuery.of(context).size.width * 0.7,
-                          height: MediaQuery.of(context).size.height * 0.8,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.1),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "Hi",
-                                          semanticsLabel: 'Monik intro',
-                                          style: GoogleFonts.robotoSlab(
-                                            fontSize: 40,
-                                            fontWeight: FontWeight.w600,
-                                            color: Color(0xff00305b),
-                                          ),
-                                        ),
-                                        Image.network(
-                                          "https://media.giphy.com/media/Vhd10uVrDjMhAG7IyV/giphy.gif",
-                                          // scale: 0.5,
-                                          width: 47,
-
-                                          height: 125,
-                                          fit: BoxFit.fitHeight,
-                                        ),
-                                        Text(
-                                          ", I'm Monik.",
-                                          semanticsLabel: 'Monik intro',
-                                          style: GoogleFonts.robotoSlab(
-                                            fontSize: 40,
-                                            fontWeight: FontWeight.w600,
-                                            color: Color(0xff00305b),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Text(
-                                      'Building apps, web apps and Learning new technology',
-                                      style: GoogleFonts.alef(
-                                        fontSize: 60,
-                                        fontWeight: FontWeight.w600,
-                                        color:
-                                            Color(0xff001b34), //Colors.black54,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: MediaQuery.of(context).size.height *
-                                          0.05,
-                                    ),
-                                    Container(
-                                      child: TypewriterAnimatedTextKit(
-                                        speed: Duration(milliseconds: 150),
-                                        text: [
-                                          "Love Exploring technologies.",
-                                          "Mostly Debugging code than writing :).",
-                                          "Built with Flutter Web.",
-                                        ],
-                                        textStyle: GoogleFonts.lora(
-                                          color: Colors
-                                              .pink, // Colors.blueAccent[700],
-                                          fontSize: 40,
-                                        ),
-                                        textAlign: TextAlign.start,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width*0.3,
-                          // margin: EdgeInsets.only(
-                          //   right: MediaQuery.of(context).size.width * 0.12,
-                          // ),
-                          alignment: Alignment.center,
-                          child: Column(
+                    child: Globals.isLargeScreen(context)
+                        ? Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20),
-                                    bottomLeft: Radius.circular(10),
-                                  ),
-                                  color: Color(0xff173266),
-                                ),
-                                child: myImage1,
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.01,
-                              ),
-                              // Container(
-                              //   alignment: Alignment.center,
-                              //   width: MediaQuery.of(context).size.width * 0.21,
-                              //   height: MediaQuery.of(context).size.height * 0.1,
-                              //   child: RotateAnimatedTextKit(
-                              //     repeatForever: true,
-                              //     text: [
-                              //       "DISCIPLINED",
-                              //       "OPTIMISTIC",
-                              //       "LEARNER",
-                              //       "LISTENER"
-                              //     ],
-                              //     textStyle: GoogleFonts.orbitron(fontSize: 40.0),
-                              //     textAlign: TextAlign.center,
-                              //   ),
-                              // ),
-                            ],
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: topChildren,
+                          )
+                        : Column(
+                            verticalDirection: VerticalDirection.up,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: topChildren,
                           ),
-                        ),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01),
-                      ],
-                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.zero, //all(38.0),
@@ -237,15 +123,6 @@ class _AboutScreenState extends State<AboutScreen>
                   ),
                 ],
               ),
-              // FloatingActionButton(
-              //   onPressed: () {
-              //     _scrollController.animateTo(
-              //       MediaQuery.of(context).size.height,
-              //       duration: Duration(seconds: 3),
-              //       curve: Curves.easeOut,
-              //     );
-              //   },
-              // )
             ],
           ),
         ),

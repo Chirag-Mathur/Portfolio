@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Globals {
 
+
   static final Color backgroundColor = Color.fromRGBO(189, 224, 255, 1);
 
 
@@ -78,4 +79,16 @@ class Globals {
     }
   }
 
+  static bool isSmallScreen(BuildContext context) {
+    return MediaQuery.of(context).size.width < 800;
+  }
+
+  static bool isLargeScreen(BuildContext context) {
+    return MediaQuery.of(context).size.width > 800;
+  }
+
+  static bool isMediumScreen(BuildContext context) {
+    return MediaQuery.of(context).size.width >= 800 &&
+            MediaQuery.of(context).size.width <= 1200;
+  }
 }
