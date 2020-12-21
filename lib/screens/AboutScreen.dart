@@ -58,7 +58,7 @@ class _AboutScreenState extends State<AboutScreen>
     return Scaffold(
       key: scaffoldKey1,
       drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
-      backgroundColor: Globals.backgroundColor,
+      backgroundColor:Theme.of(context).backgroundColor, //Globals.backgroundColorLight,
       appBar:
           appBarWidget(context, _scrollController, isHomePage, scaffoldKey1),
       floatingActionButtonLocation:

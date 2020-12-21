@@ -16,7 +16,7 @@ Widget appDrawer(BuildContext context) {
       ),
     ),
     height: MediaQuery.of(context).size.height * 0.85,
-    color: Globals.backgroundColor,
+    color: Globals.backgroundColorLight,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

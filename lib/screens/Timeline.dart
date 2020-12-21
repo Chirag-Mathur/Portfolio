@@ -18,7 +18,7 @@ class _TimelineState extends State<Timeline> {
         foregroundPainter: CurvePainter(),
         child: Container(
           height: MediaQuery.of(context).size.height * 0.5,
-          color: Globals.backgroundColor,
+          color: Globals.backgroundColorLight,
         ),
       ),
     );
@@ -29,19 +29,18 @@ class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
-    paint.color = Colors.blue[900];
+    paint.color = Globals.splashColorLight;
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = 6;
     var start = Offset(size.width * 0.8, size.height * 0.1);
-    var controlPoint1 = Offset(size.width * 0.95, size.height * 0.145);
+    var controlPoint1 = Offset(size.width * 0.95, size.height * 0.138);
     var controlPoint2 = Offset(size.width * 0.95, size.height * 0.475);
     var end = Offset(size.width * 0.85, size.height * 0.5);
 
     var controlPoint3 = Offset(-size.width * 0.001, size.height * 0.525);
-    var controlPoint4 = Offset(-size.width * 0.001, size.height * 0.870);
+    var controlPoint4 = Offset(-size.width * 0.001, size.height * 0.850);
     // final avatarBounds =
     //     Rect.fromCircle(center: controlPoint, radius: size.height * 0.3);
-
 
     var start2 = Offset(size.width * 0.08, size.height * 0.5);
     var end2 = Offset(size.width * 0.08, size.height * 0.9);
@@ -65,17 +64,16 @@ class CurvePainter extends CustomPainter {
     double pointGiver = size.width * 0.08;
     double pointGiver2 = size.width * 0.8;
     var points = [
-      Offset(pointGiver*2,size.height*0.1),
-      Offset(pointGiver*4,size.height*0.1),
-      Offset(pointGiver*7,size.height*0.1),
-      Offset(pointGiver*10,size.height*0.1),
-      Offset(pointGiver,size.height*0.5),
-      Offset(pointGiver*3,size.height*0.5),
-      Offset(pointGiver*6,size.height*0.5),
-      Offset(pointGiver*2,size.height*0.9),
-      Offset(pointGiver*4,size.height*0.9),
-      Offset(pointGiver*8,size.height*0.9),
-    
+      Offset(pointGiver * 2, size.height * 0.1),
+      Offset(pointGiver * 4, size.height * 0.1),
+      Offset(pointGiver * 7, size.height * 0.1),
+      Offset(pointGiver * 10, size.height * 0.1),
+      Offset(pointGiver, size.height * 0.5),
+      Offset(pointGiver * 3, size.height * 0.5),
+      Offset(pointGiver * 6, size.height * 0.5),
+      Offset(pointGiver * 2, size.height * 0.9),
+      Offset(pointGiver * 4, size.height * 0.9),
+      Offset(pointGiver * 8, size.height * 0.9),
     ];
     canvas.drawPoints(PointMode.points, points, paint1);
 

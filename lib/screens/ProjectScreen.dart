@@ -21,7 +21,7 @@ class ProjectScreen extends StatelessWidget {
       key: scaffoldKey,
       drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
       appBar: appBarWidget(context, _scrollController, isHomePage, scaffoldKey),
-      backgroundColor: Globals.backgroundColor,
+      backgroundColor: Globals.backgroundColorLight,
       body: Scrollbar(
         thickness: 12,
         radius: Radius.circular(6),
@@ -74,20 +74,20 @@ class ProjectScreen extends StatelessWidget {
                   //   height: MediaQuery.of(context).size.height * 0.6256,
                   //   child: projectGridView(context, _projectsList),
                   // ),
-                    Align(
-                      alignment: Alignment.center,
-                                          child: CustomPaint(
-                        foregroundPainter: CurvePainter(),
-                                            child: Container(
+                  Align(
+                    alignment: Alignment.center,
+                    child: CustomPaint(
+                      foregroundPainter: CurvePainter(),
+                      child: Container(
                         margin: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * 0.03,
                         ),
                         color: Colors.transparent,
                         height: MediaQuery.of(context).size.height * 0.6256,
                         // child: projectGridView(context, _projectsList),
-                  ),
                       ),
                     ),
+                  ),
                   footer(context),
                 ],
               ),

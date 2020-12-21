@@ -21,7 +21,7 @@ class _ContactScreenState extends State<ContactScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: appBarWidget(context),
-      backgroundColor: Globals.backgroundColor,
+      backgroundColor: Globals.backgroundColorLight,
       body: Container(
         height: MediaQuery.of(context).size.height,
         child: Column(

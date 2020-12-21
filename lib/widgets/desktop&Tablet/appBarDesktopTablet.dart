@@ -47,7 +47,7 @@ Widget appBarDesktopTablet(
         padding: EdgeInsets.only(top: 12.0),
         child: FlatButton(
           hoverColor: Colors.transparent,
-          splashColor: Colors.blue[900],
+          splashColor: Globals.backgroundColorLight,
           child: Text(
             "About Me",
             style: GoogleFonts.domine(
@@ -98,7 +98,7 @@ Widget appBarDesktopTablet(
         padding: EdgeInsets.only(top: 12.0),
         child: FlatButton(
           hoverColor: Colors.transparent,
-          splashColor: Colors.blue[900],
+          splashColor: Globals.splashColorLight,
           child: Text(
             "Skills",
             style: GoogleFonts.domine(

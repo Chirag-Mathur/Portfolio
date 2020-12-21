@@ -4,8 +4,9 @@ import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Globals {
-  static final Color backgroundColor =
+  static final Color backgroundColorLight =
       Color.fromRGBO(189, 224, 255, 1); //Color(0xffbddbff);
+  static final Color splashColorLight = Colors.blue[900];
 
   static final List<Map<String, dynamic>> projectsList = [
     {
