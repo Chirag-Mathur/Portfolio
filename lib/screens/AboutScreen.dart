@@ -54,15 +54,17 @@ class _AboutScreenState extends State<AboutScreen>
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
 
-    List<Widget> topChildren = topAboutPageWidget(context,myImage1);
+    List<Widget> topChildren = topAboutPageWidget(context, myImage1);
     return Scaffold(
       key: scaffoldKey1,
-      drawer:Globals.isLargeScreen(context)?null: appDrawer(context),
+      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
       backgroundColor: Globals.backgroundColor,
-      appBar: appBarWidget(context, _scrollController, isHomePage,scaffoldKey1),
+      appBar:
+          appBarWidget(context, _scrollController, isHomePage, scaffoldKey1),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton:Globals.isLargeScreen(context)? socialMediaButton():null,
+      floatingActionButton:
+          Globals.isLargeScreen(context) ? socialMediaButton() : null,
       body: Scrollbar(
         thickness: 12,
         isAlwaysShown: true,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/screens/Timeline.dart';
 import 'package:my_portfolio/widgets/appDrawer.dart';
 
 import '../widgets/projectsGrid.dart';
@@ -10,17 +11,16 @@ import '../info/globals.dart';
 class ProjectScreen extends StatelessWidget {
   ProjectScreen({Key key}) : super(key: key);
   static const String routeName = '/ProjectScreen';
-  static  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  static GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Map<String, dynamic>> _projectsList = Globals.projectsList;
   final ScrollController _scrollController = ScrollController();
   final bool isHomePage = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       key: scaffoldKey,
-      drawer:Globals.isLargeScreen(context)?null:  appDrawer(context),
-      appBar: appBarWidget(context, _scrollController, isHomePage,scaffoldKey),
+      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
+      appBar: appBarWidget(context, _scrollController, isHomePage, scaffoldKey),
       backgroundColor: Globals.backgroundColor,
       body: Scrollbar(
         thickness: 12,
@@ -57,8 +57,8 @@ class ProjectScreen extends StatelessWidget {
                     Container(
                       child: Image.asset(
                         'assets/images/skills3.png',
-                        scale:2,// 2.5,
-                        fit:BoxFit.scaleDown,
+                        scale: 2, // 2.5,
+                        fit: BoxFit.scaleDown,
                       ),
                     ),
                   ],
@@ -66,14 +66,28 @@ class ProjectScreen extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.03,
-                    ),
-                    color: Colors.transparent,
-                    height: MediaQuery.of(context).size.height * 0.6256,
-                    child: projectGridView(context, _projectsList),
+                  // Container(
+                  //   margin: EdgeInsets.symmetric(
+                  //     horizontal: MediaQuery.of(context).size.width * 0.03,
+                  //   ),
+                  //   color: Colors.transparent,
+                  //   height: MediaQuery.of(context).size.height * 0.6256,
+                  //   child: projectGridView(context, _projectsList),
+                  // ),
+                    Align(
+                      alignment: Alignment.center,
+                                          child: CustomPaint(
+                        foregroundPainter: CurvePainter(),
+                                            child: Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.03,
+                        ),
+                        color: Colors.transparent,
+                        height: MediaQuery.of(context).size.height * 0.6256,
+                        // child: projectGridView(context, _projectsList),
                   ),
+                      ),
+                    ),
                   footer(context),
                 ],
               ),

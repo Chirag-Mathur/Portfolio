@@ -25,7 +25,8 @@ Widget appDrawer(BuildContext context) {
           child: FlatButton(
             hoverColor: Colors.transparent,
             splashColor: Colors.blue[900],
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight:Radius.circular(70))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(topRight: Radius.circular(70))),
             child: Text(
               "About Me",
               style: GoogleFonts.domine(

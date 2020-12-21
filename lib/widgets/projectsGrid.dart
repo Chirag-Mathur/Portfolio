@@ -29,7 +29,7 @@ Widget projectGridView(
               bottomLeft: Radius.circular(40),
               bottomRight: Radius.circular(40),
             ),
-          color: Colors.transparent,
+            color: Colors.transparent,
           ),
           child: Card(
             elevation: 10.0,
@@ -191,8 +191,7 @@ Widget projectGridView(
               ),
             ),
             onPressed: () {
-              Globals.openLink(
-                  "https://github.com/Monik09?tab=repositories");
+              Globals.openLink("https://github.com/Monik09?tab=repositories");
             },
           ),
         ),

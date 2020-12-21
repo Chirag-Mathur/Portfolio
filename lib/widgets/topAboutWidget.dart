@@ -27,10 +27,10 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if(Globals.isLargeScreen(context))
-                 SizedBox(
-                  height:MediaQuery.of(context).size.height * 0.05,
-                ),
+                if (Globals.isLargeScreen(context))
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                  ),
                 Row(
                   children: [
                     Text(
@@ -77,11 +77,11 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     ),
                   ],
                 ),
-                if(!(Globals.isLargeScreen(context) &&
-                          !Globals.isMediumScreen(context)))
-                SizedBox(
-                  height:MediaQuery.of(context).size.height * 0.01,
-                ),
+                if (!(Globals.isLargeScreen(context) &&
+                    !Globals.isMediumScreen(context)))
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.01,
+                  ),
                 Text(
                   'Building apps, web apps and Learning new technology',
                   style: GoogleFonts.alef(
@@ -116,13 +116,14 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                       "Built with Flutter Web.",
                     ],
                     textStyle: GoogleFonts.lora(
-                      color: Colors.pink, // Colors.blueAccent[700],
-                      fontSize: Globals.isLargeScreen(context)
-                          ? 40
-                          : Globals.isSmallScreen(context)
-                              ? 20
-                              : 35,
-                    )??"",
+                          color: Colors.pink, // Colors.blueAccent[700],
+                          fontSize: Globals.isLargeScreen(context)
+                              ? 40
+                              : Globals.isSmallScreen(context)
+                                  ? 20
+                                  : 35,
+                        ) ??
+                        "",
                     textAlign: TextAlign.start,
                   ),
                 ),

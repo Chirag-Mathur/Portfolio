@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Globals {
   static final Color backgroundColor =
-        Color.fromRGBO(189, 224, 255, 1);//Color(0xffbddbff);
+      Color.fromRGBO(189, 224, 255, 1); //Color(0xffbddbff);
 
   static final List<Map<String, dynamic>> projectsList = [
     {

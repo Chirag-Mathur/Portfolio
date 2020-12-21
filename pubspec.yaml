@@ -35,6 +35,7 @@ dependencies:
   liquid_progress_indicator: ^0.3.2
   flutter_speed_dial: ^1.2.5
   responsive_builder: ^0.3.0
+  path_drawing: ^0.4.1+1
 
 dev_dependencies:
   flutter_test:

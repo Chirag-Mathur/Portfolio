@@ -117,26 +117,27 @@ Widget appBarDesktopTablet(
                 curve: Curves.easeOut,
               );
             } else {
-              Navigator.of(context)..push(
-                PageRouteBuilder(
-                    pageBuilder: (context, animation, anotherAnimation) {
-                      return AboutScreen();
-                    },
-                    transitionDuration: Duration(milliseconds: 2000),
-                    transitionsBuilder:
-                        (context, animation, anotherAnimation, child) {
-                      animation = CurvedAnimation(
-                          curve: Curves.linearToEaseOut, parent: animation);
-                      return Align(
-                        child: FadeTransition(
-                          // sizeFactor: animation,
-                          child: child,
-                          opacity: animation,
-                          // axisAlignment: 1.0,
-                        ),
-                      );
-                    }),
-              );
+              Navigator.of(context)
+                ..push(
+                  PageRouteBuilder(
+                      pageBuilder: (context, animation, anotherAnimation) {
+                        return AboutScreen();
+                      },
+                      transitionDuration: Duration(milliseconds: 2000),
+                      transitionsBuilder:
+                          (context, animation, anotherAnimation, child) {
+                        animation = CurvedAnimation(
+                            curve: Curves.linearToEaseOut, parent: animation);
+                        return Align(
+                          child: FadeTransition(
+                            // sizeFactor: animation,
+                            child: child,
+                            opacity: animation,
+                            // axisAlignment: 1.0,
+                          ),
+                        );
+                      }),
+                );
             }
           },
         ),
