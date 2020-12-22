@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 import '../info/globals.dart';
 
@@ -36,15 +37,34 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     Text(
                       "Hi",
                       semanticsLabel: 'Monik intro',
-                      style: GoogleFonts.robotoSlab(
-                        fontSize: Globals.isLargeScreen(context)
-                            ? 40
-                            : Globals.isSmallScreen(context)
-                                ? 25
-                                : 30,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xff00305b),
-                      ),
+                      style: ThemeProvider.themeOf(context).id == 'dark'
+                          ? GoogleFonts.robotoSlab(
+                              fontSize: Globals.isLargeScreen(context)
+                                  ? 40
+                                  : Globals.isSmallScreen(context)
+                                      ? 25
+                                      : 30,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff00adb5),
+                            )
+                          : GoogleFonts.robotoSlab(
+                              fontSize: Globals.isLargeScreen(context)
+                                  ? 40
+                                  : Globals.isSmallScreen(context)
+                                      ? 25
+                                      : 40,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff00305b),
+                            ),
+                      // GoogleFonts.robotoSlab(
+                      //   fontSize: Globals.isLargeScreen(context)
+                      //       ? 40
+                      //       : Globals.isSmallScreen(context)
+                      //           ? 25
+                      //           : 30,
+                      //   fontWeight: FontWeight.w600,
+                      //   color: Color(0xff00adb5),
+                      // ),
                     ),
                     Image.network(
                       "https://media.giphy.com/media/Vhd10uVrDjMhAG7IyV/giphy.gif",
@@ -65,15 +85,25 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     Text(
                       ", I'm Monik.",
                       semanticsLabel: 'Monik intro',
-                      style: GoogleFonts.robotoSlab(
-                        fontSize: Globals.isLargeScreen(context)
-                            ? 40
-                            : Globals.isSmallScreen(context)
-                                ? 25
-                                : 40,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xff00305b),
-                      ),
+                      style: ThemeProvider.themeOf(context).id == 'dark'
+                          ? GoogleFonts.robotoSlab(
+                              fontSize: Globals.isLargeScreen(context)
+                                  ? 40
+                                  : Globals.isSmallScreen(context)
+                                      ? 25
+                                      : 30,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff00adb5),
+                            )
+                          : GoogleFonts.robotoSlab(
+                              fontSize: Globals.isLargeScreen(context)
+                                  ? 40
+                                  : Globals.isSmallScreen(context)
+                                      ? 25
+                                      : 40,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff00305b),
+                            ),
                     ),
                   ],
                 ),
@@ -84,16 +114,28 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                   ),
                 Text(
                   'Building apps, web apps and Learning new technology',
-                  style: GoogleFonts.alef(
-                    fontSize: Globals.isLargeScreen(context) &&
-                            !Globals.isMediumScreen(context)
-                        ? 60
-                        : Globals.isSmallScreen(context)
-                            ? 23
-                            : 46,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xff001b34), //Colors.black54,
-                  ),
+                  style: ThemeProvider.themeOf(context).id == 'dark'
+                      ? GoogleFonts.alef(
+                          fontSize: Globals.isLargeScreen(context) &&
+                                  !Globals.isMediumScreen(context)
+                              ? 60
+                              : Globals.isSmallScreen(context)
+                                  ? 23
+                                  : 46,
+                          fontWeight: FontWeight.w600,
+                          color: Color(
+                              0xffEEEEEE) //Color(0xff001b34), //Colors.black54,
+                          )
+                      : GoogleFonts.alef(
+                          fontSize: Globals.isLargeScreen(context) &&
+                                  !Globals.isMediumScreen(context)
+                              ? 60
+                              : Globals.isSmallScreen(context)
+                                  ? 23
+                                  : 46,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xff001b34), //Colors.black54,
+                        ),
                 ),
                 SizedBox(
                   height: (Globals.isLargeScreen(context) &&
@@ -101,30 +143,32 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                       ? MediaQuery.of(context).size.height * 0.05
                       : MediaQuery.of(context).size.height * 0.03,
                 ),
-                Container(
-                  color: Colors.transparent,
-                  height: Globals.isLargeScreen(context)
-                      ? 100
-                      : Globals.isSmallScreen(context)
-                          ? 80
-                          : 85,
-                  child: TypewriterAnimatedTextKit(
-                    speed: Duration(milliseconds: 150),
-                    text: [
-                      "Love Exploring technologies.",
-                      "Mostly Debugging code than writing :).",
-                      "Built with Flutter Web.",
-                    ],
-                    textStyle: GoogleFonts.lora(
-                          color: Colors.pink, // Colors.blueAccent[700],
-                          fontSize: Globals.isLargeScreen(context)
-                              ? 40
-                              : Globals.isSmallScreen(context)
-                                  ? 20
-                                  : 35,
-                        ) ??
-                        "",
-                    textAlign: TextAlign.start,
+                Builder(
+                  builder: (ctx) => Container(
+                    color: Colors.transparent,
+                    height: Globals.isLargeScreen(context)
+                        ? 100
+                        : Globals.isSmallScreen(context)
+                            ? 80
+                            : 85,
+                    child: TypewriterAnimatedTextKit(
+                      speed: Duration(milliseconds: 150),
+                      text: [
+                        "Love Exploring technologies.",
+                        "Mostly Debugging code than writing :).",
+                        "Built with Flutter Web.",
+                      ],
+                      textStyle: GoogleFonts.lora(
+                            color: Colors.pink, // Colors.blueAccent[700],
+                            fontSize: Globals.isLargeScreen(context)
+                                ? 40
+                                : Globals.isSmallScreen(context)
+                                    ? 20
+                                    : 35,
+                          ) ??
+                          "",
+                      textAlign: TextAlign.start,
+                    ),
                   ),
                 ),
                 // if (Globals.isLargeScreen(context) &&

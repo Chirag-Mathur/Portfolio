@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 import '../info/globals.dart';
 import '../widgets/socialMediaRow.dart';
@@ -58,13 +60,33 @@ class _AboutScreenState extends State<AboutScreen>
     return Scaffold(
       key: scaffoldKey1,
       drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
-      backgroundColor:Theme.of(context).backgroundColor, //Globals.backgroundColorLight,
+      backgroundColor:
+          Theme.of(context).backgroundColor, //Globals.backgroundColorLight,
       appBar:
           appBarWidget(context, _scrollController, isHomePage, scaffoldKey1),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton:
-          Globals.isLargeScreen(context) ? socialMediaButton() : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
+      floatingActionButton: Globals.isLargeScreen(context)
+          ? Container(
+              margin: EdgeInsets.only(
+                top: 60,
+                right: 20,
+              ),
+              child: LiteRollingSwitch(
+                value: true,
+                width: 100,
+                textOn: 'Dark',
+                textOff: 'Light',
+                colorOff: Color(0xff204690), // Colors.blue[800],
+                colorOn: Colors.purple[400],
+                iconOn: Icons.nights_stay,
+                iconOff: Icons.wb_sunny,
+                textSize: 18.0,
+                onChanged: (bool state) {
+                  ThemeProvider.controllerOf(context).nextTheme();
+                },
+              ),
+            )
+          : null,
       body: Scrollbar(
         thickness: 12,
         isAlwaysShown: true,

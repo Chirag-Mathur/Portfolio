@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 import '../info/globals.dart';
 
@@ -21,10 +22,17 @@ Widget skillsWidget(BuildContext context) {
           child: Text(
             'My Skills',
             textAlign: TextAlign.left,
-            style: GoogleFonts.robotoSlab(
-                fontSize: Globals.isLargeScreen(context) ? 45 : 25,
-                color: Color(0xff00305b),
-                fontWeight: FontWeight.w600),
+            style: ThemeProvider.themeOf(context).id == 'dark'
+                ? GoogleFonts.robotoSlab(
+                    fontSize: Globals.isLargeScreen(context) ? 45 : 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  )
+                : GoogleFonts.robotoSlab(
+                    fontSize: Globals.isLargeScreen(context) ? 45 : 25,
+                    color: Color(0xff00305b),
+                    fontWeight: FontWeight.w600),
+            // Theme.of(context).primaryTextTheme.subtitle1
           ),
         ),
         if (Globals.isLargeScreen(context))
@@ -108,10 +116,12 @@ Widget skillsWidget(BuildContext context) {
                                                 0.007),
                                     child: Text(
                                       _langFram[index],
-                                      style: GoogleFonts.openSans(
-                                          fontSize: 25,
-                                          color: Color(0xff00305b),
-                                          fontWeight: FontWeight.bold),
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                      //  GoogleFonts.openSans(
+                                      //     fontSize: 25,
+                                      //     color: Color(0xff00305b),
+                                      //     fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                 ),
@@ -221,10 +231,12 @@ Widget skillsWidget(BuildContext context) {
                                                 0.007),
                                     child: Text(
                                       _tools[index],
-                                      style: GoogleFonts.openSans(
-                                          fontSize: 25,
-                                          color: Color(0xff00305b),
-                                          fontWeight: FontWeight.bold),
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                      //    GoogleFonts.openSans(
+                                      //       fontSize: 25,
+                                      //       color: Color(0xff00305b),
+                                      //       fontWeight: FontWeight.bold,),
                                     ),
                                   ),
                                 ),

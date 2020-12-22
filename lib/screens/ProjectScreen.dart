@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:my_portfolio/screens/Timeline.dart';
 import 'package:my_portfolio/widgets/appDrawer.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 import '../widgets/projectsGrid.dart';
 import '../widgets/footer.dart';
@@ -21,7 +23,30 @@ class ProjectScreen extends StatelessWidget {
       key: scaffoldKey,
       drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
       appBar: appBarWidget(context, _scrollController, isHomePage, scaffoldKey),
-      backgroundColor: Globals.backgroundColorLight,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
+      floatingActionButton: Globals.isLargeScreen(context)
+          ? Container(
+              margin: EdgeInsets.only(
+                top: 60,
+                right: 20,
+              ),
+              child: LiteRollingSwitch(
+                value: true,
+                width: 100,
+                textOn: 'Dark',
+                textOff: 'Light',
+                colorOff: Color(0xff204690), // Colors.blue[800],
+                colorOn: Colors.purple[400],
+                iconOn: Icons.nights_stay,
+                iconOff: Icons.wb_sunny,
+                textSize: 18.0,
+                onChanged: (bool state) {
+                  ThemeProvider.controllerOf(context).nextTheme();
+                },
+              ),
+            )
+          : null,
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Scrollbar(
         thickness: 12,
         radius: Radius.circular(6),
@@ -47,11 +72,12 @@ class ProjectScreen extends StatelessWidget {
                       child: Text(
                         "Projects I created while learning and exploring different fields and in different courses..",
                         textAlign: TextAlign.justify,
-                        style: GoogleFonts.tinos(
-                          fontSize: 50,
-                          color: Colors.blue[900], //Color(0xff3f3d56), // ,
-                          fontWeight: FontWeight.w700,
-                        ),
+                        style: Theme.of(context).textTheme.bodyText2,
+                        // GoogleFonts.tinos(
+                        //   fontSize: 50,
+                        //   color: Colors.blue[900], //Color(0xff3f3d56), // ,
+                        //   fontWeight: FontWeight.w700,
+                        // ),
                       ),
                     ),
                     Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:my_portfolio/info/globals.dart';
 import 'package:universal_html/html.dart';
 
@@ -15,7 +16,7 @@ Widget appBarDesktopTablet(
   return AppBar(
     automaticallyImplyLeading: false,
     toolbarHeight: 90,
-    elevation: 0,
+    elevation: Theme.of(context).appBarTheme.elevation, //0,
     backgroundColor: Colors.transparent,
     leading: InkWell(
       customBorder: RoundedRectangleBorder(
@@ -30,11 +31,12 @@ Widget appBarDesktopTablet(
         padding: EdgeInsets.only(left: 12.0),
         child: Text(
           "Monikinderjit Singh",
-          style: TextStyle(
-              fontFamily: 'TheRichJuliet',
-              fontSize: 53,
-              color: textColor,
-              fontWeight: FontWeight.w600),
+          style: Theme.of(context).textTheme.headline1,
+          //  TextStyle(
+          //     fontFamily: 'TheRichJuliet',
+          //     fontSize: 53,
+          //     color: textColor,
+          //     fontWeight: FontWeight.w600),
         ),
       ),
       onTap: () {
@@ -42,6 +44,23 @@ Widget appBarDesktopTablet(
       },
     ),
     leadingWidth: 330,
+    // title: LiteRollingSwitch(
+    //   value: true,
+    //   width: 100,
+    // textOn: 'Dark',
+    // textOff: 'Light',
+    // // colorOn: Colors.greenAccent[700],
+    // // colorOff: Colors.redAccent[700],
+    // colorOff: Colors.blue[800],
+    // colorOn: Colors.purple[400],
+    // iconOn: Icons.nights_stay,
+    // iconOff: Icons.wb_sunny,
+    // textSize: 18.0,
+    // onChanged: (bool state) {
+    //   // AboutScreen.
+    //   print('Current State of SWITCH IS: $state');
+    // },
+    // ),
     actions: [
       Padding(
         padding: EdgeInsets.only(top: 12.0),
@@ -50,11 +69,12 @@ Widget appBarDesktopTablet(
           splashColor: Globals.backgroundColorLight,
           child: Text(
             "About Me",
-            style: GoogleFonts.domine(
-              fontWeight: FontWeight.w600,
-              fontSize: fontsize,
-              color: textColor,
-            ),
+            style: Theme.of(context).appBarTheme.textTheme.headline5,
+            // GoogleFonts.domine(
+            //   fontWeight: FontWeight.w600,
+            //   fontSize: fontsize,
+            //   color: textColor,
+            // ),
           ),
           onPressed: () {
             if (isHomePage) {
@@ -71,20 +91,20 @@ Widget appBarDesktopTablet(
                   pageBuilder: (context, animation, anotherAnimation) {
                     return AboutScreen();
                   },
-                  transitionDuration: Duration(milliseconds: 2000),
-                  transitionsBuilder:
-                      (context, animation, anotherAnimation, child) {
-                    animation = CurvedAnimation(
-                        curve: Curves.linearToEaseOut, parent: animation);
-                    return Align(
-                      child: FadeTransition(
-                        // sizeFactor: animation,
-                        child: child,
-                        opacity: animation,
-                        // axisAlignment: 1.0,
-                      ),
-                    );
-                  },
+                  // transitionDuration: Duration(milliseconds: 2000),
+                  // transitionsBuilder:
+                  //     (context, animation, anotherAnimation, child) {
+                  //   animation = CurvedAnimation(
+                  //       curve: Curves.easeOutSine, parent: animation);
+                  //   return Align(
+                  //     child: FadeTransition(
+                  //       // sizeFactor: animation,
+                  //       child: child,
+                  //       opacity: animation,
+                  //       // axisAlignment: 1.0,
+                  //     ),
+                  //   );
+                  // },
                 ),
               );
             }
@@ -101,11 +121,12 @@ Widget appBarDesktopTablet(
           splashColor: Globals.splashColorLight,
           child: Text(
             "Skills",
-            style: GoogleFonts.domine(
-              fontWeight: FontWeight.w600,
-              fontSize: fontsize,
-              color: textColor,
-            ),
+            style: Theme.of(context).appBarTheme.textTheme.headline5,
+            //  GoogleFonts.domine(
+            //   fontWeight: FontWeight.w600,
+            //   fontSize: fontsize,
+            //   color: textColor,
+            // ),
           ),
           onPressed: () async {
             if (isHomePage) {
@@ -152,11 +173,12 @@ Widget appBarDesktopTablet(
           splashColor: Colors.blue[900],
           child: Text(
             "Projects",
-            style: GoogleFonts.domine(
-              fontWeight: FontWeight.w600,
-              fontSize: fontsize,
-              color: textColor,
-            ),
+            style: Theme.of(context).appBarTheme.textTheme.headline5,
+            //  GoogleFonts.domine(
+            //   fontWeight: FontWeight.w600,
+            //   fontSize: fontsize,
+            //   color: textColor,
+            // ),
           ),
           onPressed: () {
             Navigator.of(context).push(
@@ -164,20 +186,20 @@ Widget appBarDesktopTablet(
                 pageBuilder: (context, animation, anotherAnimation) {
                   return ProjectScreen();
                 },
-                transitionDuration: Duration(milliseconds: 1700),
-                transitionsBuilder:
-                    (context, animation, anotherAnimation, child) {
-                  animation = CurvedAnimation(
-                      curve: Curves.easeOutSine, parent: animation);
-                  return Align(
-                    child: FadeTransition(
-                      // sizeFactor: animation,
-                      child: child,
-                      opacity: animation,
-                      // axisAlignment: 0.0,
-                    ),
-                  );
-                },
+                // transitionDuration: Duration(milliseconds: 1700),
+                // transitionsBuilder:
+                //     (context, animation, anotherAnimation, child) {
+                //   animation = CurvedAnimation(
+                //       curve: Curves.easeOutSine, parent: animation);
+                //   return Align(
+                //     child: FadeTransition(
+                //       // sizeFactor: animation,
+                //       child: child,
+                //       opacity: animation,
+                //       // axisAlignment: 0.0,
+                //     ),
+                //   );
+                // },
               ),
               // ProjectScreen.routeName
             );
@@ -204,11 +226,12 @@ Widget appBarDesktopTablet(
           // hoverColor: Colors.deepPurple,
           child: Text(
             "Resume",
-            style: GoogleFonts.faustina(
-              fontWeight: FontWeight.w600,
-              fontSize: 28,
-              color: textColor,
-            ),
+            style: Theme.of(context).appBarTheme.textTheme.headline5,
+            //  GoogleFonts.faustina(
+            //   fontWeight: FontWeight.w600,
+            //   fontSize: 28,
+            //   color: textColor,
+            // ),
           ),
           onPressed: () {
             Globals.openLink(

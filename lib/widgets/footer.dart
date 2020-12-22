@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 // import '../widgets/socialMediaRow.dart';
 
@@ -24,7 +25,12 @@ Widget footer(BuildContext context) {
                 Text(
                   "Built with",
                   style: GoogleFonts.roboto(
-                      fontSize: 23, fontWeight: FontWeight.bold),
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: ThemeProvider.themeOf(context).id == 'dark'
+                        ? Colors.white70
+                        : Colors.black,
+                  ),
                 ),
                 Icon(
                   Icons.favorite,
@@ -36,7 +42,12 @@ Widget footer(BuildContext context) {
                   child: Text(
                     " by Monikinderjit Singh",
                     style: GoogleFonts.robotoSlab(
-                        fontSize: 23, fontWeight: FontWeight.bold),
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: ThemeProvider.themeOf(context).id == 'dark'
+                          ? Colors.white70
+                          : Colors.black,
+                    ),
                   ),
                 ),
               ],
