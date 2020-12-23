@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/widgets/appDrawer.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 import '../info/globals.dart';
 import '../widgets/socialMediaRow.dart';
-import '../widgets/appDrawer.dart';
+// import "/widgets/appDrawer.dart";
 import '../widgets/LiteSwitch.dart';
 import '../widgets/topAboutWidget.dart';
 import '../widgets/Skills.dart';

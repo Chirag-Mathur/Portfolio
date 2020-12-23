@@ -16,7 +16,7 @@ Widget appBarWidget(BuildContext context, ScrollController scrollController,
       fontsize,
       textColor,
     );
-  else
+  
     return appBarMobile(context, scrollController, scaffoldKey, isHomePage,
         fontsize, textColor);
 }
