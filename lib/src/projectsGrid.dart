@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../screens/AboutScreen.dart';
+import 'package:my_portfolio/src/info/globals.dart';
+import 'package:my_portfolio/src/screens/AboutScreen.dart';
 
 Widget projectGridView(
     BuildContext context, List<Map<String, dynamic>> infoMapList) {
@@ -23,20 +24,28 @@ Widget projectGridView(
           width: MediaQuery.of(context).size.width * 0.32,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+              bottomLeft: Radius.circular(40),
+              bottomRight: Radius.circular(40),
             ),
+            color: Colors.transparent,
           ),
-          color: Colors.transparent,
-          child: GestureDetector(
-            onTap: () {
-              AboutScreen.openLink(infoMapList[index]['projectLink']);
-            },
-            onLongPress: () {},
-            child: Card(
-              elevation: 10.0,
+          child: Card(
+            elevation: 10.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+            ),
+            color: Colors.blue[800],
+            child: RaisedButton(
+              color: Colors.transparent,
+              // hoverColor: Colors.transparent,
+              splashColor: Colors.transparent,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
@@ -45,7 +54,16 @@ Widget projectGridView(
                   bottomRight: Radius.circular(20),
                 ),
               ),
-              color: Colors.blue[800],
+              focusElevation: 30,
+              elevation: 8,
+              hoverElevation: 45,
+              animationDuration: Duration(seconds: 1),
+              onPressed: () {
+                infoMapList[index]['projectLink'] != null
+                    ? Globals.openLink(infoMapList[index]['projectLink'])
+                    : Navigator.of(context).pushNamed(AboutScreen.routeName);
+              },
+              onLongPress: () {},
               child: Column(
                 children: [
                   Container(
@@ -106,9 +124,9 @@ Widget projectGridView(
                           child: Text(
                             "Tech Used :-",
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.aladin(
+                            style: GoogleFonts.alef(
                                 color: Colors.white,
-                                fontSize: 27,
+                                fontSize: 25,
                                 fontWeight: FontWeight.w400),
                           ),
                         ),
@@ -173,8 +191,7 @@ Widget projectGridView(
               ),
             ),
             onPressed: () {
-              AboutScreen.openLink(
-                  "https://github.com/Monik09?tab=repositories");
+              Globals.openLink("https://github.com/Monik09?tab=repositories");
             },
           ),
         ),

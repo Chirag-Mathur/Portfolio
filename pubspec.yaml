@@ -29,14 +29,18 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.1
   google_fonts: ^1.1.1
-  draggable_scrollbar: ^0.0.4
-  flutter_web_scrollbar: ^0.0.3
-  flutter_emoji: ^2.2.1+1
   animated_text_kit: ^3.0.1
   universal_html: ^1.2.3
   url_launcher: ^5.7.10
   liquid_progress_indicator: ^0.3.2
-  floating_action_bubble: 1.0.9
+  flutter_speed_dial: ^1.2.5
+  responsive_builder: ^0.3.0
+  path_drawing: ^0.4.1+1
+  lite_rolling_switch: ^0.1.1
+  provider: ^4.3.2+3
+  shared_preferences: ^0.5.12+4
+  theme_provider: ^0.4.0+1
+  auto_animated: ^2.1.0
 
 dev_dependencies:
   flutter_test:

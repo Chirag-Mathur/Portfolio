@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/widgets/footer.dart';
+import 'package:my_portfolio/src/footer.dart';
+import 'package:my_portfolio/src/info/globals.dart';
 
 class ContactScreen extends StatefulWidget {
   static const String routeName = "/ContactScreen";
@@ -18,7 +19,7 @@ class _ContactScreenState extends State<ContactScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: appBarWidget(context),
-      backgroundColor: Color.fromRGBO(189, 224, 255, 1),
+      backgroundColor: Globals.backgroundColorLight,
       body: Container(
         height: MediaQuery.of(context).size.height,
         child: Column(
