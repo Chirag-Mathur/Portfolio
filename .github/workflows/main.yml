@@ -26,10 +26,13 @@ jobs:
 
       # Enabling Flutter Web
       - run: flutter config --enable-web
+        
+      - run: flutter upgrade
       
       # Get the latst dependencies
       - run: flutter pub get
       
+      - run: flutter clean
       # Build our 
       - run: flutter build web --release
       
