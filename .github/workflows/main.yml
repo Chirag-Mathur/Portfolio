@@ -4,7 +4,7 @@ name: Firebase Hosting Continuous Deployment
 # Define trigger point, on push on master branch, this workflow will be triggered.
 on:
   push:
-    branches: [ master ]
+    branches: [ dev ]
 
 # The job(s) you want to do when the workflow is triggered
 # We will be using an ubuntu-latest virtual machine to perform these processes
