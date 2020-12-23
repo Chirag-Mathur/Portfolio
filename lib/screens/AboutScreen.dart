@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 import '../info/globals.dart';
 import '../widgets/socialMediaRow.dart';
 import '../widgets/appDrawer.dart';
+import '../widgets/LiteSwitch.dart';
 import '../widgets/topAboutWidget.dart';
 import '../widgets/Skills.dart';
 import '../widgets/appBarWidget.dart';
@@ -71,7 +71,7 @@ class _AboutScreenState extends State<AboutScreen>
                 top: 60,
                 right: 20,
               ),
-              child: LiteRollingSwitch(
+              child: LiteRollSwitch(
                 value: true,
                 width: 100,
                 textOn: 'Dark',

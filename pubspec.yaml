@@ -38,7 +38,9 @@ dependencies:
   path_drawing: ^0.4.1+1
   lite_rolling_switch: ^0.1.1
   provider: ^4.3.2+3
+  shared_preferences: ^0.5.12+4
   theme_provider: ^0.4.0+1
+  auto_animated: ^2.1.0
 
 dev_dependencies:
   flutter_test:

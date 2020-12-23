@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:my_portfolio/screens/Timeline.dart';
+import 'package:my_portfolio/widgets/LiteSwitch.dart';
 import 'package:my_portfolio/widgets/appDrawer.dart';
 import 'package:theme_provider/theme_provider.dart';
 
-import '../widgets/projectsGrid.dart';
 import '../widgets/footer.dart';
 import '../widgets/appBarWidget.dart';
 import '../info/globals.dart';
@@ -14,7 +12,6 @@ class ProjectScreen extends StatelessWidget {
   ProjectScreen({Key key}) : super(key: key);
   static const String routeName = '/ProjectScreen';
   static GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  final List<Map<String, dynamic>> _projectsList = Globals.projectsList;
   final ScrollController _scrollController = ScrollController();
   final bool isHomePage = false;
   @override
@@ -30,7 +27,7 @@ class ProjectScreen extends StatelessWidget {
                 top: 60,
                 right: 20,
               ),
-              child: LiteRollingSwitch(
+              child: LiteRollSwitch(
                 value: true,
                 width: 100,
                 textOn: 'Dark',
