@@ -39,12 +39,12 @@ jobs:
       - run: flutter build web --release
       
       # Copy the contents of build/web to the public folder of Firebase
-      - run: cp -R build/web/* firebasehosting/public/
+      - run: cp -R build/web/* firebaseHosting/public/
       
       # Using Firebase Actions to deploy to our Firebase Hosting
       - uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.firebase_key }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_KEY }}
           # This is where our stored secret will come in use
