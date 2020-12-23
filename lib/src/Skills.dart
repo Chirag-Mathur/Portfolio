@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/widgets/SkillsLarge.dart';
-import 'package:my_portfolio/widgets/SkillsSmall.dart';
+import 'package:my_portfolio/src/SkillsLarge.dart';
+import 'package:my_portfolio/src/SkillsSmall.dart';
+import 'package:my_portfolio/src/info/globals.dart';
 import 'package:theme_provider/theme_provider.dart';
-
-import '../info/globals.dart';
 
 Widget skillsWidget(BuildContext context) {
   final List<String> _langFram = Globals.langAndFramewks;

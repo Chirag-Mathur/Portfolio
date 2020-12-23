@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/info/globals.dart';
+import 'package:my_portfolio/src/info/globals.dart';
 import 'package:path_drawing/path_drawing.dart';
 
 class Timeline extends StatefulWidget {

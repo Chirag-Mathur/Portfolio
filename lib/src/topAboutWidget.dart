@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:my_portfolio/src/info/globals.dart';
 import 'package:theme_provider/theme_provider.dart';
 
-import '../info/globals.dart';
 
 List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
   return [

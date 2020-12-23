@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/info/globals.dart';
-import '../screens/AboutScreen.dart';
+import 'package:my_portfolio/src/info/globals.dart';
+import 'package:my_portfolio/src/screens/AboutScreen.dart';
 
 Widget projectGridView(
     BuildContext context, List<Map<String, dynamic>> infoMapList) {

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/info/globals.dart';
-import 'package:my_portfolio/widgets/socialMediaRow.dart';
-
-import '../screens/AboutScreen.dart';
-import '../screens/ProjectScreen.dart';
+import 'package:my_portfolio/src/info/globals.dart';
+import 'package:my_portfolio/src/screens/AboutScreen.dart';
+import 'package:my_portfolio/src/screens/ProjectScreen.dart';
+import 'package:my_portfolio/src/socialMediaRow.dart';
 
 Widget appDrawer(BuildContext context) {
   return Container(

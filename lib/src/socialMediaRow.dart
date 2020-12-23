@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../info/globals.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:my_portfolio/src/info/globals.dart';
 
 Widget socialMediaButton() {
   return SpeedDial(

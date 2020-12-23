@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../info/globals.dart';
 
 Widget appBarMobile(
     BuildContext context,

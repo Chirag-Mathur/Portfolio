@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/src/appBarDesktopTablet.dart';
+import 'package:my_portfolio/src/appBarMobile.dart';
+import 'package:my_portfolio/src/info/globals.dart';
 
-import './desktop&Tablet/appBarDesktopTablet.dart';
-import './mobile/appBarMobile.dart';
-import '../info/globals.dart';
 
 Widget appBarWidget(BuildContext context, ScrollController scrollController,
     bool isHomePage, GlobalKey<ScaffoldState> scaffoldKey) {

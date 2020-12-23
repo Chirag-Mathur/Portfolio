@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/footer.dart';
-import '../info/globals.dart';
+import 'package:my_portfolio/src/footer.dart';
+import 'package:my_portfolio/src/info/globals.dart';
 
 //not added to website
 //under Development

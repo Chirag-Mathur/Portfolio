@@ -2,8 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
+import 'package:my_portfolio/src/screens/AboutScreen.dart';
 
-import './AboutScreen.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
