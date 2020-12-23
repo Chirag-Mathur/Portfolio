@@ -45,6 +45,9 @@ jobs:
       - uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"  
+          entryPoint: "./firebaseHosting"  
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_KEY }}
+          
           # This is where our stored secret will come in use
