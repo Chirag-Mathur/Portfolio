@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
 import 'package:my_portfolio/src/screens/ProjectScreen.dart';
-import 'package:my_portfolio/src/socialMediaRow.dart';
+import 'package:my_portfolio/src/widgets/socialMediaRow.dart';
 
 Widget appDrawer(BuildContext context) {
   return Container(

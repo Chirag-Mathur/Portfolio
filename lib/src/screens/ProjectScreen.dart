@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/src/footer.dart';
+import 'package:my_portfolio/src/widgets/footer.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
-import 'package:my_portfolio/src/LiteSwitch.dart';
-import 'package:my_portfolio/src/appBarWidget.dart';
-import 'package:my_portfolio/src/appDrawer.dart';
+import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
+import 'package:my_portfolio/src/widgets/appBarWidget.dart';
+import 'package:my_portfolio/src/widgets/appDrawer.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class ProjectScreen extends StatelessWidget {

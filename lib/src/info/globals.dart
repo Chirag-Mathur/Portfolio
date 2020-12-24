@@ -67,6 +67,21 @@ class Globals {
     'GCP',
   ];
 
+  static final List<Map<String, String>> langAndFramewks2 = [
+    {'name': 'Dart', 'image': 'assets/images/dart.png'},
+    {'name': 'Java', 'image': 'assets/images/java.png'},
+    {'name': 'C/C++', 'image': 'assets/images/cpp.png'},
+    {'name': 'Python', 'image': 'assets/images/python.png'},
+    {'name': 'Flutter', 'image': 'assets/images/flutter.png'},
+  ];
+
+  static final List<Map<String, String>> tools2 = [
+    {'name': 'Git', 'image': 'assets/images/gitlogo.png'},
+    {'name': 'Firebase', 'image': 'assets/images/firebase.png'},
+    {'name': 'VSCode', 'image': 'assets/images/vscode.png'},
+    {'name': 'GCP', 'image': 'assets/images/googlecloud.png'},
+  ];
+
   static void openLink(String url) async {
     // String url = 'https://flutter.dev';
     if (kIsWeb) {

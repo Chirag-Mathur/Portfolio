@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/src/LiteSwitch.dart';
-import 'package:my_portfolio/src/Skills.dart';
-import 'package:my_portfolio/src/appBarWidget.dart';
+import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
+import 'package:my_portfolio/src/widgets/Skills.dart';
+import 'package:my_portfolio/src/widgets/appBarWidget.dart';
 import 'package:my_portfolio/src/info/globals.dart';
-import 'package:my_portfolio/src/topAboutWidget.dart';
-import 'package:my_portfolio/src/appDrawer.dart';
+import 'package:my_portfolio/src/widgets/skills_grid.dart';
+import 'package:my_portfolio/src/widgets/topAboutWidget.dart';
+import 'package:my_portfolio/src/widgets/appDrawer.dart';
 import 'package:theme_provider/theme_provider.dart';
-
-
 
 class AboutScreen extends StatefulWidget {
   static const String routeName = '/AboutScreen';
@@ -70,7 +69,9 @@ class _AboutScreenState extends State<AboutScreen>
               margin: EdgeInsets.only(
                 top: 60,
                 right: 20,
+
               ),
+              decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(50)),boxShadow: [BoxShadow(color: Colors.grey,blurRadius: 1,),BoxShadow(color: Colors.grey[700])]),
               child: LiteRollSwitch(
                 value: true,
                 width: 100,
@@ -94,14 +95,14 @@ class _AboutScreenState extends State<AboutScreen>
         controller: _scrollController,
         child: Container(
           height: MediaQuery.of(context).size.height * 1.28,
-          child: ListWheelScrollView(
+          child: ListView(
             controller: _scrollController,
             // offAxisFraction: 0.2,
-            diameterRatio: 17.5,
+            // diameterRatio: 17.5,
             clipBehavior: Clip.hardEdge,
             itemExtent: Globals.isSmallScreen(context)
                 ? MediaQuery.of(context).size.height * 1.5
-                : MediaQuery.of(context).size.height * 1.3,
+                : MediaQuery.of(context).size.height * 1,
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -122,6 +123,7 @@ class _AboutScreenState extends State<AboutScreen>
                 padding: EdgeInsets.zero, //all(38.0),
                 child: skillsWidget(context),
               ),
+              getSkillsGrid(context),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
