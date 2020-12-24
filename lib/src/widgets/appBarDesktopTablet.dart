@@ -12,10 +12,17 @@ Widget appBarDesktopTablet(
     double fontsize,
     Color textColor) {
   return AppBar(
+    // floating: true,
+    
+    // // snap: true,
+    // pinned: true,
+  
     automaticallyImplyLeading: false,
     toolbarHeight: 90,
-    elevation: Theme.of(context).appBarTheme.elevation, //0,
-    backgroundColor: Colors.transparent,
+    elevation:Theme.of(context).appBarTheme.elevation, //0,
+    backgroundColor:  Colors.transparent,// ThemeProvider.themeOf(context).data.
+    // backgroundColor,
+    // forceElevated: true,
     leading: InkWell(
       customBorder: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(

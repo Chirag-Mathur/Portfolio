@@ -85,9 +85,9 @@ class MyApp extends StatelessWidget {
     );
 
     return ThemeProvider(
-      saveThemesOnChange: true,
-      loadThemeOnInit: false,
-      defaultThemeId: 'light',
+      // saveThemesOnChange: true,
+      loadThemeOnInit: true,
+      defaultThemeId: 'dark',
       onInitCallback: (controller, previouslySavedThemeFuture) async {
     // Do some other task here if you need to
     String savedTheme = await previouslySavedThemeFuture;

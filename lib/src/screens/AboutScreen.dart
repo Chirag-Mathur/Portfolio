@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
 import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
 import 'package:my_portfolio/src/widgets/Skills.dart';
+import 'package:my_portfolio/src/widgets/appBarDesktopTablet.dart';
 import 'package:my_portfolio/src/widgets/appBarWidget.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/widgets/skills_grid.dart';
@@ -69,17 +70,17 @@ class _AboutScreenState extends State<AboutScreen>
       floatingActionButton: Globals.isLargeScreen(context)
           ? Container(
               margin: EdgeInsets.only(
-                top: 60,
+                top:60,//93
                 right: 20,
               ),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(50)),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey,
+                      color: Colors.black54,
                       blurRadius: 3,
                     ),
-                    BoxShadow(color: Colors.grey[700])
+                    BoxShadow(color: Colors.grey[900],blurRadius: 2)
                   ]),
               child: RollSwitch(
                 value: true,
@@ -103,78 +104,171 @@ class _AboutScreenState extends State<AboutScreen>
         radius: Radius.circular(6),
         controller: _scrollController,
         child: Container(
-          height: MediaQuery.of(context).size.height * 1.28,
-          child: ListView(
-            physics:
-                FixedExtentScrollPhysics(), //NeverScrollableScrollPhysics(),
+          height: MediaQuery.of(context).size.height,
+          child: CustomScrollView(
             controller: _scrollController,
-            // offAxisFraction: 0.2,
-            // diameterRatio: 17.5,
-            // clipBehavior: Clip.hardEdge,
-            itemExtent: Globals.isSmallScreen(context)
-                ? MediaQuery.of(context).size.height * 1.2
-                : MediaQuery.of(context).size.height * 1,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: Globals.isLargeScreen(context)
-                    ? Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: topChildren,
-                      )
-                    : Column(
-                        verticalDirection: VerticalDirection.up,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: topChildren,
-                      ),
-              ),
-              // Padding(
-              //   padding: EdgeInsets.zero, //all(38.0),
-              //   child: skillsWidget(context),
+            shrinkWrap: true,
+            slivers: [
+              // appBarDesktopTablet(
+              //   context,
+              //   _scrollController,
+              //   isHomePage,
+              //   ThemeProvider.themeOf(context)
+              //       .data
+              //       .textTheme
+              //       .headline5
+              //       .fontSize,
+              //   ThemeProvider.themeOf(context).data.textTheme.headline5.color,
               // ),
-              Builder(builder: (context) => getSkillsGrid(context)),
-              // Timeline(),
-              Align(
-                alignment: Alignment.center,
-                child: CustomPaint(
-                  foregroundPainter: CurvePainter(),
-                  child: Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.03,
+              SliverFixedExtentList(
+                itemExtent: MediaQuery.of(context).size.height,
+                delegate: SliverChildListDelegate(
+                  [
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Globals.isLargeScreen(context)
+                          ? Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: topChildren,
+                            )
+                          : Column(
+                              verticalDirection: VerticalDirection.up,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: topChildren,
+                            ),
                     ),
-                    color: Colors.transparent,
-                    height: MediaQuery.of(context).size.height * 0.6256,
-                    // child: projectGridView(context, _projectsList),
-                  ),
+                    // Padding(
+                    //   padding: EdgeInsets.zero, //all(38.0),
+                    //   child: skillsWidget(context),
+                    // ),
+                    Builder(builder: (context) => getSkillsGrid(context)),
+                    // Timeline(),
+                    Align(
+                      alignment: Alignment.center,
+                      child: CustomPaint(
+                        foregroundPainter: CurvePainter(),
+                        child: Container(
+                          margin: EdgeInsets.symmetric(
+                            horizontal:
+                                MediaQuery.of(context).size.width * 0.03,
+                          ),
+                          color: Colors.transparent,
+                          height: MediaQuery.of(context).size.height * 0.6256,
+                          // child: projectGridView(context, _projectsList),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Built with",
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.blue[900],
+                          size: 21,
+                        ),
+                        Text(
+                          " by Monikinderjit Singh",
+                          style: GoogleFonts.robotoSlab(
+                              fontSize: 21, fontWeight: FontWeight.w600),
+                        ),
+                        // socialMediaRow(),
+                      ],
+                    ),
+                    //  ),
+                    // ),
+                  ],
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Built with",
-                    style: GoogleFonts.roboto(
-                        fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.blue[900],
-                    size: 21,
-                  ),
-                  Text(
-                    " by Monikinderjit Singh",
-                    style: GoogleFonts.robotoSlab(
-                        fontSize: 21, fontWeight: FontWeight.w600),
-                  ),
-                  // socialMediaRow(),
-                ],
               ),
             ],
           ),
         ),
       ),
     );
+    //  Scrollbar(
+    //   thickness: 12,
+    //   isAlwaysShown: true,
+    //   radius: Radius.circular(6),
+    //   controller: _scrollController,
+    //   child: Container(
+    //     height: MediaQuery.of(context).size.height * 1.28,
+    //     child: ListView(
+    //       physics:
+    //           FixedExtentScrollPhysics(), //NeverScrollableScrollPhysics(),
+    //       controller: _scrollController,
+    //       // offAxisFraction: 0.2,
+    //       // diameterRatio: 17.5,
+    //       // clipBehavior: Clip.hardEdge,
+    //       itemExtent: Globals.isSmallScreen(context)
+    //           ? MediaQuery.of(context).size.height * 1.2
+    //           : MediaQuery.of(context).size.height * 1,
+    //       children: [
+    //         Container(
+    //           width: MediaQuery.of(context).size.width,
+    //           child: Globals.isLargeScreen(context)
+    //               ? Row(
+    //                   crossAxisAlignment: CrossAxisAlignment.center,
+    //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //                   children: topChildren,
+    //                 )
+    //               : Column(
+    //                   verticalDirection: VerticalDirection.up,
+    //                   crossAxisAlignment: CrossAxisAlignment.center,
+    //                   mainAxisAlignment: MainAxisAlignment.start,
+    //                   children: topChildren,
+    //                 ),
+    //         ),
+    //         // Padding(
+    //         //   padding: EdgeInsets.zero, //all(38.0),
+    //         //   child: skillsWidget(context),
+    //         // ),
+    //         Builder(builder: (context) => getSkillsGrid(context)),
+    //         // Timeline(),
+    //         Align(
+    //           alignment: Alignment.center,
+    //           child: CustomPaint(
+    //             foregroundPainter: CurvePainter(),
+    //             child: Container(
+    //               margin: EdgeInsets.symmetric(
+    //                 horizontal: MediaQuery.of(context).size.width * 0.03,
+    //               ),
+    //               color: Colors.transparent,
+    //               height: MediaQuery.of(context).size.height * 0.6256,
+    //               // child: projectGridView(context, _projectsList),
+    //             ),
+    //           ),
+    //         ),
+    //         Row(
+    //           mainAxisAlignment: MainAxisAlignment.center,
+    //           children: [
+    //             Text(
+    //               "Built with",
+    //               style: GoogleFonts.roboto(
+    //                   fontSize: 20, fontWeight: FontWeight.bold),
+    //             ),
+    //             Icon(
+    //               Icons.favorite,
+    //               color: Colors.blue[900],
+    //               size: 21,
+    //             ),
+    //             Text(
+    //               " by Monikinderjit Singh",
+    //               style: GoogleFonts.robotoSlab(
+    //                   fontSize: 21, fontWeight: FontWeight.w600),
+    //             ),
+    //             // socialMediaRow(),
+    //           ],
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // ),
+    // );
   }
 }
