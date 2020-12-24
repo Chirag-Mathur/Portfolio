@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:my_portfolio/src/info/globals.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 Widget socialMediaButton() {
   return SpeedDial(
@@ -75,7 +76,7 @@ Widget socialMediaButton() {
   );
 }
 
-Widget socialMediaRow() {
+Widget socialMediaRowDrawer() {
   return Container(
     child: Column(
       children: [
@@ -138,5 +139,54 @@ Widget socialMediaRow() {
         ),
       ],
     ),
+  );
+}
+
+Widget socialMediaRow(BuildContext context) {
+ return Row(
+   crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      IconButton(
+        icon: Image.asset(
+          'assets/images/linkedinla.png',
+        ),
+        onPressed: () {
+          Globals.openLink("https://www.linkedin.com/in/monikinderjit-singh/");
+        },
+        iconSize: 39,
+        hoverColor: Colors.transparent,
+      ),
+      IconButton(
+        icon: Image.asset(
+          'assets/images/twitterla.png',
+        ),
+        onPressed: () {
+          Globals.openLink("https://twitter.com/MonikIJS");
+        },
+        hoverColor: Colors.transparent,
+        iconSize: 42,
+      ),
+      IconButton(
+        icon: Image.asset(
+          'assets/images/githubl.png',
+        color:ThemeProvider.themeOf(context).id=='dark'? Colors.white:Colors.black,
+        ),
+        onPressed: () {
+          Globals.openLink("https://github.com/Monik09");
+        },
+        hoverColor: Colors.transparent,
+        iconSize: 55,
+      ),
+      IconButton(
+        icon: Image.asset(
+          'assets/images/insta.png',
+        ),
+        onPressed: () {
+          Globals.openLink("https://www.instagram.com/monikinderjit_singh_/");
+        },
+        hoverColor: Colors.transparent,
+        iconSize: 43,
+      ),
+    ],
   );
 }

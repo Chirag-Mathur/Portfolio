@@ -191,7 +191,7 @@ Widget appDrawer(BuildContext context) {
         Divider(),
         Container(
           height: 1000,
-          child: socialMediaRow(),
+          child: socialMediaRowDrawer(),
           alignment: Alignment.bottomCenter,
         ),
         // Expanded(

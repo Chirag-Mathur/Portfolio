@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:my_portfolio/src/info/globals.dart';
+import 'package:my_portfolio/src/widgets/socialMediaRow.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
@@ -225,8 +226,12 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
           SizedBox(
             height: (Globals.isLargeScreen(context) &&
                     !Globals.isMediumScreen(context))
-                ? MediaQuery.of(context).size.height * 0.05
+                ? MediaQuery.of(context).size.height * 0.04
                 : MediaQuery.of(context).size.height * 0.03,
+          ),
+          Padding(
+            padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06),
+            child: socialMediaRow(context),
           ),
         ],
       ),

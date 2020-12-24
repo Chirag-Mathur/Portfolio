@@ -4,13 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
 import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
 import 'package:my_portfolio/src/widgets/Skills.dart';
-import 'package:my_portfolio/src/widgets/appBarDesktopTablet.dart';
 import 'package:my_portfolio/src/widgets/appBarWidget.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/widgets/skills_grid.dart';
 import 'package:my_portfolio/src/widgets/topAboutWidget.dart';
 import 'package:my_portfolio/src/widgets/appDrawer.dart';
-import 'package:smooth_scroll_web/smooth_scroll_web.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class AboutScreen extends StatefulWidget {
