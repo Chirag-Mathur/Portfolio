@@ -8,12 +8,12 @@ import 'package:my_portfolio/src/widgets/socialMediaRow.dart';
 Widget appDrawer(BuildContext context) {
   return Container(
     width: 200,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.only(
-        bottomRight: Radius.circular(70),
-        topRight: Radius.circular(70),
-      ),
-    ),
+    // decoration: BoxDecoration(
+    //   borderRadius: BorderRadius.only(
+    //     bottomRight: Radius.circular(70),
+    //     topRight: Radius.circular(70),
+    //   ),
+    // ),
     height: MediaQuery.of(context).size.height * 0.85,
     color: Globals.backgroundColorLight,
     child: Column(

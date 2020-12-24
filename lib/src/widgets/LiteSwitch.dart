@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'dart:math';
-class LiteRollSwitch extends StatefulWidget {
+class RollSwitch extends StatefulWidget {
   @required
   final bool value;
   final double width;
@@ -20,7 +20,7 @@ class LiteRollSwitch extends StatefulWidget {
   final Function onDoubleTap;
   final Function onSwipe;
 
-  LiteRollSwitch(
+  RollSwitch(
       {this.value = false,
        this.width = 130,
       this.textOff = "Off",
@@ -40,7 +40,7 @@ class LiteRollSwitch extends StatefulWidget {
   _RollSwitchState createState() => _RollSwitchState();
 }
 
-class _RollSwitchState extends State<LiteRollSwitch>
+class _RollSwitchState extends State<RollSwitch>
     with SingleTickerProviderStateMixin {
   AnimationController animationController;
   Animation<double> animation;
@@ -153,7 +153,7 @@ class _RollSwitchState extends State<LiteRollSwitch>
                           opacity: (1 - value).clamp(0.0, 1.0),
                           child: Icon(
                             widget.iconOff,
-                            size: 25,
+                            size: 21,
                             color: Colors.blue[900],
                           ),
                         ),

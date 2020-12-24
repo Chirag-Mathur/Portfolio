@@ -4,7 +4,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:theme_provider/theme_provider.dart';
 
-
 List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
   return [
     Container(
@@ -28,10 +27,9 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (Globals.isLargeScreen(context))
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
-                  ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                ),
                 Row(
                   children: [
                     Text(

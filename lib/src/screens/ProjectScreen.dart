@@ -26,7 +26,7 @@ class ProjectScreen extends StatelessWidget {
                 top: 60,
                 right: 20,
               ),
-              child: LiteRollSwitch(
+              child: RollSwitch(
                 value: true,
                 width: 100,
                 textOn: 'Dark',

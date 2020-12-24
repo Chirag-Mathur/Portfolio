@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
 import 'package:my_portfolio/src/screens/ProjectScreen.dart';
+import 'package:theme_provider/theme_provider.dart';
 import 'package:universal_html/html.dart';
 
 Widget appBarDesktopTablet(
@@ -63,7 +64,9 @@ Widget appBarDesktopTablet(
         padding: EdgeInsets.only(top: 12.0),
         child: FlatButton(
           hoverColor: Colors.transparent,
-          splashColor: Globals.backgroundColorLight,
+          splashColor: ThemeProvider.themeOf(context).id == 'dark'
+              ? Globals.backgroundColorLight
+              : Globals.splashColorLight,
           child: Text(
             "About Me",
             style: Theme.of(context).appBarTheme.textTheme.headline5,
@@ -115,7 +118,9 @@ Widget appBarDesktopTablet(
         padding: EdgeInsets.only(top: 12.0),
         child: FlatButton(
           hoverColor: Colors.transparent,
-          splashColor: Globals.splashColorLight,
+          splashColor: ThemeProvider.themeOf(context).id == 'dark'
+              ? Globals.backgroundColorLight
+              : Globals.splashColorLight,
           child: Text(
             "Skills",
             style: Theme.of(context).appBarTheme.textTheme.headline5,
@@ -167,7 +172,9 @@ Widget appBarDesktopTablet(
         padding: EdgeInsets.only(top: 12.0),
         child: FlatButton(
           hoverColor: Colors.transparent,
-          splashColor: Colors.blue[900],
+          splashColor: ThemeProvider.themeOf(context).id == 'dark'
+              ? Globals.backgroundColorLight
+              : Globals.splashColorLight,
           child: Text(
             "Projects",
             style: Theme.of(context).appBarTheme.textTheme.headline5,
@@ -178,28 +185,36 @@ Widget appBarDesktopTablet(
             // ),
           ),
           onPressed: () {
-            Navigator.of(context).push(
-              PageRouteBuilder(
-                pageBuilder: (context, animation, anotherAnimation) {
-                  return ProjectScreen();
-                },
-                // transitionDuration: Duration(milliseconds: 1700),
-                // transitionsBuilder:
-                //     (context, animation, anotherAnimation, child) {
-                //   animation = CurvedAnimation(
-                //       curve: Curves.easeOutSine, parent: animation);
-                //   return Align(
-                //     child: FadeTransition(
-                //       // sizeFactor: animation,
-                //       child: child,
-                //       opacity: animation,
-                //       // axisAlignment: 0.0,
-                //     ),
-                //   );
-                // },
+            scrollController.animateTo(
+              MediaQuery.of(context).size.height * 3,
+              duration: Duration(
+                seconds: 3,
               ),
-              // ProjectScreen.routeName
+              curve: Curves.easeOut,
             );
+
+            // Navigator.of(context).push(
+            //   PageRouteBuilder(
+            //     pageBuilder: (context, animation, anotherAnimation) {
+            //       return ProjectScreen();
+            //     },
+            // transitionDuration: Duration(milliseconds: 1700),
+            // transitionsBuilder:
+            //     (context, animation, anotherAnimation, child) {
+            //   animation = CurvedAnimation(
+            //       curve: Curves.easeOutSine, parent: animation);
+            //   return Align(
+            //     child: FadeTransition(
+            //       // sizeFactor: animation,
+            //       child: child,
+            //       opacity: animation,
+            //       // axisAlignment: 0.0,
+            //     ),
+            //   );
+            // },
+            // ),
+            // ProjectScreen.routeName
+            // );
           },
         ),
       ),
@@ -210,7 +225,9 @@ Widget appBarDesktopTablet(
         padding: EdgeInsets.all(16.0),
         child: RaisedButton(
           hoverColor: Colors.transparent,
-          splashColor: Colors.blue[900],
+          splashColor: ThemeProvider.themeOf(context).id == 'dark'
+              ? Globals.backgroundColorLight
+              : Globals.splashColorLight,
           color: Colors.transparent,
           hoverElevation: 10,
           // elevation: 7,

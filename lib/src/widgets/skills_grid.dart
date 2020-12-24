@@ -39,14 +39,14 @@ Widget getSkillsGrid(BuildContext context) {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.2,
                   height: MediaQuery.of(context).size.height * 0.6,
-                  decoration: BoxDecoration(
-                    border: Border(
-                      right: BorderSide(
-                        width: 1.5,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                  // decoration: BoxDecoration(
+                  //   border: Border(
+                  //     right: BorderSide(
+                  //       width: 1.5,
+                  //       color: Colors.white,
+                  //     ),
+                  //   ),
+                  // ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -110,19 +110,8 @@ Widget skillsGrid(List<Map<String, String>> info, BuildContext context) {
     height: MediaQuery.of(context).size.height * 0.3,
     width: MediaQuery.of(context).size.width * 0.5,
     child:
-        // GridView.builder(
-        //   primary: false,//true,
-        //   // physics: NeverScrollableScrollPhysics(),
-        //   // scrollDirection: Axis.horizontal,
-        //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //     crossAxisCount: 6,
-
-        //     crossAxisSpacing: 32,
-        //   ),
-        //   itemCount: info.length,
-        //   shrinkWrap: true,
-        //   itemBuilder: (_, i) {
-        //     return
+    Globals.isLargeScreen(context)?
+        
         Row(
       children: [
         for (int i = 0; i < info.length; i++)
@@ -136,8 +125,20 @@ Widget skillsGrid(List<Map<String, String>> info, BuildContext context) {
           ),
         // ),
       ],
-    ),
-    // },
+    ):GridView.builder(
+          primary: false,//true,
+          // physics: NeverScrollableScrollPhysics(),
+          // scrollDirection: Axis.horizontal,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount:2,
+
+            // crossAxisSpacing: 32,
+          ),
+          itemCount: info.length,
+          shrinkWrap: true,
+          itemBuilder: (_, i) {
+            return column(info, context, i);
+    },),
   );
   // );
 }

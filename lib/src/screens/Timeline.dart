@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:path_drawing/path_drawing.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 class Timeline extends StatefulWidget {
   @override
@@ -14,11 +15,11 @@ class _TimelineState extends State<Timeline> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       body: CustomPaint(
         foregroundPainter: CurvePainter(),
         child: Container(
           height: MediaQuery.of(context).size.height * 0.5,
-          color: Globals.backgroundColorLight,
         ),
       ),
     );
@@ -135,5 +136,9 @@ class CurvePainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter delegate) {
     return false;
+  }
+
+  Widget projectCard() {
+    return Card();
   }
 }
