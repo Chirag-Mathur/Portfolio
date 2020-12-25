@@ -76,7 +76,7 @@ Widget socialMediaButton() {
   );
 }
 
-Widget socialMediaRowDrawer() {
+Widget socialMediaRowDrawer(BuildContext context) {
   return Container(
     child: Column(
       children: [
@@ -86,49 +86,61 @@ Widget socialMediaRowDrawer() {
             IconButton(
               color: Colors.white,
               icon: Image.asset(
-                'assets/images/twitter_logo.png',
+                'assets/images/twitterla.png',
               ),
               onPressed: () {
                 Globals.openLink(
                   "https://twitter.com/MonikIJS",
                 );
               },
-              iconSize: 42,
+              iconSize: 35,
             ),
             IconButton(
               color: Colors.white,
               icon: Image.asset(
-                'assets/images/insta_logo.png',
+                'assets/images/insta.png',
               ),
               onPressed: () {
                 Globals.openLink(
                   "https://www.instagram.com/monikinderjit_singh_/",
                 );
               },
-              iconSize: 43,
+              iconSize: 35,
             ),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+           IconButton(
+       icon: Image.asset(
+         'assets/images/githubl.png',
+       color:ThemeProvider.themeOf(context).id=='dark'? Colors.white:Colors.black,
+       ),
+       onPressed: () {
+         Globals.openLink("https://github.com/Monik09");
+       },
+       hoverColor: Colors.transparent,
+       iconSize: 38,
+     ),
+           
+            // IconButton(
+            //   icon: Image.asset(
+            //     'assets/images/github.png',
+            //   ),
+            //   onPressed: () {
+            //     Globals.openLink(
+            //       "https://github.com/Monik09",
+            //     );
+            //   },
+            //   color:ThemeProvider.themeOf(context).id=='dark'? Colors.white:Colors.black,
+            //   iconSize: 38,
+            // ),
             IconButton(
-              color: Colors.white,
               icon: Image.asset(
-                'assets/images/github.png',
+                'assets/images/linkedinla.png',
               ),
-              onPressed: () {
-                Globals.openLink(
-                  "https://github.com/Monik09",
-                );
-              },
-              iconSize: 42,
-            ),
-            IconButton(
-              icon: Image.asset(
-                'assets/images/linkedin_logo.png',
-              ),
-              iconSize: 39,
+              iconSize: 35,
               onPressed: () {
                 Globals.openLink(
                   "https://www.linkedin.com/in/monikinderjit-singh/",
@@ -144,49 +156,50 @@ Widget socialMediaRowDrawer() {
 
 Widget socialMediaRow(BuildContext context) {
  return Row(
-   crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      IconButton(
-        icon: Image.asset(
-          'assets/images/linkedinla.png',
-        ),
-        onPressed: () {
-          Globals.openLink("https://www.linkedin.com/in/monikinderjit-singh/");
-        },
-        iconSize: 39,
-        hoverColor: Colors.transparent,
-      ),
-      IconButton(
-        icon: Image.asset(
-          'assets/images/twitterla.png',
-        ),
-        onPressed: () {
-          Globals.openLink("https://twitter.com/MonikIJS");
-        },
-        hoverColor: Colors.transparent,
-        iconSize: 42,
-      ),
-      IconButton(
-        icon: Image.asset(
-          'assets/images/githubl.png',
-        color:ThemeProvider.themeOf(context).id=='dark'? Colors.white:Colors.black,
-        ),
-        onPressed: () {
-          Globals.openLink("https://github.com/Monik09");
-        },
-        hoverColor: Colors.transparent,
-        iconSize: 55,
-      ),
-      IconButton(
-        icon: Image.asset(
-          'assets/images/insta.png',
-        ),
-        onPressed: () {
-          Globals.openLink("https://www.instagram.com/monikinderjit_singh_/");
-        },
-        hoverColor: Colors.transparent,
-        iconSize: 43,
-      ),
-    ],
-  );
+   mainAxisAlignment: MainAxisAlignment.start,
+  crossAxisAlignment: CrossAxisAlignment.center,
+   children: [
+     IconButton(
+       icon: Image.asset(
+         'assets/images/linkedinla.png',
+       ),
+       onPressed: () {
+         Globals.openLink("https://www.linkedin.com/in/monikinderjit-singh/");
+       },
+       iconSize: 39,
+       hoverColor: Colors.transparent,
+     ),
+     IconButton(
+       icon: Image.asset(
+         'assets/images/twitterla.png',
+       ),
+       onPressed: () {
+         Globals.openLink("https://twitter.com/MonikIJS");
+       },
+       hoverColor: Colors.transparent,
+       iconSize: 42,
+     ),
+     IconButton(
+       icon: Image.asset(
+         'assets/images/githubl.png',
+       color:ThemeProvider.themeOf(context).id=='dark'? Colors.white:Colors.black,
+       ),
+       onPressed: () {
+         Globals.openLink("https://github.com/Monik09");
+       },
+       hoverColor: Colors.transparent,
+       iconSize: 55,
+     ),
+     IconButton(
+       icon: Image.asset(
+         'assets/images/insta.png',
+       ),
+       onPressed: () {
+         Globals.openLink("https://www.instagram.com/monikinderjit_singh_/");
+       },
+       hoverColor: Colors.transparent,
+       iconSize: 43,
+     ),
+   ],
+ );
 }

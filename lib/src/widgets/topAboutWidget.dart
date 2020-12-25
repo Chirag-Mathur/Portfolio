@@ -28,9 +28,9 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.05,
+                // ),
                 Row(
                   children: [
                     Text(
@@ -38,17 +38,20 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                       semanticsLabel: 'Monik intro',
                       style: ThemeProvider.themeOf(context).id == 'dark'
                           ? GoogleFonts.robotoSlab(
-                              fontSize: Globals.isLargeScreen(context)
-                                  ? 40
+                              fontSize: 
+                              Globals.isLargeScreen(context)
+                                  ?
+                                   MediaQuery.of(context).size.aspectRatio*18.857
                                   : Globals.isSmallScreen(context)
                                       ? 25
-                                      : 30,
+                                      : 30
+                                  ,
                               fontWeight: FontWeight.w600,
                               color: Color(0xff00adb5),
                             )
                           : GoogleFonts.robotoSlab(
                               fontSize: Globals.isLargeScreen(context)
-                                  ? 40
+                                  ? MediaQuery.of(context).size.aspectRatio*18.857
                                   : Globals.isSmallScreen(context)
                                       ? 25
                                       : 40,
@@ -69,13 +72,13 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                       "https://media.giphy.com/media/Vhd10uVrDjMhAG7IyV/giphy.gif",
                       // scale: 0.5,
                       width: Globals.isLargeScreen(context)
-                          ? 47
+                          ? 44
                           : Globals.isSmallScreen(context)
                               ? 19
                               : 37,
 
                       height: Globals.isLargeScreen(context)
-                          ? 125
+                          ? 120
                           : Globals.isSmallScreen(context)
                               ? 50
                               : 110,
@@ -87,7 +90,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                       style: ThemeProvider.themeOf(context).id == 'dark'
                           ? GoogleFonts.robotoSlab(
                               fontSize: Globals.isLargeScreen(context)
-                                  ? 40
+                                  ?MediaQuery.of(context).size.aspectRatio*18.857// 35
                                   : Globals.isSmallScreen(context)
                                       ? 25
                                       : 30,
@@ -96,7 +99,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                             )
                           : GoogleFonts.robotoSlab(
                               fontSize: Globals.isLargeScreen(context)
-                                  ? 40
+                                  ? MediaQuery.of(context).size.aspectRatio*18.857
                                   : Globals.isSmallScreen(context)
                                       ? 25
                                       : 40,
@@ -106,8 +109,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     ),
                   ],
                 ),
-                if (!(Globals.isLargeScreen(context) &&
-                    !Globals.isMediumScreen(context)))
+                if (!(Globals.isLargeScreen(context)))
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
@@ -115,9 +117,8 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                   'Building apps, web apps and Learning new technology',
                   style: ThemeProvider.themeOf(context).id == 'dark'
                       ? GoogleFonts.alef(
-                          fontSize: Globals.isLargeScreen(context) &&
-                                  !Globals.isMediumScreen(context)
-                              ? 60
+                          fontSize: Globals.isLargeScreen(context)
+                              ? MediaQuery.of(context).size.aspectRatio*29.094 //54
                               : Globals.isSmallScreen(context)
                                   ? 23
                                   : 46,
@@ -126,9 +127,8 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                               0xffEEEEEE) //Color(0xff001b34), //Colors.black54,
                           )
                       : GoogleFonts.alef(
-                          fontSize: Globals.isLargeScreen(context) &&
-                                  !Globals.isMediumScreen(context)
-                              ? 60
+                          fontSize: Globals.isLargeScreen(context)
+                              ? MediaQuery.of(context).size.aspectRatio*29.094 //54
                               : Globals.isSmallScreen(context)
                                   ? 23
                                   : 46,
@@ -160,7 +160,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                       textStyle: GoogleFonts.lora(
                             color: Colors.pink, // Colors.blueAccent[700],
                             fontSize: Globals.isLargeScreen(context)
-                                ? 40
+                                ?MediaQuery.of(context).size.aspectRatio*21.55// 40
                                 : Globals.isSmallScreen(context)
                                     ? 20
                                     : 35,
@@ -201,7 +201,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: Globals.isSmallScreen(context)
-            ? MainAxisAlignment.spaceAround
+            ? MainAxisAlignment.spaceEvenly
             : MainAxisAlignment.center,
         children: [
           Container(
@@ -218,10 +218,10 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
             // height: Globals.isSmallScreen(context)?300:450,
             // width: Globals.isSmallScreen(context)?500:200,
             child: myImage1,
-            margin: EdgeInsets.only(
-                bottom: Globals.isSmallScreen(context)
-                    ? (MediaQuery.of(context).size.height * 0.032)
-                    : 0),
+            //   margin: EdgeInsets.only(
+            //       // bottom: Globals.isSmallScreen(context)
+            //       //     ? (MediaQuery.of(context).size.height * 0.032)
+            //       //     : 0),
           ),
           SizedBox(
             height: (Globals.isLargeScreen(context) &&
@@ -229,10 +229,15 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                 ? MediaQuery.of(context).size.height * 0.04
                 : MediaQuery.of(context).size.height * 0.03,
           ),
-          Padding(
-            padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06),
-            child: socialMediaRow(context),
-          ),
+          if (Globals.isLargeScreen(context))
+            // Padding(
+            // child:
+            Container(
+            padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.045),
+                alignment: Alignment.center,
+                // color: Colors.amber,
+                child: socialMediaRow(context),),
+          // ),
         ],
       ),
     ),

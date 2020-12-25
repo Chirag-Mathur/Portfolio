@@ -9,6 +9,7 @@ import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/widgets/skills_grid.dart';
 import 'package:my_portfolio/src/widgets/topAboutWidget.dart';
 import 'package:my_portfolio/src/widgets/appDrawer.dart';
+import 'package:polygon_clipper/polygon_clipper.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class AboutScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _AboutScreenState extends State<AboutScreen>
     with SingleTickerProviderStateMixin {
   static GlobalKey<ScaffoldState> scaffoldKey1 = GlobalKey<ScaffoldState>();
   final bool isHomePage = true;
-
+  bool isDark = false;
   Animation<double> _animation;
   AnimationController _animationController;
   var myImage1;
@@ -55,11 +56,12 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
-
+    print(MediaQuery.of(context).size.aspectRatio);
+    print(MediaQuery.of(context).size.height);
     List<Widget> topChildren = topAboutPageWidget(context, myImage1);
     return Scaffold(
       key: scaffoldKey1,
-      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
+      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context,_scrollController,isDark),
       backgroundColor:
           Theme.of(context).backgroundColor, //Globals.backgroundColorLight,
       appBar:
@@ -68,7 +70,7 @@ class _AboutScreenState extends State<AboutScreen>
       floatingActionButton: Globals.isLargeScreen(context)
           ? Container(
               margin: EdgeInsets.only(
-                top:60,//93
+                top: 60, //93
                 right: 20,
               ),
               decoration: BoxDecoration(
@@ -78,7 +80,7 @@ class _AboutScreenState extends State<AboutScreen>
                       color: Colors.black54,
                       blurRadius: 3,
                     ),
-                    BoxShadow(color: Colors.grey[900],blurRadius: 2)
+                    BoxShadow(color: Colors.grey[900], blurRadius: 2)
                   ]),
               child: RollSwitch(
                 value: true,
@@ -91,6 +93,12 @@ class _AboutScreenState extends State<AboutScreen>
                 iconOff: Icons.wb_sunny,
                 textSize: 18.0,
                 onChanged: (bool state) {
+                  if (!isDark) {
+                    setState(() {
+                      isDark = true;
+                    });
+                    return;
+                  }
                   ThemeProvider.controllerOf(context).nextTheme();
                 },
               ),
@@ -119,7 +127,9 @@ class _AboutScreenState extends State<AboutScreen>
               //   ThemeProvider.themeOf(context).data.textTheme.headline5.color,
               // ),
               SliverFixedExtentList(
-                itemExtent: MediaQuery.of(context).size.height,
+                itemExtent: Globals.isLargeScreen(context)
+                    ? MediaQuery.of(context).size.height
+                    : MediaQuery.of(context).size.height * 1.34,
                 delegate: SliverChildListDelegate(
                   [
                     Container(
@@ -133,7 +143,7 @@ class _AboutScreenState extends State<AboutScreen>
                           : Column(
                               verticalDirection: VerticalDirection.up,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: topChildren,
                             ),
                     ),
@@ -143,6 +153,7 @@ class _AboutScreenState extends State<AboutScreen>
                     // ),
                     Builder(builder: (context) => getSkillsGrid(context)),
                     // Timeline(),
+
                     Align(
                       alignment: Alignment.center,
                       child: CustomPaint(
@@ -155,6 +166,31 @@ class _AboutScreenState extends State<AboutScreen>
                           color: Colors.transparent,
                           height: MediaQuery.of(context).size.height * 0.6256,
                           // child: projectGridView(context, _projectsList),
+                          child: Stack(
+                            children: [
+                              Row(
+                                children: [
+                                  // Align(
+                                  //     alignment: Alignment(0, 0.1),
+                                  //     child: AnimatedContainer(
+                                  //         duration: Duration(seconds: 10),
+                                  //         child: Text('HI'),
+                                  //         color: Colors.white)),
+                                  // AnimatedPositioned(
+                                  //   duration: Duration(seconds: 10),
+                                  //   child: Container(
+                                  //     child: Text('hi'),
+                                  //     color: Colors.white,
+                                  //   ),
+                                  //   height: 50,
+                                  //   width: 150,
+                                  //   left:MediaQuery.of(context).size.width*0.16,
+                                  // bottom:MediaQuery.of(context).size.height*0.1,
+                                  // ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -181,6 +217,28 @@ class _AboutScreenState extends State<AboutScreen>
                     ),
                     //  ),
                     // ),
+                    // Container(
+                    //   width: 150,
+                    //   height: 100,
+                    //   child: ClipPolygon(
+                    //     child: Container(
+                    //       color: Colors.white,
+                    //       height: 100,
+                    //       width: 150,
+                    //       child: Text('hi'),
+                    //     ),
+                    //     sides: 5,
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   height: 100,
+                    //   width: 150,
+                    //   // constraints: BoxConstraints(maxHeight: 100,maxWidth: 150),
+                    //   child: Card(
+                    //     child: Text('hi'),
+                    //     color: Colors.white,
+                    //   ),
+                    // )
                   ],
                 ),
               ),

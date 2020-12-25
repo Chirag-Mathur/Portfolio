@@ -17,8 +17,8 @@ class ProjectScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
-      appBar: appBarWidget(context, _scrollController, isHomePage, scaffoldKey),
+      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context,_scrollController,true),
+      appBar: appBarWidget(context, _scrollController, isHomePage, scaffoldKey,),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       floatingActionButton: Globals.isLargeScreen(context)
           ? Container(

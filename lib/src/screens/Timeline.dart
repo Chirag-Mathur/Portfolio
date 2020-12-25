@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:path_drawing/path_drawing.dart';
+import 'package:polygon_clipper/polygon_clipper.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class Timeline extends StatefulWidget {
@@ -139,6 +140,9 @@ class CurvePainter extends CustomPainter {
   }
 
   Widget projectCard() {
-    return Card();
+    return ClipPolygon(
+      child: Container(),
+      sides: 5,
+    );
   }
 }
