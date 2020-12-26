@@ -7,7 +7,7 @@ import 'package:theme_provider/theme_provider.dart';
 Widget appDrawer(
     BuildContext context, ScrollController scrollController, bool isDark) {
   return Container(
-    width: 200,
+    width: MediaQuery.of(context).size.width*0.38,
     height: MediaQuery.of(context).size.height * 0.85,
     color: Theme.of(context).backgroundColor, //Colors.transparent,
     child: Column(
@@ -96,7 +96,7 @@ Widget appDrawer(
           onPressed: () async {
             Navigator.of(context).pop(context);
             scrollController.animateTo(
-              MediaQuery.of(context).size.height * 1.33,
+              MediaQuery.of(context).size.height * 0.8,
               duration: Duration(
                 seconds: 3,
               ),
@@ -122,7 +122,7 @@ Widget appDrawer(
             Navigator.of(context).pop(context);
             // if (isHomePage) {
             scrollController.animateTo(
-              MediaQuery.of(context).size.height * 3,
+              MediaQuery.of(context).size.height * 1.5,
               duration: Duration(
                 seconds: 5,
               ),
@@ -152,14 +152,14 @@ Widget appDrawer(
           },
         ),
         Divider(),
-        SizedBox(
-          width: MediaQuery.of(context).size.width * 0.02,
-        ),
-        Container(
-          height: 1000,
-          child: socialMediaRowDrawer(context),
-          alignment: Alignment.bottomCenter,
-        ),
+        // SizedBox(
+        //   width: MediaQuery.of(context).size.width * 0.02,
+        // ),
+        // Container(
+        //   height: 1000,
+        //   child: socialMediaRowDrawer(context),
+        //   alignment: Alignment.bottomCenter,
+        // ),
 
         Divider(),
       ],

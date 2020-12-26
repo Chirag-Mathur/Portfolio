@@ -140,7 +140,7 @@ Widget appBarDesktopTablet(
           onPressed: () async {
             if (isHomePage) {
               scrollController.animateTo(
-                MediaQuery.of(context).size.height * 1.243,
+                MediaQuery.of(context).size.height * 1.157,
                 duration: Duration(
                   seconds: 3,
                 ),
@@ -193,7 +193,7 @@ Widget appBarDesktopTablet(
           ),
           onPressed: () {
             scrollController.animateTo(
-              MediaQuery.of(context).size.height * 3,
+              MediaQuery.of(context).size.height * 2.123,
               duration: Duration(
                 seconds: 3,
               ),

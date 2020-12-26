@@ -61,7 +61,9 @@ class _AboutScreenState extends State<AboutScreen>
     List<Widget> topChildren = topAboutPageWidget(context, myImage1);
     return Scaffold(
       key: scaffoldKey1,
-      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context,_scrollController,isDark),
+      drawer: Globals.isLargeScreen(context)
+          ? null
+          : appDrawer(context, _scrollController, isDark),
       backgroundColor:
           Theme.of(context).backgroundColor, //Globals.backgroundColorLight,
       appBar:
@@ -105,7 +107,7 @@ class _AboutScreenState extends State<AboutScreen>
             )
           : null,
       body: Scrollbar(
-        thickness: 12,
+        thickness: Globals.isLargeScreen(context) ? 12 : 5,
         isAlwaysShown: true,
         radius: Radius.circular(6),
         controller: _scrollController,
@@ -129,7 +131,7 @@ class _AboutScreenState extends State<AboutScreen>
               SliverFixedExtentList(
                 itemExtent: Globals.isLargeScreen(context)
                     ? MediaQuery.of(context).size.height
-                    : MediaQuery.of(context).size.height * 1.34,
+                    : MediaQuery.of(context).size.height * 0.7, // 1.34,
                 delegate: SliverChildListDelegate(
                   [
                     Container(
@@ -151,45 +153,173 @@ class _AboutScreenState extends State<AboutScreen>
                     //   padding: EdgeInsets.zero, //all(38.0),
                     //   child: skillsWidget(context),
                     // ),
-                    Builder(builder: (context) => getSkillsGrid(context)),
+                    Container(
+                      height: MediaQuery.of(context).size.height,
+                      child: Builder(
+                        builder: (context) => getSkillsGrid(context),
+                      ),
+                      // margin:(Globals.isLargeScreen(context))?EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.45):EdgeInsets.zero,
+                    ),
                     // Timeline(),
-
-                    Align(
-                      alignment: Alignment.center,
-                      child: CustomPaint(
-                        foregroundPainter: CurvePainter(),
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.03,
-                          ),
-                          color: Colors.transparent,
-                          height: MediaQuery.of(context).size.height * 0.6256,
-                          // child: projectGridView(context, _projectsList),
-                          child: Stack(
-                            children: [
-                              Row(
+                    Container(
+                      // margin: EdgeInsets.only(
+                      //     top: MediaQuery.of(context).size.height * 0.05),
+                      // padding: EdgeInsets.only(
+                      //     top: MediaQuery.of(context).size.height * 0.05),
+                      child: Builder(
+                        builder: (context) => CustomPaint(
+                          foregroundPainter: CurvePainter(false),
+                          child: LayoutBuilder(
+                            builder: (context, constraints) => Container(
+                              // margin: EdgeInsets.symmetric(
+                              //   horizontal:
+                              //       MediaQuery.of(context).size.width * 0.03,
+                              // ),
+                              // color: Colors.amber, //Colors.transparent,
+                              height: MediaQuery.of(context)
+                                  .size
+                                  .height, // * 0.6256,
+                              // child: projectGridView(context, _projectsList),
+                              child: Stack(
                                 children: [
-                                  // Align(
-                                  //     alignment: Alignment(0, 0.1),
-                                  //     child: AnimatedContainer(
-                                  //         duration: Duration(seconds: 10),
-                                  //         child: Text('HI'),
-                                  //         color: Colors.white)),
-                                  // AnimatedPositioned(
-                                  //   duration: Duration(seconds: 10),
-                                  //   child: Container(
-                                  //     child: Text('hi'),
-                                  //     color: Colors.white,
-                                  //   ),
-                                  //   height: 50,
-                                  //   width: 150,
-                                  //   left:MediaQuery.of(context).size.width*0.16,
-                                  // bottom:MediaQuery.of(context).size.height*0.1,
-                                  // ),
+                                  Align(
+                                    alignment: Alignment(-1,-1),//(-constraints.minWidth,constraints.minHeight),
+                                    child: Container(
+                                      // margin:EdgeInsets.only(bottom:Globals.isLargeScreen(context)?MediaQuery.of(context).size.height*0.1:0),
+                                      padding: EdgeInsets.only(
+                                          left: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.05,
+                                          // top: MediaQuery.of(context)
+                                          //         .size
+                                          //         .width *
+                                          //     0.01,
+                                          bottom: Globals.isLargeScreen(context)
+                                              ? 0
+                                              : MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.009),
+                                      child: Text(
+                                        'Projects',
+                                        textAlign: TextAlign.left,
+                                        style: ThemeProvider.themeOf(context)
+                                                    .id ==
+                                                'dark'
+                                            ? GoogleFonts.robotoSlab(
+                                                fontSize: Globals.isLargeScreen(
+                                                        context)
+                                                    ? MediaQuery.of(context)
+                                                            .size
+                                                            .aspectRatio *
+                                                        24.25
+                                                    : 19,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600,
+                                              )
+                                            : GoogleFonts.robotoSlab(
+                                                fontSize: Globals.isLargeScreen(
+                                                        context)
+                                                    ? MediaQuery.of(context)
+                                                            .size
+                                                            .aspectRatio *
+                                                        24.25
+                                                    : 19,
+                                                color: Color(0xff00305b),
+                                                fontWeight: FontWeight.w600),
+                                        // Theme.of(context).primaryTextTheme.subtitle1
+                                      ),
+                                    ),
+                                  ),
+                                  AnimatedPositioned(
+                                    duration: Duration(seconds: 10),
+                                    child: Container(
+                                      child: Card(
+                                        elevation: 5,
+                                        shadowColor:
+                                            ThemeProvider.themeOf(context).id ==
+                                                    'dark'
+                                                ? Colors.grey[400]
+                                                : Colors.black87,
+                                        child: Text(
+                                          'hi',
+                                          style: TextStyle(
+                                            color:
+                                                ThemeProvider.themeOf(context)
+                                                            .id ==
+                                                        'dark'
+                                                    ? Colors.white
+                                                    : Color(0xff001b34),
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                        color: Colors
+                                            .white, //ThemeProvider.themeOf(context).id=='dark'? Color(0xff171717):Colors.white,
+                                      ),
+                                      color: Colors.transparent,
+                                    ),
+                                    height: 150,
+                                    width: 300,
+                                    top: constraints.minHeight * 0.08,
+                                    left: constraints.minWidth * 0.115,
+                                    // bottom: MediaQuery.of(context).size.height *
+                                    //     0.1,
+                                  ),
                                 ],
                               ),
-                            ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Builder(
+                        builder: (context) => CustomPaint(
+                          foregroundPainter: CurvePainter(true),
+                          child: LayoutBuilder(
+                            builder: (context, constraints) => Container(
+                              margin: EdgeInsets.symmetric(
+                                horizontal:
+                                    MediaQuery.of(context).size.width * 0.03,
+                              ),
+                              height: MediaQuery.of(context).size.height,
+                              child: Stack(
+                                children: [
+                                  AnimatedPositioned(
+                                    duration: Duration(seconds: 10),
+                                    child: Container(
+                                      child: Card(
+                                        elevation: 5,
+                                        shadowColor:
+                                            ThemeProvider.themeOf(context).id ==
+                                                    'dark'
+                                                ? Colors.grey[400]
+                                                : Colors.black87,
+                                        child: Text(
+                                          'hi',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20),
+                                        ),
+                                        color:
+                                            ThemeProvider.themeOf(context).id ==
+                                                    'dark'
+                                                ? Color(0xff171717)
+                                                : Colors.white,
+                                      ),
+                                      color: Colors.transparent,
+                                    ),
+                                    height: 150,
+                                    width: 300,
+                                    top: constraints.minHeight * 0.06,
+                                    left: constraints.minWidth * 0.087,
+                                    // bottom: MediaQuery.of(context).size.height *
+                                    //     0.1,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),

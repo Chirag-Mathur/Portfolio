@@ -9,15 +9,19 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
   return [
     Container(
       // color: Colors.green,
-      width: MediaQuery.of(context).size.width * 0.7,
-      height: MediaQuery.of(context).size.height * 0.8,
+      width:Globals.isLargeScreen(context)? MediaQuery.of(context).size.width * 0.7:double.maxFinite,
+      height:Globals.isLargeScreen(context)? MediaQuery.of(context).size.height * 0.8:MediaQuery.of(context).size.height*0.26,
       child: Padding(
         padding: EdgeInsets.only(
-            left: Globals.isLargeScreen(context)
-                ? MediaQuery.of(context).size.width * 0.1
-                : Globals.isSmallScreen(context)
-                    ? MediaQuery.of(context).size.width * 0.001
-                    : MediaQuery.of(context).size.width * 0.01),
+            left:
+            //  Globals.isLargeScreen(context)
+            //     ?
+                 MediaQuery.of(context).size.width * 0.1
+                // : Globals.isSmallScreen(context)
+                    // ? MediaQuery.of(context).size.width * 0.001
+                    // : MediaQuery.of(context).size.width * 0.01,
+                    )
+                    ,
         child: Column(
           mainAxisAlignment: (Globals.isLargeScreen(context) &&
                   !Globals.isMediumScreen(context))
@@ -170,6 +174,8 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     ),
                   ),
                 ),
+                if(Globals.isSmallScreen(context))
+                socialMediaRow(context,30)
                 // if (Globals.isLargeScreen(context) &&
                 //     !Globals.isMediumScreen(context))
                 //   SizedBox(
@@ -236,12 +242,12 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
             padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.045),
                 alignment: Alignment.center,
                 // color: Colors.amber,
-                child: socialMediaRow(context),),
+                child: socialMediaRow(context,39),),
           // ),
         ],
       ),
     ),
-    if (Globals.isLargeScreen(context) && !Globals.isMediumScreen(context))
+    if (Globals.isLargeScreen(context))
       SizedBox(height: MediaQuery.of(context).size.height * 0.01),
   ];
 }

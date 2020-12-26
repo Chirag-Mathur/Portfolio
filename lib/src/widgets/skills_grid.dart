@@ -166,7 +166,7 @@ Column column(List<Map<String, String>> info, BuildContext context, int i) {
             color: Colors.white,
             child: Image.asset(
               info[i]['image'],
-              scale:Globals.isLargeScreen(context)? 5:10,
+              scale:Globals.isLargeScreen(context)? 4:10,
               // fit: BoxFit.contain,
             ),
           ),
@@ -174,7 +174,7 @@ Column column(List<Map<String, String>> info, BuildContext context, int i) {
       ),
       Container(
         // width:115,
-        padding: EdgeInsets.only(top: 12),
+        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.01),
         // alignment: Alignment.center,
         child: Text(
           info[i]['name'],

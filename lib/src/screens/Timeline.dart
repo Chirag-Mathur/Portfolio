@@ -18,9 +18,9 @@ class _TimelineState extends State<Timeline> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: CustomPaint(
-        foregroundPainter: CurvePainter(),
+        foregroundPainter: CurvePainter(false),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.5,
+          height: MediaQuery.of(context).size.height,
         ),
       ),
     );
@@ -28,57 +28,97 @@ class _TimelineState extends State<Timeline> {
 }
 
 class CurvePainter extends CustomPainter {
+  CurvePainter(this.isNext);
+  bool isNext;
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
     paint.color = Globals.splashColorLight;
     paint.style = PaintingStyle.stroke;
-    paint.strokeWidth = 6;
-    var start = Offset(size.width * 0.8, size.height * 0.1);
-    var controlPoint1 = Offset(size.width * 0.95, size.height * 0.138);
-    var controlPoint2 = Offset(size.width * 0.95, size.height * 0.475);
-    var end = Offset(size.width * 0.85, size.height * 0.5);
+    paint.strokeWidth = 4.7;
 
-    var controlPoint3 = Offset(-size.width * 0.001, size.height * 0.525);
-    var controlPoint4 = Offset(-size.width * 0.001, size.height * 0.850);
-    // final avatarBounds =
-    //     Rect.fromCircle(center: controlPoint, radius: size.height * 0.3);
-
-    var start2 = Offset(size.width * 0.08, size.height * 0.5);
-    var end2 = Offset(size.width * 0.08, size.height * 0.9);
     var path = Path();
-    path.moveTo(size.width * 0.08, size.height * 0.1);
-    path.lineTo(size.width * 0.87, size.height * 0.1);
-    path.cubicTo(controlPoint1.dx, controlPoint1.dy, controlPoint2.dx,
-        controlPoint2.dy, end.dx, end.dy);
-    path.lineTo(size.width * 0.08, size.height * 0.5);
-    path.cubicTo(controlPoint3.dx, controlPoint3.dy, controlPoint4.dx,
-        controlPoint4.dy, end2.dx, end2.dy);
-    path.lineTo(size.width * 0.87, size.height * 0.9);
+    if (!isNext)
+      path.moveTo(size.width * 0.1, size.height * 0.08);
+    else
+      path.moveTo(size.width * 0.1, size.height*0.009);
+    path.lineTo(size.width * 0.1, size.height);
     canvas.drawPath(
-        dashPath(path, dashArray: CircularIntervalList([10.0, 5.0])), paint);
+        dashPath(path, dashArray: CircularIntervalList([15.0, 7.0])), paint);
 
     var paint1 = Paint()
       ..color = Colors.blue[400]
       ..strokeCap = StrokeCap.round //rounded points
       ..strokeWidth = 30;
     //list of points
-    double pointGiver = size.width * 0.08;
-    double pointGiver2 = size.width * 0.8;
+    double pointGiver = size.width * 0.1;
+    // double pointGiver2 = size.width * 0.8;
     var points = [
-      Offset(pointGiver * 2, size.height * 0.1),
-      Offset(pointGiver * 4, size.height * 0.1),
-      Offset(pointGiver * 7, size.height * 0.1),
-      Offset(pointGiver * 10, size.height * 0.1),
-      Offset(pointGiver, size.height * 0.5),
-      Offset(pointGiver * 3, size.height * 0.5),
-      Offset(pointGiver * 6, size.height * 0.5),
-      Offset(pointGiver * 2, size.height * 0.9),
-      Offset(pointGiver * 4, size.height * 0.9),
-      Offset(pointGiver * 8, size.height * 0.9),
+      Offset(pointGiver, size.height * 0.1),
+      Offset(pointGiver, size.height * 0.4),
+      Offset(pointGiver, size.height * 0.7),
+      Offset(pointGiver, size.height *0.96),
+      // Offset(pointGiver, size.height * 0.91),
+      // Offset(pointGiver , size.height * 1.1),
+      // Offset(pointGiver , size.height * 1.3),
+      // Offset(pointGiver , size.height * 1.5),
+      // Offset(pointGiver , size.height * 0.9),
+      // Offset(pointGiver , size.height * 0.9),
     ];
     canvas.drawPoints(PointMode.points, points, paint1);
 
+//----------------------------Road Map Like design-------------------------------------------------------
+
+    // var paint = Paint();
+    // paint.color = Globals.splashColorLight;
+    // paint.style = PaintingStyle.stroke;
+    // paint.strokeWidth = 6;
+    // var start = Offset(size.width * 0.8, size.height * 0.1);
+    // var controlPoint1 = Offset(size.width * 0.95, size.height * 0.138);
+    // var controlPoint2 = Offset(size.width * 0.95, size.height * 0.475);
+    // var end = Offset(size.width * 0.85, size.height * 0.5);
+
+    // var controlPoint3 = Offset(-size.width * 0.001, size.height * 0.525);
+    // var controlPoint4 = Offset(-size.width * 0.001, size.height * 0.850);
+    // // final avatarBounds =
+    // //     Rect.fromCircle(center: controlPoint, radius: size.height * 0.3);
+
+    // var start2 = Offset(size.width * 0.08, size.height * 0.5);
+    // var end2 = Offset(size.width * 0.08, size.height * 0.9);
+    // var path = Path();
+    // path.moveTo(size.width * 0.08, size.height * 0.1);
+    // path.lineTo(size.width * 0.87, size.height * 0.1);
+    // path.cubicTo(controlPoint1.dx, controlPoint1.dy, controlPoint2.dx,
+    //     controlPoint2.dy, end.dx, end.dy);
+    // path.lineTo(size.width * 0.08, size.height * 0.5);
+    // path.cubicTo(controlPoint3.dx, controlPoint3.dy, controlPoint4.dx,
+    //     controlPoint4.dy, end2.dx, end2.dy);
+    // path.lineTo(size.width * 0.87, size.height * 0.9);
+    // canvas.drawPath(
+    //     dashPath(path, dashArray: CircularIntervalList([10.0, 5.0])), paint);
+
+    // var paint1 = Paint()
+    //   ..color = Colors.blue[400]
+    //   ..strokeCap = StrokeCap.round //rounded points
+    //   ..strokeWidth = 30;
+    // //list of points
+    // double pointGiver = size.width * 0.08;
+    // double pointGiver2 = size.width * 0.8;
+    // var points = [
+    //   Offset(pointGiver * 2, size.height * 0.1),
+    //   Offset(pointGiver * 4, size.height * 0.1),
+    //   Offset(pointGiver * 7, size.height * 0.1),
+    //   Offset(pointGiver * 10, size.height * 0.1),
+    //   Offset(pointGiver, size.height * 0.5),
+    //   Offset(pointGiver * 3, size.height * 0.5),
+    //   Offset(pointGiver * 6, size.height * 0.5),
+    //   Offset(pointGiver * 2, size.height * 0.9),
+    //   Offset(pointGiver * 4, size.height * 0.9),
+    //   Offset(pointGiver * 8, size.height * 0.9),
+    // ];
+    // canvas.drawPoints(PointMode.points, points, paint1);
+
+//----------------------------Practice design-------------------------------------------------------------------
     // var paint = Paint();
     // paint.color = Colors.blue[900];
     // paint.style = PaintingStyle.stroke;
