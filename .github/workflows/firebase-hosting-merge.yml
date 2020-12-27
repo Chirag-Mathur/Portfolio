@@ -9,7 +9,37 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+
+    # Job consists of instructions that you want to trigger
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      # Checkout our code
+      - uses: actions/checkout@v1
+
+      # Switching to Flutter dev branch
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'dev'
+
+      # Enabling Flutter Web
+      - run: flutter config --enable-web
+        
+      - run: flutter channel beta
+
+      - run: flutter upgrade
+      
+      # Get the latst dependencies
+      - run: flutter pub get
+      
+      - run: flutter clean
+      # Build our 
+      - run: flutter build web --release
+
+      
+
+      #for firebase hosting
+      - run: cp -R build/web/* firebaseHosting/public/
       - uses: actions/checkout@v2
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
