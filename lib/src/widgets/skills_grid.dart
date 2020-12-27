@@ -16,7 +16,7 @@ Widget getSkillsGrid(BuildContext context) {
           padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * 0.05,
               top: MediaQuery.of(context).size.width * 0.01,
-              bottom:Globals.isLargeScreen(context)?0:MediaQuery.of(context).size.height*0.009),
+              bottom:Globals.isLargeScreen(context)?20:MediaQuery.of(context).size.height*0.009),
           child: Text(
             'My Skills',
             textAlign: TextAlign.left,
@@ -101,6 +101,8 @@ Widget getSkillsGrid(BuildContext context) {
             ),
           ],
         ),
+        if(Globals.isLargeScreen(context))
+        SizedBox(height:MediaQuery.of(context).size.height*0.5)
       ],
     ),
   );

@@ -28,7 +28,7 @@ class _TimelineState extends State<Timeline> {
 }
 
 class CurvePainter extends CustomPainter {
-  CurvePainter(this.isNext);
+  CurvePainter(this.isNext,);
   bool isNext;
   @override
   void paint(Canvas canvas, Size size) {
@@ -38,11 +38,14 @@ class CurvePainter extends CustomPainter {
     paint.strokeWidth = 4.7;
 
     var path = Path();
-    if (!isNext)
-      path.moveTo(size.width * 0.1, size.height * 0.08);
-    else
+    if (!isNext){
+        path.moveTo(size.width * 0.1, size.height * 0.08);
+        path.lineTo(size.width * 0.1, size.height);    
+      }
+    else{
       path.moveTo(size.width * 0.1, size.height*0.009);
-    path.lineTo(size.width * 0.1, size.height);
+      path.lineTo(size.width * 0.1, size.height*0.85);
+    }
     canvas.drawPath(
         dashPath(path, dashArray: CircularIntervalList([15.0, 7.0])), paint);
 
@@ -53,17 +56,27 @@ class CurvePainter extends CustomPainter {
     //list of points
     double pointGiver = size.width * 0.1;
     // double pointGiver2 = size.width * 0.8;
-    var points = [
+    var points;
+    if(!isNext)
+    points = [
       Offset(pointGiver, size.height * 0.1),
-      Offset(pointGiver, size.height * 0.4),
-      Offset(pointGiver, size.height * 0.7),
-      Offset(pointGiver, size.height *0.96),
+      Offset(pointGiver, size.height * 0.35),
+      Offset(pointGiver, size.height * 0.6),
+      
+      Offset(pointGiver, size.height *0.85),
       // Offset(pointGiver, size.height * 0.91),
       // Offset(pointGiver , size.height * 1.1),
       // Offset(pointGiver , size.height * 1.3),
       // Offset(pointGiver , size.height * 1.5),
       // Offset(pointGiver , size.height * 0.9),
       // Offset(pointGiver , size.height * 0.9),
+    ];
+    else
+    points = [
+      Offset(pointGiver,size.height*0.1),
+      Offset(pointGiver, size.height * 0.35),
+      Offset(pointGiver, size.height * 0.6),
+      Offset(pointGiver, size.height *0.85),
     ];
     canvas.drawPoints(PointMode.points, points, paint1);
 

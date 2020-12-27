@@ -99,7 +99,7 @@ class ProjectScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: CustomPaint(
-                      foregroundPainter: CurvePainter(false),
+                      // foregroundPainter: CurvePainter(false),
                       child: Container(
                         margin: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * 0.03,

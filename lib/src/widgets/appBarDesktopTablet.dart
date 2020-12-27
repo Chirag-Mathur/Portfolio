@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
-import 'package:my_portfolio/src/screens/ProjectScreen.dart';
 import 'package:theme_provider/theme_provider.dart';
-import 'package:universal_html/html.dart';
 
 Widget appBarDesktopTablet(
     BuildContext context,
@@ -140,7 +138,7 @@ Widget appBarDesktopTablet(
           onPressed: () async {
             if (isHomePage) {
               scrollController.animateTo(
-                MediaQuery.of(context).size.height * 1.157,
+                MediaQuery.of(context).size.height * 1.12,
                 duration: Duration(
                   seconds: 3,
                 ),
@@ -193,7 +191,7 @@ Widget appBarDesktopTablet(
           ),
           onPressed: () {
             scrollController.animateTo(
-              MediaQuery.of(context).size.height * 2.123,
+              MediaQuery.of(context).size.height * 2,
               duration: Duration(
                 seconds: 3,
               ),

@@ -3,13 +3,12 @@ import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
 import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
-import 'package:my_portfolio/src/widgets/Skills.dart';
 import 'package:my_portfolio/src/widgets/appBarWidget.dart';
 import 'package:my_portfolio/src/info/globals.dart';
+import 'package:my_portfolio/src/widgets/footer.dart';
 import 'package:my_portfolio/src/widgets/skills_grid.dart';
 import 'package:my_portfolio/src/widgets/topAboutWidget.dart';
 import 'package:my_portfolio/src/widgets/appDrawer.dart';
-import 'package:polygon_clipper/polygon_clipper.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class AboutScreen extends StatefulWidget {
@@ -27,6 +26,7 @@ class _AboutScreenState extends State<AboutScreen>
   Animation<double> _animation;
   AnimationController _animationController;
   var myImage1;
+
   @override
   void initState() {
     myImage1 = Image.asset(
@@ -54,7 +54,12 @@ class _AboutScreenState extends State<AboutScreen>
     precacheImage(myImage1.image, context);
   }
 
+  double getValueTop(double d, int i) {
+    return ((i + 1) * 0.25 + d);
+  }
+
   Widget build(BuildContext context) {
+    var list;
     ScrollController _scrollController = ScrollController();
     print(MediaQuery.of(context).size.aspectRatio);
     print(MediaQuery.of(context).size.height);
@@ -114,6 +119,7 @@ class _AboutScreenState extends State<AboutScreen>
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: CustomScrollView(
+            primary: false,
             controller: _scrollController,
             shrinkWrap: true,
             slivers: [
@@ -162,28 +168,27 @@ class _AboutScreenState extends State<AboutScreen>
                     ),
                     // Timeline(),
                     Container(
-                      // margin: EdgeInsets.only(
-                      //     top: MediaQuery.of(context).size.height * 0.05),
-                      // padding: EdgeInsets.only(
-                      //     top: MediaQuery.of(context).size.height * 0.05),
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.03),
+                      padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.01),
+                      height: MediaQuery.of(context).size.height * 1.5,
                       child: Builder(
                         builder: (context) => CustomPaint(
                           foregroundPainter: CurvePainter(false),
                           child: LayoutBuilder(
                             builder: (context, constraints) => Container(
-                              // margin: EdgeInsets.symmetric(
-                              //   horizontal:
-                              //       MediaQuery.of(context).size.width * 0.03,
-                              // ),
-                              // color: Colors.amber, //Colors.transparent,
                               height: MediaQuery.of(context)
                                   .size
                                   .height, // * 0.6256,
                               // child: projectGridView(context, _projectsList),
                               child: Stack(
+                                clipBehavior: Clip.none,
+                                fit: StackFit.expand,
                                 children: [
-                                  Align(
-                                    alignment: Alignment(-1,-1),//(-constraints.minWidth,constraints.minHeight),
+                                  Positioned(
+                                    bottom: MediaQuery.of(context).size.height *
+                                        0.9,
                                     child: Container(
                                       // margin:EdgeInsets.only(bottom:Globals.isLargeScreen(context)?MediaQuery.of(context).size.height*0.1:0),
                                       padding: EdgeInsets.only(
@@ -232,40 +237,51 @@ class _AboutScreenState extends State<AboutScreen>
                                       ),
                                     ),
                                   ),
-                                  AnimatedPositioned(
-                                    duration: Duration(seconds: 10),
-                                    child: Container(
-                                      child: Card(
-                                        elevation: 5,
-                                        shadowColor:
-                                            ThemeProvider.themeOf(context).id ==
-                                                    'dark'
-                                                ? Colors.grey[400]
-                                                : Colors.black87,
-                                        child: Text(
-                                          'hi',
-                                          style: TextStyle(
-                                            color:
-                                                ThemeProvider.themeOf(context)
-                                                            .id ==
-                                                        'dark'
-                                                    ? Colors.white
-                                                    : Color(0xff001b34),
-                                            fontSize: 20,
+                                  // setState(() {
+                                  //   list =
+                                  //       new List<double>.generate(4, (i) {
+                                  //     return 0.5 * i +
+                                  //         constraints.maxHeight * 0.07;
+                                  //   });
+                                  // }),
+                                  // Text('hellp',style: TextStyle(fontSize:100.1*index)),
+                                   for (int index = 0; index < 4; index++)
+                                    AnimatedPositioned(
+                                      duration: Duration(seconds: 10),
+                                      child: Container(
+                                        child: Card(
+                                          elevation: 5,
+                                          shadowColor:
+                                              ThemeProvider.themeOf(context)
+                                                          .id ==
+                                                      'dark'
+                                                  ? Colors.grey[400]
+                                                  : Colors.black87,
+                                          child: Text(
+                                            'hi',
+                                            style: TextStyle(
+                                              color:
+                                                  ThemeProvider.themeOf(context)
+                                                              .id ==
+                                                          'dark'
+                                                      ? Colors.white
+                                                      : Color(0xff001b34),
+                                              fontSize: 20,
+                                            ),
                                           ),
+                                          color: Colors
+                                              .white, //ThemeProvider.themeOf(context).id=='dark'? Color(0xff171717):Colors.white,
                                         ),
-                                        color: Colors
-                                            .white, //ThemeProvider.themeOf(context).id=='dark'? Color(0xff171717):Colors.white,
+                                        color: Colors.transparent,
                                       ),
-                                      color: Colors.transparent,
+                                      height: 150,
+                                      width: 300,
+                                      top:
+                                          constraints.maxHeight *  ( 0.07+(0.25*index)),
+                                      left: constraints.minWidth * 0.115,
+                                      // bottom: MediaQuery.of(context).size.height *
+                                      //     0.1,
                                     ),
-                                    height: 150,
-                                    width: 300,
-                                    top: constraints.minHeight * 0.08,
-                                    left: constraints.minWidth * 0.115,
-                                    // bottom: MediaQuery.of(context).size.height *
-                                    //     0.1,
-                                  ),
                                 ],
                               ),
                             ),
@@ -286,6 +302,7 @@ class _AboutScreenState extends State<AboutScreen>
                               height: MediaQuery.of(context).size.height,
                               child: Stack(
                                 children: [
+                                  for (int index = 0; index < 3; index++)
                                   AnimatedPositioned(
                                     duration: Duration(seconds: 10),
                                     child: Container(
@@ -312,11 +329,39 @@ class _AboutScreenState extends State<AboutScreen>
                                     ),
                                     height: 150,
                                     width: 300,
-                                    top: constraints.minHeight * 0.06,
+                                    top: constraints.minHeight *( 0.07+(0.25*index)),
                                     left: constraints.minWidth * 0.087,
                                     // bottom: MediaQuery.of(context).size.height *
                                     //     0.1,
                                   ),
+                                  footer(context),
+                                  // Align(
+                                  //   alignment: Alignment.bottomCenter,
+                                  //   child: Row(
+                                  //     mainAxisAlignment:
+                                  //         MainAxisAlignment.center,
+                                  //     children: [
+                                  //       Text(
+                                  //         "Built with",
+                                  //         style: GoogleFonts.roboto(
+                                  //             fontSize: 20,
+                                  //             fontWeight: FontWeight.bold),
+                                  //       ),
+                                  //       Icon(
+                                  //         Icons.favorite,
+                                  //         color: Colors.blue[900],
+                                  //         size: 21,
+                                  //       ),
+                                  //       Text(
+                                  //         " by Monikinderjit Singh",
+                                  //         style: GoogleFonts.robotoSlab(
+                                  //             fontSize: 21,
+                                  //             fontWeight: FontWeight.w600),
+                                  //       ),
+                                  //       // socialMediaRow(),
+                                  //     ],
+                                  //   ),
+                                  // )
                                 ],
                               ),
                             ),
@@ -324,27 +369,27 @@ class _AboutScreenState extends State<AboutScreen>
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Built with",
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        Icon(
-                          Icons.favorite,
-                          color: Colors.blue[900],
-                          size: 21,
-                        ),
-                        Text(
-                          " by Monikinderjit Singh",
-                          style: GoogleFonts.robotoSlab(
-                              fontSize: 21, fontWeight: FontWeight.w600),
-                        ),
-                        // socialMediaRow(),
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     Text(
+                    //       "Built with",
+                    //       style: GoogleFonts.roboto(
+                    //           fontSize: 20, fontWeight: FontWeight.bold),
+                    //     ),
+                    //     Icon(
+                    //       Icons.favorite,
+                    //       color: Colors.blue[900],
+                    //       size: 21,
+                    //     ),
+                    //     Text(
+                    //       " by Monikinderjit Singh",
+                    //       style: GoogleFonts.robotoSlab(
+                    //           fontSize: 21, fontWeight: FontWeight.w600),
+                    //     ),
+                    //     // socialMediaRow(),
+                    //   ],
+                    // ),
                     //  ),
                     // ),
                     // Container(
