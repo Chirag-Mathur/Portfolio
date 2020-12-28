@@ -2,6 +2,77 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
+import 'package:my_portfolio/src/screens/Timeline.dart';
+import 'package:theme_provider/theme_provider.dart';
+
+Widget projectsCardWidget(
+    BuildContext context, int index, bool isHovering, bool isNextPage) {
+  return Card(
+    borderOnForeground: false,
+    elevation: !isHovering ? 10 : 10,
+    shadowColor: ThemeProvider.themeOf(context).id == 'dark'
+        ? Colors.grey
+        : Colors.black,
+    child: Builder(
+      builder: (context) => CustomPaint(
+        painter: CardDesignPainter(context),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              Globals.projectsList[index]['title'],
+              style: GoogleFonts.robotoMono(
+                  fontSize: 19.5,
+                  color: Colors.white, // Color(0xff26ABBF)
+                  fontWeight: FontWeight.w500),
+            ),
+
+            // Divider(color: Colors.grey),
+            Container(
+              padding: EdgeInsets.all(12),
+              child: Text(
+                Globals.projectsList[index]['description'],
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  color: ThemeProvider.themeOf(context).id == 'dark'
+                      ? Color(0xff2F2F31) //Colors.grey[600]
+                      : Color(0xff001b34),
+                  fontSize: 17.5,
+                ),
+                maxLines: 3,
+                softWrap: true,
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 2.0),
+                  child: Text(
+                    Globals.projectsList[index]['startedIn'],
+                    style: GoogleFonts.robotoSlab(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    ),
+    color: ThemeProvider.themeOf(context).id == 'dark'
+        ? isHovering
+            ? Colors.white
+            :Color(0xffEDEAE0)//Color(0xffF5F5DC)// Colors.white70
+        : Colors.white,
+  );
+}
 
 Widget projectGridView(
     BuildContext context, List<Map<String, dynamic>> infoMapList) {

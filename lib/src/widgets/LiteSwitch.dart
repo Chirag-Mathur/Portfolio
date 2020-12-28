@@ -21,15 +21,15 @@ class RollSwitch extends StatefulWidget {
   final Function onSwipe;
 
   RollSwitch(
-      {this.value = false,
+      {this.value = true,
        this.width = 130,
-      this.textOff = "Off",
-      this.textOn = "On",
-      this.textSize = 14.0,
-      this.colorOn = Colors.green,
-      this.colorOff = Colors.red,
-      this.iconOff = Icons.flag,
-      this.iconOn = Icons.check,
+      this.textOff =  'Light',
+      this.textOn =  'Dark',
+      this.textSize =  18.0,
+      this.colorOn =const Color(0xffAB47BC),//same to Colors.purple[400] but can be constant,
+      this.colorOff =const Color(0xff204690), // Colors.blue[800],
+      this.iconOff = Icons.wb_sunny,
+      this.iconOn =Icons.nights_stay,
       this.animationDuration = const Duration(milliseconds: 600),
       this.onTap,
       this.onDoubleTap,

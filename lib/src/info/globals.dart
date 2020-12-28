@@ -11,7 +11,7 @@ class Globals {
 
   static final List<Map<String, dynamic>> projectsList = [
     {
-      'title': "My Portfolio Website",
+      'title': "MyPortfolio Website",
       'startedIn': 'December 2020',
       'description':
           'My portfolio website created by myself which showcases my skills and profiles.',
@@ -27,7 +27,7 @@ class Globals {
     },
     {
       'title': "CineScript",
-      'startedIn': 'September-December 2020',
+      'startedIn': 'September 2020',
       'description':
           'Java based programming language built in team project based on BOLLYWOOD theme',
       'projectLink': 'https://github.com/Ozric-Ode/Cinescript',
@@ -35,7 +35,7 @@ class Globals {
     },
     {
       'title': "My Meals App",
-      'startedIn': 'May-June 2020',
+      'startedIn': 'May 2020',
       'description':
           'An app for different recipes\' steps and food categories.',
       'projectLink': 'https://github.com/Monik09/My-Meals-App',

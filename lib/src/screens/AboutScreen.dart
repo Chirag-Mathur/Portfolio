@@ -6,6 +6,7 @@ import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
 import 'package:my_portfolio/src/widgets/appBarWidget.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/widgets/footer.dart';
+import 'package:my_portfolio/src/widgets/projectsCardWidget.dart';
 import 'package:my_portfolio/src/widgets/skills_grid.dart';
 import 'package:my_portfolio/src/widgets/topAboutWidget.dart';
 import 'package:my_portfolio/src/widgets/appDrawer.dart';
@@ -26,6 +27,7 @@ class _AboutScreenState extends State<AboutScreen>
   Animation<double> _animation;
   AnimationController _animationController;
   var myImage1;
+  List<bool> isHovering = new List.filled(7, false);
 
   @override
   void initState() {
@@ -54,16 +56,36 @@ class _AboutScreenState extends State<AboutScreen>
     precacheImage(myImage1.image, context);
   }
 
-  double getValueTop(double d, int i) {
-    return ((i + 1) * 0.25 + d);
-  }
-
   Widget build(BuildContext context) {
-    var list;
     ScrollController _scrollController = ScrollController();
     print(MediaQuery.of(context).size.aspectRatio);
     print(MediaQuery.of(context).size.height);
     List<Widget> topChildren = topAboutPageWidget(context, myImage1);
+    Widget animatedPositionedProjectCard(
+            BoxConstraints constraints, int index,bool isNextPage) =>
+        AnimatedPositioned(
+          curve: Curves.bounceOut,
+          duration: Duration(milliseconds: 150),
+          child: InkWell(
+            onHover: (val) {
+              setState(() {
+                isHovering[index] = !isHovering[index];
+              });
+            },
+            onTap: () {
+              print('pressed me');
+            },
+              child: projectsCardWidget(context,index, isHovering[index],isNextPage),
+          ),
+          height: 150,
+          width: 300,
+          top: !isHovering[index]
+              ? constraints.maxHeight * (0.07 + (0.25 * index))
+              : constraints.maxHeight * (0.07 + (0.25 * index - 0.01)),
+          left: !isHovering[index]
+              ? constraints.minWidth * 0.115
+              : constraints.minWidth * 0.12,
+        );
     return Scaffold(
       key: scaffoldKey1,
       drawer: Globals.isLargeScreen(context)
@@ -90,15 +112,7 @@ class _AboutScreenState extends State<AboutScreen>
                     BoxShadow(color: Colors.grey[900], blurRadius: 2)
                   ]),
               child: RollSwitch(
-                value: true,
-                width: 100,
-                textOn: 'Dark',
-                textOff: 'Light',
-                colorOff: Color(0xff204690), // Colors.blue[800],
-                colorOn: Colors.purple[400],
-                iconOn: Icons.nights_stay,
-                iconOff: Icons.wb_sunny,
-                textSize: 18.0,
+               width: 100,
                 onChanged: (bool state) {
                   if (!isDark) {
                     setState(() {
@@ -123,17 +137,6 @@ class _AboutScreenState extends State<AboutScreen>
             controller: _scrollController,
             shrinkWrap: true,
             slivers: [
-              // appBarDesktopTablet(
-              //   context,
-              //   _scrollController,
-              //   isHomePage,
-              //   ThemeProvider.themeOf(context)
-              //       .data
-              //       .textTheme
-              //       .headline5
-              //       .fontSize,
-              //   ThemeProvider.themeOf(context).data.textTheme.headline5.color,
-              // ),
               SliverFixedExtentList(
                 itemExtent: Globals.isLargeScreen(context)
                     ? MediaQuery.of(context).size.height
@@ -155,18 +158,12 @@ class _AboutScreenState extends State<AboutScreen>
                               children: topChildren,
                             ),
                     ),
-                    // Padding(
-                    //   padding: EdgeInsets.zero, //all(38.0),
-                    //   child: skillsWidget(context),
-                    // ),
                     Container(
                       height: MediaQuery.of(context).size.height,
                       child: Builder(
                         builder: (context) => getSkillsGrid(context),
                       ),
-                      // margin:(Globals.isLargeScreen(context))?EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.45):EdgeInsets.zero,
                     ),
-                    // Timeline(),
                     Container(
                       margin: EdgeInsets.only(
                           top: MediaQuery.of(context).size.height * 0.03),
@@ -175,116 +172,79 @@ class _AboutScreenState extends State<AboutScreen>
                       height: MediaQuery.of(context).size.height * 1.5,
                       child: Builder(
                         builder: (context) => CustomPaint(
-                          foregroundPainter: CurvePainter(false),
+                          foregroundPainter: TimelinePainter(false),
                           child: LayoutBuilder(
-                            builder: (context, constraints) => Container(
-                              height: MediaQuery.of(context)
-                                  .size
-                                  .height, // * 0.6256,
-                              // child: projectGridView(context, _projectsList),
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                fit: StackFit.expand,
-                                children: [
-                                  Positioned(
-                                    bottom: MediaQuery.of(context).size.height *
-                                        0.9,
-                                    child: Container(
-                                      // margin:EdgeInsets.only(bottom:Globals.isLargeScreen(context)?MediaQuery.of(context).size.height*0.1:0),
-                                      padding: EdgeInsets.only(
-                                          left: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.05,
-                                          // top: MediaQuery.of(context)
-                                          //         .size
-                                          //         .width *
-                                          //     0.01,
-                                          bottom: Globals.isLargeScreen(context)
-                                              ? 0
-                                              : MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.009),
-                                      child: Text(
-                                        'Projects',
-                                        textAlign: TextAlign.left,
-                                        style: ThemeProvider.themeOf(context)
-                                                    .id ==
-                                                'dark'
-                                            ? GoogleFonts.robotoSlab(
-                                                fontSize: Globals.isLargeScreen(
-                                                        context)
-                                                    ? MediaQuery.of(context)
-                                                            .size
-                                                            .aspectRatio *
-                                                        24.25
-                                                    : 19,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w600,
-                                              )
-                                            : GoogleFonts.robotoSlab(
-                                                fontSize: Globals.isLargeScreen(
-                                                        context)
-                                                    ? MediaQuery.of(context)
-                                                            .size
-                                                            .aspectRatio *
-                                                        24.25
-                                                    : 19,
-                                                color: Color(0xff00305b),
-                                                fontWeight: FontWeight.w600),
-                                        // Theme.of(context).primaryTextTheme.subtitle1
-                                      ),
-                                    ),
-                                  ),
-                                  // setState(() {
-                                  //   list =
-                                  //       new List<double>.generate(4, (i) {
-                                  //     return 0.5 * i +
-                                  //         constraints.maxHeight * 0.07;
-                                  //   });
-                                  // }),
-                                  // Text('hellp',style: TextStyle(fontSize:100.1*index)),
-                                   for (int index = 0; index < 4; index++)
-                                    AnimatedPositioned(
-                                      duration: Duration(seconds: 10),
+                            builder: (context, constraints) {
+                              return Container(
+                                height: MediaQuery.of(context)
+                                    .size
+                                    .height, // * 0.6256,
+                                // child: projectGridView(context, _projectsList),
+                                child: Stack(
+                                  clipBehavior: Clip.none,
+                                  fit: StackFit.expand,
+                                  children: [
+                                    Positioned(
+                                      bottom:
+                                          MediaQuery.of(context).size.height *
+                                              0.9,
                                       child: Container(
-                                        child: Card(
-                                          elevation: 5,
-                                          shadowColor:
-                                              ThemeProvider.themeOf(context)
-                                                          .id ==
-                                                      'dark'
-                                                  ? Colors.grey[400]
-                                                  : Colors.black87,
-                                          child: Text(
-                                            'hi',
-                                            style: TextStyle(
-                                              color:
-                                                  ThemeProvider.themeOf(context)
-                                                              .id ==
-                                                          'dark'
-                                                      ? Colors.white
-                                                      : Color(0xff001b34),
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                          color: Colors
-                                              .white, //ThemeProvider.themeOf(context).id=='dark'? Color(0xff171717):Colors.white,
+                                        padding: EdgeInsets.only(
+                                            left: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.05,
+                                            // top: MediaQuery.of(context)
+                                            //         .size
+                                            //         .width *
+                                            //     0.01,
+                                            bottom:
+                                                Globals.isLargeScreen(context)
+                                                    ? 0
+                                                    : MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        0.009),
+                                        child: Text(
+                                          'Projects',
+                                          textAlign: TextAlign.left,
+                                          style: ThemeProvider.themeOf(context)
+                                                      .id ==
+                                                  'dark'
+                                              ? GoogleFonts.robotoSlab(
+                                                  fontSize: Globals
+                                                          .isLargeScreen(
+                                                              context)
+                                                      ? MediaQuery.of(context)
+                                                              .size
+                                                              .aspectRatio *
+                                                          24.25
+                                                      : 19,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w600,
+                                                )
+                                              : GoogleFonts.robotoSlab(
+                                                  fontSize: Globals
+                                                          .isLargeScreen(
+                                                              context)
+                                                      ? MediaQuery.of(context)
+                                                              .size
+                                                              .aspectRatio *
+                                                          24.25
+                                                      : 19,
+                                                  color: Color(0xff00305b),
+                                                  fontWeight: FontWeight.w600),
+                                          // Theme.of(context).primaryTextTheme.subtitle1
                                         ),
-                                        color: Colors.transparent,
                                       ),
-                                      height: 150,
-                                      width: 300,
-                                      top:
-                                          constraints.maxHeight *  ( 0.07+(0.25*index)),
-                                      left: constraints.minWidth * 0.115,
-                                      // bottom: MediaQuery.of(context).size.height *
-                                      //     0.1,
                                     ),
-                                ],
-                              ),
-                            ),
+                                    for (int i = 0; i < 4; i++)
+                                      animatedPositionedProjectCard(
+                                          constraints, i,false),
+                                  ],
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ),
@@ -292,76 +252,16 @@ class _AboutScreenState extends State<AboutScreen>
                     Container(
                       child: Builder(
                         builder: (context) => CustomPaint(
-                          foregroundPainter: CurvePainter(true),
+                          foregroundPainter: TimelinePainter(true),
                           child: LayoutBuilder(
                             builder: (context, constraints) => Container(
-                              margin: EdgeInsets.symmetric(
-                                horizontal:
-                                    MediaQuery.of(context).size.width * 0.03,
-                              ),
                               height: MediaQuery.of(context).size.height,
                               child: Stack(
                                 children: [
-                                  for (int index = 0; index < 3; index++)
-                                  AnimatedPositioned(
-                                    duration: Duration(seconds: 10),
-                                    child: Container(
-                                      child: Card(
-                                        elevation: 5,
-                                        shadowColor:
-                                            ThemeProvider.themeOf(context).id ==
-                                                    'dark'
-                                                ? Colors.grey[400]
-                                                : Colors.black87,
-                                        child: Text(
-                                          'hi',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
-                                        ),
-                                        color:
-                                            ThemeProvider.themeOf(context).id ==
-                                                    'dark'
-                                                ? Color(0xff171717)
-                                                : Colors.white,
-                                      ),
-                                      color: Colors.transparent,
-                                    ),
-                                    height: 150,
-                                    width: 300,
-                                    top: constraints.minHeight *( 0.07+(0.25*index)),
-                                    left: constraints.minWidth * 0.087,
-                                    // bottom: MediaQuery.of(context).size.height *
-                                    //     0.1,
-                                  ),
+                                  for (int i = 0; i < 3; i++)
+                                    animatedPositionedProjectCard(
+                                        constraints, i,true),
                                   footer(context),
-                                  // Align(
-                                  //   alignment: Alignment.bottomCenter,
-                                  //   child: Row(
-                                  //     mainAxisAlignment:
-                                  //         MainAxisAlignment.center,
-                                  //     children: [
-                                  //       Text(
-                                  //         "Built with",
-                                  //         style: GoogleFonts.roboto(
-                                  //             fontSize: 20,
-                                  //             fontWeight: FontWeight.bold),
-                                  //       ),
-                                  //       Icon(
-                                  //         Icons.favorite,
-                                  //         color: Colors.blue[900],
-                                  //         size: 21,
-                                  //       ),
-                                  //       Text(
-                                  //         " by Monikinderjit Singh",
-                                  //         style: GoogleFonts.robotoSlab(
-                                  //             fontSize: 21,
-                                  //             fontWeight: FontWeight.w600),
-                                  //       ),
-                                  //       // socialMediaRow(),
-                                  //     ],
-                                  //   ),
-                                  // )
                                 ],
                               ),
                             ),
@@ -369,51 +269,6 @@ class _AboutScreenState extends State<AboutScreen>
                         ),
                       ),
                     ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     Text(
-                    //       "Built with",
-                    //       style: GoogleFonts.roboto(
-                    //           fontSize: 20, fontWeight: FontWeight.bold),
-                    //     ),
-                    //     Icon(
-                    //       Icons.favorite,
-                    //       color: Colors.blue[900],
-                    //       size: 21,
-                    //     ),
-                    //     Text(
-                    //       " by Monikinderjit Singh",
-                    //       style: GoogleFonts.robotoSlab(
-                    //           fontSize: 21, fontWeight: FontWeight.w600),
-                    //     ),
-                    //     // socialMediaRow(),
-                    //   ],
-                    // ),
-                    //  ),
-                    // ),
-                    // Container(
-                    //   width: 150,
-                    //   height: 100,
-                    //   child: ClipPolygon(
-                    //     child: Container(
-                    //       color: Colors.white,
-                    //       height: 100,
-                    //       width: 150,
-                    //       child: Text('hi'),
-                    //     ),
-                    //     sides: 5,
-                    //   ),
-                    // ),
-                    // SizedBox(
-                    //   height: 100,
-                    //   width: 150,
-                    //   // constraints: BoxConstraints(maxHeight: 100,maxWidth: 150),
-                    //   child: Card(
-                    //     child: Text('hi'),
-                    //     color: Colors.white,
-                    //   ),
-                    // )
                   ],
                 ),
               ),

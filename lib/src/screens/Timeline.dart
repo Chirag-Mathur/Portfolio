@@ -18,7 +18,7 @@ class _TimelineState extends State<Timeline> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: CustomPaint(
-        foregroundPainter: CurvePainter(false),
+        foregroundPainter: TimelinePainter(false),
         child: Container(
           height: MediaQuery.of(context).size.height,
         ),
@@ -27,8 +27,10 @@ class _TimelineState extends State<Timeline> {
   }
 }
 
-class CurvePainter extends CustomPainter {
-  CurvePainter(this.isNext,);
+class TimelinePainter extends CustomPainter {
+  TimelinePainter(
+    this.isNext,
+  );
   bool isNext;
   @override
   void paint(Canvas canvas, Size size) {
@@ -38,13 +40,12 @@ class CurvePainter extends CustomPainter {
     paint.strokeWidth = 4.7;
 
     var path = Path();
-    if (!isNext){
-        path.moveTo(size.width * 0.1, size.height * 0.08);
-        path.lineTo(size.width * 0.1, size.height);    
-      }
-    else{
-      path.moveTo(size.width * 0.1, size.height*0.009);
-      path.lineTo(size.width * 0.1, size.height*0.85);
+    if (!isNext) {
+      path.moveTo(size.width * 0.1, size.height * 0.08);
+      path.lineTo(size.width * 0.1, size.height);
+    } else {
+      path.moveTo(size.width * 0.1, 0);
+      path.lineTo(size.width * 0.1, size.height * 0.6);
     }
     canvas.drawPath(
         dashPath(path, dashArray: CircularIntervalList([15.0, 7.0])), paint);
@@ -57,27 +58,26 @@ class CurvePainter extends CustomPainter {
     double pointGiver = size.width * 0.1;
     // double pointGiver2 = size.width * 0.8;
     var points;
-    if(!isNext)
-    points = [
-      Offset(pointGiver, size.height * 0.1),
-      Offset(pointGiver, size.height * 0.35),
-      Offset(pointGiver, size.height * 0.6),
-      
-      Offset(pointGiver, size.height *0.85),
-      // Offset(pointGiver, size.height * 0.91),
-      // Offset(pointGiver , size.height * 1.1),
-      // Offset(pointGiver , size.height * 1.3),
-      // Offset(pointGiver , size.height * 1.5),
-      // Offset(pointGiver , size.height * 0.9),
-      // Offset(pointGiver , size.height * 0.9),
-    ];
+    if (!isNext)
+      points = [
+        Offset(pointGiver, size.height * 0.1),
+        Offset(pointGiver, size.height * 0.35),
+        Offset(pointGiver, size.height * 0.6),
+        Offset(pointGiver, size.height * 0.85),
+        // Offset(pointGiver, size.height * 0.91),
+        // Offset(pointGiver , size.height * 1.1),
+        // Offset(pointGiver , size.height * 1.3),
+        // Offset(pointGiver , size.height * 1.5),
+        // Offset(pointGiver , size.height * 0.9),
+        // Offset(pointGiver , size.height * 0.9),
+      ];
     else
-    points = [
-      Offset(pointGiver,size.height*0.1),
-      Offset(pointGiver, size.height * 0.35),
-      Offset(pointGiver, size.height * 0.6),
-      Offset(pointGiver, size.height *0.85),
-    ];
+      points = [
+        Offset(pointGiver, size.height * 0.1),
+        Offset(pointGiver, size.height * 0.35),
+        Offset(pointGiver, size.height * 0.6),
+        // Offset(pointGiver, size.height *0.85),
+      ];
     canvas.drawPoints(PointMode.points, points, paint1);
 
 //----------------------------Road Map Like design-------------------------------------------------------
@@ -191,11 +191,42 @@ class CurvePainter extends CustomPainter {
   bool shouldRepaint(CustomPainter delegate) {
     return false;
   }
+}
 
-  Widget projectCard() {
-    return ClipPolygon(
-      child: Container(),
-      sides: 5,
-    );
+class CardDesignPainter extends CustomPainter {
+  BuildContext context;
+  CardDesignPainter(this.context);
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paintDate = Paint()
+      ..color = ThemeProvider.themeOf(context).id == 'dark'
+          ? Globals.splashColorLight//Color(0xff26ABBF)
+          : Color(0xff00305b)
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 5;
+    var pathDate = Path()
+      ..moveTo(size.width * 0.57, size.height)
+      ..lineTo(size.width * 0.61, size.height * 0.835)
+      ..lineTo(size.width, size.height * 0.835)
+      ..lineTo(size.width, size.height)
+      ..close();
+    canvas.drawPath(pathDate, paintDate);
+    var paintTitle = Paint()
+      ..color = ThemeProvider.themeOf(context).id == 'dark'
+          ? Globals.splashColorLight// Color(0xff26ABBF)//Colors.black87
+          : Color(0xff00305b)
+      ..style = PaintingStyle.fill;
+    var pathTitle = Path()
+      ..moveTo(size.width * 0.06, 0)
+      ..lineTo(size.width * 0.14, size.height * 0.2)
+      ..lineTo(size.width * 0.86, size.height * 0.2)
+      ..lineTo(size.width * 0.94, 0)
+      ..close();
+    canvas.drawPath(pathTitle, paintTitle);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter delegate) {
+    return false;
   }
 }
