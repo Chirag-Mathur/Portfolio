@@ -62,29 +62,33 @@ class _AboutScreenState extends State<AboutScreen>
     print(MediaQuery.of(context).size.height);
     List<Widget> topChildren = topAboutPageWidget(context, myImage1);
     Widget animatedPositionedProjectCard(
-            BoxConstraints constraints, int index,bool isNextPage) =>
+            BoxConstraints constraints, int index, bool isNextPage) =>
         AnimatedPositioned(
           curve: Curves.bounceOut,
           duration: Duration(milliseconds: 150),
           child: InkWell(
             onHover: (val) {
+              print('hght ${constraints.maxHeight}');
+              print("width ${constraints.maxWidth}");
               setState(() {
                 isHovering[index] = !isHovering[index];
               });
             },
             onTap: () {
+              Globals.openLink(Globals.projectsList[index]['projectLink']);
               print('pressed me');
             },
-              child: projectsCardWidget(context,index, isHovering[index],isNextPage),
+            child: projectsCardWidget(
+                context, index, isHovering[index], isNextPage),
           ),
-          height: 150,
-          width: 300,
+          height:Globals.isLargeScreen(context)?150:120,//constraints.maxHeight*0.17361,// 150,
+          width:Globals.isLargeScreen(context)?300:240,//constraints.minWidth*0.20833,// 300,
           top: !isHovering[index]
               ? constraints.maxHeight * (0.07 + (0.25 * index))
               : constraints.maxHeight * (0.07 + (0.25 * index - 0.01)),
-          left: !isHovering[index]
+          left:Globals.isLargeScreen(context)? !isHovering[index]
               ? constraints.minWidth * 0.115
-              : constraints.minWidth * 0.12,
+              : constraints.minWidth * 0.12:constraints.minWidth*0.132,
         );
     return Scaffold(
       key: scaffoldKey1,
@@ -112,7 +116,7 @@ class _AboutScreenState extends State<AboutScreen>
                     BoxShadow(color: Colors.grey[900], blurRadius: 2)
                   ]),
               child: RollSwitch(
-               width: 100,
+                width: 100,
                 onChanged: (bool state) {
                   if (!isDark) {
                     setState(() {
@@ -140,7 +144,7 @@ class _AboutScreenState extends State<AboutScreen>
               SliverFixedExtentList(
                 itemExtent: Globals.isLargeScreen(context)
                     ? MediaQuery.of(context).size.height
-                    : MediaQuery.of(context).size.height * 0.7, // 1.34,
+                    : MediaQuery.of(context).size.height*0.9, // 1.34,
                 delegate: SliverChildListDelegate(
                   [
                     Container(
@@ -172,7 +176,7 @@ class _AboutScreenState extends State<AboutScreen>
                       height: MediaQuery.of(context).size.height * 1.5,
                       child: Builder(
                         builder: (context) => CustomPaint(
-                          foregroundPainter: TimelinePainter(false),
+                          foregroundPainter: TimelinePainter(false,context),
                           child: LayoutBuilder(
                             builder: (context, constraints) {
                               return Container(
@@ -186,8 +190,8 @@ class _AboutScreenState extends State<AboutScreen>
                                   children: [
                                     Positioned(
                                       bottom:
-                                          MediaQuery.of(context).size.height *
-                                              0.9,
+                                         Globals.isLargeScreen(context)? MediaQuery.of(context).size.height *
+                                              0.9: MediaQuery.of(context).size.height *0.84,
                                       child: Container(
                                         padding: EdgeInsets.only(
                                             left: MediaQuery.of(context)
@@ -240,7 +244,7 @@ class _AboutScreenState extends State<AboutScreen>
                                     ),
                                     for (int i = 0; i < 4; i++)
                                       animatedPositionedProjectCard(
-                                          constraints, i,false),
+                                          constraints, i, false),
                                   ],
                                 ),
                               );
@@ -252,7 +256,7 @@ class _AboutScreenState extends State<AboutScreen>
                     Container(
                       child: Builder(
                         builder: (context) => CustomPaint(
-                          foregroundPainter: TimelinePainter(true),
+                          foregroundPainter: TimelinePainter(true,context),
                           child: LayoutBuilder(
                             builder: (context, constraints) => Container(
                               height: MediaQuery.of(context).size.height,
@@ -260,7 +264,7 @@ class _AboutScreenState extends State<AboutScreen>
                                 children: [
                                   for (int i = 0; i < 3; i++)
                                     animatedPositionedProjectCard(
-                                        constraints, i,true),
+                                        constraints, i, true),
                                   footer(context),
                                 ],
                               ),

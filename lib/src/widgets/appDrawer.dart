@@ -73,13 +73,7 @@ Widget appDrawer(
             },
           ),
         ),
-        // SizedBox(
-        //   width: MediaQuery.of(context).size.width * 0.02,
-        // ),
         Divider(),
-        // Padding(
-        // padding: EdgeInsets.only(top: 12.0),
-        // child:
         FlatButton(
           splashColor: ThemeProvider.themeOf(context).id == 'dark'
               ? Globals.backgroundColorLight
@@ -96,7 +90,7 @@ Widget appDrawer(
           onPressed: () async {
             Navigator.of(context).pop(context);
             scrollController.animateTo(
-              MediaQuery.of(context).size.height * 0.8,
+              MediaQuery.of(context).size.height * 1.1,
               duration: Duration(
                 seconds: 3,
               ),
@@ -122,7 +116,7 @@ Widget appDrawer(
             Navigator.of(context).pop(context);
             // if (isHomePage) {
             scrollController.animateTo(
-              MediaQuery.of(context).size.height * 1.5,
+              MediaQuery.of(context).size.height * 1.78,
               duration: Duration(
                 seconds: 5,
               ),

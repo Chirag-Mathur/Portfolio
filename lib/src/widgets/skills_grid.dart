@@ -10,24 +10,32 @@ Widget getSkillsGrid(BuildContext context) {
     height: MediaQuery.of(context).size.height,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment:Globals.isLargeScreen(context)?MainAxisAlignment.spaceBetween:MainAxisAlignment.start,
+      mainAxisAlignment: Globals.isLargeScreen(context)
+          ? MainAxisAlignment.spaceBetween
+          : MainAxisAlignment.start,
       children: [
         Container(
           padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * 0.05,
               top: MediaQuery.of(context).size.width * 0.01,
-              bottom:Globals.isLargeScreen(context)?20:MediaQuery.of(context).size.height*0.009),
+              bottom: Globals.isLargeScreen(context)
+                  ? 20
+                  : MediaQuery.of(context).size.height * 0.009),
           child: Text(
             'My Skills',
             textAlign: TextAlign.left,
             style: ThemeProvider.themeOf(context).id == 'dark'
                 ? GoogleFonts.robotoSlab(
-                    fontSize: Globals.isLargeScreen(context) ? MediaQuery.of(context).size.aspectRatio*24.25 : 19,
+                    fontSize: Globals.isLargeScreen(context)
+                        ? MediaQuery.of(context).size.aspectRatio * 24.25
+                        : 19,
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                   )
                 : GoogleFonts.robotoSlab(
-                    fontSize: Globals.isLargeScreen(context) ? MediaQuery.of(context).size.aspectRatio*24.25 : 19,
+                    fontSize: Globals.isLargeScreen(context)
+                        ? MediaQuery.of(context).size.aspectRatio * 24.25
+                        : 19,
                     color: Color(0xff00305b),
                     fontWeight: FontWeight.w600),
             // Theme.of(context).primaryTextTheme.subtitle1
@@ -58,7 +66,10 @@ Widget getSkillsGrid(BuildContext context) {
                         child: Text(
                           'Languages',
                           style: GoogleFonts.openSans(
-                            fontSize:Globals.isLargeScreen(context)? MediaQuery.of(context).size.aspectRatio*17.78:MediaQuery.of(context).size.aspectRatio*23,
+                            fontSize: Globals.isLargeScreen(context)
+                                ? MediaQuery.of(context).size.aspectRatio *
+                                    17.78
+                                : MediaQuery.of(context).size.aspectRatio * 23,
                             color: Theme.of(context)
                                 .appBarTheme
                                 .textTheme
@@ -72,7 +83,10 @@ Widget getSkillsGrid(BuildContext context) {
                         child: Text(
                           'Tools',
                           style: GoogleFonts.openSans(
-                            fontSize:Globals.isLargeScreen(context)? MediaQuery.of(context).size.aspectRatio*17.78:MediaQuery.of(context).size.aspectRatio*23,
+                            fontSize: Globals.isLargeScreen(context)
+                                ? MediaQuery.of(context).size.aspectRatio *
+                                    17.78
+                                : MediaQuery.of(context).size.aspectRatio * 23,
                             color: Theme.of(context)
                                 .appBarTheme
                                 .textTheme
@@ -101,8 +115,8 @@ Widget getSkillsGrid(BuildContext context) {
             ),
           ],
         ),
-        if(Globals.isLargeScreen(context))
-        SizedBox(height:MediaQuery.of(context).size.height*0.5)
+        if (Globals.isLargeScreen(context))
+          SizedBox(height: MediaQuery.of(context).size.height * 0.5)
       ],
     ),
   );
@@ -112,37 +126,38 @@ Widget skillsGrid(List<Map<String, String>> info, BuildContext context) {
   return Container(
     margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03),
     height: MediaQuery.of(context).size.height * 0.3,
-    width: MediaQuery.of(context).size.width * 0.5,
-    child:
-    Globals.isLargeScreen(context)?
-        
-        Row(
-      children: [
-        for (int i = 0; i < info.length; i++)
-          Row(
+    width: MediaQuery.of(context).size.width * 0.8,
+    child: Globals.isLargeScreen(context)
+        ? Row(
             children: [
-              column(info, context, i),
-              SizedBox(
-                width:MediaQuery.of(context).size.width*0.03,
-              ),
+              for (int i = 0; i < info.length; i++)
+                Row(
+                  children: [
+                    column(info, context, i),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.03,
+                    ),
+                  ],
+                ),
+              // ),
             ],
+          )
+        : GridView.builder(
+            primary: false, //true,
+            // physics: NeverScrollableScrollPhysics(),
+            // scrollDirection: Axis.horizontal,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              mainAxisSpacing: 20,
+              childAspectRatio: 0.8,
+              crossAxisSpacing: 5,
+            ),
+            itemCount: info.length,
+            shrinkWrap: true,
+            itemBuilder: (_, i) {
+              return column(info, context, i);
+            },
           ),
-        // ),
-      ],
-    ):GridView.builder(
-          primary: false,//true,
-          // physics: NeverScrollableScrollPhysics(),
-          // scrollDirection: Axis.horizontal,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount:3,
-
-            // crossAxisSpacing: 32,
-          ),
-          itemCount: info.length,
-          shrinkWrap: true,
-          itemBuilder: (_, i) {
-            return column(info, context, i);
-    },),
   );
   // );
 }
@@ -153,8 +168,8 @@ Column column(List<Map<String, String>> info, BuildContext context, int i) {
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Container(
-        height:MediaQuery.of(context).size.aspectRatio*70,
-        width: MediaQuery.of(context).size.aspectRatio*70,
+        height: MediaQuery.of(context).size.aspectRatio * 70,
+        width: MediaQuery.of(context).size.aspectRatio * 70,
         child: ClipPolygon(
           sides: 6,
 //  borderRadius: 5.0, // Default 0.0 degrees
@@ -168,7 +183,7 @@ Column column(List<Map<String, String>> info, BuildContext context, int i) {
             color: Colors.white,
             child: Image.asset(
               info[i]['image'],
-              scale:Globals.isLargeScreen(context)? 4:10,
+              scale: Globals.isLargeScreen(context) ? 4 : 10,
               // fit: BoxFit.contain,
             ),
           ),
@@ -176,12 +191,18 @@ Column column(List<Map<String, String>> info, BuildContext context, int i) {
       ),
       Container(
         // width:115,
-        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.01),
+        padding:
+            EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
         // alignment: Alignment.center,
         child: Text(
           info[i]['name'],
           textAlign: TextAlign.center,
-          style: TextStyle(color:Theme.of(context).textTheme.bodyText1.color,fontSize: Globals.isLargeScreen(context)? MediaQuery.of(context).size.aspectRatio*17.78:MediaQuery.of(context).size.aspectRatio*23,),
+          style: TextStyle(
+            color: Theme.of(context).textTheme.bodyText1.color,
+            fontSize: Globals.isLargeScreen(context)
+                ? MediaQuery.of(context).size.aspectRatio * 17.78
+                : MediaQuery.of(context).size.aspectRatio * 23,
+          ),
           softWrap: false,
         ),
       ),

@@ -24,14 +24,15 @@ Widget projectsCardWidget(
             Text(
               Globals.projectsList[index]['title'],
               style: GoogleFonts.robotoMono(
-                  fontSize: 19.5,
-                  color: Colors.white, // Color(0xff26ABBF)
-                  fontWeight: FontWeight.w500),
+                fontSize: Globals.isLargeScreen(context) ? 19.5 : 16,
+                color: Colors.white, // Color(0xff26ABBF)
+                fontWeight: FontWeight.w500,
+              ),
             ),
 
             // Divider(color: Colors.grey),
             Container(
-              padding: EdgeInsets.all(12),
+              padding: EdgeInsets.all(Globals.isLargeScreen(context) ? 12 : 8),
               child: Text(
                 Globals.projectsList[index]['description'],
                 overflow: TextOverflow.ellipsis,
@@ -40,7 +41,7 @@ Widget projectsCardWidget(
                   color: ThemeProvider.themeOf(context).id == 'dark'
                       ? Color(0xff2F2F31) //Colors.grey[600]
                       : Color(0xff001b34),
-                  fontSize: 17.5,
+                  fontSize: Globals.isLargeScreen(context) ? 17.5 : 14,
                 ),
                 maxLines: 3,
                 softWrap: true,
@@ -55,9 +56,10 @@ Widget projectsCardWidget(
                   child: Text(
                     Globals.projectsList[index]['startedIn'],
                     style: GoogleFonts.robotoSlab(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300),
+                      fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
                 ),
               ),
@@ -69,7 +71,7 @@ Widget projectsCardWidget(
     color: ThemeProvider.themeOf(context).id == 'dark'
         ? isHovering
             ? Colors.white
-            :Color(0xffEDEAE0)//Color(0xffF5F5DC)// Colors.white70
+            : Color(0xffEDEAE0) //Color(0xffF5F5DC)// Colors.white70
         : Colors.white,
   );
 }

@@ -1,10 +1,7 @@
 import 'dart:ui';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:path_drawing/path_drawing.dart';
-import 'package:polygon_clipper/polygon_clipper.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class Timeline extends StatefulWidget {
@@ -18,7 +15,7 @@ class _TimelineState extends State<Timeline> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: CustomPaint(
-        foregroundPainter: TimelinePainter(false),
+        foregroundPainter: TimelinePainter(false,context),
         child: Container(
           height: MediaQuery.of(context).size.height,
         ),
@@ -30,7 +27,9 @@ class _TimelineState extends State<Timeline> {
 class TimelinePainter extends CustomPainter {
   TimelinePainter(
     this.isNext,
+    this.context,
   );
+  BuildContext context;
   bool isNext;
   @override
   void paint(Canvas canvas, Size size) {
@@ -38,7 +37,7 @@ class TimelinePainter extends CustomPainter {
     paint.color = Globals.splashColorLight;
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = 4.7;
-
+    print('size of canvas= h${size.height} & w${size.width}');
     var path = Path();
     if (!isNext) {
       path.moveTo(size.width * 0.1, size.height * 0.08);
@@ -53,7 +52,7 @@ class TimelinePainter extends CustomPainter {
     var paint1 = Paint()
       ..color = Colors.blue[400]
       ..strokeCap = StrokeCap.round //rounded points
-      ..strokeWidth = 30;
+      ..strokeWidth =Globals.isLargeScreen(context)? 30:23;
     //list of points
     double pointGiver = size.width * 0.1;
     // double pointGiver2 = size.width * 0.8;
@@ -200,7 +199,7 @@ class CardDesignPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var paintDate = Paint()
       ..color = ThemeProvider.themeOf(context).id == 'dark'
-          ? Globals.splashColorLight//Color(0xff26ABBF)
+          ? Globals.splashColorLight //Color(0xff26ABBF)
           : Color(0xff00305b)
       ..style = PaintingStyle.fill
       ..strokeWidth = 5;
@@ -213,7 +212,7 @@ class CardDesignPainter extends CustomPainter {
     canvas.drawPath(pathDate, paintDate);
     var paintTitle = Paint()
       ..color = ThemeProvider.themeOf(context).id == 'dark'
-          ? Globals.splashColorLight// Color(0xff26ABBF)//Colors.black87
+          ? Globals.splashColorLight // Color(0xff26ABBF)//Colors.black87
           : Color(0xff00305b)
       ..style = PaintingStyle.fill;
     var pathTitle = Path()

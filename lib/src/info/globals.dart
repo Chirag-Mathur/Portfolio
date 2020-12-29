@@ -97,7 +97,7 @@ class Globals {
   }
 
   static bool isLargeScreen(BuildContext context) {
-    return MediaQuery.of(context).size.width > 800;
+    return MediaQuery.of(context).size.width >= 800;
   }
 
   static bool isMediumScreen(BuildContext context) {
