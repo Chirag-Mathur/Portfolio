@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
@@ -12,7 +11,7 @@ class Globals {
 
   static final List<Map<String, dynamic>> projectsList = [
     {
-      'title': "My Portfolio Website",
+      'title': "MyPortfolio Website",
       'startedIn': 'December 2020',
       'description':
           'My portfolio website created by myself which showcases my skills and profiles.',
@@ -28,7 +27,7 @@ class Globals {
     },
     {
       'title': "CineScript",
-      'startedIn': 'September-December 2020',
+      'startedIn': 'September 2020',
       'description':
           'Java based programming language built in team project based on BOLLYWOOD theme',
       'projectLink': 'https://github.com/Ozric-Ode/Cinescript',
@@ -36,7 +35,7 @@ class Globals {
     },
     {
       'title': "My Meals App",
-      'startedIn': 'May-June 2020',
+      'startedIn': 'May 2020',
       'description':
           'An app for different recipes\' steps and food categories.',
       'projectLink': 'https://github.com/Monik09/My-Meals-App',
@@ -67,8 +66,22 @@ class Globals {
     'GCP',
   ];
 
+  static final List<Map<String, String>> langAndFramewks2 = [
+    {'name': 'Dart', 'image': 'assets/images/dart.png'},
+    {'name': 'Java', 'image': 'assets/images/java.png'},
+    {'name': 'C/C++', 'image': 'assets/images/cpp.png'},
+    {'name': 'Python', 'image': 'assets/images/python.png'},
+    {'name': 'Flutter', 'image': 'assets/images/flutter.png'},
+  ];
+
+  static final List<Map<String, String>> tools2 = [
+    {'name': 'Git', 'image': 'assets/images/gitlogo.png'},
+    {'name': 'Firebase', 'image': 'assets/images/firebase.png'},
+    {'name': 'VSCode', 'image': 'assets/images/vscode.png'},
+    {'name': 'GCP', 'image': 'assets/images/googlecloud.png'},
+  ];
+
   static void openLink(String url) async {
-    // String url = 'https://flutter.dev';
     if (kIsWeb) {
       html.window.open(url, '_blank');
     } else {
@@ -83,7 +96,7 @@ class Globals {
   }
 
   static bool isLargeScreen(BuildContext context) {
-    return MediaQuery.of(context).size.width > 800;
+    return MediaQuery.of(context).size.width >= 800;
   }
 
   static bool isMediumScreen(BuildContext context) {

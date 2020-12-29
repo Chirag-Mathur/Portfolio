@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:my_portfolio/src/info/globals.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 Widget socialMediaButton() {
   return SpeedDial(
@@ -18,14 +19,6 @@ Widget socialMediaButton() {
     backgroundColor: Color(0xff173266),
     elevation: 10.0,
     children: [
-      // SpeedDialChild(
-      //     child: Image.asset(
-      //       'assets/images/fb_logo.png',
-      //       width: 50,
-      //       height: 50,
-      //     ),
-      //     backgroundColor: Colors.white,
-      //     foregroundColor: Colors.white,),
       SpeedDialChild(
         child: Image.asset(
           'assets/images/github.png',
@@ -75,7 +68,7 @@ Widget socialMediaButton() {
   );
 }
 
-Widget socialMediaRow() {
+Widget socialMediaRowDrawer(BuildContext context) {
   return Container(
     child: Column(
       children: [
@@ -85,26 +78,26 @@ Widget socialMediaRow() {
             IconButton(
               color: Colors.white,
               icon: Image.asset(
-                'assets/images/twitter_logo.png',
+                'assets/images/twitterla.png',
               ),
               onPressed: () {
                 Globals.openLink(
                   "https://twitter.com/MonikIJS",
                 );
               },
-              iconSize: 42,
+              iconSize: 35,
             ),
             IconButton(
               color: Colors.white,
               icon: Image.asset(
-                'assets/images/insta_logo.png',
+                'assets/images/insta.png',
               ),
               onPressed: () {
                 Globals.openLink(
                   "https://www.instagram.com/monikinderjit_singh_/",
                 );
               },
-              iconSize: 43,
+              iconSize: 35,
             ),
           ],
         ),
@@ -112,22 +105,23 @@ Widget socialMediaRow() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              color: Colors.white,
               icon: Image.asset(
-                'assets/images/github.png',
+                'assets/images/githubl.png',
+                color: ThemeProvider.themeOf(context).id == 'dark'
+                    ? Colors.white
+                    : Colors.black,
               ),
               onPressed: () {
-                Globals.openLink(
-                  "https://github.com/Monik09",
-                );
+                Globals.openLink("https://github.com/Monik09");
               },
-              iconSize: 42,
+              hoverColor: Colors.transparent,
+              iconSize: 38,
             ),
             IconButton(
               icon: Image.asset(
-                'assets/images/linkedin_logo.png',
+                'assets/images/linkedinla.png',
               ),
-              iconSize: 39,
+              iconSize: 35,
               onPressed: () {
                 Globals.openLink(
                   "https://www.linkedin.com/in/monikinderjit-singh/",
@@ -135,6 +129,59 @@ Widget socialMediaRow() {
               },
             ),
           ],
+        ),
+      ],
+    ),
+  );
+}
+
+Widget socialMediaRow(BuildContext context, double size) {
+  return FittedBox(
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        IconButton(
+          icon: Image.asset(
+            'assets/images/linkedinla.png',
+          ),
+          onPressed: () {
+            Globals.openLink(
+                "https://www.linkedin.com/in/monikinderjit-singh/");
+          },
+          iconSize: size,
+          hoverColor: Colors.transparent,
+        ),
+        IconButton(
+          icon: Image.asset(
+            'assets/images/twitterla.png',
+          ),
+          onPressed: () {
+            Globals.openLink("https://twitter.com/MonikIJS");
+          },
+          hoverColor: Colors.transparent,
+          iconSize: size,
+        ),
+        IconButton(
+          icon: Image.asset(
+            'assets/images/github2.png',
+            //  color:ThemeProvider.themeOf(context).id=='dark'? Colors.white:Colors.black,
+          ),
+          onPressed: () {
+            Globals.openLink("https://github.com/Monik09");
+          },
+          hoverColor: Colors.transparent,
+          iconSize: size,
+        ),
+        IconButton(
+          icon: Image.asset(
+            'assets/images/insta.png',
+          ),
+          onPressed: () {
+            Globals.openLink("https://www.instagram.com/monikinderjit_singh_/");
+          },
+          hoverColor: Colors.transparent,
+          iconSize: size,
         ),
       ],
     ),

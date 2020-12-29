@@ -282,6 +282,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  polygon_clipper:
+    dependency: "direct main"
+    description:
+      name: polygon_clipper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   process:
     dependency: transitive
     description:
@@ -350,6 +357,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  smooth_scroll_web:
+    dependency: "direct main"
+    description:
+      name: smooth_scroll_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
   source_span:
     dependency: transitive
     description:
