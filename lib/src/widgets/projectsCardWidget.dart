@@ -21,12 +21,14 @@ Widget projectsCardWidget(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              Globals.projectsList[index]['title'],
-              style: GoogleFonts.robotoMono(
-                fontSize: Globals.isLargeScreen(context) ? 19.5 : 16,
-                color: Colors.white, // Color(0xff26ABBF)
-                fontWeight: FontWeight.w500,
+            FittedBox(
+              child: Text(
+                Globals.projectsList[index]['title'],
+                style: GoogleFonts.robotoMono(
+                  fontSize: Globals.isLargeScreen(context) ? 19.5 : 16,
+                  color: Colors.white, // Color(0xff26ABBF)
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
 
@@ -53,12 +55,14 @@ Widget projectsCardWidget(
                 alignment: Alignment.bottomRight,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 2.0),
-                  child: Text(
-                    Globals.projectsList[index]['startedIn'],
-                    style: GoogleFonts.robotoSlab(
-                      fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
+                  child: FittedBox(
+                    child: Text(
+                      Globals.projectsList[index]['startedIn'],
+                      style: GoogleFonts.robotoSlab(
+                        fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                      ),
                     ),
                   ),
                 ),

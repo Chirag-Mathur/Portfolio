@@ -24,17 +24,19 @@ Widget appBarMobile(
       },
     ),
     actions: [
-      FlatButton(
-        onPressed: () {},
-        hoverColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        child: Text(
-          "Monikinderjit Singh",
-          style: TextStyle(
-            fontFamily: 'TheRichJuliet',
-            fontSize: 30,
-            color: Theme.of(context).textTheme.headline1.color,
-            fontWeight:ThemeProvider.themeOf(context).id=='dark'? FontWeight.w400:FontWeight.w600,
+      FittedBox(
+              child: FlatButton(
+          onPressed: () {},
+          hoverColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          child: Text(
+            "Monikinderjit Singh",
+            style: TextStyle(
+              fontFamily: 'TheRichJuliet',
+              fontSize: 30,
+              color: Theme.of(context).textTheme.headline1.color,
+              fontWeight:ThemeProvider.themeOf(context).id=='dark'? FontWeight.w400:FontWeight.w600,
+            ),
           ),
         ),
       ),

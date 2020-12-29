@@ -81,14 +81,22 @@ class _AboutScreenState extends State<AboutScreen>
             child: projectsCardWidget(
                 context, index, isHovering[index], isNextPage),
           ),
-          height:Globals.isLargeScreen(context)?150:120,//constraints.maxHeight*0.17361,// 150,
-          width:Globals.isLargeScreen(context)?300:240,//constraints.minWidth*0.20833,// 300,
+          height: Globals.isLargeScreen(context)
+              ? 150
+              : MediaQuery.of(context).size.width<390?MediaQuery.of(context).size.width *
+                  0.35:140, //constraints.maxHeight*0.17361,// 150,
+          width: Globals.isLargeScreen(context)
+              ? 300
+              :MediaQuery.of(context).size.width<390?MediaQuery.of(context).size.width *
+                  0.70:300, //constraints.minWidth*0.20833,// 300,
           top: !isHovering[index]
               ? constraints.maxHeight * (0.07 + (0.25 * index))
               : constraints.maxHeight * (0.07 + (0.25 * index - 0.01)),
-          left:Globals.isLargeScreen(context)? !isHovering[index]
-              ? constraints.minWidth * 0.115
-              : constraints.minWidth * 0.12:constraints.minWidth*0.132,
+          left: Globals.isLargeScreen(context)
+              ? !isHovering[index]
+                  ? constraints.minWidth * 0.115
+                  : constraints.minWidth * 0.12
+              : constraints.minWidth * 0.132,
         );
     return Scaffold(
       key: scaffoldKey1,
@@ -137,14 +145,14 @@ class _AboutScreenState extends State<AboutScreen>
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: CustomScrollView(
-            primary: false,
+            // primary: false,
             controller: _scrollController,
-            shrinkWrap: true,
+            // shrinkWrap: true,
             slivers: [
               SliverFixedExtentList(
                 itemExtent: Globals.isLargeScreen(context)
                     ? MediaQuery.of(context).size.height
-                    : MediaQuery.of(context).size.height*0.9, // 1.34,
+                    : MediaQuery.of(context).size.height * 0.9, // 1.34,
                 delegate: SliverChildListDelegate(
                   [
                     Container(
@@ -162,8 +170,12 @@ class _AboutScreenState extends State<AboutScreen>
                               children: topChildren,
                             ),
                     ),
-                    Container(
-                      height: MediaQuery.of(context).size.height,
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxHeight: MediaQuery.of(context).size.height,
+                        minHeight: MediaQuery.of(context).size.height * 0.9,
+                      ),
+                      // height: MediaQuery.of(context).size.height,
                       child: Builder(
                         builder: (context) => getSkillsGrid(context),
                       ),
@@ -176,7 +188,7 @@ class _AboutScreenState extends State<AboutScreen>
                       height: MediaQuery.of(context).size.height * 1.5,
                       child: Builder(
                         builder: (context) => CustomPaint(
-                          foregroundPainter: TimelinePainter(false,context),
+                          foregroundPainter: TimelinePainter(false, context),
                           child: LayoutBuilder(
                             builder: (context, constraints) {
                               return Container(
@@ -189,9 +201,12 @@ class _AboutScreenState extends State<AboutScreen>
                                   fit: StackFit.expand,
                                   children: [
                                     Positioned(
-                                      bottom:
-                                         Globals.isLargeScreen(context)? MediaQuery.of(context).size.height *
-                                              0.9: MediaQuery.of(context).size.height *0.84,
+                                      top:
+                                          0, //Globals.isLargeScreen(context)? MediaQuery.of(context).size.height *
+                                      //0.1: MediaQuery.of(context).size.height *0.16,
+                                      // bottom:
+                                      //    Globals.isLargeScreen(context)? MediaQuery.of(context).size.height *
+                                      //         0.9: MediaQuery.of(context).size.height *0.84,
                                       child: Container(
                                         padding: EdgeInsets.only(
                                             left: MediaQuery.of(context)
@@ -256,7 +271,7 @@ class _AboutScreenState extends State<AboutScreen>
                     Container(
                       child: Builder(
                         builder: (context) => CustomPaint(
-                          foregroundPainter: TimelinePainter(true,context),
+                          foregroundPainter: TimelinePainter(true, context),
                           child: LayoutBuilder(
                             builder: (context, constraints) => Container(
                               height: MediaQuery.of(context).size.height,
@@ -265,7 +280,9 @@ class _AboutScreenState extends State<AboutScreen>
                                   for (int i = 0; i < 3; i++)
                                     animatedPositionedProjectCard(
                                         constraints, i, true),
-                                  footer(context),
+                                  Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: footer(context)),
                                 ],
                               ),
                             ),

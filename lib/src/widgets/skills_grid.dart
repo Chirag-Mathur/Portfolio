@@ -14,31 +14,33 @@ Widget getSkillsGrid(BuildContext context) {
           ? MainAxisAlignment.spaceBetween
           : MainAxisAlignment.start,
       children: [
-        Container(
-          padding: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width * 0.05,
-              top: MediaQuery.of(context).size.width * 0.01,
-              bottom: Globals.isLargeScreen(context)
-                  ? 20
-                  : MediaQuery.of(context).size.height * 0.009),
-          child: Text(
-            'My Skills',
-            textAlign: TextAlign.left,
-            style: ThemeProvider.themeOf(context).id == 'dark'
-                ? GoogleFonts.robotoSlab(
-                    fontSize: Globals.isLargeScreen(context)
-                        ? MediaQuery.of(context).size.aspectRatio * 24.25
-                        : 19,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                  )
-                : GoogleFonts.robotoSlab(
-                    fontSize: Globals.isLargeScreen(context)
-                        ? MediaQuery.of(context).size.aspectRatio * 24.25
-                        : 19,
-                    color: Color(0xff00305b),
-                    fontWeight: FontWeight.w600),
-            // Theme.of(context).primaryTextTheme.subtitle1
+        FittedBox(
+          child: Container(
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.05,
+                top: MediaQuery.of(context).size.width * 0.01,
+                bottom: Globals.isLargeScreen(context)
+                    ? 20
+                    : MediaQuery.of(context).size.height * 0.009),
+            child: Text(
+              'My Skills',
+              textAlign: TextAlign.left,
+              style: ThemeProvider.themeOf(context).id == 'dark'
+                  ? GoogleFonts.robotoSlab(
+                      fontSize: Globals.isLargeScreen(context)
+                          ? MediaQuery.of(context).size.aspectRatio * 24.25
+                          : 19,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    )
+                  : GoogleFonts.robotoSlab(
+                      fontSize: Globals.isLargeScreen(context)
+                          ? MediaQuery.of(context).size.aspectRatio * 24.25
+                          : 19,
+                      color: Color(0xff00305b),
+                      fontWeight: FontWeight.w600),
+              // Theme.of(context).primaryTextTheme.subtitle1
+            ),
           ),
         ),
         Row(
@@ -61,37 +63,43 @@ Widget getSkillsGrid(BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.27,
-                        child: Text(
-                          'Languages',
-                          style: GoogleFonts.openSans(
-                            fontSize: Globals.isLargeScreen(context)
-                                ? MediaQuery.of(context).size.aspectRatio *
-                                    17.78
-                                : MediaQuery.of(context).size.aspectRatio * 23,
-                            color: Theme.of(context)
-                                .appBarTheme
-                                .textTheme
-                                .headline5
-                                .color,
+                      FittedBox(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.27,
+                          child: Text(
+                            'Languages',
+                            style: GoogleFonts.openSans(
+                              fontSize: Globals.isLargeScreen(context)
+                                  ? MediaQuery.of(context).size.aspectRatio *
+                                      17.78
+                                  : MediaQuery.of(context).size.aspectRatio *
+                                      23,
+                              color: Theme.of(context)
+                                  .appBarTheme
+                                  .textTheme
+                                  .headline5
+                                  .color,
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.27,
-                        child: Text(
-                          'Tools',
-                          style: GoogleFonts.openSans(
-                            fontSize: Globals.isLargeScreen(context)
-                                ? MediaQuery.of(context).size.aspectRatio *
-                                    17.78
-                                : MediaQuery.of(context).size.aspectRatio * 23,
-                            color: Theme.of(context)
-                                .appBarTheme
-                                .textTheme
-                                .headline5
-                                .color,
+                      FittedBox(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.27,
+                          child: Text(
+                            'Tools',
+                            style: GoogleFonts.openSans(
+                              fontSize: Globals.isLargeScreen(context)
+                                  ? MediaQuery.of(context).size.aspectRatio *
+                                      17.78
+                                  : MediaQuery.of(context).size.aspectRatio *
+                                      23,
+                              color: Theme.of(context)
+                                  .appBarTheme
+                                  .textTheme
+                                  .headline5
+                                  .color,
+                            ),
                           ),
                         ),
                       ),
@@ -162,50 +170,54 @@ Widget skillsGrid(List<Map<String, String>> info, BuildContext context) {
   // );
 }
 
-Column column(List<Map<String, String>> info, BuildContext context, int i) {
-  return Column(
-    // mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Container(
-        height: MediaQuery.of(context).size.aspectRatio * 70,
-        width: MediaQuery.of(context).size.aspectRatio * 70,
-        child: ClipPolygon(
-          sides: 6,
+Widget column(List<Map<String, String>> info, BuildContext context, int i) {
+  return FittedBox(
+    child: Column(
+      // mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.aspectRatio * 70,
+          width: MediaQuery.of(context).size.aspectRatio * 70,
+          child: ClipPolygon(
+            sides: 6,
 //  borderRadius: 5.0, // Default 0.0 degrees
 //  rotate: 90.0, // Default 0.0 degrees
-          boxShadows: [
-            PolygonBoxShadow(color: Colors.black, elevation: 2.0),
-            PolygonBoxShadow(color: Colors.grey, elevation: 7.0),
-            PolygonBoxShadow(color: Colors.grey[700], elevation: 2.3),
-          ],
-          child: Container(
-            color: Colors.white,
-            child: Image.asset(
-              info[i]['image'],
-              scale: Globals.isLargeScreen(context) ? 4 : 10,
-              // fit: BoxFit.contain,
+            boxShadows: [
+              PolygonBoxShadow(color: Colors.black, elevation: 2.0),
+              PolygonBoxShadow(color: Colors.grey, elevation: 7.0),
+              PolygonBoxShadow(color: Colors.grey[700], elevation: 2.3),
+            ],
+            child: Container(
+              color: Colors.white,
+              child: Image.asset(
+                info[i]['image'],
+                scale: Globals.isLargeScreen(context) ? 4 : 10,
+                // fit: BoxFit.contain,
+              ),
             ),
           ),
         ),
-      ),
-      Container(
-        // width:115,
-        padding:
-            EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
-        // alignment: Alignment.center,
-        child: Text(
-          info[i]['name'],
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Theme.of(context).textTheme.bodyText1.color,
-            fontSize: Globals.isLargeScreen(context)
-                ? MediaQuery.of(context).size.aspectRatio * 17.78
-                : MediaQuery.of(context).size.aspectRatio * 23,
+        Container(
+          // width:115,
+          padding:
+              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
+          // alignment: Alignment.center,
+          child: FittedBox(
+            child: Text(
+              info[i]['name'],
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1.color,
+                fontSize: Globals.isLargeScreen(context)
+                    ? MediaQuery.of(context).size.aspectRatio * 17.78
+                    : MediaQuery.of(context).size.aspectRatio * 23,
+              ),
+              softWrap: false,
+            ),
           ),
-          softWrap: false,
         ),
-      ),
-    ],
+      ],
+    ),
   );
 }

@@ -17,45 +17,47 @@ Widget footer(BuildContext context) {
           Divider(
             thickness: 1,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // socialMediaRow(),
-              Spacer(),
-              Text(
-                "Built with",
-                style: GoogleFonts.robotoSlab(
-                  fontSize:Globals.isLargeScreen(context)? 23:17,
-                  fontWeight: FontWeight.w500,
-                  color:
-                  // ThemeProvider.themeOf(context).data.appBarTheme.textTheme.headline5.color
-                   ThemeProvider.themeOf(context).id == 'dark'
-                      ? Colors.white
-                      : Colors.black,
-                ),
-              ),
-              Icon(
-                Icons.favorite,
-                color: ThemeProvider.themeOf(context).id == 'dark'? Colors.pink:Colors.blue[900],
-                size:Globals.isLargeScreen(context)? 25:19,
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 18.0),
-                child: Text(
-                  " by Monikinderjit Singh",
-                  style: 
-                  GoogleFonts.robotoSlab(
+          FittedBox(
+                      child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // socialMediaRow(),
+                // Spacer(),
+                Text(
+                  "Built with",
+                  style: GoogleFonts.robotoSlab(
                     fontSize:Globals.isLargeScreen(context)? 23:17,
                     fontWeight: FontWeight.w500,
                     color:
-                    // ThemeProvider.themeOf(context).data.appBarTheme.textTheme.headline5.color 
-                    ThemeProvider.themeOf(context).id == 'dark'
+                    // ThemeProvider.themeOf(context).data.appBarTheme.textTheme.headline5.color
+                     ThemeProvider.themeOf(context).id == 'dark'
                         ? Colors.white
                         : Colors.black,
                   ),
                 ),
-              ),
-            ],
+                Icon(
+                  Icons.favorite,
+                  color: ThemeProvider.themeOf(context).id == 'dark'? Colors.pink:Colors.blue[900],
+                  size:Globals.isLargeScreen(context)? 25:19,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(right: 18.0),
+                  child: Text(
+                    " by Monikinderjit Singh",
+                    style: 
+                    GoogleFonts.robotoSlab(
+                      fontSize:Globals.isLargeScreen(context)? 23:17,
+                      fontWeight: FontWeight.w500,
+                      color:
+                      // ThemeProvider.themeOf(context).data.appBarTheme.textTheme.headline5.color 
+                      ThemeProvider.themeOf(context).id == 'dark'
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

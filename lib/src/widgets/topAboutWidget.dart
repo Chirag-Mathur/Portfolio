@@ -9,19 +9,22 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
   return [
     Container(
       // color: Colors.green,
-      width:Globals.isLargeScreen(context)? MediaQuery.of(context).size.width * 0.7:double.maxFinite,
-      height:Globals.isLargeScreen(context)? MediaQuery.of(context).size.height * 0.8:MediaQuery.of(context).size.height*0.26,
+      width: Globals.isLargeScreen(context)
+          ? MediaQuery.of(context).size.width * 0.7
+          : double.maxFinite,
+      height: Globals.isLargeScreen(context)
+          ? MediaQuery.of(context).size.height * 0.8
+          : MediaQuery.of(context).size.height * 0.26,
       child: Padding(
         padding: EdgeInsets.only(
             left:
-            //  Globals.isLargeScreen(context)
-            //     ?
-                 MediaQuery.of(context).size.width * 0.1
-                // : Globals.isSmallScreen(context)
-                    // ? MediaQuery.of(context).size.width * 0.001
-                    // : MediaQuery.of(context).size.width * 0.01,
-                    )
-                    ,
+                //  Globals.isLargeScreen(context)
+                //     ?
+                MediaQuery.of(context).size.width * 0.1
+            // : Globals.isSmallScreen(context)
+            // ? MediaQuery.of(context).size.width * 0.001
+            // : MediaQuery.of(context).size.width * 0.01,
+            ),
         child: Column(
           mainAxisAlignment: (Globals.isLargeScreen(context) &&
                   !Globals.isMediumScreen(context))
@@ -35,83 +38,100 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                 // SizedBox(
                 //   height: MediaQuery.of(context).size.height * 0.05,
                 // ),
-                Row(
-                  children: [
-                    Text(
-                      "Hi",
-                      semanticsLabel: 'Monik intro',
-                      style: ThemeProvider.themeOf(context).id == 'dark'
-                          ? GoogleFonts.robotoSlab(
-                              fontSize: 
-                              Globals.isLargeScreen(context)
-                                  ?
-                                   MediaQuery.of(context).size.aspectRatio*18.857
-                                  : Globals.isSmallScreen(context)
-                                      ? 25
-                                      : 30
-                                  ,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff00adb5),
-                            )
-                          : GoogleFonts.robotoSlab(
-                              fontSize: Globals.isLargeScreen(context)
-                                  ? MediaQuery.of(context).size.aspectRatio*18.857
-                                  : Globals.isSmallScreen(context)
-                                      ? 25
-                                      : 40,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff00305b),
-                            ),
-                      // GoogleFonts.robotoSlab(
-                      //   fontSize: Globals.isLargeScreen(context)
-                      //       ? 40
-                      //       : Globals.isSmallScreen(context)
-                      //           ? 25
-                      //           : 30,
-                      //   fontWeight: FontWeight.w600,
-                      //   color: Color(0xff00adb5),
-                      // ),
-                    ),
-                    Image.network(
-                      "https://media.giphy.com/media/Vhd10uVrDjMhAG7IyV/giphy.gif",
-                      // scale: 0.5,
-                      width: Globals.isLargeScreen(context)
-                          ? 44
-                          : Globals.isSmallScreen(context)
-                              ? 19
-                              : 37,
+                FittedBox(
+                  child: Row(
+                    children: [
+                      FittedBox(
+                        child: Text(
+                          "Hi",
+                          semanticsLabel: 'Monik intro',
+                          style: ThemeProvider.themeOf(context).id == 'dark'
+                              ? GoogleFonts.robotoSlab(
+                                  fontSize: Globals.isLargeScreen(context)
+                                      ? MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          18.857
+                                      : Globals.isSmallScreen(context)
+                                          ? 25
+                                          : 30,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff00adb5),
+                                )
+                              : GoogleFonts.robotoSlab(
+                                  fontSize: Globals.isLargeScreen(context)
+                                      ? MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          18.857
+                                      : Globals.isSmallScreen(context)
+                                          ? 25
+                                          : 40,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff00305b),
+                                ),
+                          // GoogleFonts.robotoSlab(
+                          //   fontSize: Globals.isLargeScreen(context)
+                          //       ? 40
+                          //       : Globals.isSmallScreen(context)
+                          //           ? 25
+                          //           : 30,
+                          //   fontWeight: FontWeight.w600,
+                          //   color: Color(0xff00adb5),
+                          // ),
+                        ),
+                      ),
+                      FittedBox(
+                        child: Image.network(
+                          "https://media.giphy.com/media/Vhd10uVrDjMhAG7IyV/giphy.gif",
+                          // scale: 0.5,
+                          width: Globals.isLargeScreen(context)
+                              ? 44
+                              : Globals.isSmallScreen(context)
+                                  ? 19
+                                  : 37,
 
-                      height: Globals.isLargeScreen(context)
-                          ? 120
-                          : Globals.isSmallScreen(context)
-                              ? 50
-                              : 110,
-                      fit: BoxFit.fitHeight,
-                    ),
-                    Text(
-                      ", I'm Monik.",
-                      semanticsLabel: 'Monik intro',
-                      style: ThemeProvider.themeOf(context).id == 'dark'
-                          ? GoogleFonts.robotoSlab(
-                              fontSize: Globals.isLargeScreen(context)
-                                  ?MediaQuery.of(context).size.aspectRatio*18.857// 35
-                                  : Globals.isSmallScreen(context)
-                                      ? 25
-                                      : 30,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff00adb5),
-                            )
-                          : GoogleFonts.robotoSlab(
-                              fontSize: Globals.isLargeScreen(context)
-                                  ? MediaQuery.of(context).size.aspectRatio*18.857
-                                  : Globals.isSmallScreen(context)
-                                      ? 25
-                                      : 40,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff00305b),
-                            ),
-                    ),
-                  ],
+                          height: Globals.isLargeScreen(context)
+                              ? 120
+                              : Globals.isSmallScreen(context)
+                                  ? 50
+                                  : 110,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                      FittedBox(
+                        child: Text(
+                          ", I'm Monik.",
+                          semanticsLabel: 'Monik intro',
+                          style: ThemeProvider.themeOf(context).id == 'dark'
+                              ? GoogleFonts.robotoSlab(
+                                  fontSize: Globals.isLargeScreen(context)
+                                      ? MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          18.857 // 35
+                                      : Globals.isSmallScreen(context)
+                                          ? 25
+                                          : 30,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff00adb5),
+                                )
+                              : GoogleFonts.robotoSlab(
+                                  fontSize: Globals.isLargeScreen(context)
+                                      ? MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          18.857
+                                      : Globals.isSmallScreen(context)
+                                          ? 25
+                                          : 40,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff00305b),
+                                ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 if (!(Globals.isLargeScreen(context)))
                   SizedBox(
@@ -122,7 +142,8 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                   style: ThemeProvider.themeOf(context).id == 'dark'
                       ? GoogleFonts.alef(
                           fontSize: Globals.isLargeScreen(context)
-                              ? MediaQuery.of(context).size.aspectRatio*29.094 //54
+                              ? MediaQuery.of(context).size.aspectRatio *
+                                  29.094 //54
                               : Globals.isSmallScreen(context)
                                   ? 23
                                   : 46,
@@ -132,7 +153,8 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                           )
                       : GoogleFonts.alef(
                           fontSize: Globals.isLargeScreen(context)
-                              ? MediaQuery.of(context).size.aspectRatio*29.094 //54
+                              ? MediaQuery.of(context).size.aspectRatio *
+                                  29.094 //54
                               : Globals.isSmallScreen(context)
                                   ? 23
                                   : 46,
@@ -164,7 +186,8 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                       textStyle: GoogleFonts.lora(
                             color: Colors.pink, // Colors.blueAccent[700],
                             fontSize: Globals.isLargeScreen(context)
-                                ?MediaQuery.of(context).size.aspectRatio*21.55// 40
+                                ? MediaQuery.of(context).size.aspectRatio *
+                                    21.55 // 40
                                 : Globals.isSmallScreen(context)
                                     ? 20
                                     : 35,
@@ -174,8 +197,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     ),
                   ),
                 ),
-                if(Globals.isSmallScreen(context))
-                socialMediaRow(context,30)
+                if (Globals.isSmallScreen(context)) socialMediaRow(context, 30)
                 // if (Globals.isLargeScreen(context) &&
                 //     !Globals.isMediumScreen(context))
                 //   SizedBox(
@@ -239,10 +261,12 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
             // Padding(
             // child:
             Container(
-            padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.045),
-                alignment: Alignment.center,
-                // color: Colors.amber,
-                child: socialMediaRow(context,39),),
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.045),
+              alignment: Alignment.center,
+              // color: Colors.amber,
+              child: socialMediaRow(context, 39),
+            ),
           // ),
         ],
       ),

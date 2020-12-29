@@ -14,25 +14,27 @@ Widget appBarDesktopTablet(
     toolbarHeight: 90,
     elevation: Theme.of(context).appBarTheme.elevation, //0,
     backgroundColor: Colors.transparent,
-    leading: InkWell(
-      customBorder: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(
-            15,
+    leading: FittedBox(
+          child: InkWell(
+        customBorder: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              15,
+            ),
           ),
         ),
-      ),
-      hoverColor: Colors.black12,
-      child: Padding(
-        padding: EdgeInsets.only(left: 12.0),
-        child: Text(
-          "Monikinderjit Singh",
-          style: Theme.of(context).textTheme.headline1,
+        hoverColor: Colors.black12,
+        child: Padding(
+          padding: EdgeInsets.only(left: 12.0),
+          child: Text(
+            "Monikinderjit Singh",
+            style: Theme.of(context).textTheme.headline1,
+          ),
         ),
+        onTap: () {
+          Navigator.of(context).pushNamed(AboutScreen.routeName);
+        },
       ),
-      onTap: () {
-        Navigator.of(context).pushNamed(AboutScreen.routeName);
-      },
     ),
     leadingWidth: 330,
     actions: [

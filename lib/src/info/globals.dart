@@ -82,7 +82,6 @@ class Globals {
   ];
 
   static void openLink(String url) async {
-    // String url = 'https://flutter.dev';
     if (kIsWeb) {
       html.window.open(url, '_blank');
     } else {
