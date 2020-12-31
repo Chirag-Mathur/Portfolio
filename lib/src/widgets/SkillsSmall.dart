@@ -93,8 +93,6 @@ class SkillsSmall {
               ),
               width: MediaQuery.of(context).size.width * 0.4,
               child: Column(
-                // mainAxisSize: MainAxisSize.min,
-                // mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -104,7 +102,6 @@ class SkillsSmall {
                     style:
                         GoogleFonts.roboto(fontSize: 15, color: Colors.black),
                   ),
-                  // ),
                   Container(
                     margin: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height * 0.01),

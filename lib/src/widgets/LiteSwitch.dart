@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'dart:math';
+
 class RollSwitch extends StatefulWidget {
   @required
   final bool value;
@@ -22,14 +22,15 @@ class RollSwitch extends StatefulWidget {
 
   RollSwitch(
       {this.value = true,
-       this.width = 130,
-      this.textOff =  'Light',
-      this.textOn =  'Dark',
-      this.textSize =  18.0,
-      this.colorOn =const Color(0xffAB47BC),//same to Colors.purple[400] but can be constant,
-      this.colorOff =const Color(0xff204690), // Colors.blue[800],
+      this.width = 130,
+      this.textOff = 'Light',
+      this.textOn = 'Dark',
+      this.textSize = 18.0,
+      this.colorOn = const Color(
+          0xff26ABBF), //Color(0xffAB47BC),//same to Colors.purple[400] but can be constant,
+      this.colorOff = const Color(0xff204690), // Colors.blue[800],
       this.iconOff = Icons.wb_sunny,
-      this.iconOn =Icons.nights_stay,
+      this.iconOn = Icons.nights_stay,
       this.animationDuration = const Duration(milliseconds: 600),
       this.onTap,
       this.onDoubleTap,
@@ -95,8 +96,7 @@ class _RollSwitchState extends State<RollSwitch>
         padding: EdgeInsets.all(5),
         width: widget.width,
         decoration: BoxDecoration(
-            color:transitionColor,
-             borderRadius: BorderRadius.circular(50)),
+            color: transitionColor, borderRadius: BorderRadius.circular(50)),
         child: Stack(
           children: <Widget>[
             Transform.translate(

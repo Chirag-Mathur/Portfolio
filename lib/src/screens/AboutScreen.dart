@@ -83,12 +83,14 @@ class _AboutScreenState extends State<AboutScreen>
           ),
           height: Globals.isLargeScreen(context)
               ? 150
-              : MediaQuery.of(context).size.width<390?MediaQuery.of(context).size.width *
-                  0.35:140, //constraints.maxHeight*0.17361,// 150,
+              : MediaQuery.of(context).size.width < 390
+                  ? MediaQuery.of(context).size.width * 0.35
+                  : 140, //constraints.maxHeight*0.17361,// 150,
           width: Globals.isLargeScreen(context)
               ? 300
-              :MediaQuery.of(context).size.width<390?MediaQuery.of(context).size.width *
-                  0.70:300, //constraints.minWidth*0.20833,// 300,
+              : MediaQuery.of(context).size.width < 390
+                  ? MediaQuery.of(context).size.width * 0.70
+                  : 300, //constraints.minWidth*0.20833,// 300,
           top: !isHovering[index]
               ? constraints.maxHeight * (0.07 + (0.25 * index))
               : constraints.maxHeight * (0.07 + (0.25 * index - 0.01)),
@@ -107,7 +109,11 @@ class _AboutScreenState extends State<AboutScreen>
           Theme.of(context).backgroundColor, //Globals.backgroundColorLight,
       appBar:
           appBarWidget(context, _scrollController, isHomePage, scaffoldKey1),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
+      floatingActionButtonLocation:
+          // Globals.isLargeScreen(context)
+          // ?
+          FloatingActionButtonLocation.miniEndTop,
+      // : FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: Globals.isLargeScreen(context)
           ? Container(
               margin: EdgeInsets.only(
@@ -136,7 +142,33 @@ class _AboutScreenState extends State<AboutScreen>
                 },
               ),
             )
-          : null,
+          : Container(
+              margin: EdgeInsets.only(
+                top: 60, //93
+                right: 1,
+              ),
+              child: FloatingActionButton(
+                tooltip: 'Toggle Theme',
+                isExtended: true,
+                child: Icon(
+                  ThemeProvider.themeOf(context).id == 'dark'
+                      ? Icons.nights_stay
+                      : Icons.wb_sunny_sharp,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                elevation: 4,
+                mini: true,
+                onPressed: () {
+                  setState(() {
+                    ThemeProvider.controllerOf(context).nextTheme();
+                  });
+                },
+                backgroundColor: ThemeProvider.themeOf(context).id == 'dark'
+                    ? Color(0xff26ABBF)
+                    : Color(0xff204690),
+              ),
+            ),
       body: Scrollbar(
         thickness: Globals.isLargeScreen(context) ? 12 : 5,
         isAlwaysShown: true,
@@ -238,7 +270,7 @@ class _AboutScreenState extends State<AboutScreen>
                                                               .size
                                                               .aspectRatio *
                                                           24.25
-                                                      : 19,
+                                                      : 22,
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w600,
                                                 )
@@ -250,7 +282,7 @@ class _AboutScreenState extends State<AboutScreen>
                                                               .size
                                                               .aspectRatio *
                                                           24.25
-                                                      : 19,
+                                                      : 22,
                                                   color: Color(0xff00305b),
                                                   fontWeight: FontWeight.w600),
                                           // Theme.of(context).primaryTextTheme.subtitle1
@@ -298,84 +330,5 @@ class _AboutScreenState extends State<AboutScreen>
         ),
       ),
     );
-    //  Scrollbar(
-    //   thickness: 12,
-    //   isAlwaysShown: true,
-    //   radius: Radius.circular(6),
-    //   controller: _scrollController,
-    //   child: Container(
-    //     height: MediaQuery.of(context).size.height * 1.28,
-    //     child: ListView(
-    //       physics:
-    //           FixedExtentScrollPhysics(), //NeverScrollableScrollPhysics(),
-    //       controller: _scrollController,
-    //       // offAxisFraction: 0.2,
-    //       // diameterRatio: 17.5,
-    //       // clipBehavior: Clip.hardEdge,
-    //       itemExtent: Globals.isSmallScreen(context)
-    //           ? MediaQuery.of(context).size.height * 1.2
-    //           : MediaQuery.of(context).size.height * 1,
-    //       children: [
-    //         Container(
-    //           width: MediaQuery.of(context).size.width,
-    //           child: Globals.isLargeScreen(context)
-    //               ? Row(
-    //                   crossAxisAlignment: CrossAxisAlignment.center,
-    //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //                   children: topChildren,
-    //                 )
-    //               : Column(
-    //                   verticalDirection: VerticalDirection.up,
-    //                   crossAxisAlignment: CrossAxisAlignment.center,
-    //                   mainAxisAlignment: MainAxisAlignment.start,
-    //                   children: topChildren,
-    //                 ),
-    //         ),
-    //         // Padding(
-    //         //   padding: EdgeInsets.zero, //all(38.0),
-    //         //   child: skillsWidget(context),
-    //         // ),
-    //         Builder(builder: (context) => getSkillsGrid(context)),
-    //         // Timeline(),
-    //         Align(
-    //           alignment: Alignment.center,
-    //           child: CustomPaint(
-    //             foregroundPainter: CurvePainter(),
-    //             child: Container(
-    //               margin: EdgeInsets.symmetric(
-    //                 horizontal: MediaQuery.of(context).size.width * 0.03,
-    //               ),
-    //               color: Colors.transparent,
-    //               height: MediaQuery.of(context).size.height * 0.6256,
-    //               // child: projectGridView(context, _projectsList),
-    //             ),
-    //           ),
-    //         ),
-    //         Row(
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           children: [
-    //             Text(
-    //               "Built with",
-    //               style: GoogleFonts.roboto(
-    //                   fontSize: 20, fontWeight: FontWeight.bold),
-    //             ),
-    //             Icon(
-    //               Icons.favorite,
-    //               color: Colors.blue[900],
-    //               size: 21,
-    //             ),
-    //             Text(
-    //               " by Monikinderjit Singh",
-    //               style: GoogleFonts.robotoSlab(
-    //                   fontSize: 21, fontWeight: FontWeight.w600),
-    //             ),
-    //             // socialMediaRow(),
-    //           ],
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // ),
-    // );
   }
 }

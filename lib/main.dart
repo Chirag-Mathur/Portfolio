@@ -6,7 +6,6 @@ import 'package:my_portfolio/src/screens/ContactScreen.dart';
 import 'package:my_portfolio/src/screens/ProjectScreen.dart';
 import 'package:theme_provider/theme_provider.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -85,28 +84,23 @@ class MyApp extends StatelessWidget {
     );
 
     return ThemeProvider(
-      // saveThemesOnChange: true,
-      // loadThemeOnInit: true,
       defaultThemeId: 'dark',
       onInitCallback: (controller, previouslySavedThemeFuture) async {
-    // Do some other task here if you need to
-    String savedTheme = await previouslySavedThemeFuture;
-    if (savedTheme != null) {
-      controller.setTheme(savedTheme);
-    }
-  },
+        String savedTheme = await previouslySavedThemeFuture;
+        if (savedTheme != null) {
+          controller.setTheme(savedTheme);
+        }
+      },
       themes: <AppTheme>[
-        AppTheme(id: 'light', data: lightTheme),
-        AppTheme(id: 'dark', data: darkTheme),
+        AppTheme(id: 'light', description: 'Light theme', data: lightTheme),
+        AppTheme(id: 'dark', description: 'Dark theme', data: darkTheme),
       ],
       child: ThemeConsumer(
         child: Builder(
           builder: (context) => MaterialApp(
             title: 'Monikinderjit Singh Portfolio',
-            theme: ThemeProvider.themeOf(context).data, //  Globals.lightTheme,
-            // darkTheme: Globals.darkTheme,
-            // themeMode: ThemeMode.dark,
-            home: AboutScreen(), // SplashScreen(), // Timeline(),
+            theme: ThemeProvider.themeOf(context).data,
+            home: AboutScreen(), // SplashScreen(),
             routes: {
               AboutScreen.routeName: (context) => AboutScreen(),
               ProjectScreen.routeName: (context) => ProjectScreen(),

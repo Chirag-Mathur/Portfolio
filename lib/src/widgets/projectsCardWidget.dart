@@ -23,7 +23,8 @@ Widget projectsCardWidget(
           children: [
             FittedBox(
               child: Text(
-                Globals.projectsList[index]['title'],
+                Globals.projectsList[!isNextPage ? index : index + 3 + 1]
+                    ['title'],
                 style: GoogleFonts.robotoMono(
                   fontSize: Globals.isLargeScreen(context) ? 19.5 : 16,
                   color: Colors.white, // Color(0xff26ABBF)
@@ -34,9 +35,14 @@ Widget projectsCardWidget(
 
             // Divider(color: Colors.grey),
             Container(
-              padding: EdgeInsets.all(Globals.isLargeScreen(context) ? 12 : 8),
+              padding: EdgeInsets.only(
+                top: Globals.isLargeScreen(context) ? 12 : 8,
+                left: Globals.isLargeScreen(context) ? 12 : 8,
+                right: Globals.isLargeScreen(context) ? 12 : 8,
+              ),
               child: Text(
-                Globals.projectsList[index]['description'],
+                Globals.projectsList[!isNextPage ? index : index + 3 + 1]
+                    ['description'],
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
@@ -45,7 +51,7 @@ Widget projectsCardWidget(
                       : Color(0xff001b34),
                   fontSize: Globals.isLargeScreen(context) ? 17.5 : 14,
                 ),
-                maxLines: 3,
+                maxLines: 4,
                 softWrap: true,
               ),
             ),
@@ -55,14 +61,13 @@ Widget projectsCardWidget(
                 alignment: Alignment.bottomRight,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 2.0),
-                  child: FittedBox(
-                    child: Text(
-                      Globals.projectsList[index]['startedIn'],
-                      style: GoogleFonts.robotoSlab(
-                        fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300,
-                      ),
+                  child: Text(
+                    Globals.projectsList[!isNextPage ? index : index + 3 + 1]
+                        ['startedIn'],
+                    style: GoogleFonts.robotoSlab(
+                      fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),

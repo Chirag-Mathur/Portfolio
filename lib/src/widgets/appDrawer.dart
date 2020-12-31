@@ -7,36 +7,12 @@ import 'package:theme_provider/theme_provider.dart';
 Widget appDrawer(
     BuildContext context, ScrollController scrollController, bool isDark) {
   return Container(
-    width: MediaQuery.of(context).size.width*0.38,
+    width: MediaQuery.of(context).size.width * 0.38,
     height: MediaQuery.of(context).size.height * 0.85,
     color: Theme.of(context).backgroundColor, //Colors.transparent,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Container(
-        //   alignment: Alignment.centerRight,
-        //   child: RollSwitch(
-        //     value: true,
-        //     width: 70,
-        //     textOn: 'Dark',
-        //     textOff: 'Light',
-        //     colorOff: Color(0xff204690), // Colors.blue[800],
-        //     colorOn: Colors.purple[400],
-        //     iconOn: Icons.nights_stay,
-        //     iconOff: Icons.wb_sunny,
-        //     textSize: 18.0,
-        //     onChanged: (bool state) {
-        //       // if (!isDark) {
-        //       //   setState(() {
-        //       //     isDark = true;
-        //       //   });
-        //       //   return;
-        //       // }
-        //       ThemeProvider.controllerOf(context).nextTheme();
-        //     },
-        //   ),
-        // ),
-
         Padding(
           padding: EdgeInsets.only(top: 12.0),
           child: FlatButton(
@@ -145,17 +121,6 @@ Widget appDrawer(
                 "https://drive.google.com/file/d/1GTGLuEK-5l2B2nxEemUSMauEYQzOCYCs/view?usp=sharing");
           },
         ),
-        Divider(),
-        // SizedBox(
-        //   width: MediaQuery.of(context).size.width * 0.02,
-        // ),
-        // Container(
-        //   height: 1000,
-        //   child: socialMediaRowDrawer(context),
-        //   alignment: Alignment.bottomCenter,
-        // ),
-
-        Divider(),
       ],
     ),
   );

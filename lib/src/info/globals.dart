@@ -21,7 +21,8 @@ class Globals {
     {
       'title': "Chat App",
       'startedIn': 'October 2020',
-      'description': 'An app from which we can send messages to other users',
+      'description':
+          'An app from which we can send messages to other users by use of firebase messaging and firestore to store images.',
       'projectLink': 'https://github.com/Monik09/Chat-App',
       'techUsed': ['assets/images/flutter.png', 'assets/images/firebase.png']
     },
@@ -48,6 +49,22 @@ class Globals {
           'An app to buy goods online. This app uses data from internet and some animations for better user experience.',
       'projectLink': 'https://github.com/Monik09/shop-app',
       'techUsed': ['assets/images/flutter.png', 'assets/images/firebase.png']
+    },
+    {
+      'title': "CCblog unofficial",
+      'startedIn': 'July 2020',
+      'description':
+          'A blog Website developed using flutter web for CC to showcase past and upcoming events, members and featured blogs.',
+      'projectLink': 'https://github.com/Skyhook-Dimension/CCBlogWebsite-unofficial-',
+      'techUsed': ['assets/images/flutter.png']
+    },
+    {
+      'title': "MyPortfolio Website",
+      'startedIn': 'December 2020',
+      'description':
+          'My portfolio website created by myself which showcases my skills and profiles.',
+      'projectLink': 'https://github.com/Monik09/Portfolio',
+      'techUsed': ['assets/images/flutter.png']
     },
   ];
 

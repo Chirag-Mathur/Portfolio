@@ -4,8 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
 
-
-
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -13,20 +11,11 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  // static bool getisLoaded() {
-  //   return isLoaded;
-  // }
-
   AnimationController animationController;
   Animation<double> animation;
   Timer timer;
   @override
   void initState() {
-    // animationController = new AnimationController(
-    //     vsync: this, duration: new Duration(seconds: 10));
-    // animation =
-    //     new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
-
     progresser();
     Timer(Duration(seconds: 9), () {
       print('To About Screen');

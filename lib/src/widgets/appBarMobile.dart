@@ -16,7 +16,7 @@ Widget appBarMobile(
     leading: IconButton(
       icon: Icon(
         Icons.menu,
-        color:Theme.of(context).appBarTheme.textTheme.headline5.color,
+        color: Theme.of(context).appBarTheme.textTheme.headline5.color,
         size: 25,
       ),
       onPressed: () {
@@ -25,7 +25,7 @@ Widget appBarMobile(
     ),
     actions: [
       FittedBox(
-              child: FlatButton(
+        child: FlatButton(
           onPressed: () {},
           hoverColor: Colors.transparent,
           splashColor: Colors.transparent,
@@ -33,9 +33,11 @@ Widget appBarMobile(
             "Monikinderjit Singh",
             style: TextStyle(
               fontFamily: 'TheRichJuliet',
-              fontSize: 30,
+              fontSize: Globals.isLargeScreen(context) ? 30 : 26,
               color: Theme.of(context).textTheme.headline1.color,
-              fontWeight:ThemeProvider.themeOf(context).id=='dark'? FontWeight.w400:FontWeight.w600,
+              fontWeight: ThemeProvider.themeOf(context).id == 'dark'
+                  ? FontWeight.w400
+                  : FontWeight.w600,
             ),
           ),
         ),

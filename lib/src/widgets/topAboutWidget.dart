@@ -14,7 +14,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
           : double.maxFinite,
       height: Globals.isLargeScreen(context)
           ? MediaQuery.of(context).size.height * 0.8
-          : MediaQuery.of(context).size.height * 0.26,
+          : MediaQuery.of(context).size.height * 0.46,
       child: Padding(
         padding: EdgeInsets.only(
             left:
@@ -35,9 +35,6 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // SizedBox(
-                //   height: MediaQuery.of(context).size.height * 0.05,
-                // ),
                 FittedBox(
                   child: Row(
                     children: [
@@ -70,15 +67,6 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xff00305b),
                                 ),
-                          // GoogleFonts.robotoSlab(
-                          //   fontSize: Globals.isLargeScreen(context)
-                          //       ? 40
-                          //       : Globals.isSmallScreen(context)
-                          //           ? 25
-                          //           : 30,
-                          //   fontWeight: FontWeight.w600,
-                          //   color: Color(0xff00adb5),
-                          // ),
                         ),
                       ),
                       FittedBox(
@@ -88,13 +76,13 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                           width: Globals.isLargeScreen(context)
                               ? 44
                               : Globals.isSmallScreen(context)
-                                  ? 19
+                                  ? 23
                                   : 37,
 
                           height: Globals.isLargeScreen(context)
                               ? 120
                               : Globals.isSmallScreen(context)
-                                  ? 50
+                                  ? 60
                                   : 110,
                           fit: BoxFit.fitHeight,
                         ),
@@ -135,7 +123,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                 ),
                 if (!(Globals.isLargeScreen(context)))
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01,
+                    height: MediaQuery.of(context).size.height * 0.015,
                   ),
                 Text(
                   'Building apps, web apps and Learning new technology',
@@ -166,17 +154,13 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                   height: (Globals.isLargeScreen(context) &&
                           !Globals.isMediumScreen(context))
                       ? MediaQuery.of(context).size.height * 0.05
-                      : MediaQuery.of(context).size.height * 0.03,
+                      : MediaQuery.of(context).size.height * 0.04,
                 ),
-                Builder(
-                  builder: (ctx) => Container(
-                    color: Colors.transparent,
-                    height: Globals.isLargeScreen(context)
-                        ? 100
-                        : Globals.isSmallScreen(context)
-                            ? 80
-                            : 85,
-                    child: TypewriterAnimatedTextKit(
+                Container(
+                  color: Colors.transparent,
+                  height: Globals.isLargeScreen(context) ? 100 : 55,
+                  child: Builder(
+                    builder: (ctx) => TypewriterAnimatedTextKit(
                       speed: Duration(milliseconds: 150),
                       text: [
                         "Love Exploring technologies.",
@@ -197,28 +181,15 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     ),
                   ),
                 ),
-                if (Globals.isSmallScreen(context)) socialMediaRow(context, 30)
-                // if (Globals.isLargeScreen(context) &&
-                //     !Globals.isMediumScreen(context))
-                //   SizedBox(
-                //     height: Globals.isLargeScreen(context)
-                //         ? MediaQuery.of(context).size.height * 0.01
-                //         : MediaQuery.of(context).size.height * 0.001,
-                //   ),
-                // Container(
-                //   alignment: Alignment.center,
-                //   width: MediaQuery.of(context).size.width * 0.8,
-                //   height: MediaQuery.of(context).size.height * 0.1,
-                //   child: RotateAnimatedTextKit(
-                //     repeatForever: true,
-                //     text: ["DISCIPLINED", "OPTIMISTIC", "LEARNER", "LISTENER"],
-                //     textStyle: GoogleFonts.orbitron(
-                //         fontSize: Globals.isLargeScreen(context) ? 40.0 : 25),
-                //     textAlign: TextAlign.center,
-                //   ),
-                // ),
               ],
             ),
+            if (Globals.isSmallScreen(context))
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: socialMediaRow(context, 33),
+                ),
+              ),
           ],
         ),
       ),
@@ -243,13 +214,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
               ),
               color: Color(0xff173266),
             ),
-            // height: Globals.isSmallScreen(context)?300:450,
-            // width: Globals.isSmallScreen(context)?500:200,
             child: myImage1,
-            //   margin: EdgeInsets.only(
-            //       // bottom: Globals.isSmallScreen(context)
-            //       //     ? (MediaQuery.of(context).size.height * 0.032)
-            //       //     : 0),
           ),
           SizedBox(
             height: (Globals.isLargeScreen(context) &&
@@ -258,16 +223,12 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                 : MediaQuery.of(context).size.height * 0.03,
           ),
           if (Globals.isLargeScreen(context))
-            // Padding(
-            // child:
             Container(
               padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.045),
-              alignment: Alignment.center,
-              // color: Colors.amber,
+              alignment: Alignment.centerLeft,
               child: socialMediaRow(context, 39),
             ),
-          // ),
         ],
       ),
     ),

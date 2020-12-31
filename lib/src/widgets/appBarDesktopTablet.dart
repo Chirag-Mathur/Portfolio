@@ -15,7 +15,7 @@ Widget appBarDesktopTablet(
     elevation: Theme.of(context).appBarTheme.elevation, //0,
     backgroundColor: Colors.transparent,
     leading: FittedBox(
-          child: InkWell(
+      child: InkWell(
         customBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(
@@ -97,21 +97,22 @@ Widget appBarDesktopTablet(
               Navigator.of(context)
                 ..push(
                   PageRouteBuilder(
-                      pageBuilder: (context, animation, anotherAnimation) {
-                        return AboutScreen();
-                      },
-                      transitionDuration: Duration(milliseconds: 2000),
-                      transitionsBuilder:
-                          (context, animation, anotherAnimation, child) {
-                        animation = CurvedAnimation(
-                            curve: Curves.linearToEaseOut, parent: animation);
-                        return Align(
-                          child: FadeTransition(
-                            child: child,
-                            opacity: animation,
-                          ),
-                        );
-                      }),
+                    pageBuilder: (context, animation, anotherAnimation) {
+                      return AboutScreen();
+                    },
+                    transitionDuration: Duration(milliseconds: 2000),
+                    transitionsBuilder:
+                        (context, animation, anotherAnimation, child) {
+                      animation = CurvedAnimation(
+                          curve: Curves.linearToEaseOut, parent: animation);
+                      return Align(
+                        child: FadeTransition(
+                          child: child,
+                          opacity: animation,
+                        ),
+                      );
+                    },
+                  ),
                 );
             }
           },

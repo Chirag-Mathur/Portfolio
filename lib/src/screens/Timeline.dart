@@ -4,18 +4,18 @@ import 'package:my_portfolio/src/info/globals.dart';
 import 'package:path_drawing/path_drawing.dart';
 import 'package:theme_provider/theme_provider.dart';
 
-class Timeline extends StatefulWidget {
+class ToPaint extends StatefulWidget {
   @override
-  _TimelineState createState() => _TimelineState();
+  _ToPaintState createState() => _ToPaintState();
 }
 
-class _TimelineState extends State<Timeline> {
+class _ToPaintState extends State<ToPaint> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: CustomPaint(
-        foregroundPainter: TimelinePainter(false,context),
+        foregroundPainter: TimelinePainter(false, context),
         child: Container(
           height: MediaQuery.of(context).size.height,
         ),
@@ -52,7 +52,7 @@ class TimelinePainter extends CustomPainter {
     var paint1 = Paint()
       ..color = Colors.blue[400]
       ..strokeCap = StrokeCap.round //rounded points
-      ..strokeWidth =Globals.isLargeScreen(context)? 30:23;
+      ..strokeWidth = Globals.isLargeScreen(context) ? 30 : 23;
     //list of points
     double pointGiver = size.width * 0.1;
     // double pointGiver2 = size.width * 0.8;
@@ -203,11 +203,12 @@ class CardDesignPainter extends CustomPainter {
           : Color(0xff00305b)
       ..style = PaintingStyle.fill
       ..strokeWidth = 5;
+    double width = size.width, height = size.height;
     var pathDate = Path()
-      ..moveTo(size.width * 0.57, size.height)
-      ..lineTo(size.width * 0.61, size.height * 0.835)
-      ..lineTo(size.width, size.height * 0.835)
-      ..lineTo(size.width, size.height)
+      ..moveTo(width * 0.57, height)
+      ..lineTo(width * 0.61, height * 0.835)
+      ..lineTo(width, height * 0.835)
+      ..lineTo(width, height)
       ..close();
     canvas.drawPath(pathDate, paintDate);
     var paintTitle = Paint()
@@ -216,10 +217,10 @@ class CardDesignPainter extends CustomPainter {
           : Color(0xff00305b)
       ..style = PaintingStyle.fill;
     var pathTitle = Path()
-      ..moveTo(size.width * 0.06, 0)
-      ..lineTo(size.width * 0.14, size.height * 0.2)
-      ..lineTo(size.width * 0.86, size.height * 0.2)
-      ..lineTo(size.width * 0.94, 0)
+      ..moveTo(width * 0.06, 0)
+      ..lineTo(width * 0.14, height * 0.2)
+      ..lineTo(width * 0.86, height * 0.2)
+      ..lineTo(width * 0.94, 0)
       ..close();
     canvas.drawPath(pathTitle, paintTitle);
   }
