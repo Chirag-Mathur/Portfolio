@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'dart:math';
-class LiteRollSwitch extends StatefulWidget {
+class RollSwitch extends StatefulWidget {
   @required
   final bool value;
   final double width;
@@ -20,16 +20,16 @@ class LiteRollSwitch extends StatefulWidget {
   final Function onDoubleTap;
   final Function onSwipe;
 
-  LiteRollSwitch(
-      {this.value = false,
+  RollSwitch(
+      {this.value = true,
        this.width = 130,
-      this.textOff = "Off",
-      this.textOn = "On",
-      this.textSize = 14.0,
-      this.colorOn = Colors.green,
-      this.colorOff = Colors.red,
-      this.iconOff = Icons.flag,
-      this.iconOn = Icons.check,
+      this.textOff =  'Light',
+      this.textOn =  'Dark',
+      this.textSize =  18.0,
+      this.colorOn =const Color(0xffAB47BC),//same to Colors.purple[400] but can be constant,
+      this.colorOff =const Color(0xff204690), // Colors.blue[800],
+      this.iconOff = Icons.wb_sunny,
+      this.iconOn =Icons.nights_stay,
       this.animationDuration = const Duration(milliseconds: 600),
       this.onTap,
       this.onDoubleTap,
@@ -40,7 +40,7 @@ class LiteRollSwitch extends StatefulWidget {
   _RollSwitchState createState() => _RollSwitchState();
 }
 
-class _RollSwitchState extends State<LiteRollSwitch>
+class _RollSwitchState extends State<RollSwitch>
     with SingleTickerProviderStateMixin {
   AnimationController animationController;
   Animation<double> animation;
@@ -153,7 +153,7 @@ class _RollSwitchState extends State<LiteRollSwitch>
                           opacity: (1 - value).clamp(0.0, 1.0),
                           child: Icon(
                             widget.iconOff,
-                            size: 25,
+                            size: 21,
                             color: Colors.blue[900],
                           ),
                         ),

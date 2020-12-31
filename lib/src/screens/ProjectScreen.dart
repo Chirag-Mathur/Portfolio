@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/src/footer.dart';
+import 'package:my_portfolio/src/widgets/footer.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
-import 'package:my_portfolio/src/LiteSwitch.dart';
-import 'package:my_portfolio/src/appBarWidget.dart';
-import 'package:my_portfolio/src/appDrawer.dart';
+import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
+import 'package:my_portfolio/src/widgets/appBarWidget.dart';
+import 'package:my_portfolio/src/widgets/appDrawer.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class ProjectScreen extends StatelessWidget {
@@ -17,8 +17,8 @@ class ProjectScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context),
-      appBar: appBarWidget(context, _scrollController, isHomePage, scaffoldKey),
+      drawer: Globals.isLargeScreen(context) ? null : appDrawer(context,_scrollController,true),
+      appBar: appBarWidget(context, _scrollController, isHomePage, scaffoldKey,),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       floatingActionButton: Globals.isLargeScreen(context)
           ? Container(
@@ -26,7 +26,7 @@ class ProjectScreen extends StatelessWidget {
                 top: 60,
                 right: 20,
               ),
-              child: LiteRollSwitch(
+              child: RollSwitch(
                 value: true,
                 width: 100,
                 textOn: 'Dark',
@@ -99,7 +99,7 @@ class ProjectScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: CustomPaint(
-                      foregroundPainter: CurvePainter(),
+                      // foregroundPainter: CurvePainter(false),
                       child: Container(
                         margin: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * 0.03,

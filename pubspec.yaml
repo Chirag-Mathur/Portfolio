@@ -41,6 +41,8 @@ dependencies:
   shared_preferences: ^0.5.12+4
   theme_provider: ^0.4.0+1
   auto_animated: ^2.1.0
+  polygon_clipper: ^1.0.2
+  smooth_scroll_web: ^0.0.4
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/src/appBarDesktopTablet.dart';
-import 'package:my_portfolio/src/appBarMobile.dart';
+import 'package:my_portfolio/src/widgets/appBarDesktopTablet.dart';
+import 'package:my_portfolio/src/widgets/appBarMobile.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 
 
