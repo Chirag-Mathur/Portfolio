@@ -55,15 +55,7 @@ class Globals {
       'startedIn': 'July 2020',
       'description':
           'A blog Website developed using flutter web for CC to showcase past and upcoming events, members and featured blogs.',
-      'projectLink': 'https://github.com/Monik09/Portfolio',
-      'techUsed': ['assets/images/flutter.png']
-    },
-    {
-      'title': "MyPortfolio Website",
-      'startedIn': 'December 2020',
-      'description':
-          'My portfolio website created by myself which showcases my skills and profiles.',
-      'projectLink': 'https://github.com/Monik09/Portfolio',
+      'projectLink': 'https://github.com/Skyhook-Dimension/CCBlogWebsite-unofficial-',
       'techUsed': ['assets/images/flutter.png']
     },
     {

@@ -35,7 +35,11 @@ Widget projectsCardWidget(
 
             // Divider(color: Colors.grey),
             Container(
-              padding: EdgeInsets.all(Globals.isLargeScreen(context) ? 12 : 8),
+              padding: EdgeInsets.only(
+                top: Globals.isLargeScreen(context) ? 12 : 8,
+                left: Globals.isLargeScreen(context) ? 12 : 8,
+                right: Globals.isLargeScreen(context) ? 12 : 8,
+              ),
               child: Text(
                 Globals.projectsList[!isNextPage ? index : index + 3 + 1]
                     ['description'],
@@ -57,15 +61,13 @@ Widget projectsCardWidget(
                 alignment: Alignment.bottomRight,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 2.0),
-                  child: FittedBox(
-                    child: Text(
-                      Globals.projectsList[!isNextPage ? index : index + 3 + 1]
-                          ['startedIn'],
-                      style: GoogleFonts.robotoSlab(
-                        fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  child: Text(
+                    Globals.projectsList[!isNextPage ? index : index + 3 + 1]
+                        ['startedIn'],
+                    style: GoogleFonts.robotoSlab(
+                      fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
