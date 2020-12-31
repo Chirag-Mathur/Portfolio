@@ -33,7 +33,7 @@ Widget appBarMobile(
             "Monikinderjit Singh",
             style: TextStyle(
               fontFamily: 'TheRichJuliet',
-              fontSize: 30,
+              fontSize: Globals.isLargeScreen(context)?30:26,
               color: Theme.of(context).textTheme.headline1.color,
               fontWeight:ThemeProvider.themeOf(context).id=='dark'? FontWeight.w400:FontWeight.w600,
             ),

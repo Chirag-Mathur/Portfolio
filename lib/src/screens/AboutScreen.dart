@@ -83,12 +83,14 @@ class _AboutScreenState extends State<AboutScreen>
           ),
           height: Globals.isLargeScreen(context)
               ? 150
-              : MediaQuery.of(context).size.width<390?MediaQuery.of(context).size.width *
-                  0.35:140, //constraints.maxHeight*0.17361,// 150,
+              : MediaQuery.of(context).size.width < 390
+                  ? MediaQuery.of(context).size.width * 0.35
+                  : 140, //constraints.maxHeight*0.17361,// 150,
           width: Globals.isLargeScreen(context)
               ? 300
-              :MediaQuery.of(context).size.width<390?MediaQuery.of(context).size.width *
-                  0.70:300, //constraints.minWidth*0.20833,// 300,
+              : MediaQuery.of(context).size.width < 390
+                  ? MediaQuery.of(context).size.width * 0.70
+                  : 300, //constraints.minWidth*0.20833,// 300,
           top: !isHovering[index]
               ? constraints.maxHeight * (0.07 + (0.25 * index))
               : constraints.maxHeight * (0.07 + (0.25 * index - 0.01)),
@@ -107,7 +109,11 @@ class _AboutScreenState extends State<AboutScreen>
           Theme.of(context).backgroundColor, //Globals.backgroundColorLight,
       appBar:
           appBarWidget(context, _scrollController, isHomePage, scaffoldKey1),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
+      floatingActionButtonLocation:
+          // Globals.isLargeScreen(context)
+          // ?
+          FloatingActionButtonLocation.miniEndTop,
+      // : FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: Globals.isLargeScreen(context)
           ? Container(
               margin: EdgeInsets.only(
@@ -136,7 +142,33 @@ class _AboutScreenState extends State<AboutScreen>
                 },
               ),
             )
-          : null,
+          : Container(
+              margin: EdgeInsets.only(
+                top: 60, //93
+                right: 1,
+              ),
+              child: FloatingActionButton(
+                tooltip: 'Toggle Theme',
+                isExtended: true,
+                child: Icon(
+                  ThemeProvider.themeOf(context).id == 'dark'
+                      ? Icons.nights_stay
+                      : Icons.wb_sunny_sharp,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                elevation: 4,
+                mini: true,
+                onPressed: () {
+                  setState(() {
+                    ThemeProvider.controllerOf(context).nextTheme();
+                  });
+                },
+                backgroundColor: ThemeProvider.themeOf(context).id == 'dark'
+                    ? Color(0xff26ABBF)
+                    : Color(0xff204690),
+              ),
+            ),
       body: Scrollbar(
         thickness: Globals.isLargeScreen(context) ? 12 : 5,
         isAlwaysShown: true,
@@ -238,7 +270,7 @@ class _AboutScreenState extends State<AboutScreen>
                                                               .size
                                                               .aspectRatio *
                                                           24.25
-                                                      : 19,
+                                                      : 22,
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w600,
                                                 )
@@ -250,7 +282,7 @@ class _AboutScreenState extends State<AboutScreen>
                                                               .size
                                                               .aspectRatio *
                                                           24.25
-                                                      : 19,
+                                                      : 22,
                                                   color: Color(0xff00305b),
                                                   fontWeight: FontWeight.w600),
                                           // Theme.of(context).primaryTextTheme.subtitle1

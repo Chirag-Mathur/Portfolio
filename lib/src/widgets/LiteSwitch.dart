@@ -26,7 +26,7 @@ class RollSwitch extends StatefulWidget {
       this.textOff =  'Light',
       this.textOn =  'Dark',
       this.textSize =  18.0,
-      this.colorOn =const Color(0xffAB47BC),//same to Colors.purple[400] but can be constant,
+      this.colorOn =const Color(0xff26ABBF),//Color(0xffAB47BC),//same to Colors.purple[400] but can be constant,
       this.colorOff =const Color(0xff204690), // Colors.blue[800],
       this.iconOff = Icons.wb_sunny,
       this.iconOn =Icons.nights_stay,

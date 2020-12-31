@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
     );
 
     ThemeData darkTheme = ThemeData(
+      
       brightness: Brightness.dark,
       backgroundColor: Colors
           .black87, //Colors.black,//Color(0xff2F2F31),//Color(0xff19181A),
@@ -96,8 +97,8 @@ class MyApp extends StatelessWidget {
     }
   },
       themes: <AppTheme>[
-        AppTheme(id: 'light', data: lightTheme),
-        AppTheme(id: 'dark', data: darkTheme),
+        AppTheme(id: 'light',description: 'Light theme' ,data: lightTheme),
+        AppTheme(id: 'dark',description: 'Dark theme' ,data: darkTheme),
       ],
       child: ThemeConsumer(
         child: Builder(

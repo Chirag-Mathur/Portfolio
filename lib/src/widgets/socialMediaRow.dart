@@ -82,7 +82,7 @@ Widget socialMediaRowDrawer(BuildContext context) {
               ),
               onPressed: () {
                 Globals.openLink(
-                  "https://twitter.com/MonikIJS",
+                  "https://www.twitter.com/MonikIJS",
                 );
               },
               iconSize: 35,
@@ -112,7 +112,7 @@ Widget socialMediaRowDrawer(BuildContext context) {
                     : Colors.black,
               ),
               onPressed: () {
-                Globals.openLink("https://github.com/Monik09");
+                Globals.openLink("https://www.github.com/Monik09");
               },
               hoverColor: Colors.transparent,
               iconSize: 38,
@@ -157,7 +157,8 @@ Widget socialMediaRow(BuildContext context, double size) {
             'assets/images/twitterla.png',
           ),
           onPressed: () {
-            Globals.openLink("https://twitter.com/MonikIJS");
+            print('twitter');
+            Globals.openLink("https://www.twitter.com/MonikIJS");
           },
           hoverColor: Colors.transparent,
           iconSize: size,
@@ -168,7 +169,7 @@ Widget socialMediaRow(BuildContext context, double size) {
             //  color:ThemeProvider.themeOf(context).id=='dark'? Colors.white:Colors.black,
           ),
           onPressed: () {
-            Globals.openLink("https://github.com/Monik09");
+            Globals.openLink("https://www.github.com/Monik09");
           },
           hoverColor: Colors.transparent,
           iconSize: size,

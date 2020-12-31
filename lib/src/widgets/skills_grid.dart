@@ -29,14 +29,14 @@ Widget getSkillsGrid(BuildContext context) {
                   ? GoogleFonts.robotoSlab(
                       fontSize: Globals.isLargeScreen(context)
                           ? MediaQuery.of(context).size.aspectRatio * 24.25
-                          : 19,
+                          : 22,
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
                     )
                   : GoogleFonts.robotoSlab(
                       fontSize: Globals.isLargeScreen(context)
                           ? MediaQuery.of(context).size.aspectRatio * 24.25
-                          : 19,
+                          : 22,
                       color: Color(0xff00305b),
                       fontWeight: FontWeight.w600),
               // Theme.of(context).primaryTextTheme.subtitle1
@@ -73,7 +73,7 @@ Widget getSkillsGrid(BuildContext context) {
                                   ? MediaQuery.of(context).size.aspectRatio *
                                       17.78
                                   : MediaQuery.of(context).size.aspectRatio *
-                                      23,
+                                      26,
                               color: Theme.of(context)
                                   .appBarTheme
                                   .textTheme
@@ -93,7 +93,7 @@ Widget getSkillsGrid(BuildContext context) {
                                   ? MediaQuery.of(context).size.aspectRatio *
                                       17.78
                                   : MediaQuery.of(context).size.aspectRatio *
-                                      23,
+                                      28,
                               color: Theme.of(context)
                                   .appBarTheme
                                   .textTheme
@@ -155,7 +155,7 @@ Widget skillsGrid(List<Map<String, String>> info, BuildContext context) {
             // physics: NeverScrollableScrollPhysics(),
             // scrollDirection: Axis.horizontal,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
+              crossAxisCount: 3,
               mainAxisSpacing: 20,
               childAspectRatio: 0.8,
               crossAxisSpacing: 5,
