@@ -21,7 +21,8 @@ class Globals {
     {
       'title': "Chat App",
       'startedIn': 'October 2020',
-      'description': 'An app from which we can send messages to other users by use of firebase messaging and firestore to store images.',
+      'description':
+          'An app from which we can send messages to other users by use of firebase messaging and firestore to store images.',
       'projectLink': 'https://github.com/Monik09/Chat-App',
       'techUsed': ['assets/images/flutter.png', 'assets/images/firebase.png']
     },

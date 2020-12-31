@@ -23,7 +23,8 @@ Widget projectsCardWidget(
           children: [
             FittedBox(
               child: Text(
-                Globals.projectsList[!isNextPage?index:index+3+1]['title'],
+                Globals.projectsList[!isNextPage ? index : index + 3 + 1]
+                    ['title'],
                 style: GoogleFonts.robotoMono(
                   fontSize: Globals.isLargeScreen(context) ? 19.5 : 16,
                   color: Colors.white, // Color(0xff26ABBF)
@@ -36,7 +37,8 @@ Widget projectsCardWidget(
             Container(
               padding: EdgeInsets.all(Globals.isLargeScreen(context) ? 12 : 8),
               child: Text(
-                Globals.projectsList[!isNextPage?index:index+3+1]['description'],
+                Globals.projectsList[!isNextPage ? index : index + 3 + 1]
+                    ['description'],
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
@@ -57,7 +59,8 @@ Widget projectsCardWidget(
                   padding: const EdgeInsets.only(right: 2.0),
                   child: FittedBox(
                     child: Text(
-                      Globals.projectsList[!isNextPage?index:index+3+1]['startedIn'],
+                      Globals.projectsList[!isNextPage ? index : index + 3 + 1]
+                          ['startedIn'],
                       style: GoogleFonts.robotoSlab(
                         fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
                         color: Colors.white,

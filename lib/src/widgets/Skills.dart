@@ -8,7 +8,6 @@ import 'package:theme_provider/theme_provider.dart';
 Widget skillsWidget(BuildContext context) {
   final List<String> _langFram = Globals.langAndFramewks;
   final List<String> _tools = Globals.tools;
-  // var skillsLarge = [];
   return Container(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -34,14 +33,12 @@ Widget skillsWidget(BuildContext context) {
                     fontSize: Globals.isLargeScreen(context) ? 45 : 25,
                     color: Color(0xff00305b),
                     fontWeight: FontWeight.w600),
-            // Theme.of(context).primaryTextTheme.subtitle1
           ),
         ),
-        if (Globals.isLargeScreen(context)) 
-        ...SkillsLarge(context, _langFram, _tools).skillsLarge(),// ...skillsLarge,
-       
+        if (Globals.isLargeScreen(context))
+          ...SkillsLarge(context, _langFram, _tools).skillsLarge(),
         if (Globals.isSmallScreen(context))
-         ...SkillsSmall(context, _langFram, _tools).skillsSmall(),
+          ...SkillsSmall(context, _langFram, _tools).skillsSmall(),
       ],
     ),
   );

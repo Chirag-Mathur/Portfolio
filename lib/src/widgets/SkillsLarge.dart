@@ -15,11 +15,7 @@ class SkillsLarge {
         height: MediaQuery.of(context).size.height * 0.45,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: 
-          // (!Globals.isLargeScreen(context))  ?
-          //  MainAxisAlignment.center
-              // : 
-              MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
               margin: EdgeInsets.only(
@@ -61,8 +57,6 @@ class SkillsLarge {
                       ),
                     ),
                     Container(
-                      // margin: EdgeInsets.only(
-                      //     top: MediaQuery.of(context).size.height * 0.01),
                       color: Colors.transparent,
                       width: MediaQuery.of(context).size.width * 0.32,
                       height: MediaQuery.of(context).size.height * 0.35,
@@ -90,10 +84,6 @@ class SkillsLarge {
                                 child: Text(
                                   langFram[index],
                                   style: Theme.of(context).textTheme.bodyText1,
-                                  //  GoogleFonts.openSans(
-                                  //     fontSize: 25,
-                                  //     color: Color(0xff00305b),
-                                  //     fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ),
@@ -112,8 +102,6 @@ class SkillsLarge {
               child: Image.asset(
                 'assets/images/coding2.png',
                 scale: 0.8,
-                // width: MediaQuery.of(context).size.width * 0.4,
-                // height: MediaQuery.of(context).size.height * 0.424,
               ),
             ),
           ],
@@ -201,10 +189,6 @@ class SkillsLarge {
                                 child: Text(
                                   tools[index],
                                   style: Theme.of(context).textTheme.bodyText1,
-                                  //    GoogleFonts.openSans(
-                                  //       fontSize: 25,
-                                  //       color: Color(0xff00305b),
-                                  //       fontWeight: FontWeight.bold,),
                                 ),
                               ),
                             ),

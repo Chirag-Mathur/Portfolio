@@ -35,10 +35,6 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // SizedBox(
-                //   height: MediaQuery.of(context).size.height * 0.05,
-                // ),
-                // if (Globals.isSmallScreen(context)) socialMediaRow(context, 30),
                 FittedBox(
                   child: Row(
                     children: [
@@ -71,15 +67,6 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xff00305b),
                                 ),
-                          // GoogleFonts.robotoSlab(
-                          //   fontSize: Globals.isLargeScreen(context)
-                          //       ? 40
-                          //       : Globals.isSmallScreen(context)
-                          //           ? 25
-                          //           : 30,
-                          //   fontWeight: FontWeight.w600,
-                          //   color: Color(0xff00adb5),
-                          // ),
                         ),
                       ),
                       FittedBox(
@@ -163,14 +150,12 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                           color: Color(0xff001b34), //Colors.black54,
                         ),
                 ),
-                // if (Globals.isSmallScreen(context)) Container(alignment: Alignment.center,padding: EdgeInsets.all(12),child: socialMediaRow(context, 30),),
                 SizedBox(
                   height: (Globals.isLargeScreen(context) &&
                           !Globals.isMediumScreen(context))
                       ? MediaQuery.of(context).size.height * 0.05
                       : MediaQuery.of(context).size.height * 0.04,
                 ),
-
                 Container(
                   color: Colors.transparent,
                   height: Globals.isLargeScreen(context) ? 100 : 55,
@@ -196,25 +181,6 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                     ),
                   ),
                 ),
-                // if (Globals.isLargeScreen(context) &&
-                //     !Globals.isMediumScreen(context))
-                //   SizedBox(
-                //     height: Globals.isLargeScreen(context)
-                //         ? MediaQuery.of(context).size.height * 0.01
-                //         : MediaQuery.of(context).size.height * 0.001,
-                //   ),
-                // Container(
-                //   alignment: Alignment.center,
-                //   width: MediaQuery.of(context).size.width * 0.8,
-                //   height: MediaQuery.of(context).size.height * 0.1,
-                //   child: RotateAnimatedTextKit(
-                //     repeatForever: true,
-                //     text: ["DISCIPLINED", "OPTIMISTIC", "LEARNER", "LISTENER"],
-                //     textStyle: GoogleFonts.orbitron(
-                //         fontSize: Globals.isLargeScreen(context) ? 40.0 : 25),
-                //     textAlign: TextAlign.center,
-                //   ),
-                // ),
               ],
             ),
             if (Globals.isSmallScreen(context))
@@ -248,13 +214,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
               ),
               color: Color(0xff173266),
             ),
-            // height: Globals.isSmallScreen(context)?300:450,
-            // width: Globals.isSmallScreen(context)?500:200,
             child: myImage1,
-            //   margin: EdgeInsets.only(
-            //       // bottom: Globals.isSmallScreen(context)
-            //       //     ? (MediaQuery.of(context).size.height * 0.032)
-            //       //     : 0),
           ),
           SizedBox(
             height: (Globals.isLargeScreen(context) &&
@@ -263,16 +223,12 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
                 : MediaQuery.of(context).size.height * 0.03,
           ),
           if (Globals.isLargeScreen(context))
-            // Padding(
-            // child:
             Container(
               padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.045),
               alignment: Alignment.centerLeft,
-              // color: Colors.amber,
               child: socialMediaRow(context, 39),
             ),
-          // ),
         ],
       ),
     ),

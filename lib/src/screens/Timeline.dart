@@ -207,8 +207,8 @@ class CardDesignPainter extends CustomPainter {
     var pathDate = Path()
       ..moveTo(width * 0.57, height)
       ..lineTo(width * 0.61, height * 0.835)
-      ..lineTo(width,height * 0.835)
-      ..lineTo(width,height)
+      ..lineTo(width, height * 0.835)
+      ..lineTo(width, height)
       ..close();
     canvas.drawPath(pathDate, paintDate);
     var paintTitle = Paint()

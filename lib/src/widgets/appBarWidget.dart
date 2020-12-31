@@ -3,7 +3,6 @@ import 'package:my_portfolio/src/widgets/appBarDesktopTablet.dart';
 import 'package:my_portfolio/src/widgets/appBarMobile.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 
-
 Widget appBarWidget(BuildContext context, ScrollController scrollController,
     bool isHomePage, GlobalKey<ScaffoldState> scaffoldKey) {
   double fontsize = 25;
@@ -16,7 +15,7 @@ Widget appBarWidget(BuildContext context, ScrollController scrollController,
       fontsize,
       textColor,
     );
-  
-    return appBarMobile(context, scrollController, scaffoldKey, isHomePage,
-        fontsize, textColor);
+
+  return appBarMobile(
+      context, scrollController, scaffoldKey, isHomePage, fontsize, textColor);
 }

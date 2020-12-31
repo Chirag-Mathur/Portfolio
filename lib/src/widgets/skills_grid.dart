@@ -151,9 +151,7 @@ Widget skillsGrid(List<Map<String, String>> info, BuildContext context) {
             ],
           )
         : GridView.builder(
-            primary: false, //true,
-            // physics: NeverScrollableScrollPhysics(),
-            // scrollDirection: Axis.horizontal,
+            primary: false,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               mainAxisSpacing: 20,
@@ -167,7 +165,6 @@ Widget skillsGrid(List<Map<String, String>> info, BuildContext context) {
             },
           ),
   );
-  // );
 }
 
 Widget column(List<Map<String, String>> info, BuildContext context, int i) {
@@ -181,8 +178,6 @@ Widget column(List<Map<String, String>> info, BuildContext context, int i) {
           width: MediaQuery.of(context).size.aspectRatio * 70,
           child: ClipPolygon(
             sides: 6,
-//  borderRadius: 5.0, // Default 0.0 degrees
-//  rotate: 90.0, // Default 0.0 degrees
             boxShadows: [
               PolygonBoxShadow(color: Colors.black, elevation: 2.0),
               PolygonBoxShadow(color: Colors.grey, elevation: 7.0),
