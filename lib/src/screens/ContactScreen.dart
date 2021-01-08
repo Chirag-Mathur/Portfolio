@@ -1,9 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/src/widgets/footer.dart';
-import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/widgets/socialMediaRow.dart';
-import 'package:sendgrid_mailer/sendgrid_mailer.dart' as sg;
+
 //not added to website
 //under Development
 class ContactScreen extends StatefulWidget {
@@ -14,6 +12,8 @@ class ContactScreen extends StatefulWidget {
 }
 
 class _ContactScreenState extends State<ContactScreen> {
+  final firestoreInstance = FirebaseFirestore.instance;
+
   final bool isHomePage = false;
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
@@ -23,6 +23,18 @@ class _ContactScreenState extends State<ContactScreen> {
   FocusNode nodeEmail = FocusNode();
   FocusNode nodeButton = FocusNode();
   // String name, email, message;
+
+  void submitData(String name, String email, String message) {
+    firestoreInstance.collection("contaceMe").add({
+      "Name": name,
+      "Email": email,
+      "Message": message,
+      "Time": DateTime.now()
+    }).then((value) {
+      print("Success");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -180,7 +192,10 @@ class _ContactScreenState extends State<ContactScreen> {
                     ),
                     ElevatedButton(
                       child: Text("Connect"),
-                      onPressed: () {},
+                      onPressed: () {
+                        submitData(_nameController.text, _emailController.text,
+                            _messageController.text);
+                      },
                     ),
                   ],
                 ),

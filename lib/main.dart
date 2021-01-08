@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/src/info/globals.dart';
@@ -5,14 +6,14 @@ import 'package:my_portfolio/src/screens/AboutScreen.dart';
 import 'package:my_portfolio/src/screens/ContactScreen.dart';
 import 'package:my_portfolio/src/screens/ProjectScreen.dart';
 import 'package:theme_provider/theme_provider.dart';
-import 'package:sendgrid_mailer/sendgrid_mailer.dart' as sg;
-import 'package:http/http.dart' as http;
 
-void main() async{
+//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
+void main() async {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
     ThemeData lightTheme = ThemeData(
@@ -85,32 +86,38 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    return ThemeProvider(
-      defaultThemeId: 'dark',
-      onInitCallback: (controller, previouslySavedThemeFuture) async {
-        String savedTheme = await previouslySavedThemeFuture;
-        if (savedTheme != null) {
-          controller.setTheme(savedTheme);
-        }
-      },
-      themes: <AppTheme>[
-        AppTheme(id: 'light', description: 'Light theme', data: lightTheme),
-        AppTheme(id: 'dark', description: 'Dark theme', data: darkTheme),
-      ],
-      child: ThemeConsumer(
-        child: Builder(
-          builder: (context) => MaterialApp(
-            title: 'Monikinderjit Singh Portfolio',
-            theme: ThemeProvider.themeOf(context).data,
-            home: AboutScreen(), // SplashScreen(),
-            routes: {
-              AboutScreen.routeName: (context) => AboutScreen(),
-              ProjectScreen.routeName: (context) => ProjectScreen(),
-              ContactScreen.routeName: (context) => ContactScreen(),
+    return FutureBuilder(
+        // Initialize FlutterFire:
+        future: _initialization,
+        builder: (context, snapshot) {
+         return ThemeProvider(
+            defaultThemeId: 'dark',
+            onInitCallback: (controller, previouslySavedThemeFuture) async {
+              String savedTheme = await previouslySavedThemeFuture;
+              if (savedTheme != null) {
+                controller.setTheme(savedTheme);
+              }
             },
-          ),
-        ),
-      ),
-    );
+            themes: <AppTheme>[
+              AppTheme(
+                  id: 'light', description: 'Light theme', data: lightTheme),
+              AppTheme(id: 'dark', description: 'Dark theme', data: darkTheme),
+            ],
+            child: ThemeConsumer(
+              child: Builder(
+                builder: (context) => MaterialApp(
+                  title: 'Monikinderjit Singh Portfolio',
+                  theme: ThemeProvider.themeOf(context).data,
+                  home: AboutScreen(), // SplashScreen(),
+                  routes: {
+                    AboutScreen.routeName: (context) => AboutScreen(),
+                    ProjectScreen.routeName: (context) => ProjectScreen(),
+                    ContactScreen.routeName: (context) => ContactScreen(),
+                  },
+                ),
+              ),
+            ),
+          );
+        });
   }
 }
