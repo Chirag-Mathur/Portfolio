@@ -5,8 +5,10 @@ import 'package:my_portfolio/src/screens/AboutScreen.dart';
 import 'package:my_portfolio/src/screens/ContactScreen.dart';
 import 'package:my_portfolio/src/screens/ProjectScreen.dart';
 import 'package:theme_provider/theme_provider.dart';
+import 'package:sendgrid_mailer/sendgrid_mailer.dart' as sg;
+import 'package:http/http.dart' as http;
 
-void main() {
+void main() async{
   runApp(MyApp());
 }
 

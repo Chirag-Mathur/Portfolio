@@ -118,7 +118,8 @@ Widget appDrawer(
           ),
           onPressed: () {
             Globals.openLink(
-                "https://drive.google.com/file/d/1GTGLuEK-5l2B2nxEemUSMauEYQzOCYCs/view?usp=sharing");
+                "https://www.dropbox.com/s/skwb40bo3vru0g9/Monik_resume.pdf?dl=0");
+            // "https://drive.google.com/file/d/1GTGLuEK-5l2B2nxEemUSMauEYQzOCYCs/view?usp=sharing");
           },
         ),
       ],

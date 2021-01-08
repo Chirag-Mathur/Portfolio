@@ -82,12 +82,12 @@ class _AboutScreenState extends State<AboutScreen>
                 context, index, isHovering[index], isNextPage),
           ),
           height: Globals.isLargeScreen(context)
-              ? 150
+              ? 180
               : MediaQuery.of(context).size.width < 390
                   ? MediaQuery.of(context).size.width * 0.35
                   : 140, //constraints.maxHeight*0.17361,// 150,
           width: Globals.isLargeScreen(context)
-              ? 300
+              ? 350
               : MediaQuery.of(context).size.width < 390
                   ? MediaQuery.of(context).size.width * 0.70
                   : 300, //constraints.minWidth*0.20833,// 300,
@@ -95,9 +95,14 @@ class _AboutScreenState extends State<AboutScreen>
               ? constraints.maxHeight * (0.07 + (0.25 * index))
               : constraints.maxHeight * (0.07 + (0.25 * index - 0.01)),
           left: Globals.isLargeScreen(context)
-              ? !isHovering[index]
-                  ? constraints.minWidth * 0.115
-                  : constraints.minWidth * 0.12
+              ? index % 2 == 0
+                  ? !isHovering[index]
+                      ? constraints.minWidth * 0.4 +
+                          constraints.minWidth * 0.115
+                      : constraints.minWidth * 0.4 + constraints.minWidth * 0.12
+                  : !isHovering[index]
+                      ?constraints.minWidth * 0.36 - constraints.minWidth * 0.115
+                      :constraints.minWidth * 0.36 - constraints.minWidth * 0.12
               : constraints.minWidth * 0.132,
         );
     return Scaffold(

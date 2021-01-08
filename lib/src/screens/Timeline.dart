@@ -40,11 +40,15 @@ class TimelinePainter extends CustomPainter {
     print('size of canvas= h${size.height} & w${size.width}');
     var path = Path();
     if (!isNext) {
-      path.moveTo(size.width * 0.1, size.height * 0.08);
-      path.lineTo(size.width * 0.1, size.height);
+      // path.moveTo(size.width * 0.1, size.height * 0.08);
+      // path.lineTo(size.width * 0.1, size.height);
+      path.moveTo(size.width * 0.5, size.height * 0.08);
+      path.lineTo(size.width * 0.5, size.height);
     } else {
-      path.moveTo(size.width * 0.1, 0);
-      path.lineTo(size.width * 0.1, size.height * 0.6);
+      // path.moveTo(size.width * 0.1, 0);
+      // path.lineTo(size.width * 0.1, size.height * 0.6);
+      path.moveTo(size.width * 0.5, 0);
+      path.lineTo(size.width * 0.5, size.height * 0.6);
     }
     canvas.drawPath(
         dashPath(path, dashArray: CircularIntervalList([15.0, 7.0])), paint);
@@ -54,12 +58,13 @@ class TimelinePainter extends CustomPainter {
       ..strokeCap = StrokeCap.round //rounded points
       ..strokeWidth = Globals.isLargeScreen(context) ? 30 : 23;
     //list of points
-    double pointGiver = size.width * 0.1;
+    // double pointGiver = size.width * 0.1;
+    double pointGiver = size.width * 0.5;
     // double pointGiver2 = size.width * 0.8;
     var points;
     if (!isNext)
       points = [
-        Offset(pointGiver, size.height * 0.1),
+        Offset(pointGiver, size.height * 0.099),
         Offset(pointGiver, size.height * 0.35),
         Offset(pointGiver, size.height * 0.6),
         Offset(pointGiver, size.height * 0.85),
@@ -72,7 +77,7 @@ class TimelinePainter extends CustomPainter {
       ];
     else
       points = [
-        Offset(pointGiver, size.height * 0.1),
+        Offset(pointGiver, size.height * 0.099),
         Offset(pointGiver, size.height * 0.35),
         Offset(pointGiver, size.height * 0.6),
         // Offset(pointGiver, size.height *0.85),
