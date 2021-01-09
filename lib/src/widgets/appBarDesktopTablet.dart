@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
+import 'package:my_portfolio/src/screens/ContactScreen.dart';
+import 'package:my_portfolio/src/screens/Timeline.dart';
+// import 'package:my_portfolio/src/widgets/contactWidget.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 Widget appBarDesktopTablet(
@@ -147,6 +150,28 @@ Widget appBarDesktopTablet(
         width: MediaQuery.of(context).size.width * 0.02,
       ),
       Padding(
+        padding: EdgeInsets.only(top: 12.0),
+        child: FlatButton(
+          hoverColor: Colors.transparent,
+          splashColor: ThemeProvider.themeOf(context).id == 'dark'
+              ? Globals.backgroundColorLight
+              : Globals.splashColorLight,
+          child: Text(
+            "Contact Me",
+            style: Theme.of(context).appBarTheme.textTheme.headline5,
+          ),
+          onPressed: () {
+            // ContactScreen contact = new ContactScreen();
+            return showDialog(context: context,builder:(context)=>  ContactScreen());
+            // contactWidget(context);
+            // Navigator.of(context).pushNamed(ContactScreen.routeName);
+          },
+        ),
+      ),
+      SizedBox(
+        width: MediaQuery.of(context).size.width * 0.02,
+      ),
+      Padding(
         padding: EdgeInsets.all(16.0),
         child: RaisedButton(
           hoverColor: Colors.transparent,
@@ -169,7 +194,8 @@ Widget appBarDesktopTablet(
           ),
           onPressed: () {
             Globals.openLink(
-                "https://drive.google.com/file/d/1GTGLuEK-5l2B2nxEemUSMauEYQzOCYCs/view?usp=sharing");
+                "https://www.dropbox.com/s/skwb40bo3vru0g9/Monik_resume.pdf?dl=0");
+            // "https://drive.google.com/file/d/1GTGLuEK-5l2B2nxEemUSMauEYQzOCYCs/view?usp=sharing");
           },
         ),
       ),

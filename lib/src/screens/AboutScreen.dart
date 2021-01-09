@@ -58,8 +58,8 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
-    print(MediaQuery.of(context).size.aspectRatio);
-    print(MediaQuery.of(context).size.height);
+    // print(MediaQuery.of(context).size.aspectRatio);
+    // print(MediaQuery.of(context).size.height);
     List<Widget> topChildren = topAboutPageWidget(context, myImage1);
     Widget animatedPositionedProjectCard(
             BoxConstraints constraints, int index, bool isNextPage) =>
@@ -68,26 +68,26 @@ class _AboutScreenState extends State<AboutScreen>
           duration: Duration(milliseconds: 150),
           child: InkWell(
             onHover: (val) {
-              print('hght ${constraints.maxHeight}');
-              print("width ${constraints.maxWidth}");
+              // print('hght ${constraints.maxHeight}');
+              // print("width ${constraints.maxWidth}");
               setState(() {
                 isHovering[index] = !isHovering[index];
               });
             },
             onTap: () {
               Globals.openLink(Globals.projectsList[index]['projectLink']);
-              print('pressed me');
+              // print('pressed me');
             },
             child: projectsCardWidget(
                 context, index, isHovering[index], isNextPage),
           ),
           height: Globals.isLargeScreen(context)
-              ? 150
+              ? 180
               : MediaQuery.of(context).size.width < 390
                   ? MediaQuery.of(context).size.width * 0.35
                   : 140, //constraints.maxHeight*0.17361,// 150,
           width: Globals.isLargeScreen(context)
-              ? 300
+              ? 350
               : MediaQuery.of(context).size.width < 390
                   ? MediaQuery.of(context).size.width * 0.70
                   : 300, //constraints.minWidth*0.20833,// 300,
@@ -95,9 +95,14 @@ class _AboutScreenState extends State<AboutScreen>
               ? constraints.maxHeight * (0.07 + (0.25 * index))
               : constraints.maxHeight * (0.07 + (0.25 * index - 0.01)),
           left: Globals.isLargeScreen(context)
-              ? !isHovering[index]
-                  ? constraints.minWidth * 0.115
-                  : constraints.minWidth * 0.12
+              ? index % 2 == 0
+                  ? !isHovering[index]
+                      ? constraints.minWidth * 0.4 +
+                          constraints.minWidth * 0.115
+                      : constraints.minWidth * 0.4 + constraints.minWidth * 0.12
+                  : !isHovering[index]
+                      ?constraints.minWidth * 0.36 - constraints.minWidth * 0.115
+                      :constraints.minWidth * 0.36 - constraints.minWidth * 0.12
               : constraints.minWidth * 0.132,
         );
     return Scaffold(

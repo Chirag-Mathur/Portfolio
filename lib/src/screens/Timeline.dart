@@ -40,11 +40,21 @@ class TimelinePainter extends CustomPainter {
     print('size of canvas= h${size.height} & w${size.width}');
     var path = Path();
     if (!isNext) {
-      path.moveTo(size.width * 0.1, size.height * 0.08);
-      path.lineTo(size.width * 0.1, size.height);
+      if (Globals.isSmallScreen(context)) {
+        path.moveTo(size.width * 0.1, size.height * 0.08);
+        path.lineTo(size.width * 0.1, size.height);
+      } else {
+        path.moveTo(size.width * 0.5, size.height * 0.08);
+        path.lineTo(size.width * 0.5, size.height);
+      }
     } else {
-      path.moveTo(size.width * 0.1, 0);
-      path.lineTo(size.width * 0.1, size.height * 0.6);
+      if (Globals.isSmallScreen(context)) {
+        path.moveTo(size.width * 0.1, 0);
+        path.lineTo(size.width * 0.1, size.height * 0.6);
+      } else {
+        path.moveTo(size.width * 0.5, 0);
+        path.lineTo(size.width * 0.5, size.height * 0.6);
+      }
     }
     canvas.drawPath(
         dashPath(path, dashArray: CircularIntervalList([15.0, 7.0])), paint);
@@ -54,12 +64,14 @@ class TimelinePainter extends CustomPainter {
       ..strokeCap = StrokeCap.round //rounded points
       ..strokeWidth = Globals.isLargeScreen(context) ? 30 : 23;
     //list of points
-    double pointGiver = size.width * 0.1;
+    // double pointGiver = size.width * 0.1;
+    double pointGiver =
+        Globals.isSmallScreen(context) ? size.width * 0.1 : size.width * 0.5;
     // double pointGiver2 = size.width * 0.8;
     var points;
     if (!isNext)
       points = [
-        Offset(pointGiver, size.height * 0.1),
+        Offset(pointGiver, size.height * 0.099),
         Offset(pointGiver, size.height * 0.35),
         Offset(pointGiver, size.height * 0.6),
         Offset(pointGiver, size.height * 0.85),
@@ -72,7 +84,7 @@ class TimelinePainter extends CustomPainter {
       ];
     else
       points = [
-        Offset(pointGiver, size.height * 0.1),
+        Offset(pointGiver, size.height * 0.099),
         Offset(pointGiver, size.height * 0.35),
         Offset(pointGiver, size.height * 0.6),
         // Offset(pointGiver, size.height *0.85),
@@ -223,6 +235,65 @@ class CardDesignPainter extends CustomPainter {
       ..lineTo(width * 0.94, 0)
       ..close();
     canvas.drawPath(pathTitle, paintTitle);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter delegate) {
+    return false;
+  }
+}
+
+class ContactDialogPainter extends CustomPainter {
+  BuildContext context;
+  ContactDialogPainter(this.context);
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paintDesign = Paint()
+      ..color = ThemeProvider.themeOf(context).id == 'dark'
+          ? Globals.splashColorLight //Color(0xff26ABBF)
+          : Color(0xff00305b)
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 5;
+    double width = size.width, height = size.height;
+
+    var pathDesign;
+    if (Globals.isLargeScreen(context)) {
+      pathDesign = Path()
+        ..moveTo(size.width * 0.1, 0)
+        ..lineTo(size.width * 0.11, 0)
+        ..lineTo(0, size.height * 0.16)
+        ..lineTo(0, size.height * 0.15)
+        ..close()
+        ..moveTo(size.width, size.height * 0.84)
+        ..lineTo(size.width, size.height * 0.85)
+        ..lineTo(size.width * 0.9, size.height)
+        ..lineTo(size.width * 0.89, size.height)
+        ..close();
+    } else {
+      pathDesign = Path()
+        ..moveTo(size.width * 0.1, 0)
+        ..lineTo(size.width * 0.11, 0)
+        ..lineTo(0, size.height * 0.11)
+        ..lineTo(0, size.height * 0.1)
+        ..close()
+        ..moveTo(size.width, size.height * 0.89)
+        ..lineTo(size.width, size.height * 0.9)
+        ..lineTo(size.width * 0.9, size.height)
+        ..lineTo(size.width * 0.89, size.height)
+        ..close()..moveTo(0, size.height * 0.89)
+        ..lineTo(0, size.height * 0.9)
+        ..lineTo(size.width * 0.1, size.height)
+        ..lineTo(size.width * 0.11, size.height)
+        ..close()..moveTo(size.width * 0.89, 0)
+        ..lineTo(size.width * 0.9, 0)
+        ..lineTo(size.width, size.height * 0.1)
+        ..lineTo(size.width, size.height * 0.11)
+        ..close();
+    }
+    canvas.drawPath(pathDesign, paintDesign);
+    // var pathDesign1 = Path()
+
+    // canvas.drawPath(pathDesign1, paintDesign);
   }
 
   @override
