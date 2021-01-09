@@ -58,8 +58,8 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
-    print(MediaQuery.of(context).size.aspectRatio);
-    print(MediaQuery.of(context).size.height);
+    // print(MediaQuery.of(context).size.aspectRatio);
+    // print(MediaQuery.of(context).size.height);
     List<Widget> topChildren = topAboutPageWidget(context, myImage1);
     Widget animatedPositionedProjectCard(
             BoxConstraints constraints, int index, bool isNextPage) =>
@@ -68,15 +68,15 @@ class _AboutScreenState extends State<AboutScreen>
           duration: Duration(milliseconds: 150),
           child: InkWell(
             onHover: (val) {
-              print('hght ${constraints.maxHeight}');
-              print("width ${constraints.maxWidth}");
+              // print('hght ${constraints.maxHeight}');
+              // print("width ${constraints.maxWidth}");
               setState(() {
                 isHovering[index] = !isHovering[index];
               });
             },
             onTap: () {
               Globals.openLink(Globals.projectsList[index]['projectLink']);
-              print('pressed me');
+              // print('pressed me');
             },
             child: projectsCardWidget(
                 context, index, isHovering[index], isNextPage),
