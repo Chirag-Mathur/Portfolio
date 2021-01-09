@@ -5,8 +5,8 @@ class SkillsSmall {
   SkillsSmall(this.context, this.langFram, this.tools);
 
   BuildContext context;
-  List<String> langFram;
-  List<String> tools;
+  List<Map<String, String>> langFram;
+  List<Map<String, String>> tools;
   List<dynamic> skillsSmall() {
     return [
       Container(
@@ -67,7 +67,7 @@ class SkillsSmall {
                                     left: MediaQuery.of(context).size.width *
                                         0.008),
                                 child: Text(
-                                  langFram[index],
+                                  langFram[index]['name'],
                                   style: GoogleFonts.openSans(
                                       fontSize: 15,
                                       color: Color(0xff00305b),
@@ -135,7 +135,7 @@ class SkillsSmall {
                                     left: MediaQuery.of(context).size.width *
                                         0.008),
                                 child: Text(
-                                  tools[index],
+                                  tools[index]['name'],
                                   style: GoogleFonts.openSans(
                                       fontSize: 15,
                                       color: Color(0xff00305b),

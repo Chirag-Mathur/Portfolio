@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/main.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
 import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
 import 'package:my_portfolio/src/widgets/appBarWidget.dart';
@@ -75,7 +77,10 @@ class _AboutScreenState extends State<AboutScreen>
               });
             },
             onTap: () {
-              Globals.openLink(Globals.projectsList[index]['projectLink']);
+              Globals.openLink(
+                // Globals.projectsList[index]['projectLink']
+                documents[index]['projectLink'].toString(),
+                );
               // print('pressed me');
             },
             child: projectsCardWidget(

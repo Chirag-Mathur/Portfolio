@@ -5,8 +5,8 @@ class SkillsLarge {
   SkillsLarge(this.context, this.langFram, this.tools);
 
   BuildContext context;
-  List<String> langFram;
-  List<String> tools;
+  List<Map<String, String>> langFram;
+  List<Map<String, String>> tools;
   List<dynamic> skillsLarge() {
     return [
       Container(
@@ -82,7 +82,7 @@ class SkillsLarge {
                                     left: MediaQuery.of(context).size.width *
                                         0.007),
                                 child: Text(
-                                  langFram[index],
+                                  langFram[index]['name'],
                                   style: Theme.of(context).textTheme.bodyText1,
                                 ),
                               ),
@@ -187,7 +187,7 @@ class SkillsLarge {
                                     left: MediaQuery.of(context).size.width *
                                         0.007),
                                 child: Text(
-                                  tools[index],
+                                  tools[index]['name'],
                                   style: Theme.of(context).textTheme.bodyText1,
                                 ),
                               ),
