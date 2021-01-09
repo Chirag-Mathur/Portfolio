@@ -9,7 +9,6 @@ class Globals {
       Color.fromRGBO(189, 224, 255, 1); //Color(0xffbddbff);
   static final Color splashColorLight = Colors.blue[900];
 
-
   static final List<Map<String, String>> langAndFramewks2 = [
     {'name': 'Dart', 'image': 'assets/images/dart.png'},
     {'name': 'Java', 'image': 'assets/images/java.png'},
@@ -26,7 +25,7 @@ class Globals {
   ];
 
   static void openLink(String url) async {
-    if (url.length == 0) {
+    if (url == '') {
       return;
     }
     if (kIsWeb) {

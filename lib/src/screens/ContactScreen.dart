@@ -9,8 +9,6 @@ import 'package:my_portfolio/src/screens/Timeline.dart';
 import 'package:my_portfolio/src/widgets/socialMediaRow.dart';
 import 'package:theme_provider/theme_provider.dart';
 
-
-
 class ContactScreen extends StatefulWidget {
   static const String routeName = "/ContactScreen";
 

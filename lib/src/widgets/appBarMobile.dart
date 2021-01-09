@@ -25,8 +25,8 @@ Widget appBarMobile(
     ),
     actions: [
       FittedBox(
-        child: FlatButton(
-          onPressed: () {},
+        child: InkWell(
+          onTap: () {},
           hoverColor: Colors.transparent,
           splashColor: Colors.transparent,
           child: Text(

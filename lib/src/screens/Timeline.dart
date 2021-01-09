@@ -37,7 +37,7 @@ class TimelinePainter extends CustomPainter {
     paint.color = Globals.splashColorLight;
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = 4.7;
-    print('size of canvas= h${size.height} & w${size.width}');
+    // print('size of canvas= h${size.height} & w${size.width}');
     var path = Path();
     if (!isNext) {
       if (Globals.isSmallScreen(context)) {
@@ -280,11 +280,13 @@ class ContactDialogPainter extends CustomPainter {
         ..lineTo(size.width, size.height * 0.9)
         ..lineTo(size.width * 0.9, size.height)
         ..lineTo(size.width * 0.89, size.height)
-        ..close()..moveTo(0, size.height * 0.89)
+        ..close()
+        ..moveTo(0, size.height * 0.89)
         ..lineTo(0, size.height * 0.9)
         ..lineTo(size.width * 0.1, size.height)
         ..lineTo(size.width * 0.11, size.height)
-        ..close()..moveTo(size.width * 0.89, 0)
+        ..close()
+        ..moveTo(size.width * 0.89, 0)
         ..lineTo(size.width * 0.9, 0)
         ..lineTo(size.width, size.height * 0.1)
         ..lineTo(size.width, size.height * 0.11)

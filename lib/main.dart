@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
         await firestoreInstance.collection("projects").orderBy('index').get();
 
     documents = result.docs;
-    print(documents.length);
-    print(documents[0]['title'].toString());
+    // print(documents.length);
+    // print(documents[0]['title'].toString());
     // documents.forEach((data) => print(data['Message']));
   }
 

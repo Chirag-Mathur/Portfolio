@@ -24,7 +24,9 @@ Widget projectsCardWidget(
           children: [
             FittedBox(
               child: Text(
-                documents[!isNextPage ? index : index + 3 + 1]['title'].toString()??" ",
+                documents[!isNextPage ? index : index + 3 + 1]['title']
+                        .toString() ??
+                    " ",
                 style: GoogleFonts.robotoMono(
                   fontSize: Globals.isLargeScreen(context) ? 19.5 : 16,
                   color: Colors.white, // Color(0xff26ABBF)
@@ -41,8 +43,9 @@ Widget projectsCardWidget(
                 right: Globals.isLargeScreen(context) ? 12 : 8,
               ),
               child: Text(
-                documents[!isNextPage ? index : index + 3 + 1]['description'].toString()??" ",
-                
+                documents[!isNextPage ? index : index + 3 + 1]['description']
+                        .toString() ??
+                    " ",
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
@@ -67,13 +70,16 @@ Widget projectsCardWidget(
                   child: Row(
                     children: [
                       Text(
-                        "Tech Used: ",
+                        documents[!isNextPage ? index : index + 3 + 1]['techStack'].toString()!=''?"Tech Used: ":"",
                         style: TextStyle(
                             fontSize: Globals.isLargeScreen(context) ? 16 : 13,
                             color: Colors.black),
                       ),
                       Text(
-                        documents[!isNextPage ? index : index + 3 + 1]['techStack'].toString()??" ",
+                        documents[!isNextPage ? index : index + 3 + 1]
+                                    ['techStack']
+                                .toString() ??
+                            " ",
                         style: TextStyle(
                             fontSize: Globals.isLargeScreen(context) ? 16 : 13,
                             color: Colors.black),
@@ -90,7 +96,9 @@ Widget projectsCardWidget(
                 child: Padding(
                   padding: const EdgeInsets.only(right: 2.0),
                   child: Text(
-                    documents[!isNextPage ? index : index + 3 + 1]['startedIn'].toString()??" ",
+                    documents[!isNextPage ? index : index + 3 + 1]['startedIn']
+                            .toString() ??
+                        " ",
                     style: GoogleFonts.robotoSlab(
                       fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
                       color: Colors.white,
@@ -151,25 +159,16 @@ Widget projectGridView(
               ),
             ),
             color: Colors.blue[800],
-            child: RaisedButton(
-              color: Colors.transparent,
-              // hoverColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-              ),
-              focusElevation: 30,
-              elevation: 8,
-              hoverElevation: 45,
-              animationDuration: Duration(seconds: 1),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.transparent,
+                  elevation: 8,
+                  animationDuration: Duration(seconds: 1)),
               onPressed: () {
                 infoMapList[index]['projectLink'] != null
-                    ? Globals.openLink(infoMapList[index]['projectLink'],)
+                    ? Globals.openLink(
+                        infoMapList[index]['projectLink'],
+                      )
                     : Navigator.of(context).pushNamed(AboutScreen.routeName);
               },
               onLongPress: () {},
@@ -231,6 +230,7 @@ Widget projectGridView(
                             ),
                           ),
                           child: Text(
+                            
                             "Tech Used :-",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.alef(
@@ -289,8 +289,8 @@ Widget projectGridView(
             ),
           ),
           color: Colors.blue[900],
-          child: FlatButton(
-            color: Colors.blue[900],
+          child: InkWell(
+            // backgroundColor: Colors.blue[900],
             child: Text(
               "More Projects",
               style: GoogleFonts.oswald(
@@ -299,7 +299,7 @@ Widget projectGridView(
                 color: Colors.blue,
               ),
             ),
-            onPressed: () {
+            onTap: () {
               Globals.openLink("https://github.com/Monik09?tab=repositories");
             },
           ),
