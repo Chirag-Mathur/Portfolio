@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
+import 'package:my_portfolio/src/screens/ContactScreen.dart';
 import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
 import 'package:my_portfolio/src/widgets/socialMediaRow.dart';
 import 'package:theme_provider/theme_provider.dart';
@@ -98,6 +99,25 @@ Widget appDrawer(
               ),
               curve: Curves.easeOut,
             );
+          },
+        ),
+        Divider(),
+        FlatButton(
+          splashColor: ThemeProvider.themeOf(context).id == 'dark'
+              ? Globals.backgroundColorLight
+              : Globals.splashColorLight,
+          child: Text(
+            "Contact Me",
+            style: TextStyle(
+              fontFamily:
+                  Theme.of(context).appBarTheme.textTheme.headline5.fontFamily,
+              fontSize: 19,
+              color: Theme.of(context).appBarTheme.textTheme.headline5.color,
+            ),
+          ),
+          onPressed: () {
+            Navigator.of(context).pop(context);
+            showDialog(context: context, builder: (context) => ContactScreen());
           },
         ),
         Divider(),

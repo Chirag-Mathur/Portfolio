@@ -40,15 +40,21 @@ class TimelinePainter extends CustomPainter {
     print('size of canvas= h${size.height} & w${size.width}');
     var path = Path();
     if (!isNext) {
-      // path.moveTo(size.width * 0.1, size.height * 0.08);
-      // path.lineTo(size.width * 0.1, size.height);
-      path.moveTo(size.width * 0.5, size.height * 0.08);
-      path.lineTo(size.width * 0.5, size.height);
+      if (Globals.isSmallScreen(context)) {
+        path.moveTo(size.width * 0.1, size.height * 0.08);
+        path.lineTo(size.width * 0.1, size.height);
+      } else {
+        path.moveTo(size.width * 0.5, size.height * 0.08);
+        path.lineTo(size.width * 0.5, size.height);
+      }
     } else {
-      // path.moveTo(size.width * 0.1, 0);
-      // path.lineTo(size.width * 0.1, size.height * 0.6);
-      path.moveTo(size.width * 0.5, 0);
-      path.lineTo(size.width * 0.5, size.height * 0.6);
+      if (Globals.isSmallScreen(context)) {
+        path.moveTo(size.width * 0.1, 0);
+        path.lineTo(size.width * 0.1, size.height * 0.6);
+      } else {
+        path.moveTo(size.width * 0.5, 0);
+        path.lineTo(size.width * 0.5, size.height * 0.6);
+      }
     }
     canvas.drawPath(
         dashPath(path, dashArray: CircularIntervalList([15.0, 7.0])), paint);
@@ -59,7 +65,8 @@ class TimelinePainter extends CustomPainter {
       ..strokeWidth = Globals.isLargeScreen(context) ? 30 : 23;
     //list of points
     // double pointGiver = size.width * 0.1;
-    double pointGiver = size.width * 0.5;
+    double pointGiver =
+        Globals.isSmallScreen(context) ? size.width * 0.1 : size.width * 0.5;
     // double pointGiver2 = size.width * 0.8;
     var points;
     if (!isNext)
@@ -249,19 +256,44 @@ class ContactDialogPainter extends CustomPainter {
       ..strokeWidth = 5;
     double width = size.width, height = size.height;
 
-    var pathDesign = Path()
-      ..moveTo(size.width * 0.1, 0)
-      ..lineTo(size.width * 0.11, 0)
-      ..lineTo(0, size.height * 0.16)
-      ..lineTo(0, size.height * 0.15)
-      ..close();
+    var pathDesign;
+    if (Globals.isLargeScreen(context)) {
+      pathDesign = Path()
+        ..moveTo(size.width * 0.1, 0)
+        ..lineTo(size.width * 0.11, 0)
+        ..lineTo(0, size.height * 0.16)
+        ..lineTo(0, size.height * 0.15)
+        ..close()
+        ..moveTo(size.width, size.height * 0.84)
+        ..lineTo(size.width, size.height * 0.85)
+        ..lineTo(size.width * 0.9, size.height)
+        ..lineTo(size.width * 0.89, size.height)
+        ..close();
+    } else {
+      pathDesign = Path()
+        ..moveTo(size.width * 0.1, 0)
+        ..lineTo(size.width * 0.11, 0)
+        ..lineTo(0, size.height * 0.11)
+        ..lineTo(0, size.height * 0.1)
+        ..close()
+        ..moveTo(size.width, size.height * 0.89)
+        ..lineTo(size.width, size.height * 0.9)
+        ..lineTo(size.width * 0.9, size.height)
+        ..lineTo(size.width * 0.89, size.height)
+        ..close()..moveTo(0, size.height * 0.89)
+        ..lineTo(0, size.height * 0.9)
+        ..lineTo(size.width * 0.1, size.height)
+        ..lineTo(size.width * 0.11, size.height)
+        ..close()..moveTo(size.width * 0.89, 0)
+        ..lineTo(size.width * 0.9, 0)
+        ..lineTo(size.width, size.height * 0.1)
+        ..lineTo(size.width, size.height * 0.11)
+        ..close();
+    }
     canvas.drawPath(pathDesign, paintDesign);
-    var pathDesign1 = Path()
-      ..moveTo(size.width , size.height* 0.84)
-      ..lineTo(size.width , size.height* 0.85)
-      ..lineTo(size.width* 0.9, size.height )
-      ..lineTo(size.width* 0.89, size.height )..close();
-     canvas.drawPath(pathDesign1, paintDesign);
+    // var pathDesign1 = Path()
+
+    // canvas.drawPath(pathDesign1, paintDesign);
   }
 
   @override
