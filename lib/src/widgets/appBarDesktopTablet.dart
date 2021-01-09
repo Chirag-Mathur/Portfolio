@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
 import 'package:my_portfolio/src/screens/ContactScreen.dart';
+import 'package:my_portfolio/src/screens/Timeline.dart';
+// import 'package:my_portfolio/src/widgets/contactWidget.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 Widget appBarDesktopTablet(
@@ -159,7 +161,10 @@ Widget appBarDesktopTablet(
             style: Theme.of(context).appBarTheme.textTheme.headline5,
           ),
           onPressed: () {
-            Navigator.of(context).pushNamed(ContactScreen.routeName);
+            // ContactScreen contact = new ContactScreen();
+            return showDialog(context: context,builder:(context)=>  ContactScreen());
+            // contactWidget(context);
+            // Navigator.of(context).pushNamed(ContactScreen.routeName);
           },
         ),
       ),

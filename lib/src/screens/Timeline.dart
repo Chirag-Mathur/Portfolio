@@ -235,3 +235,37 @@ class CardDesignPainter extends CustomPainter {
     return false;
   }
 }
+
+class ContactDialogPainter extends CustomPainter {
+  BuildContext context;
+  ContactDialogPainter(this.context);
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paintDesign = Paint()
+      ..color = ThemeProvider.themeOf(context).id == 'dark'
+          ? Globals.splashColorLight //Color(0xff26ABBF)
+          : Color(0xff00305b)
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 5;
+    double width = size.width, height = size.height;
+
+    var pathDesign = Path()
+      ..moveTo(size.width * 0.1, 0)
+      ..lineTo(size.width * 0.11, 0)
+      ..lineTo(0, size.height * 0.16)
+      ..lineTo(0, size.height * 0.15)
+      ..close();
+    canvas.drawPath(pathDesign, paintDesign);
+    var pathDesign1 = Path()
+      ..moveTo(size.width , size.height* 0.84)
+      ..lineTo(size.width , size.height* 0.85)
+      ..lineTo(size.width* 0.9, size.height )
+      ..lineTo(size.width* 0.89, size.height )..close();
+     canvas.drawPath(pathDesign1, paintDesign);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter delegate) {
+    return false;
+  }
+}
