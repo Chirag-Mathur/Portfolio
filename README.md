@@ -31,6 +31,10 @@ This is my first personal/portfolio:mortar_board: website which I developed:comp
   <li>Mail API for flutter web</li>
 </ul>
 
+<img src="https://github.com/Monik09/Portfolio/blob/readme/assets/images/flutter2.png" width="200" height="50">
+
+<img src="https://github.com/Monik09/Portfolio/blob/readme/assets/images/firebase hosting.png" width="200" height="50">
+
 <br>
 
 ___
