@@ -9,79 +9,6 @@ class Globals {
       Color.fromRGBO(189, 224, 255, 1); //Color(0xffbddbff);
   static final Color splashColorLight = Colors.blue[900];
 
-  static final List<Map<String, dynamic>> projectsList = [
-    {
-      'title': "MyPortfolio Website",
-      'startedIn': 'December 2020',
-      'description':
-          'My portfolio website created by myself which showcases my skills and profiles.',
-      'projectLink': 'https://github.com/Monik09/Portfolio',
-      'techUsed': ['assets/images/flutter.png']
-    },
-    {
-      'title': "Chat App",
-      'startedIn': 'October 2020',
-      'description':
-          'An app from which we can send messages to other users by use of firebase messaging and firestore to store images.',
-      'projectLink': 'https://github.com/Monik09/Chat-App',
-      'techUsed': ['assets/images/flutter.png', 'assets/images/firebase.png']
-    },
-    {
-      'title': "CineScript",
-      'startedIn': 'September 2020',
-      'description':
-          'Java based programming language built in team project based on BOLLYWOOD theme',
-      'projectLink': 'https://github.com/Ozric-Ode/Cinescript',
-      'techUsed': ['assets/images/java4.png']
-    },
-    {
-      'title': "My Meals App",
-      'startedIn': 'May 2020',
-      'description':
-          'An app for different recipes\' steps and food categories.',
-      'projectLink': 'https://github.com/Monik09/My-Meals-App',
-      'techUsed': ['assets/images/flutter.png']
-    },
-    {
-      'title': "Shop App",
-      'startedIn': 'May 2020',
-      'description':
-          'An app to buy goods online. This app uses data from internet and some animations for better user experience.',
-      'projectLink': 'https://github.com/Monik09/shop-app',
-      'techUsed': ['assets/images/flutter.png', 'assets/images/firebase.png']
-    },
-    {
-      'title': "CCblog unofficial",
-      'startedIn': 'July 2020',
-      'description':
-          'A blog Website developed using flutter web for CC to showcase past and upcoming events, members and featured blogs.',
-      'projectLink': 'https://github.com/Skyhook-Dimension/CCBlogWebsite-unofficial-',
-      'techUsed': ['assets/images/flutter.png']
-    },
-    {
-      'title': "MyPortfolio Website",
-      'startedIn': 'December 2020',
-      'description':
-          'My portfolio website created by myself which showcases my skills and profiles.',
-      'projectLink': 'https://github.com/Monik09/Portfolio',
-      'techUsed': ['assets/images/flutter.png']
-    },
-  ];
-
-  static final List<String> langAndFramewks = [
-    'Dart',
-    'Java',
-    'C/C++',
-    'Python',
-    'Flutter'
-  ];
-
-  static final List<String> tools = [
-    'Git & Github',
-    'Firebase',
-    'VSCode',
-    'GCP',
-  ];
 
   static final List<Map<String, String>> langAndFramewks2 = [
     {'name': 'Dart', 'image': 'assets/images/dart.png'},
@@ -99,6 +26,9 @@ class Globals {
   ];
 
   static void openLink(String url) async {
+    if (url.length == 0) {
+      return;
+    }
     if (kIsWeb) {
       html.window.open(url, '_blank');
     } else {

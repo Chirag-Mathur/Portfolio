@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/main.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
@@ -23,8 +24,7 @@ Widget projectsCardWidget(
           children: [
             FittedBox(
               child: Text(
-                Globals.projectsList[!isNextPage ? index : index + 3 + 1]
-                    ['title'],
+                documents[!isNextPage ? index : index + 3 + 1]['title'].toString()??" ",
                 style: GoogleFonts.robotoMono(
                   fontSize: Globals.isLargeScreen(context) ? 19.5 : 16,
                   color: Colors.white, // Color(0xff26ABBF)
@@ -41,8 +41,8 @@ Widget projectsCardWidget(
                 right: Globals.isLargeScreen(context) ? 12 : 8,
               ),
               child: Text(
-                Globals.projectsList[!isNextPage ? index : index + 3 + 1]
-                    ['description'],
+                documents[!isNextPage ? index : index + 3 + 1]['description'].toString()??" ",
+                
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
@@ -58,12 +58,39 @@ Widget projectsCardWidget(
             Expanded(
               flex: 1,
               child: Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: Globals.isLargeScreen(context) ? 12 : 8,
+                    right: Globals.isLargeScreen(context) ? 12 : 8,
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Tech Used: ",
+                        style: TextStyle(
+                            fontSize: Globals.isLargeScreen(context) ? 16 : 13,
+                            color: Colors.black),
+                      ),
+                      Text(
+                        documents[!isNextPage ? index : index + 3 + 1]['techStack'].toString()??" ",
+                        style: TextStyle(
+                            fontSize: Globals.isLargeScreen(context) ? 16 : 13,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Align(
                 alignment: Alignment.bottomRight,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 2.0),
                   child: Text(
-                    Globals.projectsList[!isNextPage ? index : index + 3 + 1]
-                        ['startedIn'],
+                    documents[!isNextPage ? index : index + 3 + 1]['startedIn'].toString()??" ",
                     style: GoogleFonts.robotoSlab(
                       fontSize: Globals.isLargeScreen(context) ? 14 : 11.5,
                       color: Colors.white,
@@ -142,7 +169,7 @@ Widget projectGridView(
               animationDuration: Duration(seconds: 1),
               onPressed: () {
                 infoMapList[index]['projectLink'] != null
-                    ? Globals.openLink(infoMapList[index]['projectLink'])
+                    ? Globals.openLink(infoMapList[index]['projectLink'],)
                     : Navigator.of(context).pushNamed(AboutScreen.routeName);
               },
               onLongPress: () {},

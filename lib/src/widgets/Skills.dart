@@ -6,8 +6,8 @@ import 'package:my_portfolio/src/info/globals.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 Widget skillsWidget(BuildContext context) {
-  final List<String> _langFram = Globals.langAndFramewks;
-  final List<String> _tools = Globals.tools;
+  final List<Map<String, String>> _langFram = Globals.langAndFramewks2;
+  final List<Map<String, String>> _tools = Globals.tools2;
   return Container(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,

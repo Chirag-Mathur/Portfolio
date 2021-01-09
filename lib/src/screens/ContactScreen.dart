@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/main.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
 import 'package:my_portfolio/src/widgets/socialMediaRow.dart';
 import 'package:theme_provider/theme_provider.dart';
+
+
 
 class ContactScreen extends StatefulWidget {
   static const String routeName = "/ContactScreen";
@@ -28,6 +31,7 @@ class _ContactScreenState extends State<ContactScreen> {
   bool _isAutoEnabled = false;
   bool _isSubmitSuccess = false;
   bool _isLoading = true;
+  var myImage;
 
   FocusNode nodeName = FocusNode();
   FocusNode nodeMessage = FocusNode();
@@ -57,6 +61,9 @@ class _ContactScreenState extends State<ContactScreen> {
 
   @override
   void initState() {
+    myImage = AssetImage(
+      "assets/images/me4.jpg",
+    );
     // startTimer();  //start the timer on loading
     super.initState();
   }
@@ -94,10 +101,9 @@ class _ContactScreenState extends State<ContactScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 CircleAvatar(
-                                  backgroundImage: AssetImage(
-                                    "assets/images/me4.jpg",
-                                  ),
+                                  backgroundImage: myImage,
                                   radius: constraints.minWidth * 0.1,
+                                  backgroundColor: Colors.transparent,
                                 ),
                                 SizedBox(
                                   height: constraints.maxHeight * 0.01,
@@ -278,10 +284,11 @@ class _ContactScreenState extends State<ContactScreen> {
                         return "Email's length can't be 0";
                       }
                       if (!(email.contains('@') &&
-                          (email.contains('.com') ||
-                              email.contains('.in') ||
-                              email.contains('.edu') ||
-                              email.contains(".org"))) && email.length<6){
+                              (email.contains('.com') ||
+                                  email.contains('.in') ||
+                                  email.contains('.edu') ||
+                                  email.contains(".org"))) &&
+                          email.length < 6) {
                         return "Please provide a valid email address!";
                       }
                       return null;
@@ -350,8 +357,11 @@ class _ContactScreenState extends State<ContactScreen> {
                 ),
                 ElevatedButton(
                   child: Text("Connect"),
-                  onPressed: () {
+                  onPressed: () async {
                     print("Pressed");
+                    documents.forEach((element) {
+                      print(element['Name']);
+                    });
                     setState(() {
                       _isAutoEnabled = true;
                     });

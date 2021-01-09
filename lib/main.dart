@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,8 +13,21 @@ void main() async {
   runApp(MyApp());
 }
 
+List<DocumentSnapshot> documents;
+
 class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  final firestoreInstance = FirebaseFirestore.instance;
+  Future getDocs() async {
+    final QuerySnapshot result =
+        await firestoreInstance.collection("projects").orderBy('index').get();
+
+    documents = result.docs;
+    print(documents.length);
+    print(documents[0]['title'].toString());
+    // documents.forEach((data) => print(data['Message']));
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeData lightTheme = ThemeData(
@@ -85,39 +99,39 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
-
+    getDocs();
     return FutureBuilder(
-        // Initialize FlutterFire:
-        future: _initialization,
-        builder: (context, snapshot) {
-         return ThemeProvider(
-            defaultThemeId: 'dark',
-            onInitCallback: (controller, previouslySavedThemeFuture) async {
-              String savedTheme = await previouslySavedThemeFuture;
-              if (savedTheme != null) {
-                controller.setTheme(savedTheme);
-              }
-            },
-            themes: <AppTheme>[
-              AppTheme(
-                  id: 'light', description: 'Light theme', data: lightTheme),
-              AppTheme(id: 'dark', description: 'Dark theme', data: darkTheme),
-            ],
-            child: ThemeConsumer(
-              child: Builder(
-                builder: (context) => MaterialApp(
-                  title: 'Monikinderjit Singh Portfolio',
-                  theme: ThemeProvider.themeOf(context).data,
-                  home: AboutScreen(), // SplashScreen(),
-                  routes: {
-                    AboutScreen.routeName: (context) => AboutScreen(),
-                    ProjectScreen.routeName: (context) => ProjectScreen(),
-                    ContactScreen.routeName: (context) => ContactScreen(),
-                  },
-                ),
+      // Initialize FlutterFire:
+      future: _initialization,
+      builder: (context, snapshot) {
+        return ThemeProvider(
+          defaultThemeId: 'dark',
+          onInitCallback: (controller, previouslySavedThemeFuture) async {
+            String savedTheme = await previouslySavedThemeFuture;
+            if (savedTheme != null) {
+              controller.setTheme(savedTheme);
+            }
+          },
+          themes: <AppTheme>[
+            AppTheme(id: 'light', description: 'Light theme', data: lightTheme),
+            AppTheme(id: 'dark', description: 'Dark theme', data: darkTheme),
+          ],
+          child: ThemeConsumer(
+            child: Builder(
+              builder: (context) => MaterialApp(
+                title: 'Monikinderjit Singh Portfolio',
+                theme: ThemeProvider.themeOf(context).data,
+                home: AboutScreen(), // SplashScreen(),
+                routes: {
+                  AboutScreen.routeName: (context) => AboutScreen(),
+                  ProjectScreen.routeName: (context) => ProjectScreen(),
+                  ContactScreen.routeName: (context) => ContactScreen(),
+                },
               ),
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }
