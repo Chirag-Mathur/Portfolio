@@ -51,14 +51,6 @@ Widget getSkillsGrid(BuildContext context) {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.2,
                   height: MediaQuery.of(context).size.height * 0.6,
-                  // decoration: BoxDecoration(
-                  //   border: Border(
-                  //     right: BorderSide(
-                  //       width: 1.5,
-                  //       color: Colors.white,
-                  //     ),
-                  //   ),
-                  // ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,

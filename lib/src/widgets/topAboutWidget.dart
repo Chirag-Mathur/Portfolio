@@ -16,15 +16,7 @@ List<Widget> topAboutPageWidget(BuildContext context, var myImage1) {
           ? MediaQuery.of(context).size.height * 0.8
           : MediaQuery.of(context).size.height * 0.46,
       child: Padding(
-        padding: EdgeInsets.only(
-            left:
-                //  Globals.isLargeScreen(context)
-                //     ?
-                MediaQuery.of(context).size.width * 0.1
-            // : Globals.isSmallScreen(context)
-            // ? MediaQuery.of(context).size.width * 0.001
-            // : MediaQuery.of(context).size.width * 0.01,
-            ),
+        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1),
         child: Column(
           mainAxisAlignment: (Globals.isLargeScreen(context) &&
                   !Globals.isMediumScreen(context))

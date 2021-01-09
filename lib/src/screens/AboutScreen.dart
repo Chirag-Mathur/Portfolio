@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/main.dart';
 import 'package:my_portfolio/src/screens/Timeline.dart';
 import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
 import 'package:my_portfolio/src/widgets/appBarWidget.dart';
@@ -58,8 +59,8 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
-    print(MediaQuery.of(context).size.aspectRatio);
-    print(MediaQuery.of(context).size.height);
+    // print(MediaQuery.of(context).size.aspectRatio);
+    // print(MediaQuery.of(context).size.height);
     List<Widget> topChildren = topAboutPageWidget(context, myImage1);
     Widget animatedPositionedProjectCard(
             BoxConstraints constraints, int index, bool isNextPage) =>
@@ -68,26 +69,28 @@ class _AboutScreenState extends State<AboutScreen>
           duration: Duration(milliseconds: 150),
           child: InkWell(
             onHover: (val) {
-              print('hght ${constraints.maxHeight}');
-              print("width ${constraints.maxWidth}");
+              // print('hght ${constraints.maxHeight}');
+              // print("width ${constraints.maxWidth}");
               setState(() {
                 isHovering[index] = !isHovering[index];
               });
             },
             onTap: () {
-              Globals.openLink(Globals.projectsList[index]['projectLink']);
-              print('pressed me');
+              Globals.openLink(
+                documents[!isNextPage ? index : index + 3 + 1]['projectLink']
+                    .toString(),
+              );
             },
             child: projectsCardWidget(
                 context, index, isHovering[index], isNextPage),
           ),
           height: Globals.isLargeScreen(context)
-              ? 150
+              ? 180
               : MediaQuery.of(context).size.width < 390
                   ? MediaQuery.of(context).size.width * 0.35
                   : 140, //constraints.maxHeight*0.17361,// 150,
           width: Globals.isLargeScreen(context)
-              ? 300
+              ? 350
               : MediaQuery.of(context).size.width < 390
                   ? MediaQuery.of(context).size.width * 0.70
                   : 300, //constraints.minWidth*0.20833,// 300,
@@ -95,9 +98,16 @@ class _AboutScreenState extends State<AboutScreen>
               ? constraints.maxHeight * (0.07 + (0.25 * index))
               : constraints.maxHeight * (0.07 + (0.25 * index - 0.01)),
           left: Globals.isLargeScreen(context)
-              ? !isHovering[index]
-                  ? constraints.minWidth * 0.115
-                  : constraints.minWidth * 0.12
+              ? index % 2 == 0
+                  ? !isHovering[index]
+                      ? constraints.minWidth * 0.4 +
+                          constraints.minWidth * 0.115
+                      : constraints.minWidth * 0.4 + constraints.minWidth * 0.12
+                  : !isHovering[index]
+                      ? constraints.minWidth * 0.36 -
+                          constraints.minWidth * 0.115
+                      : constraints.minWidth * 0.36 -
+                          constraints.minWidth * 0.12
               : constraints.minWidth * 0.132,
         );
     return Scaffold(
@@ -109,11 +119,7 @@ class _AboutScreenState extends State<AboutScreen>
           Theme.of(context).backgroundColor, //Globals.backgroundColorLight,
       appBar:
           appBarWidget(context, _scrollController, isHomePage, scaffoldKey1),
-      floatingActionButtonLocation:
-          // Globals.isLargeScreen(context)
-          // ?
-          FloatingActionButtonLocation.miniEndTop,
-      // : FloatingActionButtonLocation.miniEndFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       floatingActionButton: Globals.isLargeScreen(context)
           ? Container(
               margin: EdgeInsets.only(
@@ -207,7 +213,6 @@ class _AboutScreenState extends State<AboutScreen>
                         maxHeight: MediaQuery.of(context).size.height,
                         minHeight: MediaQuery.of(context).size.height * 0.9,
                       ),
-                      // height: MediaQuery.of(context).size.height,
                       child: Builder(
                         builder: (context) => getSkillsGrid(context),
                       ),
@@ -224,31 +229,19 @@ class _AboutScreenState extends State<AboutScreen>
                           child: LayoutBuilder(
                             builder: (context, constraints) {
                               return Container(
-                                height: MediaQuery.of(context)
-                                    .size
-                                    .height, // * 0.6256,
-                                // child: projectGridView(context, _projectsList),
+                                height: MediaQuery.of(context).size.height,
                                 child: Stack(
                                   clipBehavior: Clip.none,
                                   fit: StackFit.expand,
                                   children: [
                                     Positioned(
-                                      top:
-                                          0, //Globals.isLargeScreen(context)? MediaQuery.of(context).size.height *
-                                      //0.1: MediaQuery.of(context).size.height *0.16,
-                                      // bottom:
-                                      //    Globals.isLargeScreen(context)? MediaQuery.of(context).size.height *
-                                      //         0.9: MediaQuery.of(context).size.height *0.84,
+                                      top: 0,
                                       child: Container(
                                         padding: EdgeInsets.only(
                                             left: MediaQuery.of(context)
                                                     .size
                                                     .width *
                                                 0.05,
-                                            // top: MediaQuery.of(context)
-                                            //         .size
-                                            //         .width *
-                                            //     0.01,
                                             bottom:
                                                 Globals.isLargeScreen(context)
                                                     ? 0

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/info/globals.dart';
-import 'package:my_portfolio/src/widgets/LiteSwitch.dart';
-import 'package:my_portfolio/src/widgets/socialMediaRow.dart';
+import 'package:my_portfolio/src/screens/ContactScreen.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 Widget appDrawer(
@@ -15,15 +14,10 @@ Widget appDrawer(
       children: [
         Padding(
           padding: EdgeInsets.only(top: 12.0),
-          child: FlatButton(
+          child: InkWell(
             splashColor: ThemeProvider.themeOf(context).id == 'dark'
                 ? Globals.backgroundColorLight
                 : Globals.splashColorLight,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(70),
-              ),
-            ),
             child: Text(
               "About Me",
               style: TextStyle(
@@ -36,7 +30,7 @@ Widget appDrawer(
                 color: Theme.of(context).appBarTheme.textTheme.headline5.color,
               ),
             ),
-            onPressed: () {
+            onTap: () {
               Navigator.of(context).pop(context);
               // if (isHomePage) {
               scrollController.animateTo(
@@ -50,7 +44,7 @@ Widget appDrawer(
           ),
         ),
         Divider(),
-        FlatButton(
+        InkWell(
           splashColor: ThemeProvider.themeOf(context).id == 'dark'
               ? Globals.backgroundColorLight
               : Globals.splashColorLight,
@@ -63,7 +57,7 @@ Widget appDrawer(
               color: Theme.of(context).appBarTheme.textTheme.headline5.color,
             ),
           ),
-          onPressed: () async {
+          onTap: () async {
             Navigator.of(context).pop(context);
             scrollController.animateTo(
               MediaQuery.of(context).size.height * 1.1,
@@ -75,7 +69,7 @@ Widget appDrawer(
           },
         ),
         Divider(),
-        FlatButton(
+        InkWell(
           splashColor: ThemeProvider.themeOf(context).id == 'dark'
               ? Globals.backgroundColorLight
               : Globals.splashColorLight,
@@ -88,7 +82,7 @@ Widget appDrawer(
               color: Theme.of(context).appBarTheme.textTheme.headline5.color,
             ),
           ),
-          onPressed: () {
+          onTap: () {
             Navigator.of(context).pop(context);
             // if (isHomePage) {
             scrollController.animateTo(
@@ -101,12 +95,37 @@ Widget appDrawer(
           },
         ),
         Divider(),
-        FlatButton(
-          padding: EdgeInsets.only(top: 12.0),
+        InkWell(
           splashColor: ThemeProvider.themeOf(context).id == 'dark'
               ? Globals.backgroundColorLight
               : Globals.splashColorLight,
-          color: Colors.transparent,
+          child: Text(
+            "Contact Me",
+            style: TextStyle(
+              fontFamily:
+                  Theme.of(context).appBarTheme.textTheme.headline5.fontFamily,
+              fontSize: 19,
+              color: Theme.of(context).appBarTheme.textTheme.headline5.color,
+            ),
+          ),
+          onTap: () {
+            Navigator.of(context).pop(context);
+            showDialog(context: context, builder: (context) => ContactScreen());
+          },
+        ),
+        Divider(),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.transparent,
+            // splashColor: ThemeProvider.themeOf(context).id == 'dark'
+            //     ? Globals.backgroundColorLight
+            //     : Globals.splashColorLight,
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(3),
+                ),
+                side: BorderSide(color: Colors.blue[900], width: 0.8)),
+          ),
           child: Text(
             "Resume",
             style: TextStyle(
@@ -118,7 +137,7 @@ Widget appDrawer(
           ),
           onPressed: () {
             Globals.openLink(
-                "https://drive.google.com/file/d/1GTGLuEK-5l2B2nxEemUSMauEYQzOCYCs/view?usp=sharing");
+                "https://www.dropbox.com/s/skwb40bo3vru0g9/Monik_resume.pdf?dl=0");
           },
         ),
       ],

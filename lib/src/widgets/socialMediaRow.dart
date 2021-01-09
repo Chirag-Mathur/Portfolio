@@ -151,28 +151,29 @@ Widget socialMediaRow(BuildContext context, double size) {
           },
           iconSize: size,
           hoverColor: Colors.transparent,
+          tooltip: "Monikinderjit Singh",
         ),
         IconButton(
           icon: Image.asset(
             'assets/images/twitterla.png',
           ),
           onPressed: () {
-            print('twitter');
             Globals.openLink("https://www.twitter.com/MonikIJS");
           },
           hoverColor: Colors.transparent,
           iconSize: size,
+          tooltip: "@MonikIJS",
         ),
         IconButton(
           icon: Image.asset(
             'assets/images/github2.png',
-            //  color:ThemeProvider.themeOf(context).id=='dark'? Colors.white:Colors.black,
           ),
           onPressed: () {
             Globals.openLink("https://www.github.com/Monik09");
           },
           hoverColor: Colors.transparent,
           iconSize: size,
+          tooltip: "@Monik09",
         ),
         IconButton(
           icon: Image.asset(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_portfolio/src/info/globals.dart';
 import 'package:my_portfolio/src/screens/AboutScreen.dart';
-import 'package:theme_provider/theme_provider.dart';
+import 'package:my_portfolio/src/screens/ContactScreen.dart';
 
 Widget appBarDesktopTablet(
     BuildContext context,
@@ -39,17 +40,15 @@ Widget appBarDesktopTablet(
     leadingWidth: 330,
     actions: [
       Padding(
-        padding: EdgeInsets.only(top: 12.0),
-        child: FlatButton(
+        padding: EdgeInsets.only(top: 30.0, bottom: 25),
+        child: InkWell(
           hoverColor: Colors.transparent,
-          splashColor: ThemeProvider.themeOf(context).id == 'dark'
-              ? Globals.backgroundColorLight
-              : Globals.splashColorLight,
+          splashColor: Colors.transparent,
           child: Text(
             "About Me",
             style: Theme.of(context).appBarTheme.textTheme.headline5,
           ),
-          onPressed: () {
+          onTap: () {
             if (isHomePage) {
               scrollController.animateTo(
                 -MediaQuery.of(context).size.height,
@@ -74,17 +73,15 @@ Widget appBarDesktopTablet(
         width: MediaQuery.of(context).size.width * 0.02,
       ),
       Padding(
-        padding: EdgeInsets.only(top: 12.0),
-        child: FlatButton(
+        padding: EdgeInsets.only(top: 30.0, bottom: 25),
+        child: InkWell(
           hoverColor: Colors.transparent,
-          splashColor: ThemeProvider.themeOf(context).id == 'dark'
-              ? Globals.backgroundColorLight
-              : Globals.splashColorLight,
+          splashColor: Colors.transparent,
           child: Text(
             "Skills",
             style: Theme.of(context).appBarTheme.textTheme.headline5,
           ),
-          onPressed: () async {
+          onTap: () async {
             if (isHomePage) {
               scrollController.animateTo(
                 MediaQuery.of(context).size.height * 1.12,
@@ -122,17 +119,18 @@ Widget appBarDesktopTablet(
         width: MediaQuery.of(context).size.width * 0.02,
       ),
       Padding(
-        padding: EdgeInsets.only(top: 12.0),
-        child: FlatButton(
+        padding: const EdgeInsets.only(top: 30.0, bottom: 25),
+        child: InkWell(
           hoverColor: Colors.transparent,
-          splashColor: ThemeProvider.themeOf(context).id == 'dark'
-              ? Globals.backgroundColorLight
-              : Globals.splashColorLight,
+          splashColor: Colors.transparent,
+          // ThemeProvider.themeOf(context).id == 'dark'
+          //     ? Globals.backgroundColorLight
+          //     : Globals.splashColorLight,
           child: Text(
             "Projects",
             style: Theme.of(context).appBarTheme.textTheme.headline5,
           ),
-          onPressed: () {
+          onTap: () {
             scrollController.animateTo(
               MediaQuery.of(context).size.height * 2,
               duration: Duration(
@@ -147,29 +145,46 @@ Widget appBarDesktopTablet(
         width: MediaQuery.of(context).size.width * 0.02,
       ),
       Padding(
-        padding: EdgeInsets.all(16.0),
-        child: RaisedButton(
+        padding: EdgeInsets.only(top: 30.0, bottom: 25),
+        child: InkWell(
           hoverColor: Colors.transparent,
-          splashColor: ThemeProvider.themeOf(context).id == 'dark'
-              ? Globals.backgroundColorLight
-              : Globals.splashColorLight,
-          color: Colors.transparent,
-          hoverElevation: 10,
-          // elevation: 7,
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-              width: 1.6,
-              color: Colors.blue[900],
+          splashColor: Colors.transparent,
+          child: Text(
+            "Contact Me",
+            style: Theme.of(context).appBarTheme.textTheme.headline5,
+          ),
+          onTap: () {
+            return showDialog(
+                context: context, builder: (context) => ContactScreen());
+          },
+        ),
+      ),
+      SizedBox(
+        width: MediaQuery.of(context).size.width * 0.02,
+      ),
+      Padding(
+        padding: EdgeInsets.all(16.0),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.transparent,
+            elevation: 10,
+            animationDuration: Duration(milliseconds: 500),
+            // elevation: 7,
+            shape: BeveledRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              side: BorderSide(
+                width: 1.6,
+                color: Colors.blue[900],
+              ),
             ),
           ),
-          // hoverColor: Colors.deepPurple,
           child: Text(
             "Resume",
             style: Theme.of(context).appBarTheme.textTheme.headline5,
           ),
           onPressed: () {
             Globals.openLink(
-                "https://drive.google.com/file/d/1GTGLuEK-5l2B2nxEemUSMauEYQzOCYCs/view?usp=sharing");
+                "https://www.dropbox.com/s/skwb40bo3vru0g9/Monik_resume.pdf?dl=0");
           },
         ),
       ),
