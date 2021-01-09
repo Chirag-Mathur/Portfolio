@@ -15,13 +15,18 @@
 This is my first personal/portfolio:mortar_board: website which I developed:computer: during my winter vacations:santa::christmas_tree::santa:. Actually this project was started as a flutter web project oriented towards flutter animations deep dive but while developing this web app, I fell in love :heart_eyes: with it and transformed this into my professional personal website. It was an amazing experience while working on it and learning along with it.
 
 
-
 ## Technology:computer: Used
 
 <ul>
   <li>Flutter Web</li>
   <li>Firebase Hosting + Firestore:fire:</li>
 </ul>
+
+
+| FrontEnd | Backend | 
+| --------------- | --------------- |
+| <img src="https://github.com/Monik09/Portfolio/blob/readme/assets/images/flutter2.png" width="200" height="100"> | <img src="https://github.com/Monik09/Portfolio/blob/readme/assets/images/firebase hosting.png" width="200" height="110"> |
+
 
 ## Future Works:memo::dart:
 <ul>
@@ -31,13 +36,8 @@ This is my first personal/portfolio:mortar_board: website which I developed:comp
   <li>Mail API for flutter web</li>
 </ul>
 
-<img src="https://github.com/Monik09/Portfolio/blob/readme/assets/images/flutter2.png" width="200" height="50">
-
-<img src="https://github.com/Monik09/Portfolio/blob/readme/assets/images/firebase hosting.png" width="200" height="50">
-
 <br>
 
 ___
 
  <p align="center"><b>Built with :heart: by Monikinderjit Singh</b></p>
- 
