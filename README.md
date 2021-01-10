@@ -28,14 +28,6 @@ This is my first personal/portfolio:mortar_board: website which I developed:comp
 | <img src="https://github.com/Monik09/Portfolio/blob/readme/assets/images/flutter2.png" width="200" height="100"> | <img src="https://github.com/Monik09/Portfolio/blob/readme/assets/images/firebase hosting.png" width="200" height="110"> |
 
 
-## Future Works:memo::dart:
-<ul>
-  <li>Fully move the stored data to Cloud</li>
-  <li>Complete online admin page to control</li>
-  <li>Enhancing app's performance (as flutter web is still in beta channel)</li>
-  <li>Mail API for flutter web</li>
-</ul>
-
 <br>
 
 ___
