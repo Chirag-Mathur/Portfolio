@@ -357,23 +357,20 @@ class _ContactScreenState extends State<ContactScreen> {
                   child: Text("Connect"),
                   onPressed: () async {
                     print("Pressed");
-                    documents.forEach((element) {
-                      print(element['Name']);
-                    });
                     setState(() {
                       _isAutoEnabled = true;
                     });
                     if (_nameKey.currentState.validate() &&
                         _emailKey.currentState.validate() &&
                         _messageKey.currentState.validate()) {
-                      // print(
-                      //     "Success-->${_nameKey.currentState.value}   ${_emailKey.currentState.value}  ${_messageKey.currentState.value}");
+                      print(
+                          "Success-->${_nameKey.currentState.value}   ${_emailKey.currentState.value}  ${_messageKey.currentState.value}");
+                      submitData(_nameController.text, _emailController.text,
+                          _messageController.text);
                       setState(() {
                         _isSubmitSuccess = true;
                         startTimer();
                       });
-                      submitData(_nameController.text, _emailController.text,
-                          _messageController.text);
                     }
                   },
                 ),
