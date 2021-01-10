@@ -12,8 +12,9 @@
 
 <p align="center"><b>My first Portfolio website I created.</b> <a href="https://monikinderjit.web.app">Click here.</a></p>
 
-This is my first personal/portfolio:mortar_board: website which I developed:computer: during my winter vacations:santa::christmas_tree::santa:. Actually this project was started as a flutter web project oriented towards flutter animations deep dive but while developing this web app, I fell in love :heart_eyes: with it and transformed this into my professional personal website and completely changing the UI/UX. It was an amazing experience while working on it and learning along with it.
+This is my first personal/portfolio:mortar_board: website which I developed:computer: during my winter vacations:santa::christmas_tree::santa:. Actually this project was started as a flutter web project oriented towards flutter animations deep dive but while developing this web app, I fell in love :heart_eyes: with it and transformed this into my professional personal website and changed UI/UX accordingly. It was an amazing experience while working on it and learning along with it.
 
+><b>Link:</b> https://monikinderjit.firebaseapp.com
 
 ## Technology:computer: Used
 
